@@ -1,0 +1,189 @@
+{
+  "__guid": "0137c078-6f66-4810-8562-bf21163cb098",
+  "GameObjects": [
+    {
+      "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
+      "Flags": 0,
+      "Name": "Sun",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "d3659344-a90d-48fa-927a-095f70fe041f",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.97767,1,1",
+          "Shadows": true,
+          "SkyColor": "0.2532,0.32006,0.35349,1"
+        }
+      ]
+    },
+    {
+      "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "f3e304db-baab-4c1a-a4ec-8442585c2d62",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "Projection": "Sphere",
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "6ad70641-3c6c-4402-9c85-9a4969af4764",
+      "Flags": 0,
+      "Name": "Plane",
+      "Scale": "5,5,5",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0b6a18bf-fdb8-4661-970e-ef635bfa9baa",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/default.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "0.39546,0.51163,0.27128,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "0715cb55-1733-4f5e-8560-c288b8695631",
+          "Center": "0,0,-5",
+          "IsTrigger": false,
+          "Scale": "100,100,10",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0",
+      "Flags": 0,
+      "Name": "Player",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "77196716-754a-4b8f-b63d-f883cddda322",
+          "Flags": 0,
+          "Name": "Head",
+          "Position": "1.019839,0.00000006078717,62.2797",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "f616f445-bf0d-465c-bb8f-a0d216efab6e",
+              "PoseSource": "Head",
+              "TrackingType": "All",
+              "UseRelativeTransform": true
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "000f9615-64e1-4c5c-842d-549e31c77b14",
+              "Flags": 0,
+              "Name": "Hands",
+              "Position": "15.57557,0,-10.42599",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.SkinnedModelRenderer",
+                  "__guid": "9852d14b-6fa4-4e9c-b91f-a9db7302c1ce",
+                  "BodyGroups": 18446744073709551615,
+                  "CreateBoneObjects": false,
+                  "Model": "models/player/arms.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1",
+                  "UseAnimGraph": true
+                },
+                {
+                  "__type": "HandsDealer",
+                  "__guid": "ace23046-77e5-47af-93f0-abec8d09acb3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "799244e6-fafb-487f-87a2-aad8f0355ae9",
+          "Flags": 0,
+          "Name": "LHandPos",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "b8981d59-8096-4250-b85a-358cbd9512b5",
+              "PoseSource": "LeftHand",
+              "TrackingType": "All",
+              "UseRelativeTransform": true
+            }
+          ]
+        },
+        {
+          "__guid": "684de6d4-ae40-4710-8da6-1d026e8eb30c",
+          "Flags": 0,
+          "Name": "RHandPos",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "2d511036-61ee-470d-b78e-daca62764058",
+              "PoseSource": "RightHand",
+              "TrackingType": "All",
+              "UseRelativeTransform": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 60,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "minimal",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
