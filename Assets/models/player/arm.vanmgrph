@@ -397,13 +397,13 @@
 	}
 	m_previewModels = 
 	[
-		"models/player/armleft.vmdl",
+		"models/player/arms.vmdl",
 	]
 	m_boneMergeModels = [  ]
 	m_cameraSettings = 
 	{
 		m_flFov = 60.0
-		m_sLockBoneName = "Upper_Arm_Left"
+		m_sLockBoneName = "Upper_Arm_Right"
 		m_bLockCamera = false
 		m_bViewModelCamera = false
 	}

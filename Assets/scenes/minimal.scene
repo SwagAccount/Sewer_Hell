@@ -153,6 +153,23 @@
                   "__type": "HandsDealer",
                   "__guid": "ace23046-77e5-47af-93f0-abec8d09acb3",
                   "AnchorDistance": 20,
+                  "HandRawL": {
+                    "_type": "gameobject",
+                    "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
+                  },
+                  "HandRawR": {
+                    "_type": "gameobject",
+                    "go": "2f756158-86c9-4007-ba58-65a2a263f123"
+                  },
+                  "HandSmoothL": {
+                    "_type": "gameobject",
+                    "go": "799244e6-fafb-487f-87a2-aad8f0355ae9"
+                  },
+                  "HandSmoothR": {
+                    "_type": "gameobject",
+                    "go": "684de6d4-ae40-4710-8da6-1d026e8eb30c"
+                  },
+                  "HandSpeed": 10,
                   "HandTargetL": {
                     "_type": "gameobject",
                     "go": "d34addb2-dedc-41ad-9b93-72ae1050ec94"
@@ -179,7 +196,6 @@
                     "go": "3acf7631-944e-4801-b7c9-c18d49abbbd9",
                     "component_type": "SkinnedModelRenderer"
                   },
-                  "LPose": "Fist",
                   "RArmAnchor": {
                     "_type": "gameobject",
                     "go": "d18f1acc-1c4f-4977-9de9-6b1b2fe0ac3d"
@@ -193,8 +209,7 @@
                     "component_id": "a2095d29-a6bd-4e04-a4cd-3cc81ef94204",
                     "go": "ba9a3d81-1743-482e-9370-2242ff893c80",
                     "component_type": "SkinnedModelRenderer"
-                  },
-                  "RPose": "Fist"
+                  }
                 }
               ],
               "Children": [
@@ -202,18 +217,18 @@
                   "__guid": "eb97f44f-3c87-4e79-8070-d974d1233cc7",
                   "Flags": 0,
                   "Name": "LeftAnchor",
-                  "Position": "1.574488,6.165,-7.335327",
+                  "Position": "0,5.768,-8.518093",
                   "Enabled": true
                 },
                 {
                   "__guid": "3772729e-106c-4996-9e73-21ce46e0a178",
                   "Flags": 0,
                   "Name": "LeftParent",
-                  "Position": "1.574488,6.165,-7.335327",
+                  "Position": "0,5.768,-8.518093",
                   "Enabled": true,
                   "Children": [
                     {
-                      "__guid": "2f8bd15b-ce8a-4f97-a0d5-6b8c19c7b8df",
+                      "__guid": "36fcdab7-31d5-482d-8d1e-92e16f3eb056",
                       "Flags": 0,
                       "Name": "Positioner",
                       "Position": "0,0,0",
@@ -223,7 +238,7 @@
                           "__guid": "3acf7631-944e-4801-b7c9-c18d49abbbd9",
                           "Flags": 0,
                           "Name": "Left",
-                          "Position": "17.08483,-5.994704,-2.845772",
+                          "Position": "0,-5.768,0.09302521",
                           "Enabled": true,
                           "Components": [
                             {
@@ -231,7 +246,7 @@
                               "__guid": "31952f9d-14c0-4dca-8874-1a00db2e46c6",
                               "BodyGroups": 18446744073709551615,
                               "CreateBoneObjects": false,
-                              "Model": "models/player/armleft.vmdl",
+                              "Model": "models/player/arml.vmdl",
                               "RenderType": "Off",
                               "Tint": "1,1,1,1",
                               "UseAnimGraph": true
@@ -246,18 +261,18 @@
                   "__guid": "d18f1acc-1c4f-4977-9de9-6b1b2fe0ac3d",
                   "Flags": 0,
                   "Name": "RightAnchor",
-                  "Position": "1.574488,-6.164535,-7.335327",
+                  "Position": "0,-5.768,-8.518093",
                   "Enabled": true
                 },
                 {
                   "__guid": "8cde0a83-ef50-42ad-9920-8e5f4c06c53f",
                   "Flags": 0,
                   "Name": "RightParent",
-                  "Position": "1.574488,-6.164535,-7.335327",
+                  "Position": "0,-5.768,-8.518093",
                   "Enabled": true,
                   "Children": [
                     {
-                      "__guid": "adc818cb-b399-4d2e-8a42-da41a46eb011",
+                      "__guid": "daf10f6e-631d-4232-87ed-0c2ea7286961",
                       "Flags": 0,
                       "Name": "Positioner",
                       "Position": "0,0,0",
@@ -267,7 +282,7 @@
                           "__guid": "ba9a3d81-1743-482e-9370-2242ff893c80",
                           "Flags": 0,
                           "Name": "Right",
-                          "Position": "17.08483,5.995,-2.845768",
+                          "Position": "0.000005841255,5.768,0.09302139",
                           "Enabled": true,
                           "Components": [
                             {
@@ -275,7 +290,7 @@
                               "__guid": "a2095d29-a6bd-4e04-a4cd-3cc81ef94204",
                               "BodyGroups": 18446744073709551615,
                               "CreateBoneObjects": false,
-                              "Model": "models/player/armright.vmdl",
+                              "Model": "models/player/armr.vmdl",
                               "RenderType": "Off",
                               "Tint": "1,1,1,1",
                               "UseAnimGraph": true
@@ -291,28 +306,34 @@
           ]
         },
         {
-          "__guid": "799244e6-fafb-487f-87a2-aad8f0355ae9",
+          "__guid": "2f756158-86c9-4007-ba58-65a2a263f123",
           "Flags": 0,
-          "Name": "LHandPos",
-          "Position": "28.14681,0,51.5671",
+          "Name": "HandRawR",
+          "Position": "1.019839,0.00000006078717,62.2797",
           "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.VR.VRTrackedObject",
-              "__guid": "b8981d59-8096-4250-b85a-358cbd9512b5",
+              "__guid": "1096b122-cecc-468c-a943-061ed809193b",
+              "PoseSource": "RightHand",
+              "TrackingType": "All",
+              "UseRelativeTransform": false
+            }
+          ]
+        },
+        {
+          "__guid": "c237fb78-0f10-44fa-9695-5b8a713c3b83",
+          "Flags": 0,
+          "Name": "HandRawL",
+          "Position": "1.019839,0.00000006078717,62.2797",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "281692b0-39a1-4021-9bb1-2159495733d7",
               "PoseSource": "LeftHand",
               "TrackingType": "All",
-              "UseRelativeTransform": true
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "d34addb2-dedc-41ad-9b93-72ae1050ec94",
-              "Flags": 0,
-              "Name": "Hand Corrected",
-              "Position": "-6.500002,2.399999,-1.299999",
-              "Rotation": "0.4250079,-0.5098965,0.4945448,0.56107",
-              "Enabled": true
+              "UseRelativeTransform": false
             }
           ]
         },
@@ -322,27 +343,42 @@
           "Name": "RHandPos",
           "Position": "28.14681,0,51.5671",
           "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.VR.VRTrackedObject",
-              "__guid": "2d511036-61ee-470d-b78e-daca62764058",
-              "PoseSource": "RightHand",
-              "TrackingType": "All",
-              "UseRelativeTransform": true
-            }
-          ],
           "Children": [
             {
               "__guid": "83c27e7e-cab4-4307-a3ec-fc80d57d3c67",
               "Flags": 0,
               "Name": "Hand Corrected",
-              "Position": "-6.500001,-2.4,-1.3",
-              "Rotation": "-0.5965695,0.4510851,0.5403274,0.3855819",
+              "Position": "-6.284521,-0.534,-1.185355",
+              "Rotation": "-0.2453372,-0.2567306,-0.6458547,0.6758482",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "__guid": "799244e6-fafb-487f-87a2-aad8f0355ae9",
+          "Flags": 0,
+          "Name": "LHandPos",
+          "Position": "28.14681,0,51.5671",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "d34addb2-dedc-41ad-9b93-72ae1050ec94",
+              "Flags": 0,
+              "Name": "Hand Corrected",
+              "Position": "-6.284521,0.533771,-1.185355",
+              "Rotation": "0.2453371,0.2567306,-0.6458547,0.6758481",
               "Enabled": true
             }
           ]
         }
       ]
+    },
+    {
+      "__guid": "1cba907f-aed7-4314-9381-568c235eda64",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-44.10654,39.40779,20.35139",
+      "Enabled": true
     }
   ],
   "SceneProperties": {
