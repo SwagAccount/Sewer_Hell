@@ -12,6 +12,9 @@ public sealed class HandsDealer : Component
 	[Property] public SkinnedModelRenderer LeftArmRenderer {get;set;}
 	[Property] public SkinnedModelRenderer RightArmRenderer {get;set;}
 
+	[Property] public GameObject HandSkeletonL {get;set;}
+	[Property] public GameObject HandSkeletonR {get;set;}
+
 	[Property] public GameObject HandRawL {get;set;}
 	[Property] public GameObject HandRawR {get;set;}
 	[Property] public GameObject HandSmoothL {get;set;}
@@ -53,7 +56,7 @@ public sealed class HandsDealer : Component
 	Rotation handTargetLocalStartRotL;
 
 
-	protected override async void OnStart()
+	protected override void OnStart()
 	{
 		handTargetLocalStartPosL = HandTargetL.Transform.LocalPosition;
 		handTargetLocalStartRotL = HandTargetL.Transform.LocalRotation;
@@ -91,7 +94,7 @@ public sealed class HandsDealer : Component
 		fixedJoint.SpringAngular = new PhysicsSpring(100, 0);
 	}
 	bool HoldingObject;
-	protected override void OnPreRender()
+	protected override void OnUpdate()
 	{
 		HandSmoothing();
 
@@ -111,8 +114,8 @@ public sealed class HandsDealer : Component
 	}
 	void Physics()
 	{
-		FinalPhysL.Transform.Rotation = PhysPointL.Transform.Rotation;
-		FinalPhysR.Transform.Rotation = PhysPointR.Transform.Rotation;
+		//FinalPhysL.Transform.Rotation = PhysPointL.Transform.Rotation;
+		//FinalPhysR.Transform.Rotation = PhysPointR.Transform.Rotation;
 	}
 
 	bool lHolding;
@@ -123,6 +126,9 @@ public sealed class HandsDealer : Component
 
 	GameObject grabPointL;
 	GameObject grabPointR;
+
+	HandPos currentHandPosL;
+	HandPos currentHandPosR;
 	
 	void Inputs()
 	{
@@ -132,8 +138,8 @@ public sealed class HandsDealer : Component
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
-		(grabJointLeft, lHolding, grabPointL) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL);
-		(grabJointRight, rHolding, grabPointR) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR);
+		(grabJointLeft, lHolding, grabPointL, currentHandPosL) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL);
+		(grabJointRight, rHolding, grabPointR, currentHandPosR) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR);
 	}
 	void StretchPrevent()
 	{
@@ -164,56 +170,115 @@ public sealed class HandsDealer : Component
 	}
 
 
-	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint ) 
-	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot)
+	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos) 
+	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef)
 	{
 		if(holdingRef)
 		{
 			if(hand.Grip < 0.5f)
 			{
+				fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
 				fixedJointRef.Remove();
 				handTarget.SetParent(handPhys.GameObject);
 				handTarget.Transform.LocalPosition = handLocalPos;
 				handTarget.Transform.LocalRotation = handLocalRot;
-				grabPointRef.Tags.Remove("grabbed");
-				return (null,false,null);
+				MakeAnimated(handSkeleton);
+				grabPointRef.Parent.Tags.Remove("grabbed");
+				return (null,false,null, null);
 			}
-			return (fixedJointRef, holdingRef, grabPointRef);
+			CopyTransformRecursive(currentHandPosRef.wristObject,handSkeleton, Vector3.One,new Angles(1,1,1));
+
+			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
 		}
 
-		if(pointFinder.GrabbablePoints.Count == 0) return (fixedJointRef, holdingRef, grabPointRef);
+		if(pointFinder.GrabbablePoints.Count == 0) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
 		
 		GameObject closest = null;
 		float closestDis = 500;
 		foreach(GameObject p in pointFinder.GrabbablePoints)
 		{
 			if(p.Tags.Contains("grabbed")) continue;
-			float distance = Vector3.DistanceBetween(p.Transform.Position,pointFinder.Transform.Position);
+			float distance = Vector3.DistanceBetween(p.Transform.Position,pointFinder.searchPoint);
 			if(distance > closestDis) continue;
 			closest = p;
 			closestDis = distance;
 		}
 
-		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef);
+		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
 		
 		
-		Gizmo.Draw.SolidSphere(closest.Transform.Position,0.5f);
+		Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position,0.5f);
 
 		if(hand.Grip > 0.75f)
 		{
 			//handPhys.Transform.Position = closest.Transform.Position;
 			//handPhys.Transform.Rotation = closest.Transform.Rotation;
+			AlignByChild(closest.Parent.Parent, closest, handTarget);
+
 			var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
 			var p2 = new PhysicsPoint( closest.Parent.Parent.Components.Get<Rigidbody>().PhysicsBody, closest.Parent.Transform.Position);
 			Sandbox.Physics.FixedJoint newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
+
+			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
+			
 			handTarget.SetParent(closest);
 			handTarget.Transform.LocalPosition = Vector3.Zero;
 			handTarget.Transform.LocalRotation = Rotation.Identity;
-			closest.Tags.Add("grabbed");
-			return (newFixedJoint, true, closest);
+			HandPos handPos = closest.Components.Get<HandPos>();
+			closest.Parent.Tags.Add("grabbed");
+			MakeProcedual(handSkeleton);
+			return (newFixedJoint, true, closest, handPos);
 		}
 
 
-		return (fixedJointRef, holdingRef, grabPointRef);
+		return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
 	}
+
+	public static void MakeProcedual(GameObject target)
+    {
+        for (int i = 0; i < target.Children.Count; i++)
+        {
+			target.Children[i].Flags = GameObjectFlags.ProceduralBone;
+            MakeProcedual(target.Children[i]);
+        }
+    }
+
+	public static void MakeAnimated(GameObject target)
+    {
+        for (int i = 0; i < target.Children.Count; i++)
+        {
+			target.Children[i].Flags = GameObjectFlags.Bone;
+            MakeAnimated(target.Children[i]);
+        }
+    }
+
+	public static void CopyTransformRecursive(GameObject target, GameObject set, Vector3 posMod, Angles angMod)
+    {
+        if (target.Children.Count != set.Children.Count )
+        {
+            Log.Error("Children not the same");
+            return;
+        }
+
+        for (int i = 0; i < target.Children.Count; i++)
+        {
+            GameObject targetChild = target.Children[i];
+            GameObject setChild = set.Children[i];
+
+            setChild.Transform.LocalPosition = targetChild.Transform.LocalPosition * posMod;
+			Vector3 modifiedAngles = targetChild.Transform.LocalRotation.Angles().AsVector3()*angMod.AsVector3();
+            setChild.Transform.LocalRotation = new Angles(modifiedAngles.x,modifiedAngles.y,modifiedAngles.z); //new Angles(targetChild.Transform.LocalRotation.Angles().pitch*-1,targetChild.Transform.LocalRotation.Angles().yaw*-1,targetChild.Transform.LocalRotation.Angles().roll*1);
+            CopyTransformRecursive(targetChild, setChild, posMod, angMod);
+        }
+    }
+
+	//from halley1 on discussions.unity.com
+	public static void AlignByChild(GameObject assembly, GameObject feature, GameObject station)
+    {
+            assembly.Transform.Rotation = station.Transform.Rotation * (assembly.Transform.Rotation.Inverse * feature.Transform.Rotation).Inverse;
+
+            assembly.Transform.Position =
+                station.Transform.Position +
+                (assembly.Transform.Position - feature.Transform.Position);
+    }
 }

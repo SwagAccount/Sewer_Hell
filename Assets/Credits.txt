@@ -1,0 +1,14 @@
+Skin Texture
+	https://www.freepik.com/free-photo/gold-pattern-background_3740604.htm Image by rawpixel.com on Freepik
+
+Grunge Texture
+	https://pixabay.com/photos/grunge-texture-grunge-texture-wall-2710970/ Image by FreeCreativeStuff on Pixabay
+
+Revolver Model (The model in game is a 3d trace of this model done by me)
+	"Smith & Wesson Revolver - Model 19" (https://skfb.ly/o7Ow7) by Lokeig is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+
+Revolver Metal
+	https://www.sketchuptextureclub.com/textures/materials/metals/basic-metals/galvanized-steel-pbr-texture-seamless-21756
+
+Revolver Wood
+	https://www.sketchuptextureclub.com/textures/architecture/wood/raw-wood/old-raw-wood-pbr-texture-seamless-21551
