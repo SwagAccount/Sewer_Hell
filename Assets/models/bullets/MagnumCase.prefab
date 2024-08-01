@@ -1,0 +1,51 @@
+{
+  "RootObject": {
+    "__guid": "f0409c51-9940-4bc4-a75f-c3bee3679f19",
+    "Flags": 0,
+    "Name": "magnumcase",
+    "Position": "0,0.1059634,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "f2f4b78a-26bd-4d8e-b8a8-895dbc73b4d2",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/bullets/357 magnum case.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "RevolverCase",
+        "__guid": "25257a64-8985-4a26-a14a-0032a6c7f6b6",
+        "Direction": "5,0,0",
+        "Length": 1.155,
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "079c8edf-2c03-4e5f-a5d6-19aac4906a3a",
+          "go": "f0409c51-9940-4bc4-a75f-c3bee3679f19",
+          "component_type": "Rigidbody"
+        }
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "079c8edf-2c03-4e5f-a5d6-19aac4906a3a",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "MotionEnabled": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -50,7 +50,6 @@
           {
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "d99ee719-8157-430e-b02d-c8bb5989d586",
-            "__enabled": false,
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": true,
             "Model": "models/player/armr.vmdl",

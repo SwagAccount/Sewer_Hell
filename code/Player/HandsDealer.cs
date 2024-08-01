@@ -3,7 +3,7 @@ using Sandbox;
 using Sandbox.Physics;
 using Sandbox.VR;
 
-
+namespace trollface;
 
 public sealed class HandsDealer : Component
 {
@@ -135,6 +135,7 @@ public sealed class HandsDealer : Component
 		leftGripAmount = MathX.Lerp(leftGripAmount,(Input.VR.LeftHand.Grip.Value+Input.VR.LeftHand.Trigger.Value)/2,Time.Delta*10);
 
 		rightGripAmount = MathX.Lerp(rightGripAmount,(Input.VR.RightHand.Grip.Value+Input.VR.RightHand.Trigger.Value)/2,Time.Delta*10);
+
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
@@ -175,17 +176,31 @@ public sealed class HandsDealer : Component
 	{
 		if(holdingRef)
 		{
-			if(hand.Grip < 0.5f)
+			if(hand.Grip < 0.5f || !grabPointRef.IsValid())
 			{
-				fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
+				if(grabPointRef.IsValid())
+				{
+					fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
+					Item item = grabPointRef.Components.Get<Item>();
+					if(item != null)
+					{
+						item.Controller = null;
+						item.held = false;
+					}
+					grabPointRef.Parent.Tags.Remove("grabbed");
+				}
 				fixedJointRef.Remove();
-				handTarget.SetParent(handPhys.GameObject);
+				//handTarget.SetParent(handPhys.GameObject);
 				handTarget.Transform.LocalPosition = handLocalPos;
 				handTarget.Transform.LocalRotation = handLocalRot;
+				
 				MakeAnimated(handSkeleton);
-				grabPointRef.Parent.Tags.Remove("grabbed");
+				
 				return (null,false,null, null);
 			}
+
+			handTarget.Transform.Position = grabPointRef.Transform.Position;
+			handTarget.Transform.Rotation = grabPointRef.Transform.Rotation;
 			CopyTransformRecursive(currentHandPosRef.wristObject,handSkeleton, Vector3.One,new Angles(1,1,1));
 
 			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
@@ -213,18 +228,27 @@ public sealed class HandsDealer : Component
 		{
 			//handPhys.Transform.Position = closest.Transform.Position;
 			//handPhys.Transform.Rotation = closest.Transform.Rotation;
-			AlignByChild(closest.Parent.Parent, closest, handTarget);
+			HandPos handPos = closest.Components.Get<HandPos>();
+
+			AlignByChild(handPos.Rigidbody.GameObject, closest, handTarget);
 
 			var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
-			var p2 = new PhysicsPoint( closest.Parent.Parent.Components.Get<Rigidbody>().PhysicsBody, closest.Parent.Transform.Position);
+			var p2 = new PhysicsPoint( handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
 			Sandbox.Physics.FixedJoint newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
 
 			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
-			
+			/*
 			handTarget.SetParent(closest);
 			handTarget.Transform.LocalPosition = Vector3.Zero;
 			handTarget.Transform.LocalRotation = Rotation.Identity;
-			HandPos handPos = closest.Components.Get<HandPos>();
+			*/
+
+			Item item = handPos.Rigidbody.Components.Get<Item>();
+			if(item != null)
+			{
+				item.Controller = hand;
+				item.held = true;
+			}
 			closest.Parent.Tags.Add("grabbed");
 			MakeProcedual(handSkeleton);
 			return (newFixedJoint, true, closest, handPos);

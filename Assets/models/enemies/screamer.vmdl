@@ -1,0 +1,869 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "material.003.vmat"
+								to = "models/enemies/screamertexture.vmat"
+							},
+							{
+								from = "material.004.vmat"
+								to = "models/enemies/screamerblade.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/enemies/screamer.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"Plane_002",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "WeightListList"
+				children = 
+				[
+					{
+						_class = "WeightList"
+						name = "Top"
+						default_weight = 0.0
+						weights = 
+						[
+							{
+								bone = "Hips"
+								weight = 0.0
+							},
+							{
+								bone = "Spine"
+								weight = 1.0
+							},
+						]
+						master_morph_weight = -1.0
+						morph_weights = [  ]
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "Idle"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/screamer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 9
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Walk"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/screamer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 11
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Attack1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/screamer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 5
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Attack2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/screamer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 6
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Attack3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/screamer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 7
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "PhysicsJointList"
+				children = 
+				[
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Hips"
+						child_body = "Spine"
+						anchor_origin = [ 0.000014, 3.307625, -0.009949 ]
+						anchor_angles = [ -0.172603, -90.0, -90.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.2
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Spine"
+						child_body = "Spine2"
+						anchor_origin = [ 0.000031, 8.269093, 0.000035 ]
+						anchor_angles = [ -0.000003, -90.0, -90.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.2
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Spine2"
+						child_body = "Neck"
+						anchor_origin = [ 0.000019, 4.961441, 0.000021 ]
+						anchor_angles = [ 0.172606, -90.0, -90.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.2
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Neck"
+						child_body = "Head"
+						anchor_origin = [ 0.000021, 3.25153, 0.713263 ]
+						anchor_angles = [ -0.0, -90.0, -90.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.2
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -30.0
+						max_twist_angle = 30.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Spine2"
+						child_body = "LeftShoulder"
+						anchor_origin = [ 2.431715, 4.348114, -0.010108 ]
+						anchor_angles = [ -0.233459, 165.547256, -179.941086 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 10.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "LeftShoulder"
+						child_body = "LeftArm"
+						anchor_origin = [ -0.000013, 4.980506, 0.00008 ]
+						anchor_angles = [ 9.239344, 93.48246, -90.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -30.0
+						max_twist_angle = 30.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "LeftArm"
+						child_body = "LeftForeArm"
+						anchor_origin = [ -0.000006, 10.103228, 0.000042 ]
+						anchor_angles = [ 4.931318, 86.483986, -90.000015 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "LeftForeArm"
+						child_body = "LeftHand"
+						anchor_origin = [ -0.000016, 8.997736, 0.000076 ]
+						anchor_angles = [ 15.464273, 97.1073, -90.000069 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -30.0
+						max_twist_angle = 30.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Spine2"
+						child_body = "RightShoulder"
+						anchor_origin = [ -2.431677, 4.348064, 0.006434 ]
+						anchor_angles = [ 0.147395, 14.452133, 0.037691 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 10.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "RightShoulder"
+						child_body = "RightArm"
+						anchor_origin = [ -0.000003, 4.980478, 0.000069 ]
+						anchor_angles = [ 9.250002, 87.263718, -89.999985 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -30.0
+						max_twist_angle = 30.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "RightArm"
+						child_body = "RightForeArm"
+						anchor_origin = [ -0.000016, 10.099969, 0.000038 ]
+						anchor_angles = [ 4.916554, 93.046898, -89.999992 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "RightForeArm"
+						child_body = "RightHand"
+						anchor_origin = [ -0.000015, 8.997616, 0.000023 ]
+						anchor_angles = [ 18.122288, 87.340431, -90.000038 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -30.0
+						max_twist_angle = 30.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Hips"
+						child_body = "LeftUpLeg"
+						anchor_origin = [ 2.547944, -1.838413, -0.480382 ]
+						anchor_angles = [ -1.456026, -80.58503, -90.241623 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "LeftUpLeg"
+						child_body = "LeftLeg"
+						anchor_origin = [ 0.000031, 16.030706, 0.000006 ]
+						anchor_angles = [ -2.503247, -91.718086, -90.000122 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.15
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "LeftLeg"
+						child_body = "LeftFoot"
+						anchor_origin = [ 0.00003, 15.367261, -0.000001 ]
+						anchor_angles = [ 52.874779, -70.580177, -66.146873 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 15.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Hips"
+						child_body = "RightUpLeg"
+						anchor_origin = [ -2.547925, -1.838413, -0.518878 ]
+						anchor_angles = [ -1.701552, -99.41497, -89.718079 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "RightUpLeg"
+						child_body = "RightLeg"
+						anchor_origin = [ -0.000028, 16.032621, -0.000002 ]
+						anchor_angles = [ 3.141731, 91.713982, -89.999908 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.15
+						enable_swing_limit = true
+						swing_limit = 30.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "RightLeg"
+						child_body = "RightFoot"
+						anchor_origin = [ -0.000019, 15.369453, -0.000007 ]
+						anchor_angles = [ -53.505573, 70.450104, -66.168358 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 0.1
+						enable_swing_limit = true
+						swing_limit = 15.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -15.0
+						max_twist_angle = 15.0
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Hips"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.687733
+						point0 = [ 2.634984, -1.581576, -0.14595 ]
+						point1 = [ -2.743552, -1.495354, -0.102158 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Spine"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 3.0
+						point0 = [ 1.779935, 0.0, 0.0 ]
+						point1 = [ -1.784503, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Spine2"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 5.0
+						point0 = [ 2.27629, 0.0, 0.0 ]
+						point1 = [ -2.276292, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Neck"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 2.0, 0.0 ]
+						point1 = [ -0.140255, 0.946476, -0.971579 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Head"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 2.0
+						point0 = [ 0.0, 10.0, 0.0 ]
+						point1 = [ -0.081973, 0.03303, 1.292877 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftShoulder"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftArm"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 2.0, 0.0 ]
+						point1 = [ 0.0, 8.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftForeArm"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 7.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftHand"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.000004
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ -0.000014, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightShoulder"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightArm"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 2.0, 0.0 ]
+						point1 = [ 0.0, 8.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightForeArm"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 7.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightHand"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.000001
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ -0.000005, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftUpLeg"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 2.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 15.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftLeg"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 15.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "LeftFoot"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.000005
+						point0 = [ 0.00002, 0.0, 0.0 ]
+						point1 = [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightUpLeg"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 2.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 15.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightLeg"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 1.0
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ 0.0, 15.0, 0.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "RightFoot"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.000004
+						point0 = [ 0.0, 0.0, 0.0 ]
+						point1 = [ -0.000017, 0.0, 0.0 ]
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Spine"
+								parent_bone = "Spine"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -3.262266, -4.232852, -2.98 ]
+								hitbox_maxs = [ 3.26226, 4.889918, 0.922066 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Spine1"
+								parent_bone = "Spine1"
+								surface_property = ""
+								translation_only = false
+								tags = "2"
+								hitbox_mins = [ -4.272655, -0.634151, -4.828347 ]
+								hitbox_maxs = [ 4.272651, 4.676248, 5.233421 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Spine2"
+								parent_bone = "Spine2"
+								surface_property = ""
+								translation_only = false
+								tags = "2"
+								hitbox_mins = [ -6.13711, -0.645821, -4.82835 ]
+								hitbox_maxs = [ 6.137111, 4.809495, 4.623091 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								tags = "5"
+								hitbox_mins = [ -1.496154, -0.429292, -0.824014 ]
+								hitbox_maxs = [ 1.496145, 10.430694, 4.925037 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftShoulder"
+								parent_bone = "LeftShoulder"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.321202, -0.5, -0.857629 ]
+								hitbox_maxs = [ 2.194986, 5.409209, 0.997325 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftArm"
+								parent_bone = "LeftArm"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.292592, -0.5, -1.165788 ]
+								hitbox_maxs = [ 2.216975, 10.428667, 1.037855 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftForeArm"
+								parent_bone = "LeftForeArm"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -1.275605, -0.5, -1.077866 ]
+								hitbox_maxs = [ 1.154521, 9.668541, 0.59286 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightShoulder"
+								parent_bone = "RightShoulder"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.245752, -0.5, -0.859836 ]
+								hitbox_maxs = [ 2.270462, 5.396174, 1.001064 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightArm"
+								parent_bone = "RightArm"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.262947, -0.5, -1.166377 ]
+								hitbox_maxs = [ 2.24803, 10.4287, 1.03728 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightForeArm"
+								parent_bone = "RightForeArm"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -1.144732, -0.5, -1.078589 ]
+								hitbox_maxs = [ 1.285357, 9.665792, 0.596388 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftUpLeg"
+								parent_bone = "LeftUpLeg"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.076976, -1.726379, -2.621847 ]
+								hitbox_maxs = [ 2.025022, 22.720634, 2.960905 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftLeg"
+								parent_bone = "LeftLeg"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -1.504896, -0.5, -2.098466 ]
+								hitbox_maxs = [ 1.371113, 18.857651, 2.112669 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LeftFoot"
+								parent_bone = "LeftFoot"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -1.59823, -3.745369, -3.866269 ]
+								hitbox_maxs = [ 2.259813, 7.830868, 7.998605 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightUpLeg"
+								parent_bone = "RightUpLeg"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.07698, -1.72638, -2.62185 ]
+								hitbox_maxs = [ 2.02502, 22.7206, 2.9609 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightLeg"
+								parent_bone = "RightLeg"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -1.372265, -0.5, -2.035853 ]
+								hitbox_maxs = [ 1.505734, 18.868282, 2.207975 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RightFoot"
+								parent_bone = "RightFoot"
+								surface_property = ""
+								translation_only = false
+								tags = "1"
+								hitbox_mins = [ -2.258266, -1.752541, -3.821343 ]
+								hitbox_maxs = [ 1.570299, 7.894243, 2.463717 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = "animgraphs/screamer.vanmgrph"
+		base_model_name = ""
+	}
+}
