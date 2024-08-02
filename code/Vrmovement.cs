@@ -1,82 +1,117 @@
 using System;
+using Microsoft.CSharp.RuntimeBinder;
 using Sandbox;
 namespace trollface;
 
 
 public sealed class Vrmovement : Component
 {
-	[Property] private GameObject camera {get;set;}
-    [Property] private GameObject cameraOffset{get;set;}
-    [Property] private GameObject actCameraOffset{get;set;}
-    [Property] private float defaultHeight {get;set;}
-    [Property] private float headheight {get;set;}
-    [Property] private CapsuleCollider capsuleCollider {get;set;}
+	[Property] public ColorAdjustments Camera {get;set;}
+	[Property] public CharacterController characterController {get;set;}
+	[Property] public GameObject VRSpace {get;set;}
+	[Property] public float WalkSpeed {get;set;} = 190f;
+	[Property] public float CrouchSpeed {get;set;} = 64f;
+	[Property] public float OverDistance {get;set;} = 12f;
+	[Property] public float HeadRadius {get;set;} = 4f;
+	[Property] public float DarknessSpeed {get;set;} = 20f;
+	[Property] public float CrouchDistance {get;set;} = 19;
+	[Property] public float PhysicalCrouchHeight {get;set;} = 40;
+	public Vector3 offset {get;set;}
 
-    [Property] public float _speed {get;set;}
-    [Property] public float updateRBDis {get;set;}
-    [Property] public float _speedSmoothing {get;set;}
-    private Rigidbody _rig;
-    private Vector2 _input;
-    private Vector3 _movementVector;
-    private Vector3 _moveDirection;
-    Vector3 lastPos;
-    protected override void OnStart()
-    {
-        lastPos = Transform.Position;
-        _rig = Components.Get<Rigidbody>();
-		PhysicsLock physicsLock = new PhysicsLock
-		{
-			Pitch = true,
-			Roll = true,
-			Yaw = true
-		};
-		_rig.Locking = physicsLock;
-	}
-    float speed;
+    float CamHeight;
+    bool hideCam;
+    bool crouching;
 
-    float posX;
-    float posY;
-    float heightMax;
-    protected override void OnUpdate()
-    {
-        
-        _input = Vector2.Zero;//Input.VR.LeftHand.Joystick;
-        if (_input.Length > 0 || Vector3.DistanceBetween(Transform.World.PointToWorld(capsuleCollider.Start).WithZ(0),camera.Transform.Position.WithZ(0)) >= updateRBDis)
+    bool crouchSpeed;
+
+    Vector3 wantedVRSpacePos;
+	protected override void OnUpdate()
+	{
+        SetCrouch();
+        crouchSpeed = crouching ? true : Camera.Transform.Position.z  - characterController.Transform.Position.z <= PhysicalCrouchHeight;
+
+        hideCam = false;
+        var heightCheck = HeightCheck();
+        if(heightCheck.Hit)
         {
-            posX = cameraOffset.Transform.LocalPosition.x;
-            posY = cameraOffset.Transform.LocalPosition.y;
+            CamHeight = heightCheck.Distance-HeadRadius;
+            hideCam = true;
         }
+        characterController.Height = CamHeight;
 
-        heightMax = defaultHeight;
-		Vector3 hitPos = new Vector3(cameraOffset.Transform.Position.x, cameraOffset.Transform.Position.y, cameraOffset.Transform.Position.z);
-		var hit = Scene.Trace.Ray(hitPos, hitPos + Transform.World.Up*150).WithTag("world").Run();
-        if (hit.Hit)
+        if(Input.VR.LeftHand.Joystick.Value.Length > 0) Movement();
+        else StationaryMovement();
+        
+
+        VRSpace.Transform.Position = wantedVRSpacePos;
+
+        Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
+	}
+
+    SceneTraceResult HeightCheck(float addedHeight = 0)
+    {
+        CamHeight = Camera.Transform.Position.z  - characterController.Transform.Position.z + HeadRadius + addedHeight;
+        return Scene.Trace.Ray(characterController.Transform.Position,characterController.Transform.Position+Vector3.Up*CamHeight).WithTag("world").Run();
+    }
+    void SetCrouch()
+    {
+        if(!crouching)
         {
-            var hit2 = Scene.Trace.Ray(hit.HitPosition, hit.HitPosition-Vector3.Up*150).WithTag("world").Run();
-            if (hit2.Hit)
+            if(Input.VR.RightHand.JoystickPress.IsPressed && !Input.VR.RightHand.JoystickPress.WasPressed)
             {
-                //Log.Info(hit2.GameObject.Name);
-                heightMax = hit2.Distance-headheight;
+                crouching = true;
+                wantedVRSpacePos += Vector3.Down*CrouchDistance;
             }
         }
-        actCameraOffset.Transform.LocalPosition = new Vector3(0, 0, MathX.Clamp(Transform.Position.z + heightMax - cameraOffset.Transform.LocalPosition.z,-10000,0));
-
-        capsuleCollider.Start = new Vector3(posX,posY,0)+(Vector3.Up*capsuleCollider.Radius);
-		capsuleCollider.End = capsuleCollider.Start + (Vector3.Up*(camera.Transform.Position.z - Transform.Position.z)) - (Vector3.Up*capsuleCollider.Radius);
-        
-        Vector3 forwardDirection = camera.Transform.World.Forward;
-        forwardDirection.z = 0; 
-        forwardDirection = forwardDirection.Normal;
-        Vector3 RightDirection = camera.Transform.World.Right;
-        RightDirection.z = 0;
-        RightDirection = RightDirection.Normal;
-
-        _movementVector = Vector3.Lerp(_movementVector, _input.x * RightDirection * _speed + _input.y * forwardDirection * _speed, _speedSmoothing * Time.Delta);
-        _rig.Velocity = new Vector3(_movementVector.x, _movementVector.y, _rig.Velocity.z);
+        else
+        {
+            if(Input.VR.RightHand.JoystickPress.IsPressed && !Input.VR.RightHand.JoystickPress.WasPressed && !HeightCheck(CrouchDistance).Hit)
+            {
+                crouching = false;
+                wantedVRSpacePos += Vector3.Up*CrouchDistance;
+            }
+        }
     }
-    private bool IsGrounded()
+    void StationaryMovement()
     {
-		var hit = Scene.Trace.Ray(capsuleCollider.Start, capsuleCollider.Start+Vector3.Down * (capsuleCollider.Radius+5) ).WithTag("solid").Run();
-        return hit.Hit;
+        Vector3 setPosition = Camera.Transform.Position.WithZ(characterController.Transform.Position.z);
+        characterController.MoveTo(Camera.Transform.Position.WithZ(characterController.Transform.Position.z),true);
+        if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance)
+        {
+            Log.Info("sex");
+            var dis = Vector3.DistanceBetween(characterController.Transform.Position,setPosition); 
+            wantedVRSpacePos = wantedVRSpacePos + (characterController.Transform.Position-setPosition).Normal * (dis - characterController.Radius);
+        }
+        var dir = Camera.Transform.Position.WithZ(0) - characterController.Transform.Position.WithZ(0);
+
+        var inWallCheck = Scene.Trace.Ray(characterController.Transform.Position.WithZ(Camera.Transform.Position.z), Camera.Transform.Position+dir*HeadRadius ).WithTag("world").Run();
+        if(inWallCheck.Hit) hideCam = true;
+    }
+
+    void Movement()
+    {
+        Vector3 wishVelocity = (
+            Input.VR.LeftHand.Joystick.Value.y * Camera.Transform.World.Forward) + 
+            (Input.VR.LeftHand.Joystick.Value.x * Camera.Transform.World.Right);
+
+        if(crouchSpeed) wishVelocity *= CrouchSpeed;
+        else wishVelocity *= WalkSpeed;
+
+        characterController.Velocity = wishVelocity;
+
+        wantedVRSpacePos += characterController.Transform.Position.WithZ(0)-Camera.Transform.Position.WithZ(0);
+
+        characterController.Move();
+    }
+    public static bool IsPointInsideBoundingBox(Vector3 point, BBox bBox, GameObject relativeObject = null)
+    {
+        Vector3 mins = relativeObject == null ? bBox.Mins : relativeObject.Transform.World.PointToWorld(bBox.Mins);
+        Vector3 maxs = relativeObject == null ? bBox.Maxs : relativeObject.Transform.World.PointToWorld(bBox.Maxs);
+
+        return 
+        point.x >= mins.x && point.x <= maxs.x &&
+        point.y >= mins.y && point.y <= maxs.y &&
+        point.z >= mins.z && point.z <= maxs.z;
+
     }
 }

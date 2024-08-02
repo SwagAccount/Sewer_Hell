@@ -58,6 +58,7 @@ public sealed class HandsDealer : Component
 
 	protected override void OnStart()
 	{
+		Log.Info("SHMEX");
 		handTargetLocalStartPosL = HandTargetL.Transform.LocalPosition;
 		handTargetLocalStartRotL = HandTargetL.Transform.LocalRotation;
 		handTargetLocalStartPosR = HandTargetR.Transform.LocalPosition;
