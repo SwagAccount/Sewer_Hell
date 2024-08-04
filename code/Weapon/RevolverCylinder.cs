@@ -40,7 +40,7 @@ public sealed class RevolverCylinder : MagazineBase
 
 	protected override void OnUpdate()
 	{
-		if(!item.held) return;
+		if(!item.mainHeld) return;
 
 		CylinderBone.Transform.LocalRotation = BaseRotation + Angles.Lerp(RotateDirection * (360/Contents.Count) * LoadIndex, RotateDirection * (360/Contents.Count) * (LoadIndex+1), RotateAmount);
 

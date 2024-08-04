@@ -16,9 +16,13 @@ public sealed class Recoil : Component
 	public Vector3 ReturnPos {get;set;}
 	public Angles ReturnRot {get;set;}
 	public bool GotReturn {get;set;}
+	
+	Item item;
 	protected override void OnStart()
 	{
+		item = GameObject.Parent.Components.Get<Item>();
 		if(GotReturn) return;
+		
 		GotReturn = true;
 		ReturnPos = Body.Transform.LocalPosition;
 		ReturnRot = Body.Transform.LocalRotation;
@@ -36,13 +40,13 @@ public sealed class Recoil : Component
 
 	public void ApplyRecoil()
 	{
-		RecoilTargetPos += RecoilPos[0] + (Vector3.Random * (RecoilPos[0]-RecoilPos[1]));
-		RecoilTargetRot += RecoilRot[0] + (Vector3.Random * (RecoilRot[0]-RecoilRot[1]));
+		RecoilTargetPos += RecoilPos[0] + (Vector3.Random * (RecoilPos[0]-RecoilPos[1])/item.HandsConnected);
+		RecoilTargetRot += RecoilRot[0] + (Vector3.Random * (RecoilRot[0]-RecoilRot[1])/item.HandsConnected);
 	}
 	protected override void OnUpdate()
 	{
-		RecoilTargetPos = Vector3.Lerp(RecoilTargetPos,ReturnPos,PosReturnSpeed * Time.Delta);
-		RecoilTargetRot = Angles.Lerp(RecoilTargetRot,ReturnRot,RotReturnSpeed * Time.Delta);
+		RecoilTargetPos = Vector3.Lerp(RecoilTargetPos,ReturnPos,PosReturnSpeed * Time.Delta * item.HandsConnected);
+		RecoilTargetRot = Angles.Lerp(RecoilTargetRot,ReturnRot,RotReturnSpeed * Time.Delta * item.HandsConnected);
 
 		Body.Transform.LocalPosition = Vector3.Lerp(Body.Transform.LocalPosition, RecoilTargetPos,PosRecoilSpeed * Time.Delta);
 		Body.Transform.LocalRotation = Angles.Lerp(Body.Transform.LocalRotation, RecoilTargetRot,RotRecoilSpeed * Time.Delta);

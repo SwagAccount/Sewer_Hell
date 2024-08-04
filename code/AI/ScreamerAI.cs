@@ -5,16 +5,21 @@ using System.Threading.Tasks;
 namespace trollface;
 public sealed class ScreamerAI : AIAgent
 {
+    [Property] public GameObject HeadBones {get; set;}
     [Property] public SkinnedModelRenderer Body {get; set;}
     [Property] public BodyDeath BodyDeath {get; set;}
     [Property] public float RotateSpeed {get;set;} = 10f;
+    [Property] public float ScreamDistance {get;set;} = 250f;
     [Property] public float AttackDistance {get;set;} = 30f;
     [Property] public float StopDistance {get;set;} = 10f;
     [Property] public float AttackTime {get;set;} = 0.28f;
     public FindChooseEnemy FindChooseEnemy;
     HealthComponent healthComponent;
+
+    Vrmovement player;
     protected override void SetStates()
     {
+        player = Scene.Components.GetInChildren<Vrmovement>();
         healthComponent = Components.Get<HealthComponent>();
         FindChooseEnemy = Components.Get<FindChooseEnemy>();
         initialState = "IDLE";
@@ -29,7 +34,14 @@ public sealed class ScreamerAI : AIAgent
         BodyDeath.Enabled = true;
         GameObject.Destroy();
     }
-
+    public void Scream()
+    {
+        var ray = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).UseHitboxes().Run();
+        if(ray.GameObject == player.GameObject)
+        {
+            player.Stunned = 1;
+        }
+    }
     protected override void Update()
     {
         if(healthComponent.Health <= 0)
@@ -116,8 +128,10 @@ public class IDLE : AIState
 public class APPROACH_ATTACK : AIState
 {
     ScreamerAI screamerAI;
+    float lastDis;
 	public void Enter( AIAgent agent )
 	{
+        lastDis = 100000;
 		screamerAI = agent.Components.Get<ScreamerAI>();
 	}
 
@@ -133,8 +147,17 @@ public class APPROACH_ATTACK : AIState
 
 	public void Update( AIAgent agent )
 	{
+
         float distance = Vector3.DistanceBetween(agent.Transform.Position,screamerAI.FindChooseEnemy.Enemy.Transform.Position);
+        
+        if(distance <= screamerAI.ScreamDistance && lastDis > screamerAI.ScreamDistance)
+        {
+            screamerAI.Scream();
+        }
+
 		agent.Controller.currentTarget = distance > screamerAI.StopDistance ? screamerAI.FindChooseEnemy.Enemy.Transform.Position : agent.Transform.Position;
         screamerAI.attack = distance < screamerAI.AttackDistance;
+
+        lastDis = distance;
 	}
 }

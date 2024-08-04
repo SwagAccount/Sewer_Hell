@@ -18,7 +18,9 @@ public sealed class Vrmovement : Component
 	[Property] public float DarknessSpeed {get;set;} = 20f;
 	[Property] public float CrouchDistance {get;set;} = 19f;
 	[Property] public float PhysicalCrouchHeight {get;set;} = 40f;
+	[Property] public float StunTime {get;set;} = 5f;
 	public Vector3 offset {get;set;}
+    public float Stunned {get;set;}
 
     float CamHeight;
     bool hideCam;
@@ -27,8 +29,12 @@ public sealed class Vrmovement : Component
     bool crouchSpeed;
 
     Vector3 wantedVRSpacePos;
+    float reverseStun;
 	protected override void OnUpdate()
 	{
+        Stunned = MathX.Lerp(Stunned,0,(1/StunTime)*Time.Delta);
+        reverseStun = MathX.Clamp(1-Stunned,0,1);
+
         SetCrouch();
         crouchSpeed = crouching ? true : Camera.Transform.Position.z  - characterController.Transform.Position.z <= PhysicalCrouchHeight;
 
@@ -84,7 +90,7 @@ public sealed class Vrmovement : Component
         characterController.Velocity = 0;
         Vector3 setPosition = Camera.Transform.Position.WithZ(characterController.Transform.Position.z);
         characterController.MoveTo(Camera.Transform.Position.WithZ(characterController.Transform.Position.z),true);
-        if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance)
+        if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance*reverseStun)
         {
             var dis = Vector3.DistanceBetween(characterController.Transform.Position,setPosition); 
             wantedVRSpacePos = wantedVRSpacePos + (characterController.Transform.Position-setPosition).Normal * (dis - characterController.Radius);
@@ -104,7 +110,7 @@ public sealed class Vrmovement : Component
         if(crouchSpeed) wishVelocity *= CrouchSpeed;
         else wishVelocity *= WalkSpeed;
 
-        characterController.Velocity = wishVelocity;
+        characterController.Velocity = wishVelocity * reverseStun;
 
         wantedVRSpacePos += characterController.Transform.Position.WithZ(0)-Camera.Transform.Position.WithZ(0);
 

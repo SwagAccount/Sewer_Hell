@@ -182,16 +182,17 @@ public sealed class HandsDealer : Component
 				if(grabPointRef.IsValid())
 				{
 					currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
-					fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
+					if(currentHandPosRef.Connect) fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
 					Item item = currentHandPosRef.Rigidbody.Components.Get<Item>();
-					if(item != null)
+					if(item != null && currentHandPosRef.Main)
 					{
+						item.HandsConnected--;
 						item.Controller = null;
-						item.held = false;
+						item.mainHeld = false;
 					}
 					grabPointRef.Parent.Tags.Remove("grabbed");
 				}
-				fixedJointRef.Remove();
+				if(currentHandPosRef.Connect) fixedJointRef.Remove();
 				//handTarget.SetParent(handPhys.GameObject);
 				handTarget.Transform.LocalPosition = handLocalPos;
 				handTarget.Transform.LocalRotation = handLocalRot;
@@ -233,12 +234,15 @@ public sealed class HandsDealer : Component
 			HandPos handPos = closest.Components.Get<HandPos>();
 
 			AlignByChild(handPos.Rigidbody.GameObject, closest, handTarget);
-
-			var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
-			var p2 = new PhysicsPoint( handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
-			Sandbox.Physics.FixedJoint newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-			newFixedJoint.SpringAngular = new PhysicsSpring(100, 10);
-			newFixedJoint.SpringLinear = new PhysicsSpring(100, 10);
+			Sandbox.Physics.FixedJoint newFixedJoint = null;
+			if(handPos.Connect)
+			{
+				var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
+				var p2 = new PhysicsPoint( handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
+				newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
+			}
+			
+			
 
 			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
 			/*
@@ -250,8 +254,23 @@ public sealed class HandsDealer : Component
 			Item item = handPos.Rigidbody.Components.Get<Item>();
 			if(item != null)
 			{
-				item.Controller = hand;
-				item.held = true;
+				item.HandsConnected++;
+				if(handPos.Connect)
+				{
+					newFixedJoint.SpringAngular = new PhysicsSpring(item.AngularSpring.x,item.AngularSpring.y);
+					newFixedJoint.SpringLinear = new PhysicsSpring(item.PositionSpring.x,item.PositionSpring.y);
+				}
+				
+				if(handPos.Main)
+				{
+					item.Controller = hand;
+					item.mainHeld = true;
+				}
+			}
+			else
+			{
+				newFixedJoint.SpringAngular = new PhysicsSpring(100, 10);
+				newFixedJoint.SpringLinear = new PhysicsSpring(100, 10);
 			}
 			handPos.Rigidbody.GameObject.SetParent(VRSpace);
 			closest.Parent.Tags.Add("grabbed");

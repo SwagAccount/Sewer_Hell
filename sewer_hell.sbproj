@@ -1,7 +1,7 @@
 {
   "Title": "Sewer Hell",
   "Type": "game",
-  "Org": "local",
+  "Org": "tft",
   "Ident": "sewer_hell",
   "Schema": 1,
   "IncludeSourceFiles": false,

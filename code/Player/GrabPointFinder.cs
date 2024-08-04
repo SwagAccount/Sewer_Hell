@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Diagnostics;
+using trollface;
 
 public sealed class GrabPointFinder : Component, Component.ITriggerListener
 {
@@ -26,7 +27,8 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 		foreach(GameObject g in gameObjects)
 		{
 			if(!g.Tags.Contains("grabpoint") || !g.Tags.Contains(handName)) continue;
-
+			HandPos handPos = g.Components.Get<HandPos>();
+			if(!handPos.Main && !handPos.ShowWithoutMain && !handPos.item.mainHeld) continue;
 			GrabbablePoints.Add(g);
 		}
 

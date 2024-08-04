@@ -4,16 +4,24 @@ public sealed class HandPos : Component
 {
 	[Property] public Rigidbody Rigidbody {get;set;}
 	[Property] public HandPos OtherHand {get;set;}
+	[Property] public bool Main {get;set;} = true;
+	[Property] public bool ShowWithoutMain {get;set;} = true;
+	[Property] public bool Connect {get;set;} = true;
 	[Property] public bool MirrorToOtherHand {get;set;}
 	[Property] public Vector3 MirrorPosModifiers {get;set;} = new Vector3(-1,1,1);
 	[Property] public Angles MirrorRotModifiers {get;set;} = new Angles(-1,-1,1);
 	[Property] public GameObject wristObject;
 	bool lastMirrorBool;
+	public Item item;
+	protected override void OnStart()
+	{
+		item = Rigidbody.Components.Get<Item>();
+	}
 	protected override void DrawGizmos()
 	{
 		if(MirrorToOtherHand && !lastMirrorBool)
 		{
-			HandsDealer.CopyTransformRecursive(wristObject,OtherHand.wristObject,MirrorPosModifiers,MirrorRotModifiers);
+			HandsDealer.CopyTransformRecursive(wristObject, OtherHand.wristObject,MirrorPosModifiers, MirrorRotModifiers);
 		}
 		lastMirrorBool = MirrorToOtherHand;
 	}

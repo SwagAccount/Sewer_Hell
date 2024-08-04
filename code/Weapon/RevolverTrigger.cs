@@ -47,7 +47,7 @@ public sealed class RevolverTrigger : Component
 	protected override void OnUpdate()
 	{
 
-        if(!item.held) return;
+        if(!item.mainHeld) return;
         
         
 
