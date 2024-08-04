@@ -1,0 +1,21 @@
+{
+  "Sequences": [
+    {
+      "Source": "particle effects/fireball/tile000.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particle effects/fireball/tile009.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particle effects/fireball/tile018.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particle effects/fireball/tile022.png",
+      "Frames": 64
+    }
+  ],
+  "OutputTypeString": "2D"
+}

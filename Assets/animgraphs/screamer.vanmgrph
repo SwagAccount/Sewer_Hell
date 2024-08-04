@@ -120,7 +120,7 @@
 								}
 							}
 							m_name = ""
-							m_weight = 0.0
+							m_weight = 0.6
 							m_blendTime = 0.2
 						},
 						{
@@ -136,7 +136,7 @@
 								}
 							}
 							m_name = ""
-							m_weight = 0.0
+							m_weight = 0.6
 							m_blendTime = 0.2
 						},
 						{
@@ -152,12 +152,12 @@
 								}
 							}
 							m_name = ""
-							m_weight = 0.0
+							m_weight = 1.0
 							m_blendTime = 0.2
 						},
 					]
 					m_seed = 803478764
-					m_choiceMethod = "WeightedRandom"
+					m_choiceMethod = "WeightedRandomNoRepeat"
 					m_choiceChangeMethod = "OnReset"
 					m_blendMethod = "SingleBlendTime"
 					m_blendTime = 0.2
@@ -568,7 +568,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -560.0, -256.0 ]
+					m_vecPosition = [ -576.0, -256.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2102671740
@@ -663,20 +663,6 @@
 				m_bUseMostRecentValue = false
 				m_bAutoReset = false
 				m_bDefaultValue = false
-			},
-			{
-				_class = "CFloatAnimParameter"
-				m_name = "Attack"
-				m_id = 
-				{
-					m_id = 895363609
-				}
-				m_previewButton = "ANIMPARAM_BUTTON_NONE"
-				m_bUseMostRecentValue = false
-				m_bAutoReset = false
-				m_fDefaultValue = 0.0
-				m_fMinValue = 0.0
-				m_fMaxValue = 1.0
 			},
 		]
 	}

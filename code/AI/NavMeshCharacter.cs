@@ -54,7 +54,7 @@ public sealed class NavMeshCharacter : Component
 	public Vector3 velocity;
 
 	Vector3 lastPos;
-	protected override void OnUpdate()
+	protected override void OnFixedUpdate()
 	{
 		MoveTo();
 		AtTarget = Vector3.DistanceBetween(Transform.Position,CurrentPath[0]) < PositionAccuracy;
@@ -80,7 +80,6 @@ public sealed class NavMeshCharacter : Component
 		{
 			characterController.Velocity.WithZ(0);
 			characterController.Velocity = Vector3.Lerp(characterController.Velocity, direction*Speed, SpeedSmoothing*Time.Delta);
-			Log.Info(gravity);
 			if(!characterController.IsOnGround) characterController.Velocity += gravity;
 			characterController.Move();
 		}

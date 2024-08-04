@@ -6,6 +6,7 @@ public abstract class MagazineBase : Component
 	[Property] public BarrelBase Barrel {get;set;}
 	[Property] public BulletTypes bulletTypes {get;set;}
 	[Property] public List<GameObject> Loaders {get;set;}
+	[Property] public SoundEvent LoadSound {get;set;}
 	public bool PushBack {get;set;}
 
 	protected override void OnFixedUpdate()
@@ -26,7 +27,9 @@ public abstract class MagazineBase : Component
 				{
 					Contents[i] = bulletTypes.Bullets.IndexOf(bullet);
 					UpdateVisuals();
-					g.Destroy();
+					g.DestroyImmediate();
+					Sound.Play(LoadSound, Loaders[i].Transform.Position );
+					break;
 				}
 			}
 		}

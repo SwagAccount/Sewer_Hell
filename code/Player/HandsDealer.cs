@@ -8,6 +8,7 @@ namespace trollface;
 public sealed class HandsDealer : Component
 {
 	[Property] public GameObject Head {get;set;}
+	[Property] public GameObject VRSpace {get;set;}
 
 	[Property] public SkinnedModelRenderer LeftArmRenderer {get;set;}
 	[Property] public SkinnedModelRenderer RightArmRenderer {get;set;}
@@ -58,7 +59,6 @@ public sealed class HandsDealer : Component
 
 	protected override void OnStart()
 	{
-		Log.Info("SHMEX");
 		handTargetLocalStartPosL = HandTargetL.Transform.LocalPosition;
 		handTargetLocalStartRotL = HandTargetL.Transform.LocalRotation;
 		handTargetLocalStartPosR = HandTargetR.Transform.LocalPosition;
@@ -79,8 +79,8 @@ public sealed class HandsDealer : Component
 		var p2 = new PhysicsPoint(FinalPhysL.PhysicsBody,PhysPointR.Transform.Position);
 
 		Sandbox.Physics.FixedJoint fixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-		fixedJoint.SpringLinear = new PhysicsSpring(100, 0);
-		fixedJoint.SpringAngular = new PhysicsSpring(100, 0);
+		fixedJoint.SpringLinear = new PhysicsSpring(100, 5);
+		fixedJoint.SpringAngular = new PhysicsSpring(100, 5);
   
 		
 
@@ -91,11 +91,11 @@ public sealed class HandsDealer : Component
 		p2 = new PhysicsPoint(FinalPhysR.PhysicsBody,PhysPointR.Transform.Position);
 
 		fixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-		fixedJoint.SpringLinear = new PhysicsSpring(100, 0);
-		fixedJoint.SpringAngular = new PhysicsSpring(100, 0);
+		fixedJoint.SpringLinear = new PhysicsSpring(100, 5);
+		fixedJoint.SpringAngular = new PhysicsSpring(100, 5);
 	}
 	bool HoldingObject;
-	protected override void OnUpdate()
+	protected override void OnPreRender()
 	{
 		HandSmoothing();
 
@@ -157,17 +157,17 @@ public sealed class HandsDealer : Component
 	}
 	void HandSmoothing()
 	{
-		//positionFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
+		positionFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothL.Transform.Position = HandRawL.Transform.Position;
 
-		//rotationFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
+		rotationFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothL.Transform.Rotation = HandRawL.Transform.Rotation;
 
 		// Right
-		//positionFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
+		positionFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothR.Transform.Position = HandRawR.Transform.Position;
 
-		//rotationFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
+		rotationFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothR.Transform.Rotation = HandRawR.Transform.Rotation;
 	}
 
@@ -181,8 +181,9 @@ public sealed class HandsDealer : Component
 			{
 				if(grabPointRef.IsValid())
 				{
+					currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
 					fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
-					Item item = grabPointRef.Components.Get<Item>();
+					Item item = currentHandPosRef.Rigidbody.Components.Get<Item>();
 					if(item != null)
 					{
 						item.Controller = null;
@@ -236,6 +237,8 @@ public sealed class HandsDealer : Component
 			var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
 			var p2 = new PhysicsPoint( handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
 			Sandbox.Physics.FixedJoint newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
+			newFixedJoint.SpringAngular = new PhysicsSpring(100, 10);
+			newFixedJoint.SpringLinear = new PhysicsSpring(100, 10);
 
 			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
 			/*
@@ -250,6 +253,7 @@ public sealed class HandsDealer : Component
 				item.Controller = hand;
 				item.held = true;
 			}
+			handPos.Rigidbody.GameObject.SetParent(VRSpace);
 			closest.Parent.Tags.Add("grabbed");
 			MakeProcedual(handSkeleton);
 			return (newFixedJoint, true, closest, handPos);
@@ -292,7 +296,7 @@ public sealed class HandsDealer : Component
 
             setChild.Transform.LocalPosition = targetChild.Transform.LocalPosition * posMod;
 			Vector3 modifiedAngles = targetChild.Transform.LocalRotation.Angles().AsVector3()*angMod.AsVector3();
-            setChild.Transform.LocalRotation = new Angles(modifiedAngles.x,modifiedAngles.y,modifiedAngles.z); //new Angles(targetChild.Transform.LocalRotation.Angles().pitch*-1,targetChild.Transform.LocalRotation.Angles().yaw*-1,targetChild.Transform.LocalRotation.Angles().roll*1);
+            setChild.Transform.LocalRotation = new Angles(modifiedAngles.x,modifiedAngles.y,modifiedAngles.z);
             CopyTransformRecursive(targetChild, setChild, posMod, angMod);
         }
     }
@@ -305,5 +309,26 @@ public sealed class HandsDealer : Component
             assembly.Transform.Position =
                 station.Transform.Position +
                 (assembly.Transform.Position - feature.Transform.Position);
+    }
+
+	public static void CopyTransformRecursiveLerp(GameObject target1, GameObject target2, GameObject set, Vector3 posMod, Angles angMod, float frac)
+    {
+        if (target1.Children.Count != set.Children.Count && target2.Children.Count != set.Children.Count)
+        {
+            Log.Error("Children not the same");
+            return;
+        }
+
+        for (int i = 0; i < set.Children.Count; i++)
+        {
+            GameObject target1Child = target1.Children[i];
+            GameObject target2Child = target2.Children[i];
+            GameObject setChild = set.Children[i];
+
+            setChild.Transform.LocalPosition = Vector3.Lerp(target1Child.Transform.LocalPosition, target2Child.Transform.LocalPosition, frac) * posMod;
+			Vector3 modifiedAngles = Vector3.Lerp(target1Child.Transform.LocalRotation.Angles().AsVector3(), target2Child.Transform.LocalRotation.Angles().AsVector3(),frac) * angMod.AsVector3();
+            setChild.Transform.LocalRotation = new Angles(modifiedAngles.x,modifiedAngles.y,modifiedAngles.z);
+			CopyTransformRecursiveLerp(target1Child, target2Child, setChild, posMod, angMod, frac);
+        }
     }
 }

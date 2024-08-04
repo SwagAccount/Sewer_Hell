@@ -1,0 +1,115 @@
+{
+  "Model": "models/enemies/screamer.vmdl",
+  "Description": "",
+  "BlendMode": "Translucent",
+  "nodes": [
+    {
+      "_class": "Result",
+      "DefaultOpacity": 1,
+      "DefaultRoughness": 1,
+      "DefaultMetalness": 0,
+      "DefaultAmbientOcclusion": 0,
+      "Identifier": "0",
+      "Position": "256,-96",
+      "Albedo": {
+        "Identifier": "1",
+        "Output": "Result"
+      },
+      "Opacity": {
+        "Identifier": "8",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureSampler",
+      "Image": "models/enemies/screamertexture.png",
+      "Sampler": {},
+      "UI": {
+        "Default": "1,1,1,1",
+        "SrgbRead": true
+      },
+      "Identifier": "1",
+      "Position": "-208,-144"
+    },
+    {
+      "_class": "SimplexNoise",
+      "Identifier": "2",
+      "Position": "-576,176",
+      "Coords": {
+        "Identifier": "3",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TileAndOffset",
+      "DefaultTile": "1,1",
+      "DefaultOffset": "0,0",
+      "WrapTo01": false,
+      "Identifier": "3",
+      "Position": "-784,160",
+      "Tile": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1,
+      "Value": 0,
+      "Name": "Fuck",
+      "IsAttribute": false,
+      "UI": {},
+      "Identifier": "4",
+      "Position": "-1152,176"
+    },
+    {
+      "_class": "Max",
+      "DefaultA": 0,
+      "DefaultB": 0,
+      "Identifier": "5",
+      "Position": "-432,368",
+      "InputA": {
+        "Identifier": "7",
+        "Output": "Result"
+      },
+      "InputB": {
+        "Identifier": "4",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 100,
+      "Identifier": "6",
+      "Position": "-880,176",
+      "A": {
+        "Identifier": "4",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 100,
+      "Identifier": "7",
+      "Position": "-544,288",
+      "A": {
+        "Identifier": "2",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Subtract",
+      "DefaultA": 1,
+      "DefaultB": 1,
+      "Identifier": "8",
+      "Position": "0,304",
+      "B": {
+        "Identifier": "5",
+        "Output": "Result"
+      }
+    }
+  ]
+}

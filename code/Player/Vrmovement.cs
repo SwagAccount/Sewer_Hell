@@ -7,15 +7,17 @@ namespace trollface;
 public sealed class Vrmovement : Component
 {
 	[Property] public ColorAdjustments Camera {get;set;}
+	[Property] public ManualHitbox Hitbox {get;set;}
 	[Property] public CharacterController characterController {get;set;}
 	[Property] public GameObject VRSpace {get;set;}
-	[Property] public float WalkSpeed {get;set;} = 190f;
-	[Property] public float CrouchSpeed {get;set;} = 64f;
-	[Property] public float OverDistance {get;set;} = 12f;
+	[Property] public float RotateSpeed {get;set;} = 190f;
+	[Property] public float WalkSpeed {get;set;} = 64f;
+	[Property] public float CrouchSpeed {get;set;} = 22f;
+	[Property] public float OverDistance {get;set;} = 16f;
 	[Property] public float HeadRadius {get;set;} = 4f;
 	[Property] public float DarknessSpeed {get;set;} = 20f;
-	[Property] public float CrouchDistance {get;set;} = 19;
-	[Property] public float PhysicalCrouchHeight {get;set;} = 40;
+	[Property] public float CrouchDistance {get;set;} = 19f;
+	[Property] public float PhysicalCrouchHeight {get;set;} = 40f;
 	public Vector3 offset {get;set;}
 
     float CamHeight;
@@ -45,7 +47,12 @@ public sealed class Vrmovement : Component
 
         VRSpace.Transform.Position = wantedVRSpacePos;
 
+        FitHitbox(Hitbox, Camera.Transform.Position.WithZ(characterController.Transform.Position.z), Camera.Transform.Position, GameObject);
+
         Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
+
+        RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up,Input.VR.RightHand.Joystick.Value.x*Time.Delta*-RotateSpeed);
+        wantedVRSpacePos = VRSpace.Transform.Position;
 	}
 
     SceneTraceResult HeightCheck(float addedHeight = 0)
@@ -74,11 +81,11 @@ public sealed class Vrmovement : Component
     }
     void StationaryMovement()
     {
+        characterController.Velocity = 0;
         Vector3 setPosition = Camera.Transform.Position.WithZ(characterController.Transform.Position.z);
         characterController.MoveTo(Camera.Transform.Position.WithZ(characterController.Transform.Position.z),true);
         if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance)
         {
-            Log.Info("sex");
             var dis = Vector3.DistanceBetween(characterController.Transform.Position,setPosition); 
             wantedVRSpacePos = wantedVRSpacePos + (characterController.Transform.Position-setPosition).Normal * (dis - characterController.Radius);
         }
@@ -112,6 +119,31 @@ public sealed class Vrmovement : Component
         point.x >= mins.x && point.x <= maxs.x &&
         point.y >= mins.y && point.y <= maxs.y &&
         point.z >= mins.z && point.z <= maxs.z;
+    }
 
+    public static void FitHitbox(ManualHitbox hB, Vector3 start, Vector3 end, GameObject relativeObject = null)
+    {
+        if(relativeObject != null)
+        {
+            start = relativeObject.Transform.World.PointToLocal(start);
+            end = relativeObject.Transform.World.PointToLocal(end);
+        }
+
+        var dir = (end - start).Normal;
+
+        hB.CenterA = start + dir*hB.Radius;
+        hB.CenterB = end - dir*hB.Radius;
+    }
+    static void RotateAroundPoint(GameObject objectToRotate, Vector3 point, Vector3 axis, float angle)
+    {
+        Vector3 dir = objectToRotate.Transform.Position - point;
+
+        Rotation rotation = Rotation.FromAxis(axis, angle);
+
+        dir = rotation * dir;
+
+        objectToRotate.Transform.Position = point + dir;
+
+        objectToRotate.Transform.Rotation = rotation * objectToRotate.Transform.Rotation;
     }
 }

@@ -3,6 +3,7 @@ using Sandbox;
 namespace trollface;
 public sealed class RevolverCylinder : MagazineBase
 {
+	[Property] public RevolverTrigger RevolverTrigger {get;set;}
 	[Property] public GameObject CylinderBone {get;set;}
 	[Property] public GameObject CylinderPivotBone {get;set;}
 	[Property] public Angles PivotClosedRotation {get;set;}
@@ -16,6 +17,9 @@ public sealed class RevolverCylinder : MagazineBase
 	[Property] public float OpenAmount {get;set;}
 	[Property] public GameObject[] CylinderBulletVisuals {get;set;}
 	[Property] public GameObject Case {get;set;}
+	[Property] public SoundEvent OpenSound {get;set;}
+	[Property] public SoundEvent CloseSound {get;set;}
+	[Property] public SoundEvent EjectSound {get;set;}
 
 	public int LoadIndex {get;set;} = 0;
 
@@ -36,6 +40,8 @@ public sealed class RevolverCylinder : MagazineBase
 
 	protected override void OnUpdate()
 	{
+		if(!item.held) return;
+
 		CylinderBone.Transform.LocalRotation = BaseRotation + Angles.Lerp(RotateDirection * (360/Contents.Count) * LoadIndex, RotateDirection * (360/Contents.Count) * (LoadIndex+1), RotateAmount);
 
 		if(open) CylinderOpen();
@@ -58,12 +64,17 @@ public sealed class RevolverCylinder : MagazineBase
 			Dropped = true;
 			CantLoad = false;
 		}
-		if((
-			item.Controller.ButtonB.IsPressed && !item.Controller.ButtonB.WasPressed) 
-			|| 
-			((((item.Transform.World.RotationToLocal(item.Controller.Transform.Rotation) - lastRot) * Time.Delta).Angles().AsVector3() * FlickRotation).Length * 10) > FlickSpeed
-			
-			) open = false;
+		if(item.Controller.ButtonB.IsPressed && !item.Controller.ButtonB.WasPressed)
+		{
+			open = false;
+			Sound.Play(CloseSound, CylinderPivotBone.Transform.Position);
+		}
+		if(((((item.Transform.World.RotationToLocal(item.Controller.Transform.Rotation) - lastRot) * Time.Delta).Angles().AsVector3() * FlickRotation).Length * 10) > FlickSpeed && OpenAmount.AlmostEqual(1,0.01f))
+		{
+			open = false;
+			Sound.Play(CloseSound, CylinderPivotBone.Transform.Position);
+			LoadIndex += Game.Random.Next(0,6);
+		}
 
 		lastRot = item.Transform.World.RotationToLocal(item.Controller.Transform.Rotation);
 
@@ -72,8 +83,11 @@ public sealed class RevolverCylinder : MagazineBase
 	{
 		CantLoad = true;
 		Dropped = false;
-		if(item.Controller.ButtonB.IsPressed && !item.Controller.ButtonB.WasPressed) open = true;
-		Log.Info(item.Controller.ButtonB.IsPressed);
+		if(item.Controller.ButtonB.IsPressed && !item.Controller.ButtonB.WasPressed && RevolverTrigger.pullBack == 0)
+		{
+			Sound.Play(OpenSound, CylinderPivotBone.Transform.Position);
+			open = true;
+		}
 	}
 
 	void DropCases()
@@ -81,7 +95,7 @@ public sealed class RevolverCylinder : MagazineBase
 		for(int i = 0; i < CylinderBulletVisuals.Count(); i++)
 		{
 			if(Contents[i] != -2) continue;
-			
+			Sound.Play(EjectSound,CylinderBulletVisuals[i].Transform.Position).Pitch = Game.Random.Next(90,110)/100;
 			GameObject newCase = Case.Clone();
 			newCase.SetParent(CylinderBulletVisuals[i].Parent);
 			newCase.Transform.Position = CylinderBulletVisuals[i].Transform.Position;

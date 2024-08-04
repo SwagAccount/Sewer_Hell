@@ -1,0 +1,37 @@
+{
+  "RootObject": {
+    "__guid": "36f4c7b1-9432-4983-855b-b1ba5e259763",
+    "Flags": 0,
+    "Name": "pistolflash",
+    "Tags": "particles,light_point,light",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.LegacyParticleSystem",
+        "__guid": "dde03b25-8743-4890-b105-e3eb08ebda19",
+        "ControlPoints": [],
+        "Looped": false,
+        "Particles": "particle effects/pistol_muzzleflash.vpcf",
+        "PlaybackSpeed": 1
+      },
+      {
+        "__type": "Sandbox.PointLight",
+        "__guid": "f52b637d-0e76-4b4f-82e5-aaf73eead194",
+        "Attenuation": 10,
+        "FogMode": "Enabled",
+        "FogStrength": 1,
+        "LightColor": "1,0.92403,0.54419,1",
+        "Radius": 13.699984,
+        "Shadows": true
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
