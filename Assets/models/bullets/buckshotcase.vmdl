@@ -14,16 +14,12 @@
 						remaps = 
 						[
 							{
-								from = "material.002.vmat"
-								to = "models/weapons/shotgunmetal.vmat"
+								from = "models/bullets/shotgunshelltexture.vmat"
+								to = "models/bullets/shotgunshelltexture.vmat"
 							},
 							{
 								from = "material.003.vmat"
-								to = "models/weapons/shotgunwood.vmat"
-							},
-							{
-								from = "material.001.vmat"
-								to = "models/weapons/shotgunbarrelmetal.vmat"
+								to = "materials/black_matte.vmat"
 							},
 						]
 						use_global_default = false
@@ -37,7 +33,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/weapons/shotgun.fbx"
+						filename = "models/bullets/12 gauge.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 0.27
@@ -50,16 +46,8 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"Mesh",
-								"Mesh1",
-								"Mesh2",
-								"Plane",
-								"Circle_003",
-								"Plane_004",
-								"Plane_003",
-								"Plane_006",
-								"Plane_005",
-								"Plane_007",
+								"Circle",
+								"Circle_001",
 							]
 						}
 					},
@@ -71,7 +59,6 @@
 				[
 					{
 						_class = "PhysicsHullFile"
-						name = "shotgun"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid"
@@ -81,7 +68,7 @@
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
-						filename = "models/weapons/shotgun.fbx"
+						filename = "models/bullets/12 Gauge.fbx"
 						import_scale = 0.27
 						faceMergeAngle = 10.0
 						maxHullVertices = 0

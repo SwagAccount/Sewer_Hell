@@ -24,10 +24,12 @@ public sealed class Blade : Component
 		if(ray.Hit && !hit)
 		{
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
+			Log.Info(ray.GameObject);
 			if(healthComponent != null)
 			{
 				hit = true;
 				healthComponent.Health -= damage * (physicsTracker.Acceleration.Length/baseAcceleration);
+				
 			}
 		}
 		else

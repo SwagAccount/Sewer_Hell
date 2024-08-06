@@ -99,13 +99,13 @@ public sealed class HandsDealer : Component
 	{
 		HandSmoothing();
 
-		SetIK();
-
 		if(Input.VR != null) Inputs();
 
 		StretchPrevent();
 
 		Physics();
+
+		SetIK();
 	}
 
 	void SetIK()
@@ -179,16 +179,20 @@ public sealed class HandsDealer : Component
 		{
 			if(hand.Grip < 0.5f || !grabPointRef.IsValid())
 			{
+				if(currentHandPosRef.item.HandsConnected <= 1)
+					currentHandPosRef.Rigidbody.AngularDamping = 0;
+				currentHandPosRef.item.HandsConnected--;
 				if(grabPointRef.IsValid())
 				{
-					currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
+					
 					if(currentHandPosRef.Connect) fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
-					Item item = currentHandPosRef.Rigidbody.Components.Get<Item>();
-					if(item != null && currentHandPosRef.Main)
+					
+					if(currentHandPosRef.item != null && currentHandPosRef.Main)
 					{
-						item.HandsConnected--;
-						item.Controller = null;
-						item.mainHeld = false;
+						currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
+						
+						currentHandPosRef.item.Controller = null;
+						currentHandPosRef.item.mainHeld = false;
 					}
 					grabPointRef.Parent.Tags.Remove("grabbed");
 				}
@@ -202,8 +206,8 @@ public sealed class HandsDealer : Component
 				return (null,false,null, null);
 			}
 
-			handTarget.Transform.Position = grabPointRef.Transform.Position;
-			handTarget.Transform.Rotation = grabPointRef.Transform.Rotation;
+			handTarget.Transform.Position = currentHandPosRef.wristObject.Transform.Position;
+			handTarget.Transform.Rotation = currentHandPosRef.wristObject.Transform.Rotation;
 			CopyTransformRecursive(currentHandPosRef.wristObject,handSkeleton, Vector3.One,new Angles(1,1,1));
 
 			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
@@ -224,7 +228,7 @@ public sealed class HandsDealer : Component
 
 		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
 		
-		
+		Gizmo.Draw.IgnoreDepth = true;
 		Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position,0.5f);
 
 		if(hand.Grip > 0.75f)
@@ -233,7 +237,11 @@ public sealed class HandsDealer : Component
 			//handPhys.Transform.Rotation = closest.Transform.Rotation;
 			HandPos handPos = closest.Components.Get<HandPos>();
 
-			AlignByChild(handPos.Rigidbody.GameObject, closest, handTarget);
+			Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
+			Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
+
+			AlignByChild(handPos.Rigidbody.GameObject, handPos.GameObject, handPhys.GameObject);
+
 			Sandbox.Physics.FixedJoint newFixedJoint = null;
 			if(handPos.Connect)
 			{
@@ -242,7 +250,8 @@ public sealed class HandsDealer : Component
 				newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
 			}
 			
-			
+			handPos.Rigidbody.Transform.Position = OriginPos;
+			handPos.Rigidbody.Transform.Rotation = OriginRot;
 
 			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
 			/*
@@ -254,11 +263,12 @@ public sealed class HandsDealer : Component
 			Item item = handPos.Rigidbody.Components.Get<Item>();
 			if(item != null)
 			{
+				handPos.Rigidbody.AngularDamping = item.AngularDrag;
 				item.HandsConnected++;
 				if(handPos.Connect)
 				{
-					newFixedJoint.SpringAngular = new PhysicsSpring(item.AngularSpring.x,item.AngularSpring.y);
-					newFixedJoint.SpringLinear = new PhysicsSpring(item.PositionSpring.x,item.PositionSpring.y);
+					newFixedJoint.SpringAngular = new PhysicsSpring(handPos.AngularSpring.x,handPos.AngularSpring.y);
+					newFixedJoint.SpringLinear = new PhysicsSpring(handPos.PositionSpring.x,handPos.PositionSpring.y);
 				}
 				
 				if(handPos.Main)

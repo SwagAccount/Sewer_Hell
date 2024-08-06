@@ -14,7 +14,7 @@ public sealed class Recoil : Component
 	public Vector3 RecoilTargetPos {get;set;}
 	public Angles RecoilTargetRot {get;set;}
 	public Vector3 ReturnPos {get;set;}
-	public Angles ReturnRot {get;set;}
+	[Property] public Angles ReturnRot {get;set;}
 	public bool GotReturn {get;set;}
 	
 	Item item;
@@ -25,13 +25,14 @@ public sealed class Recoil : Component
 		
 		GotReturn = true;
 		ReturnPos = Body.Transform.LocalPosition;
-		ReturnRot = Body.Transform.LocalRotation;
+		if(ReturnRot.AsVector3().Length == 0) ReturnRot = Body.Transform.LocalRotation;
 		RecoilTargetPos = ReturnPos;
 		RecoilTargetRot = ReturnRot;
 	}
 
 	protected override void OnEnabled()
 	{
+		if(!GotReturn) return;
 		RecoilTargetPos = ReturnPos;
 		RecoilTargetRot = ReturnRot;
 		Body.Transform.LocalPosition = ReturnPos;
@@ -40,13 +41,13 @@ public sealed class Recoil : Component
 
 	public void ApplyRecoil()
 	{
-		RecoilTargetPos += RecoilPos[0] + (Vector3.Random * (RecoilPos[0]-RecoilPos[1])/item.HandsConnected);
-		RecoilTargetRot += RecoilRot[0] + (Vector3.Random * (RecoilRot[0]-RecoilRot[1])/item.HandsConnected);
+		RecoilTargetPos += RecoilPos[0] + (Vector3.Random * (RecoilPos[0]-RecoilPos[1])/(item.HandsConnected * 1.5f));
+		RecoilTargetRot += RecoilRot[0] + (Vector3.Random * (RecoilRot[0]-RecoilRot[1])/(item.HandsConnected * 1.5f));
 	}
 	protected override void OnUpdate()
 	{
-		RecoilTargetPos = Vector3.Lerp(RecoilTargetPos,ReturnPos,PosReturnSpeed * Time.Delta * item.HandsConnected);
-		RecoilTargetRot = Angles.Lerp(RecoilTargetRot,ReturnRot,RotReturnSpeed * Time.Delta * item.HandsConnected);
+		RecoilTargetPos = Vector3.Lerp(RecoilTargetPos,ReturnPos,PosReturnSpeed * Time.Delta * item.HandsConnected * 1.5f);
+		RecoilTargetRot = Angles.Lerp(RecoilTargetRot,ReturnRot,RotReturnSpeed * Time.Delta * item.HandsConnected * 1.5f);
 
 		Body.Transform.LocalPosition = Vector3.Lerp(Body.Transform.LocalPosition, RecoilTargetPos,PosRecoilSpeed * Time.Delta);
 		Body.Transform.LocalRotation = Angles.Lerp(Body.Transform.LocalRotation, RecoilTargetRot,RotRecoilSpeed * Time.Delta);

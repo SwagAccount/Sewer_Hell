@@ -15,7 +15,6 @@ public sealed class RevolverCylinder : MagazineBase
 	[Property] public float FlickSpeed {get;set;}
 	[Property] public Vector3 FlickRotation {get;set;}
 	[Property] public float OpenAmount {get;set;}
-	[Property] public GameObject[] CylinderBulletVisuals {get;set;}
 	[Property] public GameObject Case {get;set;}
 	[Property] public SoundEvent OpenSound {get;set;}
 	[Property] public SoundEvent CloseSound {get;set;}
@@ -59,7 +58,7 @@ public sealed class RevolverCylinder : MagazineBase
 	{
 		if(OpenAmount.AlmostEqual(1,0.01f) && Contents.Contains(-2) && !Dropped)
 		{
-			DropCases();
+			DropCases(EjectSound, Case);
 			UpdateVisuals();
 			Dropped = true;
 			CantLoad = false;
@@ -90,32 +89,12 @@ public sealed class RevolverCylinder : MagazineBase
 		}
 	}
 
-	void DropCases()
-	{
-		for(int i = 0; i < CylinderBulletVisuals.Count(); i++)
-		{
-			if(Contents[i] != -2) continue;
-			Sound.Play(EjectSound,CylinderBulletVisuals[i].Transform.Position).Pitch = Game.Random.Next(90,110)/100;
-			GameObject newCase = Case.Clone();
-			newCase.SetParent(CylinderBulletVisuals[i].Parent);
-			newCase.Transform.Position = CylinderBulletVisuals[i].Transform.Position;
-			newCase.Transform.Rotation = CylinderBulletVisuals[i].Transform.Rotation;
-			Contents[i] = -1;
-		}
-	}
+	
 
 	public override void LoadBarrel()
 	{
 		LoadIndex++;
 		Barrel.BarrelContent = Math.Clamp(Contents[correctedLoadIndex()],-1,100);
-	}
-
-	public override void UpdateVisuals()
-	{
-		for(int i = 0; i < CylinderBulletVisuals.Count(); i++)
-		{
-			CylinderBulletVisuals[i].Enabled = Contents[i] != -1;
-		}
 	}
 
 	int correctedLoadIndex()

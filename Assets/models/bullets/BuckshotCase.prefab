@@ -1,0 +1,50 @@
+{
+  "RootObject": {
+    "__guid": "28b19e03-240f-45cb-84e4-ca272b82a9dc",
+    "Flags": 0,
+    "Name": "buckshotcase",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "903be674-0b10-4dd2-a95d-1fc79546aa28",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/bullets/buckshotcase.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "trollface.RevolverCase",
+        "__guid": "25257a64-8985-4a26-a14a-0032a6c7f6b6",
+        "Direction": "0,0,-10",
+        "Length": 3.8,
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "1d179d86-bc44-4816-a350-6058ccbbd5df",
+          "go": "28b19e03-240f-45cb-84e4-ca272b82a9dc",
+          "component_type": "Rigidbody"
+        }
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "1d179d86-bc44-4816-a350-6058ccbbd5df",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "MotionEnabled": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

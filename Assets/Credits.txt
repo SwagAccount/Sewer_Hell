@@ -21,3 +21,9 @@ Scream Sound Effect
 
 Gun Sound Effects
 	https://f8studios.itch.io/snakes-authentic-gun-sounds - SnakeF8
+
+Dry Fire
+	https://freesound.org/people/JakLocke/sounds/412297/ - JakLocke
+
+Shotgun Shell Texture
+	"12 gauge" (https://skfb.ly/6WQNz) by Killian_Delias is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

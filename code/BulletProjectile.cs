@@ -5,23 +5,24 @@ using trollface;
 public sealed class BulletProjectile : Component
 {
 	public Bullet bullet;
+	public GameObject Firerer;
     private Rigidbody rB;
 	Vector3 lastPos;
 
-	List<Vector3> poss;
+	//List<Vector3> poss;
 	protected override void OnStart()
     {
-		poss = new List<Vector3> { Transform.Position };
+		//poss = new List<Vector3> { Transform.Position };
 		rB = Components.GetOrCreate<Rigidbody>();
         lastPos = Transform.Position;
     }
 	bool hitSomething;
 	protected override void OnUpdate()
 	{
-		poss.Add(Transform.Position);
+		//poss.Add(Transform.Position);
 		if(hitSomething) return;
 		
-        var ray = Scene.Trace.Ray(lastPos,Transform.Position).Radius(bullet.Diameter/2).UseHitboxes().Run();
+        var ray = Scene.Trace.Ray(lastPos,Transform.Position).Radius(bullet.Diameter/2).UseHitboxes().IgnoreGameObjectHierarchy(Firerer).Run();
 		if(ray.Hit)
 		{
 			
@@ -47,10 +48,11 @@ public sealed class BulletProjectile : Component
 				healthComponent.Health -= damage;
 			}
 			rB.MotionEnabled = false;
-			//GameObject.Destroy();
+			GameObject.Destroy();
 		}
         lastPos = Transform.Position;
 	}
+	/*
 	protected override void DrawGizmos()
 	{
 		Gizmo.Draw.Color = Color.Red;
@@ -58,5 +60,5 @@ public sealed class BulletProjectile : Component
         {
             Gizmo.Draw.Line(Transform.World.PointToLocal(poss[i]), Transform.World.PointToLocal(poss[i + 1]));
         }
-	}
+	}*/
 }

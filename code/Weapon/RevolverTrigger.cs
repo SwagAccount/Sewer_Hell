@@ -121,7 +121,7 @@ public sealed class RevolverTrigger : Component
     {
         if(fingerValue < 0.5f) 
         {
-            HandsDealer.CopyTransformRecursive(triggerSafe,finger, posMod, angMod);
+            HandsDealer.CopyTransformRecursive(triggerSafe, finger, posMod, angMod);
         }
         else
         {

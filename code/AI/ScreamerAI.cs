@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace trollface;
 public sealed class ScreamerAI : AIAgent
 {
+    [Property] public SoundEvent ScreamSound {get; set;}
     [Property] public GameObject HeadBones {get; set;}
     [Property] public SkinnedModelRenderer Body {get; set;}
     [Property] public BodyDeath BodyDeath {get; set;}
@@ -33,9 +34,12 @@ public sealed class ScreamerAI : AIAgent
         BodyDeath.GameObject.SetParent(Scene);
         BodyDeath.Enabled = true;
         GameObject.Destroy();
+        if(screamSound!=null) screamSound.Stop(0.1f);
     }
+    SoundHandle screamSound;
     public void Scream()
     {
+        screamSound = Sound.Play(ScreamSound,  HeadBones.Transform.Position);
         var ray = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).UseHitboxes().Run();
         if(ray.GameObject == player.GameObject)
         {
