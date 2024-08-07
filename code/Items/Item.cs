@@ -10,6 +10,12 @@ public sealed class Item : Component
 	[Property] public GameObject Functions {get;set;}
 	[Property] public bool mainHeld {get;set;}
 
+	public Rigidbody rigidbody {get;set;}
+
+	protected override void OnStart()
+	{
+		rigidbody = Components.Get<Rigidbody>();
+	}
 	protected override void OnFixedUpdate()
 	{
 		if(Functions==null) return;

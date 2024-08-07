@@ -9,7 +9,7 @@ public abstract class BarrelBase : Component
 	[Property] public SoundEvent GunShot {get;set;}
 	[Property] public SoundEvent DryFire {get;set;}
 	[Property] public GameObject MuzzleFlashPrefab {get;set;}
-	BulletTypes bulletTypes;	
+	BulletTypes bulletTypes;	 
 	Rigidbody rigidbody;
 	Item item;
 	protected override void OnStart()

@@ -142,6 +142,9 @@ public sealed class HandsDealer : Component
 
 		(grabJointLeft, lHolding, grabPointL, currentHandPosL) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL);
 		(grabJointRight, rHolding, grabPointR, currentHandPosR) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR);
+
+		grabPointsL.Enabled = !lHolding;
+		grabPointsR.Enabled = !rHolding;
 	}
 	void StretchPrevent()
 	{

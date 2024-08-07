@@ -36,6 +36,12 @@ public sealed class RevolverTrigger : Component
 	{
 		item = GameObject.Parent.Components.Get<Item>();
 	}
+
+    protected override void OnEnabled()
+	{
+		canFire = item.Controller.Trigger.Value < 0.75f;
+	}
+
     bool canFire = true;
     public float pullBack;
 

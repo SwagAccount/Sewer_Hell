@@ -22,7 +22,10 @@ public sealed class MultiBarrelTrigger : Component
     
     public Item item;
     public MultiBarrelMagazine multiBarrelMagazine;
-
+    protected override void OnEnabled()
+	{
+		canShoot = item.Controller.Trigger.Value < 0.75f;
+	}
 	protected override void OnStart()
 	{
         multiBarrelMagazine = Components.Get<MultiBarrelMagazine>();

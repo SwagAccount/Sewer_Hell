@@ -7,6 +7,8 @@ namespace trollface;
 public sealed class Vrmovement : Component
 {
 	[Property] public ColorAdjustments Camera {get;set;}
+
+    FilmGrain filmGrain;
 	[Property] public ManualHitbox Hitbox {get;set;}
 	[Property] public CharacterController characterController {get;set;}
 	[Property] public GameObject VRSpace {get;set;}
@@ -30,8 +32,14 @@ public sealed class Vrmovement : Component
 
     Vector3 wantedVRSpacePos;
     float reverseStun;
+	protected override async void OnStart()
+	{
+        filmGrain = Camera.Components.Get<FilmGrain>();
+	}
 	protected override void OnUpdate()
 	{
+        Hitbox.Rebuild();
+        filmGrain.Intensity = Stunned*0.5f;
         Stunned = MathX.Lerp(Stunned,0,(1/StunTime)*Time.Delta);
         reverseStun = MathX.Clamp(1-Stunned,0,1);
 
@@ -53,12 +61,14 @@ public sealed class Vrmovement : Component
 
         VRSpace.Transform.Position = wantedVRSpacePos;
 
-        FitHitbox(Hitbox, Camera.Transform.Position.WithZ(characterController.Transform.Position.z), Camera.Transform.Position, GameObject);
+        FitHitbox(Hitbox, Camera.Transform.Position.WithZ(characterController.Transform.Position.z), Camera.Transform.Position+ Vector3.Up*HeadRadius, GameObject);
 
         Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
 
         RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up,Input.VR.RightHand.Joystick.Value.x*Time.Delta*-RotateSpeed);
         wantedVRSpacePos = VRSpace.Transform.Position;
+
+        
 	}
 
     SceneTraceResult HeightCheck(float addedHeight = 0)
@@ -90,7 +100,7 @@ public sealed class Vrmovement : Component
         characterController.Velocity = 0;
         Vector3 setPosition = Camera.Transform.Position.WithZ(characterController.Transform.Position.z);
         characterController.MoveTo(Camera.Transform.Position.WithZ(characterController.Transform.Position.z),true);
-        if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance*reverseStun)
+        if(characterController.Transform.Position != setPosition && Vector3.DistanceBetween(characterController.Transform.Position.WithZ(0),Camera.Transform.Position.WithZ(0)) > OverDistance)
         {
             var dis = Vector3.DistanceBetween(characterController.Transform.Position,setPosition); 
             wantedVRSpacePos = wantedVRSpacePos + (characterController.Transform.Position-setPosition).Normal * (dis - characterController.Radius);
@@ -110,7 +120,7 @@ public sealed class Vrmovement : Component
         if(crouchSpeed) wishVelocity *= CrouchSpeed;
         else wishVelocity *= WalkSpeed;
 
-        characterController.Velocity = wishVelocity * reverseStun;
+        characterController.Velocity = wishVelocity * reverseStun * reverseStun;
 
         wantedVRSpacePos += characterController.Transform.Position.WithZ(0)-Camera.Transform.Position.WithZ(0);
 
