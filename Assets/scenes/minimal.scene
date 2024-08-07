@@ -5777,6 +5777,7 @@
       "Name": "Cube",
       "Position": "37.09565,53.69888,24.99999",
       "Scale": "0.2,0.2,1",
+      "Tags": "solid",
       "Enabled": true,
       "Components": [
         {
