@@ -28,7 +28,7 @@ public sealed class RevolverCylinder : MagazineBase
 
 	public void Shoot()
 	{
-		if(Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -2;
+		//if(Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -2;
 	}
 
 	protected override void OnStart()

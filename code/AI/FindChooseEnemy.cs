@@ -15,7 +15,7 @@ public sealed class FindChooseEnemy : Component
 	protected override void OnStart()
 	{
 		agroRelations = Components.GetOrCreate<AgroRelations>();
-		//HealthComponent = Components.GetOrCreate<HealthComponent>();
+		HealthComponent = Components.GetOrCreate<HealthComponent>();
 
 		if(agroRelations.Faction == null || agroRelations.Enemies == null)
 		{
@@ -29,6 +29,8 @@ public sealed class FindChooseEnemy : Component
 		(bool isTrue, AgroRelations agroRelations) isEnemy(GameObject g)
 		{
 			if(g.Tags == null) return (false,null);	
+
+			if(g == GameObject) return (false,null);
 			
 			if(!g.Tags.Contains("relations")) return (false,null);
 			
@@ -45,7 +47,7 @@ public sealed class FindChooseEnemy : Component
 		}
 
 		
-
+		
 		if(lastAttacker != HealthComponent.lastAttacker)
 		{
 			GameObject g = HealthComponent.lastAttacker;
@@ -77,6 +79,7 @@ public sealed class FindChooseEnemy : Component
 		float closestRange = DetectRange;
 		foreach(GameObject g in Detected)
 		{
+			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			if(!isTrue) continue;	
 			

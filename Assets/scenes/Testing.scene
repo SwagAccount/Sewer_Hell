@@ -1,0 +1,448 @@
+{
+  "__guid": "ff216991-ab4a-4bb5-b52d-10e431ba2048",
+  "GameObjects": [
+    {
+      "__guid": "66b29c8f-c1be-4e73-8f99-5538e1800b1c",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "149.9043,-57.57983,62.60906",
+      "Rotation": "0,0.8530958,0,0.5217544",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "4f2121a1-fc77-4323-8ed6-4ec57ed00568",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "41fb492c-a9fd-4838-be26-15882cafdb8a",
+      "Flags": 0,
+      "Name": "Plane",
+      "Scale": "10,10,1",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "047daf3e-ff0c-4275-9989-6b2caf874e60",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "ff00db9b-cb93-4e76-b1cd-c56d4a11790f",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100,1",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "11b9dd12-c92a-438f-9dd7-70bbc1a56497",
+      "Flags": 0,
+      "Name": "dog",
+      "Position": "7.520065,-4.752319,0.6084551",
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "fb5fbd0f-2421-4527-b4bc-a295d9a0f218",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enemies/dog.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "trollface.DogAI",
+          "__guid": "4bfdc918-73e8-4f2c-89f8-37b28a2f5a54",
+          "jumped": false,
+          "JumpDis": 0,
+          "JumpForce": 10560,
+          "RotateSpeed": 0,
+          "RunAttackDis": 0,
+          "runSpeed": 120,
+          "walkSpeed": 0
+        },
+        {
+          "__type": "trollface.FindChooseEnemy",
+          "__guid": "f2581a76-11c6-4fb5-b72e-56a337999182",
+          "DetectRange": 700,
+          "ForceTargetRange": 300,
+          "NewEnemy": false,
+          "TimeSinceSeen": 0
+        },
+        {
+          "__type": "trollface.AgroRelations",
+          "__guid": "1b0ba191-bfc3-486f-8310-3fabe7c8b961",
+          "attackPoint": "0,0,0",
+          "Enemies": []
+        },
+        {
+          "__type": "trollface.HealthComponent",
+          "__guid": "d46f4a5d-9fc0-473c-b541-23b3bd9b8754",
+          "Health": 70,
+          "MaxHealth": 70
+        },
+        {
+          "__type": "trollface.NavMeshCharacter",
+          "__guid": "621e1b7d-5130-4889-b714-0fc6fc2f1c93",
+          "useCharacterController": false,
+          "Acceleration": 60,
+          "Bounciness": 0.3,
+          "CurrentPath": [],
+          "currentTarget": "0,0,0",
+          "Gizmos": false,
+          "GroundAngle": 45,
+          "Height": 64,
+          "lastTarget": "0,0,0",
+          "PositionAccuracy": 5,
+          "Radius": 16,
+          "Speed": 120,
+          "SpeedSmoothing": 20,
+          "StepHeight": 18,
+          "UpdateRotation": true,
+          "UseProjetcCollisionRules": false
+        }
+      ]
+    },
+    {
+      "__guid": "d4f6900c-07cd-4c28-a72e-32aefba64666",
+      "Flags": 0,
+      "Name": "screamer",
+      "Position": "82.31769,-20.15625,0.09487722",
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "49d7f45d-79d0-4a8b-a38b-08372721e4db",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/enemies/screamer.vmdl",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8b95e467-8d1e-4528-a835-9fc04604df08",
+      "Flags": 0,
+      "Name": "dog",
+      "Position": "0,-42.74585,0",
+      "Tags": "relations",
+      "__Prefab": "prefabs/enemies/dog.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "1a61143d-1e5f-446a-8d4f-2a4113e171e7",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "234.0439,0,0",
+      "Tags": "relations",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "trollface.AgroRelations",
+          "__guid": "76923a5d-0506-467d-a952-69eb9d150f06",
+          "attackPoint": "0,0,60",
+          "Enemies": [],
+          "Faction": "Player"
+        },
+        {
+          "__type": "Sandbox.CapsuleCollider",
+          "__guid": "59d49785-e618-4be6-aa20-c6d02524c9fd",
+          "End": "0,0,60",
+          "IsTrigger": false,
+          "Radius": 5,
+          "Start": "0,0,0",
+          "Static": false
+        },
+        {
+          "__type": "trollface.HealthComponent",
+          "__guid": "848e5551-2f4f-47d7-93c7-baa549f1b278",
+          "Health": 100,
+          "MaxHealth": 100
+        }
+      ]
+    },
+    {
+      "__guid": "94e8594c-b7b2-4bb2-812e-b097988eb5a1",
+      "Flags": 0,
+      "Name": "crackercan",
+      "Position": "119.0284,41.96326,65.16228",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ee9e3bd4-913e-434f-b2ea-bd36e0070685",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/items/crackercan.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "d390eb2c-f8c9-4c2a-8397-33a141af722e",
+          "IsTrigger": false,
+          "Model": "models/items/crackercan.vmdl",
+          "Static": false
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "60a1f2be-eb02-4ba3-8688-2f2ec611280b",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "b4aeb9e7-c746-4c22-a0a7-3d845377af71",
+          "Flags": 0,
+          "Name": "crackerlid",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "16aa1faf-fcb6-4dab-b766-8a18cf4f29ed",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/crackerlid.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "320fd60d-bc04-448d-98c4-0b99796b7d94",
+              "IsTrigger": false,
+              "Model": "models/items/crackerlid.vmdl",
+              "Static": false
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "eca1a2ef-8faf-4bd6-a3bd-5ad2a6b1a942",
+              "__enabled": false,
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {},
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ]
+        },
+        {
+          "__guid": "7b6eb5ab-d996-44f4-b493-6916d203b3e6",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "0.04834747,0.02524948,0.2291355",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "903db15b-9be2-4099-bfa3-2fe3947a8a49",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "3880df86-69be-42b9-9c79-b91b48963eeb",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "0.003059387,-0.01010895,0.2892163",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "a823b7c2-0d16-4035-bc98-00c6aa6699b0",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "01a3883c-1aaa-4b16-a448-d90a67dee6cc",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "-0.04199524,0.008399201,0.349",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "fa2f2e9b-2fca-4e0a-a161-ea767def102f",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "64e74cc3-6de5-4960-97d4-7e17b974f1a6",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "0.03359528,-0.02519684,0.4089999",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "40022646-4db0-4f11-a9f3-5310d4491dc0",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "ff641cf5-9b14-4ba2-b576-4b3573287e5a",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "-0.05879364,0.01679764,0.4690001",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "0e0ae341-8956-4bdd-afc0-d681f3a5548e",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "9f167605-b2f1-45d6-96b8-7a236efaa7ce",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "0.0335968,0.008399201,0.529",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "91a7bc97-9f58-4425-8ec0-f93e43a96294",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "ecb79167-0993-4263-ada6-33d60f9ffafe",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "-0.02519684,-0.02519684,0.589",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "25b4271f-9454-4108-be67-26f04ec9df71",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "6cd2a3b5-3404-49a3-83b8-2a2e6e407e6e",
+          "Flags": 0,
+          "Name": "cracker",
+          "Position": "0.01679688,-0.02519684,0.6489999",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "ad069148-7ef1-4ad5-a30b-0c8270ee7901",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/items/cracker.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "3a701b72-b17a-4b81-8c7a-73de6468e30d",
+      "Flags": 0,
+      "Name": "knife",
+      "Position": "22.23733,-7.398627,37.32421",
+      "Rotation": "0,0,1,-0.00000004371139",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1686fcb2-2052-416f-921e-d3ee2e4220be",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/weapons/knife.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "trollface.Item",
+          "__guid": "663652d5-9ebb-4cda-8b6e-0fcc4a36519c",
+          "AngularDrag": 1000000,
+          "Condition": 1,
+          "HandsConnected": 0,
+          "mainHeld": false,
+          "Renderer": {
+            "_type": "component",
+            "component_id": "1686fcb2-2052-416f-921e-d3ee2e4220be",
+            "go": "3a701b72-b17a-4b81-8c7a-73de6468e30d",
+            "component_type": "ModelRenderer"
+          }
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "relations",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "testing",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

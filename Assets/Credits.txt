@@ -10,7 +10,7 @@ Revolver Model (The model in game is a 3d trace of this model done by me)
 Revolver Metal
 	https://www.sketchuptextureclub.com/textures/materials/metals/basic-metals/galvanized-steel-pbr-texture-seamless-21756
 
-Revolver Wood
+Revolver & Knife Wood
 	https://www.sketchuptextureclub.com/textures/architecture/wood/raw-wood/old-raw-wood-pbr-texture-seamless-21551
 
 Dirty Grunge Texture
@@ -20,10 +20,22 @@ Scream Sound Effect
 	https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101185 - Sound Effect from Pixabay
 
 Gun Sound Effects
-	https://f8studios.itch.io/snakes-authentic-gun-sounds - SnakeF8
+	https://f8studios.itch.io/snakes-authentic-gun-sounds | https://f8studios.itch.io/snakes-second-authentic-gun-sounds-pack - SnakeF8
 
 Dry Fire
 	https://freesound.org/people/JakLocke/sounds/412297/ - JakLocke
 
 Shotgun Shell Texture
-	"12 gauge" (https://skfb.ly/6WQNz) by Killian_Delias is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	"12 gauge" (https://skfb.ly/6WQNz) by Killian_Delias is licensed under Creative Commons Attribution).
+
+Dog Rig and Animation
+	"Low poly retro futuristic dog" (https://skfb.ly/oy77w) by Obambulatesart is licensed under Creative Commons Attribution).
+
+Can Metal Texture
+	https://www.sketchuptextureclub.com/textures/materials/metals/dirty-rusty/old-dirty-metal-texture-seamless-10042	
+
+Cracker Texture
+	https://www.freepik.com/free-vector/vector-falling-chrispy-salty-crackers-isolated_21419590.htm - Nikapeshkov on Freepik
+
+Knife Texture
+	https://www.sketchuptextureclub.com/textures/materials/metals/dirty-rusty/painted-dirty-metal-pbr-texture-seamless-21755

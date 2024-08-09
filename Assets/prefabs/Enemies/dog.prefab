@@ -1,0 +1,582 @@
+{
+  "RootObject": {
+    "__guid": "8b95e467-8d1e-4528-a835-9fc04604df08",
+    "Flags": 0,
+    "Name": "dog",
+    "Tags": "relations",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "ee4c0a6d-2994-463f-b986-0d8f999e8455",
+        "BodyGroups": 18446744073709551615,
+        "CreateBoneObjects": true,
+        "Model": "models/enemies/dog.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "0eb1b54a-b63b-48a7-b1dd-38d0ae9cc905",
+        "__enabled": false,
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "Pitch": true,
+          "Roll": true
+        },
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "trollface.DogAI",
+        "__guid": "d5d79d02-95de-4d8d-91f8-abd882655d35",
+        "jumped": false,
+        "Body": {
+          "_type": "component",
+          "component_id": "ee4c0a6d-2994-463f-b986-0d8f999e8455",
+          "go": "8b95e467-8d1e-4528-a835-9fc04604df08",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "JumpDis": 120,
+        "JumpForce": 21120000,
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "0eb1b54a-b63b-48a7-b1dd-38d0ae9cc905",
+          "go": "8b95e467-8d1e-4528-a835-9fc04604df08",
+          "component_type": "Rigidbody"
+        },
+        "RotateSpeed": 10,
+        "RunAttackDis": 200,
+        "runSpeed": 120,
+        "walkSpeed": 0
+      },
+      {
+        "__type": "trollface.FindChooseEnemy",
+        "__guid": "fafa85b4-4b90-4074-836b-44ee9bc893f3",
+        "DetectRange": 700,
+        "ForceTargetRange": 300,
+        "NewEnemy": false,
+        "TimeSinceSeen": 0
+      },
+      {
+        "__type": "trollface.AgroRelations",
+        "__guid": "28ccee83-6765-4176-85dc-e8453466cb34",
+        "attackPoint": "0,0,0",
+        "Enemies": [
+          "Player"
+        ],
+        "Faction": "Lost"
+      },
+      {
+        "__type": "trollface.NavMeshCharacter",
+        "__guid": "0a8e093e-6340-49ee-981e-a7d4b199048d",
+        "useCharacterController": false,
+        "Acceleration": 60,
+        "Bounciness": 0.3,
+        "CurrentPath": [],
+        "currentTarget": "0,0,0",
+        "Gizmos": false,
+        "GroundAngle": 45,
+        "Height": 26,
+        "lastTarget": "0,0,0",
+        "PositionAccuracy": 5,
+        "Radius": 8,
+        "Speed": 120,
+        "SpeedSmoothing": 20,
+        "StepHeight": 18,
+        "UpdateRotation": true,
+        "UseProjetcCollisionRules": false
+      },
+      {
+        "__type": "trollface.HealthComponent",
+        "__guid": "660063e2-dcd7-4695-84cd-bc70f81dc753",
+        "Health": 70,
+        "MaxHealth": 70
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "9d2604b5-6f23-4bae-a307-69841fbf9f62",
+        "Center": "0,0,8.499989",
+        "IsTrigger": false,
+        "Scale": "37.59999,9.70001,14.10002",
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "0dac4f8d-6a56-4e65-961c-f931eb255774",
+        "Flags": 4,
+        "Name": "torso",
+        "Position": "-9.97513,0.03755878,21.53239",
+        "Rotation": "0.0000000074269,0.0000002822786,-0.7071064,0.7071071",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "891ff3aa-aa5c-43b4-bff2-f86d2411f855",
+            "Flags": 4,
+            "Name": "spine_fk_004",
+            "Position": "0.00001066178,2.091369,-0.3185902",
+            "Rotation": "-0.0000001307223,0.9971452,-0.07550786,0.00000008402684",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "25e1eea1-1561-4d82-ab34-8d0c54018709",
+                "Flags": 4,
+                "Name": "Tail",
+                "Position": "0.03025265,-4.362919,0.2119751",
+                "Rotation": "-0.0000001195834,-0.4147118,0.9099528,-0.000000135989",
+                "Enabled": true
+              },
+              {
+                "__guid": "072fbb1c-87bd-4c8d-aafe-9dbedd02aa27",
+                "Flags": 4,
+                "Name": "tweak_spine_005",
+                "Position": "0,0,0",
+                "Rotation": "-0.01208437,-0.000000000000003552977,0.000000009546054,0.999927",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "8e53b65b-b523-478d-8b9c-234314f3eba9",
+                    "Flags": 4,
+                    "Name": "ORG_spine_005",
+                    "Position": "0,0,0",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "b33a6545-49ea-4623-96b9-77669a5e0aab",
+                        "Flags": 4,
+                        "Name": "ORG_pelvis_L",
+                        "Position": "0.000004947186,-2.920555,5.457729",
+                        "Rotation": "0.4215456,0.7012163,-0.4486015,-0.3596549",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "2eeedb40-b652-4c55-84db-e2efb88f1260",
+                            "Flags": 4,
+                            "Name": "DEF_pelvis_L",
+                            "Position": "0,0,0",
+                            "Enabled": true
+                          }
+                        ]
+                      },
+                      {
+                        "__guid": "7055a8a9-b793-4212-b984-8abb7873cad1",
+                        "Flags": 4,
+                        "Name": "ORG_pelvis_R",
+                        "Position": "0.000008761883,-2.920546,5.457742",
+                        "Rotation": "-0.4215455,0.7012164,-0.4486014,0.3596552",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "4a4b8600-51f0-487f-a80b-02a7f4b2a881",
+                            "Flags": 4,
+                            "Name": "DEF_pelvis_R",
+                            "Position": "0,0,0",
+                            "Enabled": true
+                          }
+                        ]
+                      },
+                      {
+                        "__guid": "d1c48769-1b49-4704-adb4-79304dcfca0b",
+                        "Flags": 4,
+                        "Name": "DEF_thigh_L",
+                        "Position": "3.342087,-2.476157,1.797098",
+                        "Rotation": "0.7308276,0.02077487,-0.0533694,0.6801552",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "208c0c25-3b80-40ec-a1df-014c5d4a047f",
+                            "Flags": 4,
+                            "Name": "DEF_thigh_L_001",
+                            "Position": "0.00001192093,3.465184,-0.00002765656",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "b75c4026-65cc-49fe-815b-8c3eff87c4b5",
+                                "Flags": 4,
+                                "Name": "DEF_shin_L",
+                                "Position": "0.00001525879,3.465185,-0.00002193451",
+                                "Rotation": "0.2863012,0.0000003611028,0.0000002347411,0.9581397",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "34517b4e-ed74-4876-aa43-e3f81981a3e7",
+                                    "Flags": 4,
+                                    "Name": "DEF_shin_L_001",
+                                    "Position": "0.00001859665,4.297022,-0.00001716614",
+                                    "Rotation": "0.0000004321343,-0.00000174111,-0.0000007129285,1",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "d96ae1e5-7bc6-4271-87f5-e7cb451c7080",
+                                        "Flags": 4,
+                                        "Name": "DEF_foot_L",
+                                        "Position": "0.00001764297,4.297017,-0.00001907349",
+                                        "Rotation": "-0.3376612,-0.003928772,-0.01095522,0.9411958",
+                                        "Enabled": true,
+                                        "Children": [
+                                          {
+                                            "__guid": "e4110095-72af-4adf-9841-70eaa829f1d2",
+                                            "Flags": 4,
+                                            "Name": "DEF_foot_L_001",
+                                            "Position": "0.00003623962,2.85083,0",
+                                            "Rotation": "-0.000001102688,0.000000938309,0.0000008954098,1",
+                                            "Enabled": true,
+                                            "Children": [
+                                              {
+                                                "__guid": "e8cd8f8e-1464-4a54-ba93-d72d574c90da",
+                                                "Flags": 4,
+                                                "Name": "DEF_toe_L",
+                                                "Position": "0.00004243851,2.850828,0.00001144409",
+                                                "Rotation": "-0.5835006,0.0139294,0.0382701,0.8110908",
+                                                "Enabled": true
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "__guid": "bbe849d0-d325-4482-a11b-d1dd68ca022d",
+                        "Flags": 4,
+                        "Name": "DEF_thigh_R",
+                        "Position": "-3.342073,-2.476171,1.797098",
+                        "Rotation": "0.7308275,-0.02077445,0.05336903,0.6801555",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "e5042313-ea4c-4928-a747-6614dc64c1e4",
+                            "Flags": 4,
+                            "Name": "DEF_thigh_R_001",
+                            "Position": "0.00002145767,3.465192,-0.00003242493",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "908a4b52-1a9e-4fed-a162-bf3727e0691e",
+                                "Flags": 4,
+                                "Name": "DEF_shin_R",
+                                "Position": "0.00002098083,3.465191,-0.00002098083",
+                                "Rotation": "0.2863035,0.0000009433389,0.0000004827261,0.9581389",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "374f5fea-c2b7-40f8-99e7-28ed49606fba",
+                                    "Flags": 4,
+                                    "Name": "DEF_shin_R_001",
+                                    "Position": "0.00002288818,4.297044,-0.00001144409",
+                                    "Rotation": "0.00000101328,-0.0000005085029,0.00000006007039,1",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "ab2961f5-eeef-4b8a-a4cb-80ac33226743",
+                                        "Flags": 4,
+                                        "Name": "DEF_foot_R",
+                                        "Position": "0.00002765656,4.297027,-0.00002098083",
+                                        "Rotation": "-0.3376632,0.003930288,0.01095676,0.941195",
+                                        "Enabled": true,
+                                        "Children": [
+                                          {
+                                            "__guid": "96106f48-7156-4114-a3a8-7eb2ec5aefa2",
+                                            "Flags": 4,
+                                            "Name": "DEF_foot_R_001",
+                                            "Position": "0.00004386902,2.850855,0.000007629395",
+                                            "Rotation": "0.000001875686,-0.0000002086166,-0.000000119093,1",
+                                            "Enabled": true,
+                                            "Children": [
+                                              {
+                                                "__guid": "ab62eeb4-e68a-4edc-b935-00d9b6fa4d09",
+                                                "Flags": 4,
+                                                "Name": "DEF_toe_R",
+                                                "Position": "0.00004386902,2.850848,-0.000003814697",
+                                                "Rotation": "-0.5835032,-0.01393015,-0.03827069,0.811089",
+                                                "Enabled": true
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "62ace1fe-8e30-4bfe-8b71-c5abb9379859",
+            "Flags": 4,
+            "Name": "spine_fk_008",
+            "Position": "0.000002004206,11.17844,-0.2730808",
+            "Rotation": "-0.0000007624024,0.9967382,0.08070328,0.0000001644479",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "2cb3c4f5-6cdb-4b48-9e6c-ff90e9c5c4c1",
+                "Flags": 4,
+                "Name": "head",
+                "Position": "0.000015717,11.39438,-1.999174",
+                "Rotation": "-0.4440494,-0.000000954909,0.0000003091053,0.8960023",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "9ef2c614-1bad-4d32-8240-96f8ec21bc14",
+                    "Flags": 4,
+                    "Name": "Headfront",
+                    "Position": "-0.01340299,6.38549,-0.9143047",
+                    "Rotation": "0.0000005672317,0.6840972,0.7293909,-0.0000007390199",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "trollface.Blade",
+                        "__guid": "a53d883c-7fa1-419a-8106-e8ca8325b692",
+                        "baseAcceleration": 750,
+                        "BladeEnd": {
+                          "_type": "gameobject",
+                          "go": "cfc4af6c-23ff-4de0-8e1f-ae3a2b9f77d7"
+                        },
+                        "BladeRadius": 1,
+                        "damage": 27,
+                        "ignoreTags": [],
+                        "minAcceleration": 500,
+                        "User": {
+                          "_type": "gameobject",
+                          "go": "8b95e467-8d1e-4528-a835-9fc04604df08"
+                        }
+                      }
+                    ],
+                    "Children": [
+                      {
+                        "__guid": "0fc3881b-0b1e-4e03-9f2b-48fd0dd11baa",
+                        "Flags": 4,
+                        "Name": "JawR",
+                        "Position": "1.374947,2.867383,-0.7020874",
+                        "Rotation": "-0.006836919,0.004604834,-0.00003114923,0.9999661",
+                        "Enabled": true
+                      },
+                      {
+                        "__guid": "91f78def-30e0-44f9-bd89-a30407fd792a",
+                        "Flags": 4,
+                        "Name": "JawL",
+                        "Position": "-1.375019,2.867388,-0.7020912",
+                        "Rotation": "-0.006837001,-0.004604208,0.0000315663,0.9999661",
+                        "Enabled": true
+                      },
+                      {
+                        "__guid": "cfc4af6c-23ff-4de0-8e1f-ae3a2b9f77d7",
+                        "Flags": 0,
+                        "Name": "Object",
+                        "Position": "-0.000006576709,6.471399,-0.000001430511",
+                        "Enabled": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "04b16f12-9259-4360-b349-d7ca0f91c50f",
+                "Flags": 4,
+                "Name": "ORG_spine_008",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "da05599c-d0d0-4bc8-ac7f-7ce1dbb9a87d",
+                    "Flags": 4,
+                    "Name": "ORG_shoulder_L",
+                    "Position": "1.594774,7.353179,-0.9309845",
+                    "Rotation": "0.5975047,0.162659,-0.08201112,0.7808997",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "011caaa2-bb11-4169-bd3d-47cd9ed01140",
+                        "Flags": 4,
+                        "Name": "DEF_shoulder_L",
+                        "Position": "0,0,0",
+                        "Enabled": true
+                      },
+                      {
+                        "__guid": "ef22e2c7-ef46-40b5-b0a7-8b9351b6338a",
+                        "Flags": 4,
+                        "Name": "DEF_front_thigh_L",
+                        "Position": "-0.2465954,5.704772,0.8838587",
+                        "Rotation": "-0.2402309,0.9291366,0.276421,-0.05085049",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "fbdc9ddf-f6f3-4f31-871a-87f53427e663",
+                            "Flags": 4,
+                            "Name": "DEF_front_shin_L",
+                            "Position": "-0.00007295609,9.746934,-0.00004339218",
+                            "Rotation": "0.03917955,0.0000001304856,-0.0000001612429,0.9992322",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "6e39916f-9202-4f9c-aa02-6247e404a80d",
+                                "Flags": 4,
+                                "Name": "DEF_front_shin_L_001",
+                                "Position": "-0.00003767014,2.560254,-0.000005245209",
+                                "Rotation": "0.000003097584,0.0000008977964,0.0000000908041,1",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "00405a24-e809-47e5-b3e5-0f28b745101b",
+                                    "Flags": 4,
+                                    "Name": "DEF_front_foot_L_001",
+                                    "Position": "-0.1030951,3.695406,0.2187567",
+                                    "Rotation": "0.09494979,-0.004222077,0.0442213,0.9944904",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "3f2fe390-3499-4d82-9980-944ff4c1b9e6",
+                                        "Flags": 4,
+                                        "Name": "DEF_front_toe_L",
+                                        "Position": "-0.00003933907,1.160627,0.00001049042",
+                                        "Rotation": "0.4796919,-0.06967751,0.04840499,0.8733257",
+                                        "Enabled": true
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "8e8566a5-8518-494e-8ff0-0f46228c4877",
+                    "Flags": 4,
+                    "Name": "ORG_shoulder_R",
+                    "Position": "-1.594777,7.353174,-0.9309826",
+                    "Rotation": "0.5975045,-0.1626585,0.08201192,0.7808998",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "55e631f2-f769-4fce-8b40-8e41e7464723",
+                        "Flags": 4,
+                        "Name": "DEF_shoulder_R",
+                        "Position": "0,0,0",
+                        "Enabled": true
+                      },
+                      {
+                        "__guid": "9ac36629-c2ff-4d69-b286-262a572cdf99",
+                        "Flags": 4,
+                        "Name": "DEF_front_thigh_R",
+                        "Position": "0.2465773,5.70478,0.8838463",
+                        "Rotation": "0.2402327,0.9291366,0.2764192,0.05085111",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "641240d3-7a57-47c6-ab85-434aa81bc399",
+                            "Flags": 4,
+                            "Name": "DEF_front_shin_R",
+                            "Position": "-0.00004410744,9.746977,-0.00006866455",
+                            "Rotation": "0.03917975,-0.0000001155729,0.0000001719613,0.9992321",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "5eb944a2-2fd7-41be-a95b-6d249c499e58",
+                                "Flags": 4,
+                                "Name": "DEF_front_shin_R_001",
+                                "Position": "-0.00001955032,2.560284,-0.000009059906",
+                                "Rotation": "0.000002251941,0.0000004656619,-0.0000008624058,1",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "874dd878-1958-4c86-b8c0-679460e53b7c",
+                                    "Flags": 4,
+                                    "Name": "DEF_front_foot_R_001",
+                                    "Position": "0.1029832,3.695452,0.2187557",
+                                    "Rotation": "0.09494933,0.00422121,-0.04422257,0.9944904",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "bc0cee9b-5872-4368-ad5d-6e4158793ba9",
+                                        "Flags": 4,
+                                        "Name": "DEF_front_toe_R",
+                                        "Position": "-0.00001835823,1.160642,0.00001001358",
+                                        "Rotation": "0.4796919,0.06967631,-0.04840448,0.8733256",
+                                        "Enabled": true
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "8522d904-608b-4d73-ae7f-0ffe66b88142",
+                    "Flags": 4,
+                    "Name": "ORG_breast_L",
+                    "Position": "0.9097676,1.339369,3.658705",
+                    "Rotation": "0.4457222,0.0000004246819,-0.00000006332918,0.8951713",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "c46b2722-5a5d-4cdb-b451-75dc913a7cea",
+                        "Flags": 4,
+                        "Name": "DEF_breast_L",
+                        "Position": "0,0,0",
+                        "Enabled": true
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "a14a30e1-9a38-4c68-8112-8a6f26b87f7e",
+                    "Flags": 4,
+                    "Name": "ORG_breast_R",
+                    "Position": "-0.9097733,1.339365,3.658703",
+                    "Rotation": "0.4457226,0.0000003762533,0.00000003445946,0.8951712",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "72d1887e-68ce-45ff-890f-bca7ce61bd3f",
+                        "Flags": 4,
+                        "Name": "DEF_breast_R",
+                        "Position": "0,0,0",
+                        "Enabled": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

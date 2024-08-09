@@ -1,7 +1,10 @@
+using System;
+
 namespace trollface;
 public abstract class BarrelBase : Component
 {
 	public Recoil Recoil {get;set;}
+	[Property] public int Durability {get;set;} = 400;
 	[Property] public int BarrelContent {get;set;} = -1;
 	[Property] public float VelocityMultiplier {get;set;} = 1f;
 	[Property] public Vector2 SpreadMult {get;set;} = Vector3.One;
@@ -25,14 +28,18 @@ public abstract class BarrelBase : Component
 		(BarrelEnd.Transform.World.Right*(bullet.Spread.x*SpreadMult.x)*(Game.Random.Next(-100,100)/100f)) +
 		(BarrelEnd.Transform.World.Up*(bullet.Spread.y*SpreadMult.y)*(Game.Random.Next(-100,100)/100f));
 	}
+	public bool hasFired;
 	public virtual async void Fire()
 	{
-		if(BarrelContent != -1 && BarrelContent != -2)
+		hasFired = false;
+		if(BarrelContent != -1 && BarrelContent != -2 && (Game.Random.Next(0,100)/100f) > MathF.Pow(1-item.Condition,3))
 		{
+			hasFired = true;
+			item.Condition -= 1f/Durability;
+			Log.Info(item.Condition);
 			Recoil.ApplyRecoil();
 			item.Controller.TriggerHapticVibration(1,1,1);
 			Bullet bullet = bulletTypes.Bullets[BarrelContent];
-			
 			
 			for (int i = 0; i < bullet.Count; i++)
 			{

@@ -1,0 +1,27 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "materials/condition.shader"
+
+	//---- Rendering ----
+	F_RENDER_BACKFACES 1
+
+	Bad "models/weapons/Rust.jpg"
+	g_flCondition "0.000"
+	Medium "models/weapons/Knife Metal Medium.jpg"
+	Nice "models/weapons/knife metal.jpg"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	Attributes
+	{
+		Condition ""
+	}
+
+	DynamicParams
+	{
+		g_flCondition "Condition"
+	}
+}

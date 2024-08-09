@@ -2,6 +2,7 @@ namespace trollface;
 public abstract class MagazineBase : Component
 {
 	[Property] public bool CantLoad {get;set;}
+	[Property] public bool CantEject {get;set;}
 	[Property] public List<int> Contents {get;set;}
 	[Property] public BarrelBase Barrel {get;set;}
 	[Property] public BulletTypes bulletTypes {get;set;}
@@ -26,7 +27,7 @@ public abstract class MagazineBase : Component
 				Bullet bullet = ResourceLibrary.Get<Bullet>($"bullets/{item.ItemName}.bullet");
 				if(bulletTypes.Bullets.Contains(bullet))
 				{
-					Contents[i] = bulletTypes.Bullets.IndexOf(bullet);
+					Contents[PushBack ? 0 : i] = bulletTypes.Bullets.IndexOf(bullet);
 					UpdateVisuals();
 					g.DestroyImmediate();
 					Sound.Play(LoadSound, Loaders[i].Transform.Position );

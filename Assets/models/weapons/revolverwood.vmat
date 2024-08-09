@@ -37,4 +37,9 @@ Layer0
 
 	//---- Translucent ----
 	g_vTranslucentScrollSpeed "[0.000 0.000]"
+
+	DynamicParams
+	{
+		g_vTexCoordScale "texcoord\n"
+	}
 }

@@ -7,6 +7,6 @@ public sealed class RevolverBarrel : BarrelBase
     public override void Fire()
     {
         base.Fire();
-        RevolverCylinder.Shoot();
+        if(hasFired) RevolverCylinder.Shoot();
     }
 }

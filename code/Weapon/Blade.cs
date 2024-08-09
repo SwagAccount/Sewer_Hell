@@ -16,6 +16,7 @@ public sealed class Blade : Component
 	{
 		physicsTracker = Components.GetOrCreate<PhysicsTracker>();
 		physicsTracker.TrackedObject = BladeEnd;
+		
 	}
 	bool hit;
 	protected override void OnUpdate()
@@ -29,7 +30,6 @@ public sealed class Blade : Component
 			{
 				hit = true;
 				healthComponent.Health -= damage * (physicsTracker.Acceleration.Length/baseAcceleration);
-				
 			}
 		}
 		else
