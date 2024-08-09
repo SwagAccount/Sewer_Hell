@@ -47,6 +47,9 @@ public sealed class HandsDealer : Component
 	[Property] public GameObject RArmParent {get;set;}
 	[Property] public float AnchorDistance {get;set;}
 
+	[Property] public bool leftBreak {get;set;}
+	[Property] public bool rightBreak {get;set;}
+
 	float leftGripAmount;
 	float rightGripAmount;
 
@@ -56,6 +59,10 @@ public sealed class HandsDealer : Component
 	Rotation handTargetLocalStartRotR;
 	Rotation handTargetLocalStartRotL;
 
+	Sandbox.Physics.FixedJoint leftHandFJoint;
+	Sandbox.Physics.FixedJoint rightHandFJoint;
+	Sandbox.Physics.SpringJoint leftHandSJoint;
+	Sandbox.Physics.SpringJoint rightHandSJoint;
 
 	protected override void OnStart()
 	{
@@ -78,11 +85,9 @@ public sealed class HandsDealer : Component
 		var p1 = new PhysicsPoint(PhysPointL.PhysicsBody,PhysPointL.Transform.Position);
 		var p2 = new PhysicsPoint(FinalPhysL.PhysicsBody,PhysPointR.Transform.Position);
 
-		Sandbox.Physics.FixedJoint fixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-		fixedJoint.SpringLinear = new PhysicsSpring(100, 5);
-		fixedJoint.SpringAngular = new PhysicsSpring(100, 5);
-  
-		
+		leftHandFJoint = PhysicsJoint.CreateFixed(p1,p2);
+		leftHandFJoint.SpringLinear = new PhysicsSpring(100, 5);
+		leftHandFJoint.SpringAngular = new PhysicsSpring(100, 5);
 
 		FinalPhysR.Transform.Position = PhysPointR.Transform.Position;
 		FinalPhysR.Transform.Rotation = PhysPointR.Transform.Rotation;
@@ -90,9 +95,24 @@ public sealed class HandsDealer : Component
 		p1 = new PhysicsPoint(PhysPointR.PhysicsBody,PhysPointL.Transform.Position);
 		p2 = new PhysicsPoint(FinalPhysR.PhysicsBody,PhysPointR.Transform.Position);
 
-		fixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-		fixedJoint.SpringLinear = new PhysicsSpring(100, 5);
-		fixedJoint.SpringAngular = new PhysicsSpring(100, 5);
+		rightHandFJoint = PhysicsJoint.CreateFixed(p1,p2);
+		rightHandFJoint.SpringLinear = new PhysicsSpring(100, 5);
+		rightHandFJoint.SpringAngular = new PhysicsSpring(100, 5);
+		Rigidbody lArmParentRB = LArmParent.Components.Get<Rigidbody>();
+		Rigidbody rArmParentRB = RArmParent.Components.Get<Rigidbody>();
+
+
+		p1 = new PhysicsPoint(lArmParentRB.PhysicsBody, Vector3.Zero);
+		p2 = new PhysicsPoint(FinalPhysL.PhysicsBody, Vector3.Zero);
+		leftHandSJoint = PhysicsJoint.CreateSpring(p1,p2, AnchorDistance/2, AnchorDistance);
+		
+		p1 = new PhysicsPoint(rArmParentRB.PhysicsBody, Vector3.Zero);
+		p2 = new PhysicsPoint(FinalPhysR.PhysicsBody, Vector3.Zero);
+		rightHandSJoint = PhysicsJoint.CreateSpring(p1, p2, AnchorDistance/2, AnchorDistance);
+
+		leftHandSJoint.IsActive = false;
+		rightHandSJoint.IsActive = false;
+		
 	}
 	bool HoldingObject;
 	protected override void OnPreRender()
@@ -105,7 +125,23 @@ public sealed class HandsDealer : Component
 
 		Physics();
 
+		BrokenArms();
+
 		SetIK();
+	}
+
+	void BrokenArms()
+	{
+		leftHandFJoint.IsActive = !leftBreak;
+		rightHandFJoint.IsActive = !rightBreak;
+		leftHandSJoint.IsActive = leftBreak;
+		rightHandSJoint.IsActive = rightBreak;
+
+		FinalPhysL.LinearDamping = leftBreak ? 1 : 0;
+		FinalPhysR.LinearDamping = rightBreak ? 1 : 0;
+
+		FinalPhysL.AngularDamping = leftBreak ? 1 : 0;
+		FinalPhysR.AngularDamping = rightBreak ? 1 : 0;
 	}
 
 	void SetIK()
@@ -120,7 +156,9 @@ public sealed class HandsDealer : Component
 	}
 
 	bool lHolding;
+	bool reLHold;
 	bool rHolding;
+	bool reRHold;
 
 	Sandbox.Physics.FixedJoint grabJointLeft;
 	Sandbox.Physics.FixedJoint grabJointRight;
@@ -140,8 +178,8 @@ public sealed class HandsDealer : Component
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
-		(grabJointLeft, lHolding, grabPointL, currentHandPosL) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL);
-		(grabJointRight, rHolding, grabPointR, currentHandPosR) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR);
+		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold);
+		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold);
 
 		grabPointsL.Enabled = !lHolding;
 		grabPointsR.Enabled = !rHolding;
@@ -175,11 +213,12 @@ public sealed class HandsDealer : Component
 	}
 
 
-	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos) 
-	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef)
+	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos, bool reHold) 
+	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef, bool reHoldRef)
 	{
 		if(holdingRef)
 		{
+			reHoldRef = true;
 			if(hand.Grip < 0.5f || !grabPointRef.IsValid())
 			{
 				if(currentHandPosRef.item.HandsConnected <= 1)
@@ -206,17 +245,23 @@ public sealed class HandsDealer : Component
 				
 				MakeAnimated(handSkeleton);
 				
-				return (null,false,null, null);
+				return (null,false,null, null, reHoldRef);
 			}
 
 			handTarget.Transform.Position = currentHandPosRef.wristObject.Transform.Position;
 			handTarget.Transform.Rotation = currentHandPosRef.wristObject.Transform.Rotation;
 			CopyTransformRecursive(currentHandPosRef.wristObject,handSkeleton, Vector3.One,new Angles(1,1,1));
 
-			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
+			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
 		}
 
-		if(pointFinder.GrabbablePoints.Count == 0) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
+		if(reHoldRef)
+		{
+			if(hand.Grip < 0.5f) reHoldRef = false;
+			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
+		}
+
+		if(pointFinder.GrabbablePoints.Count == 0) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
 		
 		GameObject closest = null;
 		float closestDis = 500;
@@ -229,7 +274,7 @@ public sealed class HandsDealer : Component
 			closestDis = distance;
 		}
 
-		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
+		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
 		
 		Gizmo.Draw.IgnoreDepth = true;
 		Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position,0.5f);
@@ -288,11 +333,11 @@ public sealed class HandsDealer : Component
 			handPos.Rigidbody.GameObject.SetParent(VRSpace);
 			closest.Parent.Tags.Add("grabbed");
 			MakeProcedual(handSkeleton);
-			return (newFixedJoint, true, closest, handPos);
+			return (newFixedJoint, true, closest, handPos, reHoldRef);
 		}
 
 
-		return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef);
+		return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
 	}
 
 	public static void MakeProcedual(GameObject target)

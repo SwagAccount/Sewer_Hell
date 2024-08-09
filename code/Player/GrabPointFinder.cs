@@ -29,7 +29,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 		if(controller.Trigger.Value > 0.75f)
 		{
 			Gizmo.Draw.Line(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance);
-			var ray = Scene.Trace.Ray(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance).Radius(searchDistanceRadius).Run();
+			var ray = Scene.Trace.Ray(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance).HitTriggers().Radius(searchDistanceRadius).Run();
 			if(ray.Hit) searchPos = ray.HitPosition;
 		}
 		IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(searchPos,searchRadiusHand));

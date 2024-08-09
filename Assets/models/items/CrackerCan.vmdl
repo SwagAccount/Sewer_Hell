@@ -48,28 +48,13 @@
 				children = 
 				[
 					{
-						_class = "PhysicsHullFile"
-						name = "CrackerCan"
+						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid"
-						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 0.0 ]
-						offset_angles = [ 0.0, 0.0, 0.0 ]
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
-						filename = "models/items/CrackerCan.fbx"
-						import_scale = 0.015
-						faceMergeAngle = 10.0
-						maxHullVertices = 0
-						import_mode = "SingleHull"
-						optimization_algorithm = "QEM"
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = [  ]
-						}
+						radius = 1.35
+						point0 = [ 0.0, 0.0, -0.027351 ]
+						point1 = [ 0.0, 0.0, 1.469402 ]
 					},
 				]
 			},

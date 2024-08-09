@@ -3,7 +3,6 @@
     "__guid": "97a25bce-5ad1-4577-afb1-4c059bf5411f",
     "Flags": 0,
     "Name": "wrist_right",
-    "Position": "-13.73941,-57.32184,10",
     "Tags": "right",
     "Enabled": true,
     "Components": [
@@ -11,7 +10,7 @@
         "__type": "Sandbox.SphereCollider",
         "__guid": "da7d18fd-ea32-47a2-8079-8ab9cd8dc9e4",
         "Center": "0,0,0",
-        "IsTrigger": false,
+        "IsTrigger": true,
         "Radius": 0.5,
         "Static": false
       },
@@ -33,13 +32,15 @@
       },
       {
         "__type": "Sandbox.Rigidbody",
-        "__guid": "654eb2d2-0be1-4af7-a911-e6feb97eed00",
+        "__guid": "3f571ab6-884c-46e7-8612-80e7867b19a8",
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
+        "MassCenterOverride": "0,0,0",
         "MassOverride": 0,
-        "MotionEnabled": false,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       }
@@ -295,7 +296,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

@@ -1,21 +1,48 @@
 namespace trollface;
 public abstract class MagazineBase : Component
 {
+	
 	[Property] public bool CantLoad {get;set;}
 	[Property] public bool CantEject {get;set;}
+	[Property] public int MagSize {get;set;}
 	[Property] public List<int> Contents {get;set;}
-	[Property] public BarrelBase Barrel {get;set;}
+	public BarrelBase Barrel {get;set;}
 	[Property] public BulletTypes bulletTypes {get;set;}
 	[Property] public List<GameObject> Loaders {get;set;}
 	[Property] public SoundEvent LoadSound {get;set;}
 	[Property] public List<GameObject> BulletVisuals {get;set;}
-	public bool PushBack {get;set;}
+
+	[Property] public bool ActualMag {get;set;} = true;
+	[Property] public List<string> notMagAccepted {get;set;}
+	[Property] public List<GameObject> notMagPrefabs {get;set;}
+	[Property] public Item item {get;set;}
+	[Property] public bool PushBack {get;set;}
+
+	public GameObject GetPrefab(int i)
+	{
+		if(ActualMag)
+		{
+			return bulletTypes.Bullets[Contents[i]].PrefabRef;
+		}
+		else
+		{
+			return notMagPrefabs[Contents[i]];
+		}
+	}
+
+	protected override void OnStart()
+	{
+		item = Components.GetInParentOrSelf<Item>();
+	}
 
 	protected override void OnFixedUpdate()
 	{
-		if(!Contents.Contains(-1)) return;
+		
+		if(!Contents.Contains(-1) && !PushBack) return;
+
 		for(int i = 0; i < Loaders.Count; i++)
 		{
+			
 			if(!PushBack && Contents[i] != -1) continue;
 
 			IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(Loaders[i].Transform.Position,0.25f));
@@ -24,17 +51,44 @@ public abstract class MagazineBase : Component
 				Item item = g.Components.Get<Item>();
 				if(item == null) return;
 
-				Bullet bullet = ResourceLibrary.Get<Bullet>($"bullets/{item.ItemName}.bullet");
-				if(bulletTypes.Bullets.Contains(bullet))
+				if(ActualMag)
 				{
-					Contents[PushBack ? 0 : i] = bulletTypes.Bullets.IndexOf(bullet);
-					UpdateVisuals();
-					g.DestroyImmediate();
-					Sound.Play(LoadSound, Loaders[i].Transform.Position );
-					break;
+					Bullet bullet = ResourceLibrary.Get<Bullet>($"bullets/{item.ItemName}.bullet");
+					if(bulletTypes.Bullets.Contains(bullet))
+					{
+						AddContent(g, i, bulletTypes.Bullets.IndexOf(bullet));
+						break;
+					}
+				}
+				else
+				{
+					if(notMagAccepted.Contains(item.ItemName))
+					{
+						AddContent(g, i , notMagAccepted.IndexOf(item.ItemName));
+						break;
+					}
 				}
 			}
 		}
+	}
+
+	void AddContent(GameObject g, int index, int bullet)
+	{
+		
+		if(!PushBack)
+		{
+			Contents[index] = bullet;
+		}
+		else
+		{
+			
+			if(Contents.Count >= MagSize) return;
+			
+			Contents.Insert(0, bullet);
+		}
+		UpdateVisuals();
+		g.DestroyImmediate();
+		if(LoadSound != null) Sound.Play(LoadSound, Loaders[index].Transform.Position );
 	}
 	public virtual void LoadBarrel()
 	{
@@ -61,7 +115,10 @@ public abstract class MagazineBase : Component
 	{
 		for(int i = 0; i < BulletVisuals.Count(); i++)
 		{
-			BulletVisuals[i].Enabled = Contents[i] != -1;
+			if(i < Contents.Count)
+				BulletVisuals[i].Enabled = Contents[i] != -1;
+			else
+				BulletVisuals[i].Enabled = false;
 		}
 	}
 

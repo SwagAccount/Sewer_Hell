@@ -136,6 +136,7 @@
       "Name": "dog",
       "Position": "0,-42.74585,0",
       "Tags": "relations",
+      "Enabled": true,
       "__Prefab": "prefabs/enemies/dog.prefab",
       "__PrefabVariables": {}
     },
