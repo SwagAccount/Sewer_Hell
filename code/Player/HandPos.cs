@@ -19,8 +19,9 @@ public sealed class HandPos : Component
 	public Item item;
 	protected override void OnStart()
 	{
-		Components.Get<SphereCollider>().Center = Transform.World.PointToLocal(GameObject.Transform.Parent.Transform.Position);
+		//Components.Get<SphereCollider>().Center = Transform.World.PointToLocal(GameObject.Transform.Parent.Transform.Position);
 		item = Rigidbody.Components.Get<Item>();
+
 	}
 	protected override void DrawGizmos()
 	{

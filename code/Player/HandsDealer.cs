@@ -168,6 +168,9 @@ public sealed class HandsDealer : Component
 
 	HandPos currentHandPosL;
 	HandPos currentHandPosR;
+
+	float lastLeftTrigger;
+	float lastRightTrigger;
 	
 	void Inputs()
 	{
@@ -178,11 +181,14 @@ public sealed class HandsDealer : Component
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
-		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold);
-		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold);
+		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold, lastLeftTrigger);
+		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold, lastRightTrigger);
 
 		grabPointsL.Enabled = !lHolding;
 		grabPointsR.Enabled = !rHolding;
+
+		lastLeftTrigger = Input.VR.LeftHand.Trigger.Value;
+		lastRightTrigger = Input.VR.RightHand.Trigger.Value;
 	}
 	void StretchPrevent()
 	{
@@ -214,7 +220,7 @@ public sealed class HandsDealer : Component
 
 
 	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos, bool reHold) 
-	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef, bool reHoldRef)
+	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef, bool reHoldRef, float lastTrigger)
 	{
 		if(holdingRef)
 		{
@@ -224,15 +230,16 @@ public sealed class HandsDealer : Component
 				if(currentHandPosRef.item.HandsConnected <= 1)
 					currentHandPosRef.Rigidbody.AngularDamping = 0;
 				currentHandPosRef.item.HandsConnected--;
+				bool knifeTrigger = false;
 				if(grabPointRef.IsValid())
 				{
 					
-					if(currentHandPosRef.Connect) fixedJointRef.Body2.Velocity = fixedJointRef.Body1.Velocity;
 					
-					if(currentHandPosRef.item != null && currentHandPosRef.Main)
+					
+					if(currentHandPosRef.Main)
 					{
 						currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
-						
+						knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
 						currentHandPosRef.item.Controller = null;
 						currentHandPosRef.item.mainHeld = false;
 					}
@@ -240,6 +247,7 @@ public sealed class HandsDealer : Component
 				}
 				if(currentHandPosRef.Connect) fixedJointRef.Remove();
 				//handTarget.SetParent(handPhys.GameObject);
+				currentHandPosRef.item.Throw(knifeTrigger);
 				handTarget.Transform.LocalPosition = handLocalPos;
 				handTarget.Transform.LocalRotation = handLocalRot;
 				
@@ -274,8 +282,32 @@ public sealed class HandsDealer : Component
 			closestDis = distance;
 		}
 
-		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
+		Interactable closestI = null;
+		float closestIDis = pointFinder.searchRadiusHand/2;
+		foreach(Interactable i in pointFinder.InteractablePoints)
+		{
+			if(i.ShowWithoutMain) {if (!i.item.mainHeld) continue;}
+			float distance = Vector3.DistanceBetween(i.Transform.Position,pointFinder.searchPoint);
+			if(distance > closestIDis) continue;
+			closestI = i;
+			closestIDis = distance;
+		}
+
 		
+		
+		if(closestI != null)
+		{
+			Gizmo.Draw.Color = Color.Gray;
+			Gizmo.Draw.SolidSphere(closestI.Transform.Position, 0.25f);
+			if(hand.Trigger >= 0.75f && lastTrigger < 0.75f)
+			{
+				closestI.interacted = !closestI.interacted;
+			}
+		}
+
+
+		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
+		Gizmo.Draw.Color = Color.White;
 		Gizmo.Draw.IgnoreDepth = true;
 		Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position,0.5f);
 
@@ -313,6 +345,7 @@ public sealed class HandsDealer : Component
 			{
 				handPos.Rigidbody.AngularDamping = item.AngularDrag;
 				item.HandsConnected++;
+				item.rigidbody.MotionEnabled = true;
 				if(handPos.Connect)
 				{
 					newFixedJoint.SpringAngular = new PhysicsSpring(handPos.AngularSpring.x,handPos.AngularSpring.y);

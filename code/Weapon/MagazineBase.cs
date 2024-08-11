@@ -3,7 +3,7 @@ public abstract class MagazineBase : Component
 {
 	
 	[Property] public bool CantLoad {get;set;}
-	[Property] public bool CantEject {get;set;}
+	
 	[Property] public int MagSize {get;set;}
 	[Property] public List<int> Contents {get;set;}
 	public BarrelBase Barrel {get;set;}

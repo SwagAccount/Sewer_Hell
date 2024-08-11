@@ -4,13 +4,15 @@ namespace trollface;
 public sealed class ExternalMagazine : MagazineBase
 {
 	[Property] public GameObject EjectPoint {get;set;}
-
+    [Property] public bool CantEject {get;set;}
 
     bool triggerPressed;
     bool triggerWasPressed;
 	protected override void OnFixedUpdate()
 	{
+        
         base.OnFixedUpdate();
+        if(CantEject) return;
 		if(!item.mainHeld) return;
 
         triggerWasPressed = triggerPressed;

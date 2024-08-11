@@ -6,7 +6,7 @@ using trollface;
 public sealed class GrabPointFinder : Component, Component.ITriggerListener
 {
 	[Property] public List<GameObject> GrabbablePoints {get;set;} = new List<GameObject>();
-	[Property] public List<GameObject> InteractablePoints {get;set;} = new List<GameObject>();
+	[Property] public List<Interactable> InteractablePoints {get;set;} = new List<Interactable>();
 	[Property] public string handName {get;set;} = "right";
 	[Property] public float searchRadiusHand {get;set;} = 10;
 	[Property] public float searchDistance {get;set;} = 100;
@@ -25,28 +25,35 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 	{
 		if(GameObject.Children.Count == 0) return;
 
-		Vector3 searchPos = Transform.Position;
-		if(controller.Trigger.Value > 0.75f)
+		for(int i = 0; i < 2; i++)
 		{
-			Gizmo.Draw.Line(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance);
-			var ray = Scene.Trace.Ray(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance).HitTriggers().Radius(searchDistanceRadius).Run();
-			if(ray.Hit) searchPos = ray.HitPosition;
-		}
-		IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(searchPos,searchRadiusHand));
-		GrabbablePoints = new List<GameObject>();
-		
-		foreach(GameObject g in gameObjects)
-		{
-			if(g.Tags.Contains("grabpoint") && g.Tags.Contains(handName))
+			Vector3 searchPos = Transform.Position;
+			if(i > 0)
 			{
-				HandPos handPos = g.Components.Get<HandPos>();
-				if(!handPos.Main && !handPos.ShowWithoutMain && !handPos.item.mainHeld) continue;
-				GrabbablePoints.Add(g);
+				var ray = Scene.Trace.Ray(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance).Radius(searchDistanceRadius).Run();
+				if(ray.Hit) searchPos = ray.HitPosition;
 			}
-			//else if ()		
-		}
+			IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(searchPos,searchRadiusHand));
+			GrabbablePoints = new List<GameObject>();
+			InteractablePoints = new List<Interactable>();
+			
+			foreach(GameObject g in gameObjects)
+			{
+				if(g.Tags.Contains("interactable"))
+				{
+					InteractablePoints.Add(g.Components.Get<Interactable>());
+				}
+				if(g.Tags.Contains("grabpoint") && g.Tags.Contains(handName))
+				{
+					i = 10;
+					HandPos handPos = g.Components.Get<HandPos>();
+					if(handPos.Main || handPos.ShowWithoutMain || handPos.item.mainHeld) GrabbablePoints.Add(g);;
+				}
+			}
 
-		searchPoint = GameObject.Children[0].Transform.Position;
+			searchPoint = GameObject.Children[0].Transform.Position;
+		}
+		
 	}
 
 	/*
