@@ -13,6 +13,7 @@ public sealed class Vrmovement : Component
 	[Property] public CharacterController characterController {get;set;}
 	[Property] public GameObject VRSpace {get;set;}
 	[Property] public float RotateSpeed {get;set;} = 190f;
+	[Property] public float RunSpeed {get;set;} = 96f;
 	[Property] public float WalkSpeed {get;set;} = 64f;
 	[Property] public float CrouchSpeed {get;set;} = 22f;
 	[Property] public float OverDistance {get;set;} = 16f;
@@ -29,6 +30,8 @@ public sealed class Vrmovement : Component
     bool crouching;
 
     bool crouchSpeed;
+
+    public bool canRun = true;
 
     Vector3 wantedVRSpacePos;
     float reverseStun;
@@ -117,7 +120,9 @@ public sealed class Vrmovement : Component
             Input.VR.LeftHand.Joystick.Value.y * Camera.Transform.World.Forward) + 
             (Input.VR.LeftHand.Joystick.Value.x * Camera.Transform.World.Right);
 
+
         if(crouchSpeed) wishVelocity *= CrouchSpeed;
+        else if (Input.VR.LeftHand.JoystickPress && canRun) wishVelocity *= RunSpeed;
         else wishVelocity *= WalkSpeed;
 
         characterController.Velocity = wishVelocity * reverseStun * reverseStun;

@@ -1,5 +1,5 @@
 {
-  "__guid": "38c3262d-012c-44c0-a2ac-2d186b7819e8",
+  "__guid": "6e1d1376-428d-4c83-82d9-54516b61fcf2",
   "GameObjects": [
     {
       "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
@@ -13,6 +13,155 @@
           "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "0,0,0,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3ba8d8c0-13f0-4ff5-abdb-4d3906ab0238",
+      "Flags": 0,
+      "Name": "ActiveChunk",
+      "Position": "163.7097,-362.9703,166.9744",
+      "Enabled": true
+    },
+    {
+      "__guid": "52a2a4f4-a9d2-4789-9b43-9a42f5d23932",
+      "Flags": 0,
+      "Name": "Chunks",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ChunkSaver",
+          "__guid": "396b7107-9805-495b-a7c4-bb9aa55e4966"
+        },
+        {
+          "__type": "ChunkDealer",
+          "__guid": "edec232c-df61-49cd-934a-11c0d2338d41",
+          "ChunkCount": "3,3",
+          "ChunkSize": 150,
+          "CreateChunksNow": false,
+          "Player": {
+            "_type": "gameobject",
+            "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0"
+          },
+          "SafeChunk": "1,1"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "e147a020-6204-4d6a-b848-6cae7832b9db",
+          "Flags": 0,
+          "Name": "Chunk 0-0",
+          "Position": "-150,-150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c9c0ec93-458b-4228-8bfb-6dfb61c0be8d"
+            }
+          ]
+        },
+        {
+          "__guid": "418f40b4-64e5-4635-8e0b-71e8c9183283",
+          "Flags": 0,
+          "Name": "Chunk 0-1",
+          "Position": "-150,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "5d3585f2-ffb5-4910-87c6-5a842a001361"
+            }
+          ]
+        },
+        {
+          "__guid": "f0c1f1b9-f375-49d8-b6ea-177eee868a93",
+          "Flags": 0,
+          "Name": "Chunk 0-2",
+          "Position": "-150,150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "16e4f5e5-815b-4593-907a-ec636b556ffc"
+            }
+          ]
+        },
+        {
+          "__guid": "dbb83091-2339-44bb-b2ff-004f3b4d20b3",
+          "Flags": 0,
+          "Name": "Chunk 1-0",
+          "Position": "0,-150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "98de8d2f-9b83-41a4-93d6-297adc8c2042"
+            }
+          ]
+        },
+        {
+          "__guid": "1b861f53-e9fa-4489-90bd-5dec076c735d",
+          "Flags": 0,
+          "Name": "Chunk 1-1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "6aea5a34-671e-4b78-bf90-e9142f0b4c8c"
+            }
+          ]
+        },
+        {
+          "__guid": "d2f8f5f3-d17b-4f02-97ce-38700000e148",
+          "Flags": 0,
+          "Name": "Chunk 1-2",
+          "Position": "0,150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "f971d87a-8fef-4aaf-ab26-4a7098b4d1c3"
+            }
+          ]
+        },
+        {
+          "__guid": "1871d725-474e-4685-8780-d524f187323d",
+          "Flags": 0,
+          "Name": "Chunk 2-0",
+          "Position": "150,-150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "1f1baca2-c208-481d-84c9-851f9fa12765"
+            }
+          ]
+        },
+        {
+          "__guid": "75676602-867d-4ad3-90f8-9832a456356a",
+          "Flags": 0,
+          "Name": "Chunk 2-1",
+          "Position": "150,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "2cc8f210-d075-4880-8b1b-3768dbbc0434"
+            }
+          ]
+        },
+        {
+          "__guid": "816eb3c4-d460-4f55-afec-10658046b4c1",
+          "Flags": 0,
+          "Name": "Chunk 2-2",
+          "Position": "150,150,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ffeeedc7-7921-4ed7-8e96-cdce10b5084a"
+            }
+          ]
         }
       ]
     },
@@ -51,6 +200,7 @@
           "OverDistance": 12,
           "PhysicalCrouchHeight": 28,
           "RotateSpeed": 190,
+          "RunSpeed": 96,
           "StunTime": 20,
           "VRSpace": {
             "_type": "gameobject",
@@ -72,6 +222,16 @@
           "__guid": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
           "Health": 100,
           "MaxHealth": 100
+        },
+        {
+          "__type": "Survival",
+          "__guid": "a265be90-3422-44fa-949a-af91de3dc43e",
+          "BreathTime": 1,
+          "Hunger": 1,
+          "HungerUseTime": 60,
+          "Stamina": 1,
+          "StaminaTime": 30,
+          "StaminaUseTime": 15
         }
       ],
       "Children": [
@@ -909,6 +1069,76 @@
                           ]
                         }
                       ]
+                    }
+                  ]
+                },
+                {
+                  "__guid": "f3ed9dc6-9065-4a21-b1d9-08dc23804256",
+                  "Flags": 0,
+                  "Name": "Feeder",
+                  "Position": "1.106495,0.00000006595224,-2.437115",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Feeder",
+                      "__guid": "e0c6e190-3109-47f9-886d-2bfa27d6010f",
+                      "survival": {
+                        "_type": "component",
+                        "component_id": "a265be90-3422-44fa-949a-af91de3dc43e",
+                        "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0",
+                        "component_type": "Survival"
+                      }
+                    },
+                    {
+                      "__type": "Sandbox.SphereCollider",
+                      "__guid": "84bab468-3aff-4677-879c-29ae8b92e8f7",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Radius": 2.5,
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "__guid": "e14fbfb9-2ce4-4771-9499-bb5331d91457",
+                  "Flags": 0,
+                  "Name": "UI",
+                  "Position": "8.937358,0.0000003182084,-2.496461",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.WorldPanel",
+                      "__guid": "5fc3753e-5a85-41ba-a454-07a3fdeb644c",
+                      "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
+                      "LookAtCamera": false,
+                      "PanelSize": "225.4,41.40008",
+                      "RenderScale": 1,
+                      "VerticalAlign": "Center"
+                    },
+                    {
+                      "__type": "HealthHungerStamina",
+                      "__guid": "352fe4f6-aa96-4a63-aa59-b1940bcd76cf",
+                      "barSpeed": 5,
+                      "fadeSpeed": 5,
+                      "Head": {
+                        "_type": "gameobject",
+                        "go": "77196716-754a-4b8f-b63d-f883cddda322"
+                      },
+                      "HealthComponent": {
+                        "_type": "component",
+                        "component_id": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
+                        "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0",
+                        "component_type": "HealthComponent"
+                      },
+                      "showAngle": 30,
+                      "Survival": {
+                        "_type": "component",
+                        "component_id": "a265be90-3422-44fa-949a-af91de3dc43e",
+                        "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0",
+                        "component_type": "Survival"
+                      }
                     }
                   ]
                 }
@@ -2850,7 +3080,7 @@
       "Flags": 0,
       "Name": "Cracker",
       "Position": "25.35249,-4.289695,40.78689",
-      "Tags": "item",
+      "Tags": "food,item",
       "Enabled": true,
       "__Prefab": "prefabs/fooditems/cracker.prefab",
       "__PrefabVariables": {}
@@ -3008,7 +3238,6 @@
                   "go": "c6a411d9-21b3-46ef-9c0a-d2dbade79fe0"
                 }
               ],
-              "CantEject": false,
               "CantLoad": false,
               "Case": {
                 "_type": "gameobject",
@@ -6452,7 +6681,6 @@
                   "go": "6b161501-d844-420e-84a5-b2b92cbe0d23"
                 }
               ],
-              "CantEject": false,
               "CantLoad": false,
               "Case": {
                 "_type": "gameobject",

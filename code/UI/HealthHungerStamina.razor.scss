@@ -1,0 +1,59 @@
+HealthHungerStamina
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+	flex-direction: column;
+
+	.title
+	{
+		font-size: 25px;
+		font-family: Poppins;
+		color: #fff;
+	}
+	.health-bar {
+		width: 100%;
+		height: 25px;
+		background-color: black;
+		//border: 1px solid #000;
+		margin-bottom: 10px;
+	
+		// Health bar fill
+		.health-fill {
+			height: 100%;
+			background-color: red;
+		}
+	}
+	
+	// Container for the combined stamina/hunger bar
+	.combined-bar {
+		width: 100%;
+		height: 25px;
+		background-color: black;
+		//border: 1px solid #000;
+		position: relative; // Allows positioning of child elements
+	
+		// Stamina bar fill
+		.stamina-fill {
+			height: 100%;
+			background-color: blue;
+			position: absolute;
+			left: 0;
+		}
+	
+		// Hunger bar fill
+		.hunger-fill {
+			height: 100%;
+			background-color: yellow;
+			position: absolute;
+			right: 0;
+		}
+	}
+}

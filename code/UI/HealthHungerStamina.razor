@@ -1,0 +1,60 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using trollface;
+@inherits PanelComponent
+
+<root style="opacity: @opacity;">
+	<div class="health-bar">
+		<div class="health-fill" style="width: @healthPercentage%;"></div>
+	</div>
+
+	<div class="combined-bar">
+		<div class="stamina-fill" style="width: @staminaPercentage%;"></div>
+		<div class="hunger-fill" style="width: @hungerPercentage%;"></div>
+	</div>
+</root>
+
+@code
+{
+
+	[Property] public Survival Survival {get;set;}
+	[Property] public HealthComponent HealthComponent {get;set;}
+	[Property] public GameObject Head {get;set;}
+	[Property] public float showAngle {get;set;} = 30;
+	[Property] public float fadeSpeed {get;set;} = 5;
+	[Property] public float barSpeed {get;set;} = 5;
+
+	float healthPercentage = 100;
+	float staminaPercentage = 100;
+	float hungerPercentage = 0;
+	float opacity;
+	bool show;
+
+	protected override void OnUpdate()
+	{
+		healthPercentage = MathX.Lerp(healthPercentage, HealthComponent.Health / HealthComponent.MaxHealth * 100, barSpeed*Time.Delta);
+		staminaPercentage = MathX.Lerp(staminaPercentage, Survival.Stamina * 100, barSpeed * Time.Delta);
+		hungerPercentage = MathX.Lerp(hungerPercentage, (1-Survival.Hunger) * 100, barSpeed * Time.Delta);
+
+		show = GetAngleBetweenDirections(Vector3.Down, Head.Transform.World.Forward) < showAngle;
+
+
+		opacity = MathX.Lerp(opacity, show ? 0.5f : 0, Time.Delta * fadeSpeed);
+	}
+	public static float GetAngleBetweenDirections(Vector3 direction1, Vector3 direction2)
+    {
+        Vector3 dir1Normalized = direction1.Normal;
+        Vector3 dir2Normalized = direction2.Normal;
+
+        float dotProduct = Vector3.Dot(dir1Normalized, dir2Normalized);
+        
+        float angleInRadians = MathF.Acos(dotProduct);
+
+        float angleInDegrees = MathX.RadianToDegree(angleInRadians);
+        
+        return angleInDegrees;
+    }
+	
+	protected override int BuildHash() => System.HashCode.Combine( healthPercentage, staminaPercentage, hungerPercentage, opacity );
+}

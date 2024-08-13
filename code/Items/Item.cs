@@ -9,7 +9,7 @@ public sealed class Item : Component
 	[Property] public ModelRenderer Renderer {get;set;}
 	[Property] public string ItemName {get;set;}
 	[Property] public int HandsConnected {get;set;}
-	[Property] public VRController Controller {get;set;}
+	public VRController Controller {get;set;}
 	[Property] public GameObject Functions {get;set;}
 	[Property] public bool mainHeld {get;set;}
 	[Property] public bool knifeThrow {get;set;}

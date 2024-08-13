@@ -3,7 +3,7 @@
     "__guid": "1d8ee386-5ce1-4c63-b046-3e28c0486286",
     "Flags": 0,
     "Name": "cracker",
-    "Tags": "item",
+    "Tags": "item,food",
     "Enabled": true,
     "Components": [
       {
@@ -42,7 +42,14 @@
         "Condition": 1,
         "HandsConnected": 0,
         "ItemName": "Cracker",
+        "knifeThrow": false,
         "mainHeld": false
+      },
+      {
+        "__type": "Food",
+        "__guid": "9ef4eb56-cca7-411e-97d0-3673c11578f5",
+        "HungerRegen": 0.1,
+        "StamRegen": 0
       }
     ],
     "Children": [
