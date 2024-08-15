@@ -23,7 +23,7 @@ public sealed class FindChooseEnemy : Component
 			agroRelations.Enemies = new List<string>{"Player"};
 		}
 	}
-	GameObject lastAttacker;
+	GameObject lastAttacker = null;
 	protected override void OnFixedUpdate()
 	{
 		(bool isTrue, AgroRelations agroRelations) isEnemy(GameObject g)

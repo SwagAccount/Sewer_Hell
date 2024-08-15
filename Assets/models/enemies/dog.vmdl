@@ -11,17 +11,7 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
-						remaps = 
-						[
-							{
-								from = "body.vmat"
-								to = "models/enemies/dogtexture.vmat"
-							},
-							{
-								from = "material.001.vmat"
-								to = "models/enemies/teeth.vmat"
-							},
-						]
+						remaps = [  ]
 						use_global_default = false
 						global_default_material = "materials/default.vmat"
 					},
@@ -140,39 +130,278 @@
 						take = 0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "Die1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/doganims/dye1.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Die2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/doganims/Dying.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Die3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/doganims/Dying.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
 			{
-				_class = "PhysicsShapeList"
+				_class = "HitboxSetList"
 				children = 
 				[
 					{
-						_class = "PhysicsHullFile"
-						name = "Dog"
-						parent_bone = ""
-						surface_prop = "default"
-						collision_tags = "solid"
-						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 0.0 ]
-						offset_angles = [ 0.0, 0.0, 0.0 ]
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
-						filename = "models/enemies/Dog.fbx"
-						import_scale = 1.0
-						faceMergeAngle = 10.0
-						maxHullVertices = 0
-						import_mode = "SingleHull"
-						optimization_algorithm = "QEM"
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = 
-							[
-								"Lo_Doberman",
-							]
-						}
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "ORG_spine_005"
+								parent_bone = "ORG_spine_005"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -12.034848, -16.123337, -0.80459 ]
+								hitbox_maxs = [ 12.204987, 2.080587, 18.444181 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "ORG_pelvis_L"
+								parent_bone = "ORG_pelvis_L"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -0.5, -1.62689, -2.928958 ]
+								hitbox_maxs = [ 3.31248, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "ORG_pelvis_R"
+								parent_bone = "ORG_pelvis_R"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -3.283481, -1.606709, -2.995285 ]
+								hitbox_maxs = [ 2.857474, 0.797697, 2.477765 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_thigh_L"
+								parent_bone = "DEF_thigh_L"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -3.932964, -2.912847, -12.511223 ]
+								hitbox_maxs = [ 4.9285, 18.838123, 8.513042 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_shin_L"
+								parent_bone = "DEF_shin_L"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -2.431592, -9.137571, -3.746567 ]
+								hitbox_maxs = [ 1.487697, 22.87351, 6.925753 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_foot_L"
+								parent_bone = "DEF_foot_L"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -0.942377, -3.597909, -3.936798 ]
+								hitbox_maxs = [ 0.5, 25.211618, 3.808266 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_thigh_R"
+								parent_bone = "DEF_thigh_R"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -5.512136, -2.90511, -4.709771 ]
+								hitbox_maxs = [ 3.858302, 18.657888, 8.559391 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_shin_R"
+								parent_bone = "DEF_shin_R"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -1.562433, -10.512188, -4.94408 ]
+								hitbox_maxs = [ 2.356854, 25.405821, 6.841087 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_foot_R"
+								parent_bone = "DEF_foot_R"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -0.5, -3.279962, -3.934746 ]
+								hitbox_maxs = [ 0.867747, 24.557133, 5.398132 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "spine_fk_008"
+								parent_bone = "spine_fk_008"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -14.787029, -4.588251, -9.667371 ]
+								hitbox_maxs = [ 15.878966, 24.499409, 28.162802 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Headfront"
+								parent_bone = "Headfront"
+								surface_property = ""
+								translation_only = false
+								tags = "5"
+								hitbox_mins = [ -10.043794, -0.885639, -7.534534 ]
+								hitbox_maxs = [ 9.006594, 24.772175, 3.066765 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "ORG_spine_008"
+								parent_bone = "ORG_spine_008"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -12.91233, -30.498531, -7.614879 ]
+								hitbox_maxs = [ 9.812945, -2.261029, 19.047579 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_thigh_L"
+								parent_bone = "DEF_front_thigh_L"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -6.120285, -5.08117, -8.798456 ]
+								hitbox_maxs = [ 4.54198, 37.489029, 3.661091 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_shin_L_001"
+								parent_bone = "DEF_front_shin_L_001"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -4.023027, -7.553758, -5.440523 ]
+								hitbox_maxs = [ 2.41323, 9.133602, 3.6131 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_foot_L_001"
+								parent_bone = "DEF_front_foot_L_001"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -5.226157, -1.252359, -0.923022 ]
+								hitbox_maxs = [ 0.681379, 7.853323, 8.846752 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_thigh_R"
+								parent_bone = "DEF_front_thigh_R"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -4.468321, -5.086493, -9.328026 ]
+								hitbox_maxs = [ 4.314535, 37.750435, 4.608828 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_shin_R_001"
+								parent_bone = "DEF_front_shin_R_001"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -2.474912, -8.630095, -5.479256 ]
+								hitbox_maxs = [ 5.121326, 9.341824, 4.011908 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "DEF_front_foot_R_001"
+								parent_bone = "DEF_front_foot_R_001"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -0.606904, -1.254716, -0.935092 ]
+								hitbox_maxs = [ 5.70916, 8.135159, 7.960466 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "head"
+								parent_bone = "head"
+								surface_property = ""
+								translation_only = false
+								tags = ""
+								hitbox_mins = [ -8.997975, -20.019766, -13.979183 ]
+								hitbox_maxs = [ 9.813891, 14.68119, 8.433994 ]
+							},
+						]
 					},
 				]
 			},

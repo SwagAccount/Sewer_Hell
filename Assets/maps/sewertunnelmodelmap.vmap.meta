@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "sewertunnelmodelmap",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "sewertunnelmodelmap",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "facepunch.goback_material#46446"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "maps/sewertunnelmodelmap.vmap"
+      }
+    }
+  }
+}

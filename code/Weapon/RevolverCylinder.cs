@@ -1,4 +1,5 @@
 using System;
+using Editor;
 using Sandbox;
 namespace trollface;
 public sealed class RevolverCylinder : MagazineBase
@@ -20,20 +21,19 @@ public sealed class RevolverCylinder : MagazineBase
 	[Property] public SoundEvent CloseSound {get;set;}
 	[Property] public SoundEvent EjectSound {get;set;}
 
-	public int LoadIndex {get;set;} = 0;
+	[Hide, Property]  public int LoadIndex {get;set;} = 0;
 
 	public bool open;
 
-	Item item;
 
 	public void Shoot()
 	{
-		//if(Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -2;
+		if(Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -2;
 	}
 
 	protected override void OnStart()
 	{
-		item = GameObject.Parent.Components.Get<Item>();
+		base.OnStart();
 		UpdateVisuals();
 	}
 

@@ -34,6 +34,8 @@ public sealed class DogAI : AIAgent
     }
     public void Die()
     {
+		Body.GameObject.SetParent(Scene);
+		Body.Set("Dead", true);
         GameObject.Destroy();
     }
 	[Property] public bool jumped;
@@ -56,11 +58,11 @@ public sealed class DogAI : AIAgent
         }
         else
         {
-            stateMachine.ChangeState("IDLE");
+            stateMachine.ChangeState("DOGIDLE");
 			
         }
 
-		FacePoint(Controller.currentTarget);
+		//FacePoint(Agent.TargetPosition.HasValue ? Agent.TargetPosition.Value : Transform.Position);
     }
 	float jumptime;		
 	void JumpLogic()
@@ -69,7 +71,7 @@ public sealed class DogAI : AIAgent
 		{
 			jumped = false;
 			Body.Set("speed", 1);
-			Controller.Enabled = true;
+			Agent.Enabled = true;
 			Rigidbody.Enabled = false;
 		}
 	}
@@ -79,7 +81,7 @@ public sealed class DogAI : AIAgent
 		jumptime = Time.Now;
 		Log.Info("Jump");
 		Body.Set("speed", 0);
-		Controller.Enabled = false;
+		Agent.Enabled = false;
 		Rigidbody.Enabled = true;
 		Rigidbody.ApplyForce((at-Transform.Position).Normal*JumpForce);
 		jumped = true;
@@ -132,7 +134,7 @@ public class DOGIDLE : AIState
 
 	public void Update( AIAgent agent )
 	{
-		agent.Controller.currentTarget = agent.Transform.Position;
+		agent.Agent.MoveTo(agent.Transform.Position);
 		dogAI.dogAnimState = DogAI.DogAnimState.IDLE;
 	}
 }
@@ -162,7 +164,7 @@ public class DOGATTACK : AIState
 		if(dogAI.jumped) return;
 		
 		agent.Controller.Speed = dogAI.runSpeed;
-		agent.Controller.currentTarget = dogAI.FindChooseEnemy.Enemy.Transform.Position;
+		agent.Agent.MoveTo(dogAI.FindChooseEnemy.Enemy.Transform.Position);
 		dogAI.dogAnimState = DogAI.DogAnimState.RUN;
 		
 		float distance = Vector3.DistanceBetween(agent.Transform.Position,dogAI.FindChooseEnemy.Enemy.Transform.Position);
@@ -177,7 +179,7 @@ public class DOGATTACK : AIState
 		else
 		{
 			Vector3 dir = (agent.Transform.Position - dogAI.FindChooseEnemy.Enemy.Transform.Position).Normal;
-			agent.Controller.currentTarget = dir * 150;
+			agent.Agent.MoveTo(dir * 150);
 			doJump = Vector3.DistanceBetween(agent.Transform.Position,dogAI.FindChooseEnemy.Enemy.Transform.Position) > dogAI.RunAttackDis;
 		}
 	}

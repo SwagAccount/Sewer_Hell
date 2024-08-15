@@ -27,7 +27,6 @@ public sealed class Blade : Component
 		if(ray.Hit && !hit)
 		{
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
-			Log.Info(ray.GameObject);
 			if(Stick) stick(ray.GameObject);
 			if(healthComponent != null)
 			{

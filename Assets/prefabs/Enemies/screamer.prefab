@@ -3,7 +3,6 @@
     "__guid": "c30cc951-c89c-4801-bafa-c30e6c0ea0f2",
     "Flags": 0,
     "Name": "screamer",
-    "Position": "61.60178,-216.3418,0.8485246",
     "Tags": "relations,enemy",
     "Enabled": true,
     "Components": [
@@ -55,13 +54,14 @@
         "ScreamDistance": 500,
         "ScreamSound": "sounds/scream.sound",
         "ScreamTime": 30,
-        "StopDistance": 30
+        "StopDistance": 30,
+        "TryScreamTime": 7
       },
       {
         "__type": "trollface.FindChooseEnemy",
         "__guid": "2916900d-21e3-43ee-ae4d-699c832b093d",
-        "DetectRange": 700,
-        "ForceTargetRange": 300,
+        "DetectRange": 300,
+        "ForceTargetRange": 0,
         "HealthComponent": {
           "_type": "component",
           "component_id": "3b53640f-c58e-4cca-91ca-b05664179138",
@@ -80,6 +80,7 @@
       {
         "__type": "trollface.NavMeshCharacter",
         "__guid": "465ff5e6-e876-4361-9642-303db95622f0",
+        "__enabled": false,
         "useCharacterController": true,
         "Acceleration": 60,
         "Bounciness": 0.3,
@@ -96,6 +97,17 @@
         "StepHeight": 18,
         "UpdateRotation": true,
         "UseProjetcCollisionRules": false
+      },
+      {
+        "__type": "Sandbox.NavMeshAgent",
+        "__guid": "5f0abe59-e9bb-454a-a9a9-f776aa7392bd",
+        "Acceleration": 500,
+        "Height": 64,
+        "MaxSpeed": 24,
+        "Radius": 16,
+        "Separation": 0.25,
+        "UpdatePosition": true,
+        "UpdateRotation": false
       }
     ],
     "Children": [
@@ -103,7 +115,6 @@
         "__guid": "08a775fb-92d0-4b6d-9d7e-f9970cd5e0b5",
         "Flags": 0,
         "Name": "Body",
-        "Position": "0,0,0",
         "Enabled": true,
         "Components": [
           {
@@ -231,6 +242,7 @@
                                               "enemy"
                                             ],
                                             "minAcceleration": 500,
+                                            "Stick": false,
                                             "User": {
                                               "_type": "gameobject",
                                               "go": "c30cc951-c89c-4801-bafa-c30e6c0ea0f2"
@@ -325,6 +337,7 @@
                                             "damage": 27,
                                             "ignoreTags": [],
                                             "minAcceleration": 500,
+                                            "Stick": false,
                                             "User": {
                                               "_type": "gameobject",
                                               "go": "c30cc951-c89c-4801-bafa-c30e6c0ea0f2"
@@ -460,7 +473,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

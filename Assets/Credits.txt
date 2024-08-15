@@ -39,3 +39,13 @@ Cracker Texture
 
 Knife Texture
 	https://www.sketchuptextureclub.com/textures/materials/metals/dirty-rusty/painted-dirty-metal-pbr-texture-seamless-21755
+
+Bottom Bricks Texture
+	https://www.sketchuptextureclub.com/textures/architecture/bricks/old-bricks/old-wall-brick-pbr-texture-seamless-22015
+	https://www.cgbookcase.com/textures/moss-01/
+
+Top Bricks Texture
+	https://www.sketchuptextureclub.com/textures/architecture/bricks/old-bricks/italy-very-old-bricks-texture-seamless-20478
+
+Water Texture
+	https://opengameart.org/content/animated-water-texture-128px - YCbCr on Open Game Art

@@ -12,6 +12,7 @@ public sealed class ScreamerAI : AIAgent
     [Property] public float RotateSpeed {get;set;} = 10f;
     [Property] public float ScreamDistance {get;set;} = 500f;
     [Property] public float ScreamTime {get;set;} = 30f;
+    [Property] public float TryScreamTime {get;set;} = 7f;
     [Property] public float AttackDistance {get;set;} = 30f;
     [Property] public float StopDistance {get;set;} = 10f;
     [Property] public float AttackTime {get;set;} = 0.28f;
@@ -39,15 +40,17 @@ public sealed class ScreamerAI : AIAgent
     }
     SoundHandle screamSound;
     float lastScream = -1000;
+    float lastTryScream = -1000;
     public void Scream()
     {
-        if(Time.Now - lastScream < ScreamTime) return;
-        lastScream = Time.Now;
-        screamSound = Sound.Play(ScreamSound,  HeadBones.Transform.Position);
-        var ray = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).UseHitboxes().Run();
+        if(Time.Now - lastScream < ScreamTime && Time.Now - lastTryScream < ScreamTime) return;
+        var ray = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).WithAnyTags("world","player").UseHitboxes().Run();
+        lastTryScream = Time.Now;
         if(ray.GameObject == player.GameObject)
         {
+            lastScream = Time.Now;
             player.Stunned = 1;
+            screamSound = Sound.Play(ScreamSound,  HeadBones.Transform.Position);
         }
     }
     protected override void Update()
@@ -72,9 +75,11 @@ public sealed class ScreamerAI : AIAgent
             Attack();
         }
         
-        Body.Set("Walking", Controller.velocity.Length > 1);
+        Body.Set("Walking", Agent.Velocity.Length > 1);
 
         attack = false;
+
+        
     }
     bool isAttacking;
     async void Attack()
@@ -129,7 +134,7 @@ public class IDLE : AIState
 
 	public void Update( AIAgent agent )
 	{
-		agent.Controller.currentTarget = agent.Transform.Position;
+		agent.Agent.MoveTo(agent.Transform.Position);  
 	}
 }
 
@@ -161,10 +166,11 @@ public class APPROACH_ATTACK : AIState
         {
             screamerAI.Scream();
         }
-
-		agent.Controller.currentTarget = distance > screamerAI.StopDistance ? screamerAI.FindChooseEnemy.Enemy.Transform.Position : agent.Transform.Position;
+        
+		agent.Agent.MoveTo(distance > screamerAI.StopDistance ? screamerAI.FindChooseEnemy.Enemy.Transform.Position : agent.Transform.Position);
+        
         screamerAI.attack = distance < screamerAI.AttackDistance;
-
+        
         lastDis = distance;
 	}
 }

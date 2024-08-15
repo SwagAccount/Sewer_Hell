@@ -7,6 +7,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 {
 	[Property] public List<GameObject> GrabbablePoints {get;set;} = new List<GameObject>();
 	[Property] public List<Interactable> InteractablePoints {get;set;} = new List<Interactable>();
+	[Property] public List<ItemStorer> ItemStorers {get;set;} = new List<ItemStorer>();
 	[Property] public string handName {get;set;} = "right";
 	[Property] public float searchRadiusHand {get;set;} = 10;
 	[Property] public float searchDistance {get;set;} = 100;
@@ -36,12 +37,17 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 			IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(searchPos,searchRadiusHand));
 			GrabbablePoints = new List<GameObject>();
 			InteractablePoints = new List<Interactable>();
+			ItemStorers = new List<ItemStorer>();
 			
 			foreach(GameObject g in gameObjects)
 			{
 				if(g.Tags.Contains("interactable"))
 				{
 					InteractablePoints.Add(g.Components.Get<Interactable>());
+				}
+				if(g.Tags.Contains("itemstore"))
+				{
+					ItemStorers.Add(g.Components.Get<ItemStorer>());
 				}
 				if(g.Tags.Contains("grabpoint") && g.Tags.Contains(handName))
 				{

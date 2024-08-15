@@ -16,8 +16,9 @@ public sealed class DisplayHealth : Component
 	{
 		if(!target.IsValid())
 		{
-			return;
 			this.Destroy();
+			return;
+			
 		}
 		Gizmo.Draw.WorldText($"{MathF.Round(healthComponent.Health)}", new Transform(Transform.World.PointToWorld(DisplayPos), 
 		Rotation.LookAt(Rotation.LookAt(target.Transform.Position - Transform.World.PointToWorld(DisplayPos)).Up)* new Angles(0,90,180), 0.1f

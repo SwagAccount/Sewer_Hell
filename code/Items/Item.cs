@@ -13,15 +13,20 @@ public sealed class Item : Component
 	[Property] public GameObject Functions {get;set;}
 	[Property] public bool mainHeld {get;set;}
 	[Property] public bool knifeThrow {get;set;}
-	public Rigidbody rigidbody {get;set;}
+	[Hide, Property] public Rigidbody rigidbody {get;set;}
 
-	public PhysicsTracker physicsTracker {get;set;}
+	[Hide, Property] public HandPos HandPos {get;set;}
+
+	[Hide, Property] public PhysicsTracker physicsTracker {get;set;}
+
+	[Hide, Property] public float TimeAlive {get;set;}
 
 	protected override void OnStart()
 	{
 		if(Renderer == null) Renderer = Components.GetInChildrenOrSelf<ModelRenderer>();
 		physicsTracker = Components.GetOrCreate<PhysicsTracker>();
 		rigidbody = Components.Get<Rigidbody>();
+		TimeAlive = 0;
 	}
 
 	public void Throw(bool knifeTrigger = false)
@@ -38,7 +43,7 @@ public sealed class Item : Component
 
 	protected override void OnFixedUpdate()
 	{
-		//Condition = (MathF.Sin(Time.Now)+1)/2;
+		TimeAlive += Time.Delta;
 		Renderer.SceneObject.Attributes.Set("Condition", 1-Condition);	
 		if(Functions==null) return;
 		Functions.Enabled = mainHeld;

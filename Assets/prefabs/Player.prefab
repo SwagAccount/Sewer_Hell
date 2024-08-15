@@ -2,13 +2,19 @@
   "RootObject": {
     "__guid": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0",
     "Flags": 0,
-    "Name": "Player",
+    "Name": "player",
     "Tags": "player",
     "Enabled": true,
     "Components": [
       {
         "__type": "trollface.Vrmovement",
         "__guid": "3134e862-a2d9-4b7b-903b-04311e909919",
+        "AgroRelations": {
+          "_type": "component",
+          "component_id": "465d43ad-69cd-4bb1-b0b1-9e8dd4ec871a",
+          "go": "51016a49-d311-4228-8578-0c38b8556358",
+          "component_type": "AgroRelations"
+        },
         "Camera": {
           "_type": "component",
           "component_id": "6885c1cf-9eb0-4a09-868b-ecfbac19151b",
@@ -155,15 +161,6 @@
                 "ZNear": 1
               },
               {
-                "__type": "Sandbox.SphereCollider",
-                "__guid": "00538bc7-9da1-4587-9294-a178b33b786e",
-                "__enabled": false,
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Radius": 4,
-                "Static": false
-              },
-              {
                 "__type": "Sandbox.ColorAdjustments",
                 "__guid": "6885c1cf-9eb0-4a09-868b-ecfbac19151b",
                 "Brightness": 1,
@@ -174,7 +171,7 @@
               {
                 "__type": "Sandbox.SpotLight",
                 "__guid": "192b100b-4446-4344-a74c-43678ababe56",
-                "Attenuation": 1,
+                "Attenuation": 5,
                 "ConeInner": 15,
                 "ConeOuter": 25.52,
                 "FogMode": "Enabled",
@@ -188,6 +185,24 @@
                 "__guid": "7c66e113-6328-4490-a3da-569a0e530b8c",
                 "Intensity": 0,
                 "Response": 0.5
+              },
+              {
+                "__type": "Sandbox.AudioListener",
+                "__guid": "6846e560-5be7-4e16-b93c-c2e44edbe10a",
+                "UseCameraDirection": true
+              },
+              {
+                "__type": "Sandbox.ManualHitbox",
+                "__guid": "09b40501-1b9d-4458-a5ee-20ea1951c875",
+                "CenterA": "0,0,0",
+                "CenterB": "0,0,0",
+                "HitboxTags": "5",
+                "Radius": 4,
+                "Shape": "Sphere",
+                "Target": {
+                  "_type": "gameobject",
+                  "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0"
+                }
               }
             ],
             "Children": [
@@ -1180,7 +1195,7 @@
           {
             "__type": "trollface.AgroRelations",
             "__guid": "465d43ad-69cd-4bb1-b0b1-9e8dd4ec871a",
-            "attackPoint": "0,0,0",
+            "attackPoint": "0,0,64",
             "Enemies": [],
             "Faction": "Player"
           },
@@ -1204,7 +1219,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

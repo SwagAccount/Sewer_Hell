@@ -1,0 +1,82 @@
+{
+  "Model": "models/dev/plane.vmdl",
+  "Description": "",
+  "BlendMode": "Translucent",
+  "nodes": [
+    {
+      "_class": "Result",
+      "DefaultOpacity": 1,
+      "DefaultRoughness": 1,
+      "DefaultMetalness": 0,
+      "DefaultAmbientOcclusion": 0,
+      "Identifier": "0",
+      "Position": "160,-96",
+      "Albedo": {
+        "Identifier": "1",
+        "Output": "Result"
+      },
+      "Opacity": {
+        "Identifier": "4",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureSampler",
+      "Image": null,
+      "Sampler": {},
+      "UI": {
+        "Name": "",
+        "Default": "1,1,1,1",
+        "CustomExtension": "",
+        "SrgbRead": true
+      },
+      "Identifier": "1",
+      "Position": "-272,-144",
+      "Coords": {
+        "Identifier": "2",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TileAndOffset",
+      "DefaultTile": "1,1",
+      "DefaultOffset": "0,0",
+      "WrapTo01": false,
+      "Identifier": "2",
+      "Position": "-640,-48",
+      "Tile": {
+        "Identifier": "3",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float2",
+      "Min": "0,0",
+      "Max": "1,1",
+      "Value": "1,1",
+      "Name": "Tile",
+      "IsAttribute": false,
+      "UI": {},
+      "Identifier": "3",
+      "Position": "-976,-48"
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1,
+      "Value": 1,
+      "Name": "Trans",
+      "IsAttribute": false,
+      "UI": {
+        "PrimaryGroup": {
+          "Name": ""
+        },
+        "SecondaryGroup": {
+          "Name": ""
+        }
+      },
+      "Identifier": "4",
+      "Position": "-128,48"
+    }
+  ]
+}

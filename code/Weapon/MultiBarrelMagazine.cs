@@ -25,17 +25,16 @@ public sealed class MultiBarrelMagazine : MagazineBase
 		public float EndRotPoint {get;set;} = 1;
 		public bool Repeat {get;set;}
 	}
-	public float OpenAmount {get;set;}
-	Item item;
+	[Hide, Property] public float OpenAmount {get;set;}
 	MultiBarrelTrigger multiBarrelTrigger;
-	public bool open {get;set;}
+	[Hide, Property] public bool open {get;set;}
 	protected override void OnStart()
 	{
 		multiBarrelTrigger = Components.Get<MultiBarrelTrigger>();
-		item = GameObject.Parent.Components.Get<Item>();
+		base.OnStart();
 		CantLoad = true;
 	}
-	public int currentBarrel {get;set;}
+	[Hide, Property] public int currentBarrel {get;set;}
 	public void LoadBarrel(BarrelBase barrel)
 	{
 		barrel.BarrelContent = Contents[currentBarrel];

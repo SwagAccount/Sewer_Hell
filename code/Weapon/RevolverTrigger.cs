@@ -39,6 +39,7 @@ public sealed class RevolverTrigger : Component
 
     protected override void OnEnabled()
 	{
+        if(item == null) return;
 		canFire = item.Controller.Trigger.Value < 0.75f;
 	}
 

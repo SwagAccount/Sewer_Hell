@@ -1,21 +1,25 @@
 using System;
 using Sandbox;
+using trollface;
 
 public sealed class ChunkDealer : Component
 {
 	[Property] public float ChunkSize {get;set;} = 5000f;
 	[Property] public Vector2 SafeChunk {get;set;}
 	[Property] public Vector2 ChunkCount {get;set;}
-	[Property] public GameObject Player {get;set;}
+	[Property] public Vrmovement Player {get;set;}
 	[Property] public GameObject ActiveChunk {get;set;}
 	[Property] public bool CreateChunksNow {get;set;}
 	[Property] public int ChunkDistance { get; set; } = 2;
+
+	[Property] public bool TestChunkFind {get;set;}
 
 	[Property] public List<List<ChunkSaver>> chunks {get;set;}
 	int SetChunkDis;
 
 	protected override void OnStart()
 	{
+		Player = Scene.Components.GetInChildren<Vrmovement>();
 		SetChunkDis = ChunkDistance;
 	}
 	protected override void DrawGizmos()
@@ -25,6 +29,21 @@ public sealed class ChunkDealer : Component
 			CreateChunks();
 			CreateChunksNow = false;
 		}
+
+		if(TestChunkFind)
+		{
+			TestChunkFind = false;
+			UnActivateAll();
+		}
+
+
+		for (int x = 0; x < chunks.Count; x++)
+        {
+            for (int y = 0; y < chunks[x].Count; y++)
+            {
+				if(chunks[x][y].GameObject.Enabled) Gizmo.Draw.Line(chunks[x][y].Transform.Position, chunks[x][y].Transform.Position+Vector3.Up*50);
+            }
+        }
 	}
 
 	int playerChunkX;
@@ -33,7 +52,7 @@ public sealed class ChunkDealer : Component
 	int lastPlayerChunkY = -100;
 	protected override void OnFixedUpdate()
 	{
-		Vector3 playerPosition = Player.Transform.Position;
+		Vector3 playerPosition = Player.characterController.Transform.Position;
         playerChunkX = MathX.FloorToInt((playerPosition.x + (ChunkCount.x * ChunkSize) / 2) / ChunkSize);
         playerChunkY = MathX.FloorToInt((playerPosition.y + (ChunkCount.y * ChunkSize) / 2) / ChunkSize);
 
@@ -75,7 +94,6 @@ public sealed class ChunkDealer : Component
 			PlaceInChunk(ActiveChunk.Children[0]);
 		}
 	}
-
 	void EnterSafeChunk()
 	{
 		safe = true;
@@ -120,7 +138,6 @@ public sealed class ChunkDealer : Component
 		
 		for(int x = 0; x < ChunkCount.x; x++)
 		{
-			int i = 0;
 			List<ChunkSaver> chunkRow = new List<ChunkSaver>();
 			for(int y = 0; y < ChunkCount.y; y++)
 			{

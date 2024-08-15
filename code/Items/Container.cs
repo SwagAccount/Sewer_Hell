@@ -1,5 +1,5 @@
 using Sandbox;
-using trollface;
+namespace trollface;
 
 public sealed class Container : Component, Component.ITriggerListener
 {

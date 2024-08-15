@@ -43,7 +43,7 @@ public sealed class BulletProjectile : Component
 					}
 				}
 				Log.Info(MathF.Pow(bullet.Grain,2f)*(rB.Velocity.Length*12)/(700000*MathF.Pow(bullet.Diameter,2f))*0.0006f*damageMult);
-				float damage = MathF.Pow(bullet.Grain,2f)*(rB.Velocity.Length*12)/(700000*MathF.Pow(bullet.Diameter,2f))*0.0006f*damageMult;
+				float damage = MathF.Pow(bullet.Grain,2f)*(rB.Velocity.Length*12)/(700000*MathF.Pow(bullet.Diameter,2f))*0.0012f*damageMult;
 				
 				healthComponent.Health -= damage;
 			}

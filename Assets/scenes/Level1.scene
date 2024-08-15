@@ -1,0 +1,4007 @@
+{
+  "__guid": "4fb36c96-acb9-4b8e-9be7-cb2272b95a06",
+  "GameObjects": [
+    {
+      "__guid": "d8c7b953-d03c-4052-a1c4-3adcd56cdc88",
+      "Flags": 0,
+      "Name": "ActiveChunk",
+      "Enabled": true
+    },
+    {
+      "__guid": "d2bf739a-824b-4997-9a7f-947a96d50706",
+      "Flags": 0,
+      "Name": "Chunks",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ChunkSaver",
+          "__guid": "7f22512d-1679-4857-9b72-c14383358451"
+        },
+        {
+          "__type": "ChunkDealer",
+          "__guid": "0c0b860f-3bf7-4165-af62-85df1fa1aeea",
+          "ActiveChunk": {
+            "_type": "gameobject",
+            "go": "d8c7b953-d03c-4052-a1c4-3adcd56cdc88"
+          },
+          "ChunkCount": "11,11",
+          "ChunkDistance": 2,
+          "chunks": [
+            [
+              {
+                "_type": "component",
+                "component_id": "e0193c9e-d6a7-4333-bdb5-eb9e38b62502",
+                "go": "aef67b08-406b-4695-a48e-9218a4508f01",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "eeec29dc-48e1-46e0-a930-fd92d666a737",
+                "go": "a4120b84-999e-4656-8ba9-3fad551fb1ba",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "325c73b3-d298-4451-9662-861c9073ac5d",
+                "go": "9e3fa765-0964-4185-9399-9cc530c6d5a2",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "53309365-0191-4a3d-a4a9-5c2c0ed93e2e",
+                "go": "26c0fa6e-a2b9-484b-9224-705d824d31b2",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "6653cd6a-0c84-459a-b513-16f694a48ce5",
+                "go": "46940103-c8db-4b0d-b466-0c6863ec6604",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "6029d756-4c85-4748-a3bc-fd82172d5cbd",
+                "go": "85f21f4b-b6d5-4b7b-bbdd-6fbd7e48d77e",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d56d940f-9b1f-4dc3-a4a5-abc9fba11713",
+                "go": "eae0ddb3-cefa-48a9-8db9-083a1fb8779b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "aa609efb-1d5b-432b-b18b-69129dd1f42f",
+                "go": "8fcacc22-486f-4fa0-be11-b30b880f0e0b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b0f5a246-5234-4c26-b028-b8e2dacc79ac",
+                "go": "6809b96a-3fb9-46d8-b0d1-08a5c526c15b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "157fe970-365c-424d-8ff3-1fdec8aa7e83",
+                "go": "8e0c1a3c-85f2-40d3-8b2c-bb7e254f8aaa",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "cd5c5cef-2b06-4abd-abb8-623fa1588c67",
+                "go": "2260c249-5a4c-4a4c-b0eb-319ee6e528ac",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "e41125ba-d273-40a2-8f09-a01244c60e63",
+                "go": "47c6bf63-2d53-4236-8f68-fd19f98152fe",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d5fb52da-171b-4b79-b475-a21125b926f9",
+                "go": "cc6c8330-f780-4b1f-bc4c-097fecfbfa67",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "145fbdf9-ba46-43f3-b0b2-65af742bea6a",
+                "go": "6e4de455-ec22-42e3-a623-010a0e36b94a",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b02ce730-f188-4e31-821b-810a18e96fe6",
+                "go": "7dc229bd-9fb8-4627-85e9-477f9f26f437",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e3ef8c29-45ea-4184-bb19-12a0e8527b57",
+                "go": "eb7acbbc-e82a-4d0a-a54f-d9c43eead671",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b427b7eb-17d6-430e-b271-20407e870755",
+                "go": "54d182a2-84f7-4d71-958b-b35a9d6cce0a",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "fd52e493-0133-4523-b7bc-59b9392bec72",
+                "go": "2cdef503-6e8d-4258-a0de-01ec99ccd14c",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "ccb961e6-72cc-4632-8576-94e41d9d0263",
+                "go": "178b576a-21b5-4ff7-9187-3d9aa0ed9718",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "be2c5b1d-f0e0-41b3-b4e0-17c07c79083a",
+                "go": "359d0cdd-653c-42ee-a9f0-00302dfbcded",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d3222811-2b1b-4759-a5d3-a91e0b3d3d95",
+                "go": "dafb1388-f41c-4329-81ae-801a1085035d",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "4e9c8e89-80c4-401f-810e-5a124372653a",
+                "go": "249c488e-8bff-4d83-9d3e-636572098eb3",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "e54cd791-f17b-44d1-9443-25e2d4207e59",
+                "go": "3a614a7f-0c12-4c64-95d7-c68e74747c64",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "2046fab7-ded4-48bf-9cc9-eacf4bd0b3f9",
+                "go": "a6405967-f887-4796-bf65-f7e6924c906a",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "a5e9378b-6cfe-40e4-bae7-8026d72a0754",
+                "go": "8ad7d866-e3ae-441a-8ff0-00ea1263eac7",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c6f45c33-1b6f-4418-b0dc-2c11cb5a1fec",
+                "go": "6902df8c-c20d-41ca-9cfe-67e0f790313b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b197c0c9-390a-42f3-951b-6a346bff43f3",
+                "go": "d8d15a9e-82e1-4347-a5c7-b969b6f9a966",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c6d7b22f-5383-4b57-9151-932689de1386",
+                "go": "06b2fefe-73b0-48d5-b64a-c190ed7b24d8",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "df8696ee-26b0-40f8-92ac-e941638388d2",
+                "go": "785cfac9-96dc-4ae1-96ce-d68c7611c898",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "df79fe3a-e7a8-4185-8cd7-386d2d111b88",
+                "go": "bfb33811-1996-4bcc-b2c8-02086ce81811",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d5811fba-f531-4259-9951-3f4fa6154c08",
+                "go": "819c1fd0-ee8f-4e25-ad97-e5f83f428837",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "900e1008-1bf1-4955-9f0b-5c5a47d66f21",
+                "go": "55ce1e5c-e0cd-453c-b751-8dca5eca2dd9",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "f1aa5410-2745-4fa3-9dc9-6cca96c92d46",
+                "go": "1136fc55-ae8f-4a5c-8ba9-867575e06c1e",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "7f0b3ad6-5753-4707-a6aa-60ba3ed9b8dc",
+                "go": "8725c12c-a5fe-422d-ac36-e1179a24b882",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "6fe6f063-f797-491e-b20a-314958afc8b6",
+                "go": "1629bce8-ce34-4dd6-8d55-7108cdbe9586",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "dc466766-339c-4cd9-a601-effc504d8554",
+                "go": "7d2b5bdf-3f73-4f1c-900a-8272cbdb8bb5",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "aa20f903-2b59-4e23-a485-d7865abaef44",
+                "go": "4f573045-efec-4384-8a9f-1aa5fd2c4ac3",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "05b323fb-0b54-4175-9729-0aa0a44436fd",
+                "go": "dfcbbb1f-a1d2-4c8b-8ed5-9078aa28c50e",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c842f083-17ae-4f3e-839e-c97d96bf57ed",
+                "go": "7e6755ab-6126-4fd9-a542-262aeeea8793",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "ee494817-d1ef-41d8-94f2-aa8cb8b2505a",
+                "go": "251f0898-3251-4c33-9c74-523308cb3830",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "648544d4-86dd-4912-af7c-fee604c76fdb",
+                "go": "dbc249ad-0108-4c81-8b87-72935e60ef9c",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b4e27bde-8c85-4f81-b9d1-8a122ad16ff8",
+                "go": "b1b068f2-072e-4816-96eb-5d58492512a7",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e3702126-a36d-4e5d-bd85-100dcdb3418d",
+                "go": "f5d68c1d-280e-49bd-9c04-e14308e7b8ef",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "72658c10-28da-4c98-acfb-ce91a93fc4b1",
+                "go": "5e2b0ebe-e2b9-4942-8d7a-78800657777b",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "48f84f9d-f697-43e0-9abf-4b246acffdad",
+                "go": "dc254ff3-b95e-4b6d-bd32-2fced82aa74b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b35e72d3-ab7a-4d33-9a8a-4213f08018f0",
+                "go": "f6908dad-1c65-425f-8795-3b15171b5c37",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "0221ca56-bd59-4223-a98b-eadc34929859",
+                "go": "a426649b-9f24-401a-a473-9ecc2b933812",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "ac4eab61-8c32-4e16-b420-279816546e64",
+                "go": "5ff4b696-8a88-4cb8-9e63-f333b70b83a6",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e54a7bfb-7844-406f-ab39-faf28ae597dc",
+                "go": "198752ad-c5a6-4edc-aa2e-2cd11f6a6418",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "f38368bd-07b2-421e-a7e2-ffaa6a3a3869",
+                "go": "a297d077-8710-4e33-b334-4d3f756c466b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "23dc92fb-f799-4972-a74c-ddd820f9a114",
+                "go": "2d51c55a-3b32-4b32-8456-b978134499b7",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "84bb97d3-7911-47e9-a572-58f6b7471c2e",
+                "go": "101ec448-385f-4103-852a-1c06ba148fc0",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "37704d12-003f-4cfa-950d-9f404ffa573e",
+                "go": "248b30ff-4d32-49a2-930f-4bcac874307f",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "95313b02-4090-47e3-be82-3f415fd62fbc",
+                "go": "97a8470e-6a4f-4475-ab0b-1b3080a54791",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c2c045d1-52de-4645-985a-5f86c7426043",
+                "go": "b143423b-0610-43be-90e0-64cd2a344afc",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "36f4708f-c837-487d-acb1-6065991dcb41",
+                "go": "13f442e3-fd45-4991-a599-79907eeb4c1b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b67bbb4c-3dc0-47c9-9850-0affd204b636",
+                "go": "5379929b-48e3-4c35-a721-6639d793cb3d",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "a77f2070-88de-47ec-a95c-7808edf59a18",
+                "go": "97aede5e-feb7-4ed4-94d6-72321ff3e719",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "580c2c73-f89c-43c8-974a-097c61017cea",
+                "go": "84638f58-46c4-46dc-b951-a16d3e6fe80e",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "bd6a0842-f18d-4476-970e-c43dcacdc7ef",
+                "go": "8f3a974d-dfca-4020-a9b1-a7f677f7884c",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b55f85bc-6489-4167-9838-ac58303fe22e",
+                "go": "67f1cc0a-0c53-488b-8562-b938963ce287",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "4af86eba-a980-4910-bdd9-019fd2b1b739",
+                "go": "96cda35e-7dd3-4d56-83a1-b197aab3e693",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "cde5595f-fbef-4ea8-9ecc-59066b08743a",
+                "go": "7e06d517-7b6a-49f4-acf6-ca509b129b85",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "3f7dd3b3-2d6f-4b9b-83f4-a920d09790cb",
+                "go": "e36b94ab-30e6-4c1a-a6ad-6bba63b6ff94",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "6c72756a-b88b-4227-8007-a4c5ba1c5014",
+                "go": "176f65c3-fd71-4fed-be90-ce255713c6c3",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "3093d72c-25a5-4664-a04b-b4b23ef136aa",
+                "go": "8a425cbe-6b1b-4c33-8ac9-946794c56bc1",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "5e3fed82-0a9b-4e6b-8330-a98f8ebcc2ef",
+                "go": "9c685985-1609-4f95-916f-dfa2677c60e4",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "68b2d2d2-ae04-4f8d-a1eb-8a1ffebbb390",
+                "go": "abea0022-2021-471b-8e3f-c7a00b87859a",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "77835034-43e8-425f-9967-95f94d599442",
+                "go": "f0360ac4-74d6-4856-8350-0cac87e3afdc",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "1dee365a-4242-4035-bea3-9c65764371cb",
+                "go": "21b5b6a5-4626-458c-a602-a392200f2c63",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "75af47fe-e8b8-47e1-b7d6-f9a0bc1e6c03",
+                "go": "eb111c12-35c0-4beb-b9cd-c6aab83e707d",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e8123377-86f0-4660-9403-7ab31c18ea17",
+                "go": "7e1058fe-d9d8-430b-a850-95607a7fa6ac",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "ac03eee1-5814-48bd-8387-54468a0283af",
+                "go": "43b7db92-65c5-40d7-a9b0-793717d3ef9b",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "ae9b2908-d093-4611-8a4c-b9e282bee7e4",
+                "go": "9767fc68-cf19-46fb-bf81-9b59d2e7eaeb",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "2ccfa2cd-3208-461d-bb9e-6ac8fef1f2cb",
+                "go": "7d330af6-421b-4810-97b3-ab6ed6fe5007",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "641c00c9-da2f-4802-b76b-3deac68765ae",
+                "go": "056fa809-8936-4da2-abe9-a24c18bb358f",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d697edb6-8680-486e-a138-335c6c236b4c",
+                "go": "991a42c9-5089-4424-832b-3335f3fbf327",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "37fa1d34-a1d5-4c7d-a798-ee31a53444b3",
+                "go": "747f9673-db49-46e0-99b5-fbbe15b89b63",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "47c37e52-c268-4774-8f00-60202877ba31",
+                "go": "8d859592-a2bd-42e6-9176-6f2da9af1f9e",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "5c57ee42-1f1b-4ffc-8b72-71bac768c922",
+                "go": "64d3a662-83d7-4605-a6a0-e893989980ab",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "f89a3d0f-be62-478c-99f9-4fbbf06e5e15",
+                "go": "bcbb68ca-11e1-4cc4-8d74-01cf57f906ac",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "fed9d7d3-3fbf-4245-b312-7bdc3226f709",
+                "go": "26557d2b-ca0a-43eb-a73e-3abafa7a8e28",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "a62a75a3-3754-43e5-9a74-ef6457e581f9",
+                "go": "2f3e33db-eb0e-4b73-b82e-86f8d49a54e3",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "9fcef56c-1461-4910-b035-a0687492ddae",
+                "go": "d8f71a06-e2c9-4cf6-b827-e034d5063758",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "814d074d-dfe8-4a65-baec-3dda68e0961d",
+                "go": "1c56339c-8b16-4d5e-b767-96d20343b056",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "b9a2e9b2-24d3-491f-ae1a-ce1d9a44b546",
+                "go": "5cdf02d8-badb-4bae-be26-15e37327f130",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "40777844-2c51-4a64-bc2f-8e8bff2b3f01",
+                "go": "fe839fec-7078-40c5-a41f-d55d0d1e9a9d",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "74ffcbd3-e2db-486d-823c-9be7da5f3814",
+                "go": "77917cf8-1660-4bf7-a0d6-8dd19dba3043",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "c5ffcc82-e523-43c0-8b37-55257f434d54",
+                "go": "1276289d-dd83-47f4-87e4-60587a322a76",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "4ba0fd15-3435-48fa-8a35-82d77a37fe67",
+                "go": "3fa4903d-2342-4573-9288-e7e15b9238fe",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "bfe61bc7-3c21-4399-a3cc-50b943a6ba6e",
+                "go": "40bb0349-3974-4098-a62c-fd73d15e8ce5",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "4771d9e0-7c69-4992-8b3b-3e2fc6bc3de7",
+                "go": "b6da39f9-ee39-48bd-9600-64a810793ac8",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e96a4de5-db4d-40d8-becd-1c45925684f7",
+                "go": "f9b41c5e-f0ea-47cc-9607-b298bf1979e7",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "df87eaf2-283f-491b-ac08-afeb057e66a9",
+                "go": "fe8e54aa-db30-4d31-b3cb-770db71b8141",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "a04b42a6-eabf-4285-af7b-8b1767847d02",
+                "go": "4e26737a-aaf7-4488-9bcd-4dd03fff1f61",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "52a41dfb-d667-41fa-b3e5-27f11618b4b4",
+                "go": "98318c1b-86b0-4853-9f9d-086d24466e54",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "22d53a13-1a18-4222-b30d-91015ed1f863",
+                "go": "be3c007d-d7b2-46b3-ab91-7f27571db2b7",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "0addb47f-f583-4b47-b8b1-7d1f221230a9",
+                "go": "8216af79-a2dd-45d8-a0b0-3925b63e0db4",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c88d1de6-d26f-45b0-a4a8-30610bd24773",
+                "go": "f024885a-8a0d-4b70-bfc7-5b71c9ff98cd",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "9d7d26ca-b82a-44f8-a91b-ba6567ef952c",
+                "go": "90064f19-96d2-4642-9c6d-4470781bb696",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "c09dbd09-102a-4f2d-a936-cea23ef68a54",
+                "go": "b094ca58-6410-4cac-8f5d-a9b0ea5df313",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "27434680-530f-459e-8c83-a38fcce77ae0",
+                "go": "8d58b57f-9425-44c6-9708-bb1213505b98",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "3151f062-86e7-40bd-a69b-01364ebe6841",
+                "go": "a566631b-12f3-4a43-8528-05dd521ad7da",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "7fff5f58-347c-42ef-a380-3c4dffd6d6f5",
+                "go": "a3955719-fba3-4bac-a395-c208ddd960d4",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "7123faf0-3313-4894-9933-fd3f0f1060c2",
+                "go": "6cbd101c-a79a-476d-b685-ac651bad651d",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "cba1add0-7e7e-4b71-aa10-c23660365b93",
+                "go": "0752e7b9-34ff-4269-bf4d-9e68e3854383",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "f0018f92-57bf-4fe4-b347-b060cbe2ee76",
+                "go": "877d69df-2e86-4a9a-8aa2-c37c70522c98",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "17bd4d78-bc16-4981-955e-fa01651d409f",
+                "go": "d2a95209-943c-47fc-8b5f-e8ec0edca361",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "00415075-edc4-494a-9360-74bccc453e51",
+                "go": "b3c9f115-fc5d-41d1-8833-9671dfe48c64",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "915a3ddb-a0db-4b4f-bded-7c48a751ef20",
+                "go": "c1136f5c-716f-45dd-8814-c7d15d4bab75",
+                "component_type": "ChunkSaver"
+              }
+            ],
+            [
+              {
+                "_type": "component",
+                "component_id": "c50f0209-d813-4510-963f-596661aa2ac1",
+                "go": "e9682365-9247-44c0-b6dd-688101f04610",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "939c9bf4-ec0f-4235-a8b0-d30c0411f3ee",
+                "go": "31dc5172-274d-4529-a781-c3c89387bdb6",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "105e59b0-5d7a-40a6-9659-1c0a1571341b",
+                "go": "3a3eebd9-7a94-4d88-b395-5951ff4fec87",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "71405455-5833-48f4-b375-7ff1e3621e5d",
+                "go": "a0e8274c-64d0-4ac5-892b-35f451d8bcb5",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "073798b7-960c-45c0-85d4-96f8ed9cee84",
+                "go": "062225b4-e49f-4571-b697-826a28b5a4c5",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "e5e7854a-13fc-41ec-bab0-6bc684aaf270",
+                "go": "db510531-5c9b-43f1-a58c-762d4472ff34",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "de4b0db3-8149-45d9-a705-d0454d57f974",
+                "go": "e8bd297d-25e2-45b1-ae74-dec4fe940f6a",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "7e59b824-b31e-49a5-8cd2-c762e71f846a",
+                "go": "7639f14f-4c5a-46cf-a638-dbbfa451a600",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "dc6e27d0-a992-44f6-9e36-36d855e22f83",
+                "go": "194c968e-9844-4b20-8e02-e29704a1b413",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "32e4d4d6-a6e2-4a76-9ec2-dc7187a77fee",
+                "go": "58f7ca40-9ce1-4b86-abc3-caaffadf6191",
+                "component_type": "ChunkSaver"
+              },
+              {
+                "_type": "component",
+                "component_id": "d7ea31e0-a0bf-4ffb-820a-e0789271569b",
+                "go": "f8bd552b-e75a-482b-8fc1-352314008b90",
+                "component_type": "ChunkSaver"
+              }
+            ]
+          ],
+          "ChunkSize": 208,
+          "CreateChunksNow": false,
+          "SafeChunk": "5,5",
+          "TestChunkFind": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "aef67b08-406b-4695-a48e-9218a4508f01",
+          "Flags": 0,
+          "Name": "Chunk 0-0",
+          "Position": "-1040,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e0193c9e-d6a7-4333-bdb5-eb9e38b62502"
+            }
+          ]
+        },
+        {
+          "__guid": "a4120b84-999e-4656-8ba9-3fad551fb1ba",
+          "Flags": 0,
+          "Name": "Chunk 0-1",
+          "Position": "-1040,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "eeec29dc-48e1-46e0-a930-fd92d666a737"
+            }
+          ]
+        },
+        {
+          "__guid": "9e3fa765-0964-4185-9399-9cc530c6d5a2",
+          "Flags": 0,
+          "Name": "Chunk 0-2",
+          "Position": "-1040,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "325c73b3-d298-4451-9662-861c9073ac5d"
+            }
+          ]
+        },
+        {
+          "__guid": "26c0fa6e-a2b9-484b-9224-705d824d31b2",
+          "Flags": 0,
+          "Name": "Chunk 0-3",
+          "Position": "-1040,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "53309365-0191-4a3d-a4a9-5c2c0ed93e2e"
+            }
+          ]
+        },
+        {
+          "__guid": "46940103-c8db-4b0d-b466-0c6863ec6604",
+          "Flags": 0,
+          "Name": "Chunk 0-4",
+          "Position": "-1040,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "6653cd6a-0c84-459a-b513-16f694a48ce5"
+            }
+          ]
+        },
+        {
+          "__guid": "85f21f4b-b6d5-4b7b-bbdd-6fbd7e48d77e",
+          "Flags": 0,
+          "Name": "Chunk 0-5",
+          "Position": "-1040,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "6029d756-4c85-4748-a3bc-fd82172d5cbd"
+            }
+          ]
+        },
+        {
+          "__guid": "eae0ddb3-cefa-48a9-8db9-083a1fb8779b",
+          "Flags": 0,
+          "Name": "Chunk 0-6",
+          "Position": "-1040,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d56d940f-9b1f-4dc3-a4a5-abc9fba11713"
+            }
+          ]
+        },
+        {
+          "__guid": "8fcacc22-486f-4fa0-be11-b30b880f0e0b",
+          "Flags": 0,
+          "Name": "Chunk 0-7",
+          "Position": "-1040,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "aa609efb-1d5b-432b-b18b-69129dd1f42f"
+            }
+          ]
+        },
+        {
+          "__guid": "6809b96a-3fb9-46d8-b0d1-08a5c526c15b",
+          "Flags": 0,
+          "Name": "Chunk 0-8",
+          "Position": "-1040,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b0f5a246-5234-4c26-b028-b8e2dacc79ac"
+            }
+          ]
+        },
+        {
+          "__guid": "8e0c1a3c-85f2-40d3-8b2c-bb7e254f8aaa",
+          "Flags": 0,
+          "Name": "Chunk 0-9",
+          "Position": "-1040,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "157fe970-365c-424d-8ff3-1fdec8aa7e83"
+            }
+          ]
+        },
+        {
+          "__guid": "2260c249-5a4c-4a4c-b0eb-319ee6e528ac",
+          "Flags": 0,
+          "Name": "Chunk 0-10",
+          "Position": "-1040,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "cd5c5cef-2b06-4abd-abb8-623fa1588c67"
+            }
+          ]
+        },
+        {
+          "__guid": "47c6bf63-2d53-4236-8f68-fd19f98152fe",
+          "Flags": 0,
+          "Name": "Chunk 1-0",
+          "Position": "-832,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e41125ba-d273-40a2-8f09-a01244c60e63"
+            }
+          ]
+        },
+        {
+          "__guid": "cc6c8330-f780-4b1f-bc4c-097fecfbfa67",
+          "Flags": 0,
+          "Name": "Chunk 1-1",
+          "Position": "-832,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d5fb52da-171b-4b79-b475-a21125b926f9"
+            }
+          ]
+        },
+        {
+          "__guid": "6e4de455-ec22-42e3-a623-010a0e36b94a",
+          "Flags": 0,
+          "Name": "Chunk 1-2",
+          "Position": "-832,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "145fbdf9-ba46-43f3-b0b2-65af742bea6a"
+            }
+          ]
+        },
+        {
+          "__guid": "7dc229bd-9fb8-4627-85e9-477f9f26f437",
+          "Flags": 0,
+          "Name": "Chunk 1-3",
+          "Position": "-832,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b02ce730-f188-4e31-821b-810a18e96fe6"
+            }
+          ]
+        },
+        {
+          "__guid": "eb7acbbc-e82a-4d0a-a54f-d9c43eead671",
+          "Flags": 0,
+          "Name": "Chunk 1-4",
+          "Position": "-832,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e3ef8c29-45ea-4184-bb19-12a0e8527b57"
+            }
+          ]
+        },
+        {
+          "__guid": "54d182a2-84f7-4d71-958b-b35a9d6cce0a",
+          "Flags": 0,
+          "Name": "Chunk 1-5",
+          "Position": "-832,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b427b7eb-17d6-430e-b271-20407e870755"
+            }
+          ]
+        },
+        {
+          "__guid": "2cdef503-6e8d-4258-a0de-01ec99ccd14c",
+          "Flags": 0,
+          "Name": "Chunk 1-6",
+          "Position": "-832,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "fd52e493-0133-4523-b7bc-59b9392bec72"
+            }
+          ]
+        },
+        {
+          "__guid": "178b576a-21b5-4ff7-9187-3d9aa0ed9718",
+          "Flags": 0,
+          "Name": "Chunk 1-7",
+          "Position": "-832,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ccb961e6-72cc-4632-8576-94e41d9d0263"
+            }
+          ]
+        },
+        {
+          "__guid": "359d0cdd-653c-42ee-a9f0-00302dfbcded",
+          "Flags": 0,
+          "Name": "Chunk 1-8",
+          "Position": "-832,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "be2c5b1d-f0e0-41b3-b4e0-17c07c79083a"
+            }
+          ]
+        },
+        {
+          "__guid": "dafb1388-f41c-4329-81ae-801a1085035d",
+          "Flags": 0,
+          "Name": "Chunk 1-9",
+          "Position": "-832,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d3222811-2b1b-4759-a5d3-a91e0b3d3d95"
+            }
+          ]
+        },
+        {
+          "__guid": "249c488e-8bff-4d83-9d3e-636572098eb3",
+          "Flags": 0,
+          "Name": "Chunk 1-10",
+          "Position": "-832,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "4e9c8e89-80c4-401f-810e-5a124372653a"
+            }
+          ]
+        },
+        {
+          "__guid": "3a614a7f-0c12-4c64-95d7-c68e74747c64",
+          "Flags": 0,
+          "Name": "Chunk 2-0",
+          "Position": "-624,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e54cd791-f17b-44d1-9443-25e2d4207e59"
+            }
+          ]
+        },
+        {
+          "__guid": "a6405967-f887-4796-bf65-f7e6924c906a",
+          "Flags": 0,
+          "Name": "Chunk 2-1",
+          "Position": "-624,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "2046fab7-ded4-48bf-9cc9-eacf4bd0b3f9"
+            }
+          ]
+        },
+        {
+          "__guid": "8ad7d866-e3ae-441a-8ff0-00ea1263eac7",
+          "Flags": 0,
+          "Name": "Chunk 2-2",
+          "Position": "-624,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "a5e9378b-6cfe-40e4-bae7-8026d72a0754"
+            }
+          ]
+        },
+        {
+          "__guid": "6902df8c-c20d-41ca-9cfe-67e0f790313b",
+          "Flags": 0,
+          "Name": "Chunk 2-3",
+          "Position": "-624,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c6f45c33-1b6f-4418-b0dc-2c11cb5a1fec"
+            }
+          ]
+        },
+        {
+          "__guid": "d8d15a9e-82e1-4347-a5c7-b969b6f9a966",
+          "Flags": 0,
+          "Name": "Chunk 2-4",
+          "Position": "-624,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b197c0c9-390a-42f3-951b-6a346bff43f3"
+            }
+          ]
+        },
+        {
+          "__guid": "06b2fefe-73b0-48d5-b64a-c190ed7b24d8",
+          "Flags": 0,
+          "Name": "Chunk 2-5",
+          "Position": "-624,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c6d7b22f-5383-4b57-9151-932689de1386"
+            }
+          ]
+        },
+        {
+          "__guid": "785cfac9-96dc-4ae1-96ce-d68c7611c898",
+          "Flags": 0,
+          "Name": "Chunk 2-6",
+          "Position": "-624,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "df8696ee-26b0-40f8-92ac-e941638388d2"
+            }
+          ]
+        },
+        {
+          "__guid": "bfb33811-1996-4bcc-b2c8-02086ce81811",
+          "Flags": 0,
+          "Name": "Chunk 2-7",
+          "Position": "-624,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "df79fe3a-e7a8-4185-8cd7-386d2d111b88"
+            }
+          ]
+        },
+        {
+          "__guid": "819c1fd0-ee8f-4e25-ad97-e5f83f428837",
+          "Flags": 0,
+          "Name": "Chunk 2-8",
+          "Position": "-624,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d5811fba-f531-4259-9951-3f4fa6154c08"
+            }
+          ]
+        },
+        {
+          "__guid": "55ce1e5c-e0cd-453c-b751-8dca5eca2dd9",
+          "Flags": 0,
+          "Name": "Chunk 2-9",
+          "Position": "-624,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "900e1008-1bf1-4955-9f0b-5c5a47d66f21"
+            }
+          ]
+        },
+        {
+          "__guid": "1136fc55-ae8f-4a5c-8ba9-867575e06c1e",
+          "Flags": 0,
+          "Name": "Chunk 2-10",
+          "Position": "-624,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "f1aa5410-2745-4fa3-9dc9-6cca96c92d46"
+            }
+          ]
+        },
+        {
+          "__guid": "8725c12c-a5fe-422d-ac36-e1179a24b882",
+          "Flags": 0,
+          "Name": "Chunk 3-0",
+          "Position": "-416,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "7f0b3ad6-5753-4707-a6aa-60ba3ed9b8dc"
+            }
+          ]
+        },
+        {
+          "__guid": "1629bce8-ce34-4dd6-8d55-7108cdbe9586",
+          "Flags": 0,
+          "Name": "Chunk 3-1",
+          "Position": "-416,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "6fe6f063-f797-491e-b20a-314958afc8b6"
+            }
+          ]
+        },
+        {
+          "__guid": "7d2b5bdf-3f73-4f1c-900a-8272cbdb8bb5",
+          "Flags": 0,
+          "Name": "Chunk 3-2",
+          "Position": "-416,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "dc466766-339c-4cd9-a601-effc504d8554"
+            }
+          ]
+        },
+        {
+          "__guid": "4f573045-efec-4384-8a9f-1aa5fd2c4ac3",
+          "Flags": 0,
+          "Name": "Chunk 3-3",
+          "Position": "-416,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "aa20f903-2b59-4e23-a485-d7865abaef44"
+            }
+          ]
+        },
+        {
+          "__guid": "dfcbbb1f-a1d2-4c8b-8ed5-9078aa28c50e",
+          "Flags": 0,
+          "Name": "Chunk 3-4",
+          "Position": "-416,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "05b323fb-0b54-4175-9729-0aa0a44436fd"
+            }
+          ]
+        },
+        {
+          "__guid": "7e6755ab-6126-4fd9-a542-262aeeea8793",
+          "Flags": 0,
+          "Name": "Chunk 3-5",
+          "Position": "-416,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c842f083-17ae-4f3e-839e-c97d96bf57ed"
+            }
+          ]
+        },
+        {
+          "__guid": "251f0898-3251-4c33-9c74-523308cb3830",
+          "Flags": 0,
+          "Name": "Chunk 3-6",
+          "Position": "-416,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ee494817-d1ef-41d8-94f2-aa8cb8b2505a"
+            }
+          ]
+        },
+        {
+          "__guid": "dbc249ad-0108-4c81-8b87-72935e60ef9c",
+          "Flags": 0,
+          "Name": "Chunk 3-7",
+          "Position": "-416,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "648544d4-86dd-4912-af7c-fee604c76fdb"
+            }
+          ]
+        },
+        {
+          "__guid": "b1b068f2-072e-4816-96eb-5d58492512a7",
+          "Flags": 0,
+          "Name": "Chunk 3-8",
+          "Position": "-416,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b4e27bde-8c85-4f81-b9d1-8a122ad16ff8"
+            }
+          ]
+        },
+        {
+          "__guid": "f5d68c1d-280e-49bd-9c04-e14308e7b8ef",
+          "Flags": 0,
+          "Name": "Chunk 3-9",
+          "Position": "-416,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e3702126-a36d-4e5d-bd85-100dcdb3418d"
+            }
+          ]
+        },
+        {
+          "__guid": "5e2b0ebe-e2b9-4942-8d7a-78800657777b",
+          "Flags": 0,
+          "Name": "Chunk 3-10",
+          "Position": "-416,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "72658c10-28da-4c98-acfb-ce91a93fc4b1"
+            }
+          ]
+        },
+        {
+          "__guid": "dc254ff3-b95e-4b6d-bd32-2fced82aa74b",
+          "Flags": 0,
+          "Name": "Chunk 4-0",
+          "Position": "-208,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "48f84f9d-f697-43e0-9abf-4b246acffdad"
+            }
+          ]
+        },
+        {
+          "__guid": "f6908dad-1c65-425f-8795-3b15171b5c37",
+          "Flags": 0,
+          "Name": "Chunk 4-1",
+          "Position": "-208,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b35e72d3-ab7a-4d33-9a8a-4213f08018f0"
+            }
+          ]
+        },
+        {
+          "__guid": "a426649b-9f24-401a-a473-9ecc2b933812",
+          "Flags": 0,
+          "Name": "Chunk 4-2",
+          "Position": "-208,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "0221ca56-bd59-4223-a98b-eadc34929859"
+            }
+          ]
+        },
+        {
+          "__guid": "5ff4b696-8a88-4cb8-9e63-f333b70b83a6",
+          "Flags": 0,
+          "Name": "Chunk 4-3",
+          "Position": "-208,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ac4eab61-8c32-4e16-b420-279816546e64"
+            }
+          ]
+        },
+        {
+          "__guid": "198752ad-c5a6-4edc-aa2e-2cd11f6a6418",
+          "Flags": 0,
+          "Name": "Chunk 4-4",
+          "Position": "-208,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e54a7bfb-7844-406f-ab39-faf28ae597dc"
+            }
+          ]
+        },
+        {
+          "__guid": "a297d077-8710-4e33-b334-4d3f756c466b",
+          "Flags": 0,
+          "Name": "Chunk 4-5",
+          "Position": "-208,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "f38368bd-07b2-421e-a7e2-ffaa6a3a3869"
+            }
+          ]
+        },
+        {
+          "__guid": "2d51c55a-3b32-4b32-8456-b978134499b7",
+          "Flags": 0,
+          "Name": "Chunk 4-6",
+          "Position": "-208,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "23dc92fb-f799-4972-a74c-ddd820f9a114"
+            }
+          ]
+        },
+        {
+          "__guid": "101ec448-385f-4103-852a-1c06ba148fc0",
+          "Flags": 0,
+          "Name": "Chunk 4-7",
+          "Position": "-208,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "84bb97d3-7911-47e9-a572-58f6b7471c2e"
+            }
+          ]
+        },
+        {
+          "__guid": "248b30ff-4d32-49a2-930f-4bcac874307f",
+          "Flags": 0,
+          "Name": "Chunk 4-8",
+          "Position": "-208,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "37704d12-003f-4cfa-950d-9f404ffa573e"
+            }
+          ]
+        },
+        {
+          "__guid": "97a8470e-6a4f-4475-ab0b-1b3080a54791",
+          "Flags": 0,
+          "Name": "Chunk 4-9",
+          "Position": "-208,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "95313b02-4090-47e3-be82-3f415fd62fbc"
+            }
+          ]
+        },
+        {
+          "__guid": "b143423b-0610-43be-90e0-64cd2a344afc",
+          "Flags": 0,
+          "Name": "Chunk 4-10",
+          "Position": "-208,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c2c045d1-52de-4645-985a-5f86c7426043"
+            }
+          ]
+        },
+        {
+          "__guid": "13f442e3-fd45-4991-a599-79907eeb4c1b",
+          "Flags": 0,
+          "Name": "Chunk 5-0",
+          "Position": "0,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "36f4708f-c837-487d-acb1-6065991dcb41"
+            }
+          ]
+        },
+        {
+          "__guid": "5379929b-48e3-4c35-a721-6639d793cb3d",
+          "Flags": 0,
+          "Name": "Chunk 5-1",
+          "Position": "0,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b67bbb4c-3dc0-47c9-9850-0affd204b636"
+            }
+          ]
+        },
+        {
+          "__guid": "97aede5e-feb7-4ed4-94d6-72321ff3e719",
+          "Flags": 0,
+          "Name": "Chunk 5-2",
+          "Position": "0,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "a77f2070-88de-47ec-a95c-7808edf59a18"
+            }
+          ]
+        },
+        {
+          "__guid": "84638f58-46c4-46dc-b951-a16d3e6fe80e",
+          "Flags": 0,
+          "Name": "Chunk 5-3",
+          "Position": "0,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "580c2c73-f89c-43c8-974a-097c61017cea"
+            }
+          ]
+        },
+        {
+          "__guid": "8f3a974d-dfca-4020-a9b1-a7f677f7884c",
+          "Flags": 0,
+          "Name": "Chunk 5-4",
+          "Position": "0,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "bd6a0842-f18d-4476-970e-c43dcacdc7ef"
+            }
+          ]
+        },
+        {
+          "__guid": "67f1cc0a-0c53-488b-8562-b938963ce287",
+          "Flags": 0,
+          "Name": "Chunk 5-5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b55f85bc-6489-4167-9838-ac58303fe22e"
+            }
+          ]
+        },
+        {
+          "__guid": "96cda35e-7dd3-4d56-83a1-b197aab3e693",
+          "Flags": 0,
+          "Name": "Chunk 5-6",
+          "Position": "0,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "4af86eba-a980-4910-bdd9-019fd2b1b739"
+            }
+          ]
+        },
+        {
+          "__guid": "7e06d517-7b6a-49f4-acf6-ca509b129b85",
+          "Flags": 0,
+          "Name": "Chunk 5-7",
+          "Position": "0,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "cde5595f-fbef-4ea8-9ecc-59066b08743a"
+            }
+          ]
+        },
+        {
+          "__guid": "e36b94ab-30e6-4c1a-a6ad-6bba63b6ff94",
+          "Flags": 0,
+          "Name": "Chunk 5-8",
+          "Position": "0,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "3f7dd3b3-2d6f-4b9b-83f4-a920d09790cb"
+            }
+          ]
+        },
+        {
+          "__guid": "176f65c3-fd71-4fed-be90-ce255713c6c3",
+          "Flags": 0,
+          "Name": "Chunk 5-9",
+          "Position": "0,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "6c72756a-b88b-4227-8007-a4c5ba1c5014"
+            }
+          ]
+        },
+        {
+          "__guid": "8a425cbe-6b1b-4c33-8ac9-946794c56bc1",
+          "Flags": 0,
+          "Name": "Chunk 5-10",
+          "Position": "0,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "3093d72c-25a5-4664-a04b-b4b23ef136aa"
+            }
+          ]
+        },
+        {
+          "__guid": "9c685985-1609-4f95-916f-dfa2677c60e4",
+          "Flags": 0,
+          "Name": "Chunk 6-0",
+          "Position": "208,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "5e3fed82-0a9b-4e6b-8330-a98f8ebcc2ef"
+            }
+          ]
+        },
+        {
+          "__guid": "abea0022-2021-471b-8e3f-c7a00b87859a",
+          "Flags": 0,
+          "Name": "Chunk 6-1",
+          "Position": "208,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "68b2d2d2-ae04-4f8d-a1eb-8a1ffebbb390"
+            }
+          ]
+        },
+        {
+          "__guid": "f0360ac4-74d6-4856-8350-0cac87e3afdc",
+          "Flags": 0,
+          "Name": "Chunk 6-2",
+          "Position": "208,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "77835034-43e8-425f-9967-95f94d599442"
+            }
+          ]
+        },
+        {
+          "__guid": "21b5b6a5-4626-458c-a602-a392200f2c63",
+          "Flags": 0,
+          "Name": "Chunk 6-3",
+          "Position": "208,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "1dee365a-4242-4035-bea3-9c65764371cb"
+            }
+          ]
+        },
+        {
+          "__guid": "eb111c12-35c0-4beb-b9cd-c6aab83e707d",
+          "Flags": 0,
+          "Name": "Chunk 6-4",
+          "Position": "208,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "75af47fe-e8b8-47e1-b7d6-f9a0bc1e6c03"
+            }
+          ]
+        },
+        {
+          "__guid": "7e1058fe-d9d8-430b-a850-95607a7fa6ac",
+          "Flags": 0,
+          "Name": "Chunk 6-5",
+          "Position": "208,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e8123377-86f0-4660-9403-7ab31c18ea17"
+            }
+          ]
+        },
+        {
+          "__guid": "43b7db92-65c5-40d7-a9b0-793717d3ef9b",
+          "Flags": 0,
+          "Name": "Chunk 6-6",
+          "Position": "208,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ac03eee1-5814-48bd-8387-54468a0283af"
+            }
+          ]
+        },
+        {
+          "__guid": "9767fc68-cf19-46fb-bf81-9b59d2e7eaeb",
+          "Flags": 0,
+          "Name": "Chunk 6-7",
+          "Position": "208,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "ae9b2908-d093-4611-8a4c-b9e282bee7e4"
+            }
+          ]
+        },
+        {
+          "__guid": "7d330af6-421b-4810-97b3-ab6ed6fe5007",
+          "Flags": 0,
+          "Name": "Chunk 6-8",
+          "Position": "208,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "2ccfa2cd-3208-461d-bb9e-6ac8fef1f2cb"
+            }
+          ]
+        },
+        {
+          "__guid": "056fa809-8936-4da2-abe9-a24c18bb358f",
+          "Flags": 0,
+          "Name": "Chunk 6-9",
+          "Position": "208,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "641c00c9-da2f-4802-b76b-3deac68765ae"
+            }
+          ]
+        },
+        {
+          "__guid": "991a42c9-5089-4424-832b-3335f3fbf327",
+          "Flags": 0,
+          "Name": "Chunk 6-10",
+          "Position": "208,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d697edb6-8680-486e-a138-335c6c236b4c"
+            }
+          ]
+        },
+        {
+          "__guid": "747f9673-db49-46e0-99b5-fbbe15b89b63",
+          "Flags": 0,
+          "Name": "Chunk 7-0",
+          "Position": "416,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "37fa1d34-a1d5-4c7d-a798-ee31a53444b3"
+            }
+          ]
+        },
+        {
+          "__guid": "8d859592-a2bd-42e6-9176-6f2da9af1f9e",
+          "Flags": 0,
+          "Name": "Chunk 7-1",
+          "Position": "416,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "47c37e52-c268-4774-8f00-60202877ba31"
+            }
+          ]
+        },
+        {
+          "__guid": "64d3a662-83d7-4605-a6a0-e893989980ab",
+          "Flags": 0,
+          "Name": "Chunk 7-2",
+          "Position": "416,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "5c57ee42-1f1b-4ffc-8b72-71bac768c922"
+            }
+          ]
+        },
+        {
+          "__guid": "bcbb68ca-11e1-4cc4-8d74-01cf57f906ac",
+          "Flags": 0,
+          "Name": "Chunk 7-3",
+          "Position": "416,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "f89a3d0f-be62-478c-99f9-4fbbf06e5e15"
+            }
+          ]
+        },
+        {
+          "__guid": "26557d2b-ca0a-43eb-a73e-3abafa7a8e28",
+          "Flags": 0,
+          "Name": "Chunk 7-4",
+          "Position": "416,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "fed9d7d3-3fbf-4245-b312-7bdc3226f709"
+            }
+          ]
+        },
+        {
+          "__guid": "2f3e33db-eb0e-4b73-b82e-86f8d49a54e3",
+          "Flags": 0,
+          "Name": "Chunk 7-5",
+          "Position": "416,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "a62a75a3-3754-43e5-9a74-ef6457e581f9"
+            }
+          ]
+        },
+        {
+          "__guid": "d8f71a06-e2c9-4cf6-b827-e034d5063758",
+          "Flags": 0,
+          "Name": "Chunk 7-6",
+          "Position": "416,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "9fcef56c-1461-4910-b035-a0687492ddae"
+            }
+          ]
+        },
+        {
+          "__guid": "1c56339c-8b16-4d5e-b767-96d20343b056",
+          "Flags": 0,
+          "Name": "Chunk 7-7",
+          "Position": "416,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "814d074d-dfe8-4a65-baec-3dda68e0961d"
+            }
+          ]
+        },
+        {
+          "__guid": "5cdf02d8-badb-4bae-be26-15e37327f130",
+          "Flags": 0,
+          "Name": "Chunk 7-8",
+          "Position": "416,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "b9a2e9b2-24d3-491f-ae1a-ce1d9a44b546"
+            }
+          ]
+        },
+        {
+          "__guid": "fe839fec-7078-40c5-a41f-d55d0d1e9a9d",
+          "Flags": 0,
+          "Name": "Chunk 7-9",
+          "Position": "416,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "40777844-2c51-4a64-bc2f-8e8bff2b3f01"
+            }
+          ]
+        },
+        {
+          "__guid": "77917cf8-1660-4bf7-a0d6-8dd19dba3043",
+          "Flags": 0,
+          "Name": "Chunk 7-10",
+          "Position": "416,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "74ffcbd3-e2db-486d-823c-9be7da5f3814"
+            }
+          ]
+        },
+        {
+          "__guid": "1276289d-dd83-47f4-87e4-60587a322a76",
+          "Flags": 0,
+          "Name": "Chunk 8-0",
+          "Position": "624,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c5ffcc82-e523-43c0-8b37-55257f434d54"
+            }
+          ]
+        },
+        {
+          "__guid": "3fa4903d-2342-4573-9288-e7e15b9238fe",
+          "Flags": 0,
+          "Name": "Chunk 8-1",
+          "Position": "624,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "4ba0fd15-3435-48fa-8a35-82d77a37fe67"
+            }
+          ]
+        },
+        {
+          "__guid": "40bb0349-3974-4098-a62c-fd73d15e8ce5",
+          "Flags": 0,
+          "Name": "Chunk 8-2",
+          "Position": "624,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "bfe61bc7-3c21-4399-a3cc-50b943a6ba6e"
+            }
+          ]
+        },
+        {
+          "__guid": "b6da39f9-ee39-48bd-9600-64a810793ac8",
+          "Flags": 0,
+          "Name": "Chunk 8-3",
+          "Position": "624,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "4771d9e0-7c69-4992-8b3b-3e2fc6bc3de7"
+            }
+          ]
+        },
+        {
+          "__guid": "f9b41c5e-f0ea-47cc-9607-b298bf1979e7",
+          "Flags": 0,
+          "Name": "Chunk 8-4",
+          "Position": "624,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e96a4de5-db4d-40d8-becd-1c45925684f7"
+            }
+          ]
+        },
+        {
+          "__guid": "fe8e54aa-db30-4d31-b3cb-770db71b8141",
+          "Flags": 0,
+          "Name": "Chunk 8-5",
+          "Position": "624,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "df87eaf2-283f-491b-ac08-afeb057e66a9"
+            }
+          ]
+        },
+        {
+          "__guid": "4e26737a-aaf7-4488-9bcd-4dd03fff1f61",
+          "Flags": 0,
+          "Name": "Chunk 8-6",
+          "Position": "624,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "a04b42a6-eabf-4285-af7b-8b1767847d02"
+            }
+          ]
+        },
+        {
+          "__guid": "98318c1b-86b0-4853-9f9d-086d24466e54",
+          "Flags": 0,
+          "Name": "Chunk 8-7",
+          "Position": "624,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "52a41dfb-d667-41fa-b3e5-27f11618b4b4"
+            }
+          ]
+        },
+        {
+          "__guid": "be3c007d-d7b2-46b3-ab91-7f27571db2b7",
+          "Flags": 0,
+          "Name": "Chunk 8-8",
+          "Position": "624,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "22d53a13-1a18-4222-b30d-91015ed1f863"
+            }
+          ]
+        },
+        {
+          "__guid": "8216af79-a2dd-45d8-a0b0-3925b63e0db4",
+          "Flags": 0,
+          "Name": "Chunk 8-9",
+          "Position": "624,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "0addb47f-f583-4b47-b8b1-7d1f221230a9"
+            }
+          ]
+        },
+        {
+          "__guid": "f024885a-8a0d-4b70-bfc7-5b71c9ff98cd",
+          "Flags": 0,
+          "Name": "Chunk 8-10",
+          "Position": "624,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c88d1de6-d26f-45b0-a4a8-30610bd24773"
+            }
+          ]
+        },
+        {
+          "__guid": "90064f19-96d2-4642-9c6d-4470781bb696",
+          "Flags": 0,
+          "Name": "Chunk 9-0",
+          "Position": "832,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "9d7d26ca-b82a-44f8-a91b-ba6567ef952c"
+            }
+          ]
+        },
+        {
+          "__guid": "b094ca58-6410-4cac-8f5d-a9b0ea5df313",
+          "Flags": 0,
+          "Name": "Chunk 9-1",
+          "Position": "832,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c09dbd09-102a-4f2d-a936-cea23ef68a54"
+            }
+          ]
+        },
+        {
+          "__guid": "8d58b57f-9425-44c6-9708-bb1213505b98",
+          "Flags": 0,
+          "Name": "Chunk 9-2",
+          "Position": "832,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "27434680-530f-459e-8c83-a38fcce77ae0"
+            }
+          ]
+        },
+        {
+          "__guid": "a566631b-12f3-4a43-8528-05dd521ad7da",
+          "Flags": 0,
+          "Name": "Chunk 9-3",
+          "Position": "832,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "3151f062-86e7-40bd-a69b-01364ebe6841"
+            }
+          ]
+        },
+        {
+          "__guid": "a3955719-fba3-4bac-a395-c208ddd960d4",
+          "Flags": 0,
+          "Name": "Chunk 9-4",
+          "Position": "832,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "7fff5f58-347c-42ef-a380-3c4dffd6d6f5"
+            }
+          ]
+        },
+        {
+          "__guid": "6cbd101c-a79a-476d-b685-ac651bad651d",
+          "Flags": 0,
+          "Name": "Chunk 9-5",
+          "Position": "832,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "7123faf0-3313-4894-9933-fd3f0f1060c2"
+            }
+          ]
+        },
+        {
+          "__guid": "0752e7b9-34ff-4269-bf4d-9e68e3854383",
+          "Flags": 0,
+          "Name": "Chunk 9-6",
+          "Position": "832,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "cba1add0-7e7e-4b71-aa10-c23660365b93"
+            }
+          ]
+        },
+        {
+          "__guid": "877d69df-2e86-4a9a-8aa2-c37c70522c98",
+          "Flags": 0,
+          "Name": "Chunk 9-7",
+          "Position": "832,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "f0018f92-57bf-4fe4-b347-b060cbe2ee76"
+            }
+          ]
+        },
+        {
+          "__guid": "d2a95209-943c-47fc-8b5f-e8ec0edca361",
+          "Flags": 0,
+          "Name": "Chunk 9-8",
+          "Position": "832,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "17bd4d78-bc16-4981-955e-fa01651d409f"
+            }
+          ]
+        },
+        {
+          "__guid": "b3c9f115-fc5d-41d1-8833-9671dfe48c64",
+          "Flags": 0,
+          "Name": "Chunk 9-9",
+          "Position": "832,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "00415075-edc4-494a-9360-74bccc453e51"
+            }
+          ]
+        },
+        {
+          "__guid": "c1136f5c-716f-45dd-8814-c7d15d4bab75",
+          "Flags": 0,
+          "Name": "Chunk 9-10",
+          "Position": "832,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "915a3ddb-a0db-4b4f-bded-7c48a751ef20"
+            }
+          ]
+        },
+        {
+          "__guid": "e9682365-9247-44c0-b6dd-688101f04610",
+          "Flags": 0,
+          "Name": "Chunk 10-0",
+          "Position": "1040,-1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "c50f0209-d813-4510-963f-596661aa2ac1"
+            }
+          ]
+        },
+        {
+          "__guid": "31dc5172-274d-4529-a781-c3c89387bdb6",
+          "Flags": 0,
+          "Name": "Chunk 10-1",
+          "Position": "1040,-832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "939c9bf4-ec0f-4235-a8b0-d30c0411f3ee"
+            }
+          ]
+        },
+        {
+          "__guid": "3a3eebd9-7a94-4d88-b395-5951ff4fec87",
+          "Flags": 0,
+          "Name": "Chunk 10-2",
+          "Position": "1040,-624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "105e59b0-5d7a-40a6-9659-1c0a1571341b"
+            }
+          ]
+        },
+        {
+          "__guid": "a0e8274c-64d0-4ac5-892b-35f451d8bcb5",
+          "Flags": 0,
+          "Name": "Chunk 10-3",
+          "Position": "1040,-416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "71405455-5833-48f4-b375-7ff1e3621e5d"
+            }
+          ]
+        },
+        {
+          "__guid": "062225b4-e49f-4571-b697-826a28b5a4c5",
+          "Flags": 0,
+          "Name": "Chunk 10-4",
+          "Position": "1040,-208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "073798b7-960c-45c0-85d4-96f8ed9cee84"
+            }
+          ]
+        },
+        {
+          "__guid": "db510531-5c9b-43f1-a58c-762d4472ff34",
+          "Flags": 0,
+          "Name": "Chunk 10-5",
+          "Position": "1040,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "e5e7854a-13fc-41ec-bab0-6bc684aaf270"
+            }
+          ]
+        },
+        {
+          "__guid": "e8bd297d-25e2-45b1-ae74-dec4fe940f6a",
+          "Flags": 0,
+          "Name": "Chunk 10-6",
+          "Position": "1040,208,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "de4b0db3-8149-45d9-a705-d0454d57f974"
+            }
+          ]
+        },
+        {
+          "__guid": "7639f14f-4c5a-46cf-a638-dbbfa451a600",
+          "Flags": 0,
+          "Name": "Chunk 10-7",
+          "Position": "1040,416,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "7e59b824-b31e-49a5-8cd2-c762e71f846a"
+            }
+          ]
+        },
+        {
+          "__guid": "194c968e-9844-4b20-8e02-e29704a1b413",
+          "Flags": 0,
+          "Name": "Chunk 10-8",
+          "Position": "1040,624,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "dc6e27d0-a992-44f6-9e36-36d855e22f83"
+            }
+          ]
+        },
+        {
+          "__guid": "58f7ca40-9ce1-4b86-abc3-caaffadf6191",
+          "Flags": 0,
+          "Name": "Chunk 10-9",
+          "Position": "1040,832,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "32e4d4d6-a6e2-4a76-9ec2-dc7187a77fee"
+            }
+          ]
+        },
+        {
+          "__guid": "f8bd552b-e75a-482b-8fc1-352314008b90",
+          "Flags": 0,
+          "Name": "Chunk 10-10",
+          "Position": "1040,1040,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ChunkSaver",
+              "__guid": "d7ea31e0-a0bf-4ffb-820a-e0789271569b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "e85f44d0-efda-438d-ac0e-c6bb72a2e119",
+      "Flags": 0,
+      "Name": "Map",
+      "Tags": "world",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "ac5e4ef5-26a1-4c39-8558-f7585218b39d",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "maps/sewertunnelmodelmap.vmap",
+          "NoOrigin": false,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "b442df2a-6b07-4e9e-8576-167425f4b7ab",
+      "Flags": 0,
+      "Name": "Player",
+      "Position": "0,10.50471,17.1502",
+      "Tags": "player",
+      "Enabled": true,
+      "__Prefab": "prefabs/player.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "2bff567f-4339-4618-a8fe-0d6d27ed695e",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "93.4483,-421.5271,281.6896",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "6e8e6fd1-8f9c-45e6-81ac-a4e247d183cb",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "0,0,0,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3b1e8240-2a4d-48cc-a6b5-24592d0b25fa",
+      "Flags": 0,
+      "Name": "revolver",
+      "Position": "29.90956,2.562515,9.400002",
+      "Tags": "item",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/weapon/revolver.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "e24374a0-e716-4476-8e29-87d0b2fcc0e4",
+      "Flags": 0,
+      "Name": "waterl1",
+      "Position": "-160,-288,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "106dd4d5-1b0d-42f0-bf07-d475806bdee7",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/water/water.vmat",
+          "Model": "models/waterl1.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "trollface.Water",
+          "__guid": "40360d5f-e868-48cd-a6a6-525dbf0a879b",
+          "folder": "materials/water/textures",
+          "FPS": 24,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "__guid": "eedb28d9-7b2d-48a1-ad9e-ac7b5f9db2e8",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-210.6651,119.1503,69.09447",
+      "Enabled": true
+    },
+    {
+      "__guid": "6c619c70-2720-42f8-9532-b12c2ebf1d34",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-210.6651,119.1503,69.09447",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundscapeTrigger",
+          "__guid": "8da6b79f-bd57-4587-9417-e3bd145f5f4f",
+          "BoxSize": "50,50,50",
+          "Radius": 500,
+          "StayActiveOnExit": true,
+          "Type": "Point"
+        }
+      ]
+    },
+    {
+      "__guid": "4679f44a-4573-4b92-ab13-0d5bd8b0d089",
+      "Flags": 0,
+      "Name": "screamer",
+      "Position": "161.3086,946.0953,8.000034",
+      "Tags": "relations,enemy",
+      "__Prefab": "prefabs/enemies/screamer.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "4c353590-3c15-4c43-af9b-d7b3eef51c91",
+      "Flags": 0,
+      "Name": "dog",
+      "Position": "92.26682,939.2905,3.000033",
+      "Rotation": "0,0,0.9999999,0",
+      "Tags": "relations",
+      "Enabled": true,
+      "__Prefab": "prefabs/enemies/dog.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "537cf149-71e0-44a4-86c7-30775b4d209e",
+      "Flags": 0,
+      "Name": "GameObject",
+      "Enabled": true
+    },
+    {
+      "__guid": "078cdd88-2e78-41dd-bbf8-50f8921eaab9",
+      "Flags": 0,
+      "Name": "sewer door",
+      "Position": "135.9845,-688.8672,1.124856",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "67c43932-6c0f-4411-9c04-b3e3664f9a59",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/sewer door frame.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "6b04b7d3-d28b-4f13-bdf2-5ca85ce992e7",
+          "IsTrigger": false,
+          "Model": "models/sewer door frame.vmdl",
+          "Static": true
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "ff37fd6f-9866-4b32-acb9-9a18557a9056",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "a6d762af-b142-48dd-8685-c9f078fd559a",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/sewer door.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "fcc8e590-068f-4cee-88dd-5531e6600a72",
+              "IsTrigger": false,
+              "Model": "models/sewer door.vmdl",
+              "Static": false
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "b701193d-e3a8-48c1-a4ba-c0b771effaf9",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "a78aaa9d-b169-4ccd-9bdf-6a555be25c61",
+              "Flags": 0,
+              "Name": "GrabPoint1",
+              "Position": "21.78034,0.3312435,44.56272",
+              "Rotation": "0,0.7071068,0,0.7071068",
+              "Tags": "grabpoint",
+              "Enabled": true,
+              "Children": [
+                {
+                  "__guid": "ba7dd8c6-7612-4cf3-a6e9-a33d5ceadba2",
+                  "Flags": 0,
+                  "Name": "wrist_left (1)",
+                  "Position": "0,0,0",
+                  "Rotation": "0.5,-0.5,-0.5,0.5",
+                  "Tags": "left",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "trollface.HandPos",
+                      "__guid": "b24ab1cf-20a6-4ad9-b95b-1c42ce0acab0",
+                      "wristObject": {
+                        "_type": "gameobject",
+                        "go": "aabcc787-59e9-4e31-90e9-809411956a93"
+                      },
+                      "AngularSpring": "100,10",
+                      "Connect": true,
+                      "gotLocTrans": false,
+                      "locPos": "0,0,0",
+                      "locRot": "0,0,0,0",
+                      "Main": true,
+                      "MirrorPosModifiers": "-1,1,1",
+                      "MirrorRotModifiers": "-1,-1,1",
+                      "MirrorToOtherHand": false,
+                      "OtherHand": {
+                        "_type": "component",
+                        "component_id": "80a748c0-2e53-4fc8-90d3-b82138c46480",
+                        "go": "35b392fb-fbd2-4a83-8d3d-f21f69091ef4",
+                        "component_type": "HandPos"
+                      },
+                      "ParentTo": false,
+                      "PositionSpring": "100,10",
+                      "Rigidbody": {
+                        "_type": "component",
+                        "component_id": "b701193d-e3a8-48c1-a4ba-c0b771effaf9",
+                        "go": "ff37fd6f-9866-4b32-acb9-9a18557a9056",
+                        "component_type": "Rigidbody"
+                      },
+                      "ShowWithoutMain": true
+                    },
+                    {
+                      "__type": "Sandbox.SphereCollider",
+                      "__guid": "3f09bec4-e2df-4d13-92af-471b7d803095",
+                      "Center": "-2.4,0,-1.400001",
+                      "IsTrigger": false,
+                      "Radius": 0.5,
+                      "Static": false
+                    },
+                    {
+                      "__type": "Sandbox.Rigidbody",
+                      "__guid": "c4c7def5-0efd-4db9-b6de-e056c8e0faaa",
+                      "AngularDamping": 0,
+                      "Gravity": true,
+                      "LinearDamping": 0,
+                      "Locking": {},
+                      "MassCenterOverride": "0,0,0",
+                      "MassOverride": 0,
+                      "MotionEnabled": false,
+                      "OverrideMassCenter": false,
+                      "RigidbodyFlags": 0,
+                      "StartAsleep": false
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "__guid": "5407e03a-20b2-4ed5-90d8-89fe70e6a258",
+                      "Flags": 0,
+                      "Name": "Left",
+                      "Position": "-19.33862,-8.007805,6.683767",
+                      "Rotation": "-0.007491685,-0.1070292,-0.1155282,-0.9874928",
+                      "Enabled": true,
+                      "Components": [
+                        {
+                          "__type": "Sandbox.SkinnedModelRenderer",
+                          "__guid": "a9837562-8a1a-46c4-9cad-38295e66c1a5",
+                          "__enabled": false,
+                          "BodyGroups": 18446744073709551615,
+                          "CreateBoneObjects": true,
+                          "Model": "models/player/arml.vmdl",
+                          "RenderType": "Off",
+                          "Tint": "1,1,1,1",
+                          "UseAnimGraph": true
+                        }
+                      ],
+                      "Children": [
+                        {
+                          "__guid": "abc72105-1bf5-47f8-a05e-efe215756a15",
+                          "Flags": 4,
+                          "Name": "Upper_Arm_Left",
+                          "Position": "-0.02570811,5.570603,-0.01843596",
+                          "Rotation": "-0.4524401,-0.3001596,-0.4100825,0.7328265",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "__guid": "ebeb930c-99d1-4a6b-a906-9d07b1422f4c",
+                              "Flags": 4,
+                              "Name": "Forarm_Left",
+                              "Position": "0.000005125999,10.21635,0.000004768372",
+                              "Rotation": "0.1734614,0.8106258,-0.2606761,0.4948182",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "__guid": "86261749-a2d5-462f-b4f1-bde983d1401a",
+                                  "Flags": 4,
+                                  "Name": "Twist_Left",
+                                  "Position": "-0.00001549721,5.894411,-0.000005722046",
+                                  "Rotation": "-0.0000003874303,-0.000001593493,0.000000294298,1",
+                                  "Enabled": true
+                                },
+                                {
+                                  "__guid": "aabcc787-59e9-4e31-90e9-809411956a93",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Left",
+                                  "Position": "-0.00001525879,9.341525,-0.000008583069",
+                                  "Rotation": "-0.0000003725287,-0.000001341103,0.0000000894069,1",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "__guid": "8262ffb7-e0e7-46ed-970c-39cafd3added",
+                                      "Flags": 1028,
+                                      "Name": "Hand_Left",
+                                      "Position": "0.5210304,1.228937,1.621694",
+                                      "Rotation": "0.4182324,-0.006346162,0.8815353,-0.218945",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "__guid": "697698a0-fea7-4e47-8e64-a65ec504a9c7",
+                                          "Flags": 1028,
+                                          "Name": "Index_Root_Left",
+                                          "Position": "0.8991747,-0.7379379,-0.1610737",
+                                          "Rotation": "-0.6217852,-0.09982204,0.7724509,-0.08208695",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "9a7caad5-9403-4c8a-b1f9-01f38daa7b90",
+                                              "Flags": 1028,
+                                              "Name": "Index_Start_Left",
+                                              "Position": "-0.00001001358,2.90877,0.00001478195",
+                                              "Rotation": "0.2077796,0.0006871298,0.4847225,0.8496302",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "e4ba25bd-fdbe-44a9-a7e2-d507dad860fb",
+                                                  "Flags": 1028,
+                                                  "Name": "Index_Middle_Left",
+                                                  "Position": "-0.00001621246,1.562124,0.000007867813",
+                                                  "Rotation": "0.1791128,-0.1187954,0.6927451,0.6884116",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "7b96f159-eb3d-48f8-87e0-8641f49f65d2",
+                                                      "Flags": 1028,
+                                                      "Name": "Index_End_Left",
+                                                      "Position": "-0.00001525879,1.218348,0.00000834465",
+                                                      "Rotation": "0.3337629,0.05144945,0.5187676,0.7853894",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "2b1618f0-a75c-4909-97ef-7329376312d2",
+                                          "Flags": 1028,
+                                          "Name": "Thumb_Root_Left",
+                                          "Position": "1.402056,-0.5835953,-0.3068705",
+                                          "Rotation": "0.6703382,0.3380193,0.658675,0.05036942",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "b1370a76-7bd3-4352-8bdf-3d3ae77e1305",
+                                              "Flags": 1028,
+                                              "Name": "Thumb_Start_Left",
+                                              "Position": "-0.000003814697,1.612969,0.000005722046",
+                                              "Rotation": "-0.07452105,0.4097762,-0.0473321,0.9079049",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "0a6018c1-a7f8-4dc3-8627-ace81c7007d5",
+                                                  "Flags": 1028,
+                                                  "Name": "Thumb_End_Left",
+                                                  "Position": "-0.00006484985,2.123493,-0.00002098083",
+                                                  "Rotation": "-0.6885191,0.057268,-0.08231224,0.7182522",
+                                                  "Enabled": true
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "5a33fb8f-9086-4b47-95b0-c02a2cde9578",
+                                          "Flags": 1028,
+                                          "Name": "Ring_Root_Left",
+                                          "Position": "-0.04438877,-0.8050766,0.03713751",
+                                          "Rotation": "0.7912638,-0.01822764,0.6080291,0.0622108",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "3bcf0137-c6de-4d28-a92e-2e9dcb791b8e",
+                                              "Flags": 1028,
+                                              "Name": "Ring_Start_Left",
+                                              "Position": "-0.00005197525,3.164614,0.000008821487",
+                                              "Rotation": "0.1330098,0.0175814,-0.7098486,0.6914577",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "101df507-1241-44f8-9dd7-24924c62078a",
+                                                  "Flags": 1028,
+                                                  "Name": "Ring_Middle_Left",
+                                                  "Position": "-0.00008869171,1.104042,0.000005722046",
+                                                  "Rotation": "-0.05736189,0.04320541,-0.3561172,0.9316776",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "c5ef928e-5519-42f6-a5c5-605638526fa3",
+                                                      "Flags": 1028,
+                                                      "Name": "Ring_End_Left",
+                                                      "Position": "-0.00006103516,1.088041,0.000007629395",
+                                                      "Rotation": "0.235684,-0.1497139,-0.6875944,0.6702628",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "ed40590e-44f5-47ac-a328-0673e734bcf0",
+                                          "Flags": 1028,
+                                          "Name": "Middle_Root_Left",
+                                          "Position": "0.3720717,-1.080353,-0.09301853",
+                                          "Rotation": "0.7868592,0.01603413,0.6164494,-0.02420223",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "02d29bc0-ef58-4b2a-8d36-582a867413d8",
+                                              "Flags": 1028,
+                                              "Name": "Middle_Start_Left",
+                                              "Position": "-0.00005626678,2.826473,0.000003814697",
+                                              "Rotation": "-0.01955625,0.02529485,-0.565459,0.8241562",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "549dd9e8-bb5e-4172-8e8d-d7c51ee7f901",
+                                                  "Flags": 1028,
+                                                  "Name": "Middle_Middle_Left",
+                                                  "Position": "-0.00009059906,1.359255,0.000005245209",
+                                                  "Rotation": "-0.01648954,-0.02297631,-0.6039912,0.796489",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "36ec467f-870e-4b11-9375-85cfb3d349e0",
+                                                      "Flags": 1028,
+                                                      "Name": "Middle_End_Left",
+                                                      "Position": "0.00008392334,1.442549,-0.00000667572",
+                                                      "Rotation": "0.03366515,0.01597515,-0.6311965,0.7747273",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "87e56daa-9f92-439c-a804-19f069b92272",
+                                          "Flags": 1028,
+                                          "Name": "Pinky_Root_Left",
+                                          "Position": "-0.7397218,-0.6015015,0.2309785",
+                                          "Rotation": "0.7934439,-0.01579688,0.6058896,0.05563077",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "3edaf127-4511-4ba0-8892-369e548db47c",
+                                              "Flags": 1028,
+                                              "Name": "Pinky_Start_Left",
+                                              "Position": "-0.0000500679,3.321579,0.000008106232",
+                                              "Rotation": "0.1778771,0.09047952,-0.7299553,0.6537119",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "b7863423-346f-4730-b9a5-bed232fbd4a9",
+                                                  "Flags": 1028,
+                                                  "Name": "Pinky_Middle_Left",
+                                                  "Position": "-0.00003051758,0.7748795,0.00000333786",
+                                                  "Rotation": "0.1064085,0.07790498,-0.160314,0.9782168",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "c85f7e1b-9c74-4e27-a1ca-06d4567d757d",
+                                                      "Flags": 1028,
+                                                      "Name": "Pinky_End_Left",
+                                                      "Position": "-0.00002861023,0.4951982,0.000008583069",
+                                                      "Rotation": "0.1914213,-0.04548026,-0.2056181,0.9586505",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "__guid": "cf47f82c-9378-4e51-8176-ef66e8ca4afd",
+                          "Flags": 4,
+                          "Name": "Wrist_Right",
+                          "Position": "18.03965,-6.286614,-4.28632",
+                          "Rotation": "-0.2564483,-0.3139085,-0.5775144,0.7086415",
+                          "Enabled": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "__guid": "35b392fb-fbd2-4a83-8d3d-f21f69091ef4",
+                  "Flags": 0,
+                  "Name": "wrist_right (1)",
+                  "Position": "0,0,0",
+                  "Rotation": "0.5,-0.5,-0.5,0.5",
+                  "Tags": "right",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.SphereCollider",
+                      "__guid": "594f6ede-0e65-45cc-874b-2b06df552f8c",
+                      "Center": "-2.4,0,-1.400001",
+                      "IsTrigger": false,
+                      "Radius": 0.5,
+                      "Static": false
+                    },
+                    {
+                      "__type": "trollface.HandPos",
+                      "__guid": "80a748c0-2e53-4fc8-90d3-b82138c46480",
+                      "wristObject": {
+                        "_type": "gameobject",
+                        "go": "7292875c-b6ea-42da-9965-ce3a3c48fbac"
+                      },
+                      "AngularSpring": "100,10",
+                      "Connect": true,
+                      "gotLocTrans": false,
+                      "locPos": "0,0,0",
+                      "locRot": "0,0,0,0",
+                      "Main": true,
+                      "MirrorPosModifiers": "-1,1,1",
+                      "MirrorRotModifiers": "-1,-1,1",
+                      "MirrorToOtherHand": false,
+                      "ParentTo": false,
+                      "PositionSpring": "100,10",
+                      "Rigidbody": {
+                        "_type": "component",
+                        "component_id": "b701193d-e3a8-48c1-a4ba-c0b771effaf9",
+                        "go": "ff37fd6f-9866-4b32-acb9-9a18557a9056",
+                        "component_type": "Rigidbody"
+                      },
+                      "ShowWithoutMain": true
+                    },
+                    {
+                      "__type": "Sandbox.Rigidbody",
+                      "__guid": "362d5861-4bed-44a8-aab8-3f09fdfc90b0",
+                      "AngularDamping": 0,
+                      "Gravity": true,
+                      "LinearDamping": 0,
+                      "Locking": {},
+                      "MassCenterOverride": "0,0,0",
+                      "MassOverride": 0,
+                      "MotionEnabled": false,
+                      "OverrideMassCenter": false,
+                      "RigidbodyFlags": 0,
+                      "StartAsleep": false
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "__guid": "7b302b29-fde8-41fc-832b-cbac714773d5",
+                      "Flags": 0,
+                      "Name": "Right",
+                      "Position": "-19.33891,8.007706,6.683769",
+                      "Rotation": "0.007490233,-0.1070303,0.1155302,-0.9874911",
+                      "Enabled": true,
+                      "Components": [
+                        {
+                          "__type": "Sandbox.SkinnedModelRenderer",
+                          "__guid": "d25c4edf-d3b5-4b52-8761-e8395a49acdd",
+                          "__enabled": false,
+                          "BodyGroups": 18446744073709551615,
+                          "CreateBoneObjects": true,
+                          "Model": "models/player/armr.vmdl",
+                          "RenderType": "Off",
+                          "Tint": "1,1,1,1",
+                          "UseAnimGraph": true
+                        }
+                      ],
+                      "Children": [
+                        {
+                          "__guid": "1a12c1fb-e802-476f-b802-ae77fd6d297e",
+                          "Flags": 4,
+                          "Name": "Upper_Arm_Right",
+                          "Position": "-0.0257093,-5.570599,-0.01843476",
+                          "Rotation": "-0.3001598,-0.4524403,0.7328261,-0.4100829",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "__guid": "fe66a8fc-5fed-4a30-a113-debda70bd783",
+                              "Flags": 4,
+                              "Name": "Forarm_Right",
+                              "Position": "-0.0000003576279,10.21634,-0.00001621246",
+                              "Rotation": "-0.173461,0.8106259,-0.2606768,-0.4948176",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "__guid": "860e8bb6-1f0b-44eb-80c9-9c3df6408155",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Right_001",
+                                  "Position": "-0.000020504,5.650315,0.00001239777",
+                                  "Rotation": "-0.0000002682211,0.00000181189,-0.0000001192094,1",
+                                  "Enabled": true
+                                },
+                                {
+                                  "__guid": "7292875c-b6ea-42da-9965-ce3a3c48fbac",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Right",
+                                  "Position": "-0.000001907349,9.341543,0",
+                                  "Rotation": "-0.0000002682208,0.000001817941,-0.0000001192092,1",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "__guid": "b60610cd-f0e8-45ef-9fdb-c878664eaa5b",
+                                      "Flags": 1028,
+                                      "Name": "Hand_Right",
+                                      "Position": "-0.5210304,1.228937,1.621694",
+                                      "Rotation": "-0.4182324,-0.006346151,0.8815353,0.218945",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "__guid": "ec728dcb-6229-4294-9163-ddf2564b28ce",
+                                          "Flags": 1028,
+                                          "Name": "Index_Root_Right",
+                                          "Position": "-0.8991747,-0.7379379,-0.1610737",
+                                          "Rotation": "0.6217853,-0.0998221,0.7724509,0.08208701",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "1fbf378f-01ec-4a1d-a531-377ac7f4599c",
+                                              "Flags": 1028,
+                                              "Name": "Index_Start_Right",
+                                              "Position": "-0.00003957748,2.908733,0.00001573563",
+                                              "Rotation": "0.2077796,-0.0006870925,-0.4847224,0.8496301",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "79122427-10fa-494a-a3d2-21c588dec933",
+                                                  "Flags": 1028,
+                                                  "Name": "Index_Middle_Right",
+                                                  "Position": "-0.00002384186,1.562094,0.0000193119",
+                                                  "Rotation": "0.1791128,0.1187955,-0.6927451,0.6884115",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "e1678f78-bb6c-48ec-a0f0-ac56893c05a3",
+                                                      "Flags": 1028,
+                                                      "Name": "Index_End_Right",
+                                                      "Position": "-0.00004482269,1.218323,0.00002193451",
+                                                      "Rotation": "0.3337625,-0.05144898,-0.5187671,0.7853893",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "41b4c3d2-e809-4702-835b-ec71f8338b95",
+                                          "Flags": 1028,
+                                          "Name": "Thumb_Root_Right",
+                                          "Position": "-1.402056,-0.5835953,-0.3068705",
+                                          "Rotation": "0.6703382,-0.338019,-0.658675,0.05036953",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "f137ebd8-7c03-472c-a13b-f834304bb73b",
+                                              "Flags": 1028,
+                                              "Name": "Thumb_Start_Right",
+                                              "Position": "-0.000003814697,1.612969,0.000005722046",
+                                              "Rotation": "-0.07452069,-0.4097767,0.04733181,0.9079039",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "4f5ce57e-f965-49f2-ab6f-6e120b3a4468",
+                                                  "Flags": 1028,
+                                                  "Name": "Thumb_End_Right",
+                                                  "Position": "0.00006484985,2.123493,-0.00002098083",
+                                                  "Rotation": "-0.6885192,-0.05726804,0.08231226,0.7182523",
+                                                  "Enabled": true
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "0deb8983-e344-4344-a411-cc544f283e78",
+                                          "Flags": 1028,
+                                          "Name": "Ring_Root_Right",
+                                          "Position": "0.04438877,-0.8050766,0.03713751",
+                                          "Rotation": "0.7912636,0.01822777,-0.6080292,0.06221085",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "e810d39f-4dd3-4f9a-adfd-ee49c65a115d",
+                                              "Flags": 1028,
+                                              "Name": "Ring_Start_Right",
+                                              "Position": "-0.00003099442,3.164591,-0.000007629395",
+                                              "Rotation": "0.1330098,-0.01758133,0.7098489,0.6914578",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "e8ca4bbb-abbb-46cd-aabb-fbddf50f49e0",
+                                                  "Flags": 1028,
+                                                  "Name": "Ring_Middle_Right",
+                                                  "Position": "0.00008869171,1.104042,0.000005722046",
+                                                  "Rotation": "-0.05736191,-0.04320542,0.3561173,0.9316776",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "e123340e-a454-4cd8-8177-625dc7b9f9a2",
+                                                      "Flags": 1028,
+                                                      "Name": "Ring_End_Right",
+                                                      "Position": "0.00006103516,1.088041,0.000007629395",
+                                                      "Rotation": "0.2356841,0.1497141,0.6875948,0.6702627",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "1a4c84a7-1c04-4c68-bbfb-81f896da216a",
+                                          "Flags": 1028,
+                                          "Name": "Middle_Root_Right",
+                                          "Position": "-0.3720717,-1.080353,-0.09301853",
+                                          "Rotation": "-0.786859,0.0160341,0.6164495,0.02420217",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "135bbe5d-e597-4a2f-8a61-45cbed29ab5b",
+                                              "Flags": 1028,
+                                              "Name": "Middle_Start_Right",
+                                              "Position": "-0.00003194809,2.826431,-0.000005722046",
+                                              "Rotation": "-0.01955627,-0.02529487,0.5654593,0.8241562",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "265337fb-0feb-4586-9844-bdbbdcb4cd04",
+                                                  "Flags": 1028,
+                                                  "Name": "Middle_Middle_Right",
+                                                  "Position": "0.00009059906,1.359255,0.000005245209",
+                                                  "Rotation": "-0.01648953,0.02297631,0.6039912,0.7964891",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "f76d7e37-e38e-4d78-b6e0-09f28a316d58",
+                                                      "Flags": 1028,
+                                                      "Name": "Middle_End_Right",
+                                                      "Position": "-0.00008392334,1.442549,-0.00000667572",
+                                                      "Rotation": "0.03366515,-0.01597515,0.6311966,0.7747273",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "5c8b3ac4-d4c8-4cc7-8b90-a388a8d7342f",
+                                          "Flags": 1028,
+                                          "Name": "Pinky_Root_Right",
+                                          "Position": "0.7397218,-0.6015015,0.2309785",
+                                          "Rotation": "0.7934444,0.01579663,-0.6058893,0.0556307",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "9110d85d-5994-476e-8e01-93deefea46d6",
+                                              "Flags": 1028,
+                                              "Name": "Pinky_Start_Right",
+                                              "Position": "-0.00003671646,3.321562,-0.000009298325",
+                                              "Rotation": "0.1778771,-0.09047969,0.7299548,0.6537119",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "40cd59d0-9f1a-43d3-86b1-ca73c5a599b7",
+                                                  "Flags": 1028,
+                                                  "Name": "Pinky_Middle_Right",
+                                                  "Position": "-0.0000629425,0.7748737,-0.00000333786",
+                                                  "Rotation": "0.1064084,-0.07790502,0.1603138,0.9782165",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "96debf4b-790b-4589-b00d-d45a1a42b196",
+                                                      "Flags": 1028,
+                                                      "Name": "Pinky_End_Right",
+                                                      "Position": "0.00002861023,0.4951982,0.000008583069",
+                                                      "Rotation": "0.1914212,0.04548026,0.2056181,0.9586504",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "__guid": "47e99573-53a0-4c2a-a292-7b49f1aab633",
+              "Flags": 0,
+              "Name": "GrabPoint2",
+              "Position": "21.78033,0.1417465,44.56271",
+              "Rotation": "-0.7071068,-0.00000003090862,0.7071068,-0.00000003090862",
+              "Tags": "grabpoint",
+              "Enabled": true,
+              "Children": [
+                {
+                  "__guid": "12626036-bc01-478a-bd09-afe54a54f9a0",
+                  "Flags": 0,
+                  "Name": "wrist_left (1)",
+                  "Position": "0,0,0",
+                  "Rotation": "0.5,-0.5,-0.5,0.5",
+                  "Tags": "left",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "trollface.HandPos",
+                      "__guid": "035b4270-0935-4f5d-bef0-6bf768e19ef4",
+                      "wristObject": {
+                        "_type": "gameobject",
+                        "go": "c98c4e58-ff3e-4963-9576-4c7d813ac8a5"
+                      },
+                      "AngularSpring": "100,10",
+                      "Connect": true,
+                      "gotLocTrans": false,
+                      "locPos": "0,0,0",
+                      "locRot": "0,0,0,0",
+                      "Main": true,
+                      "MirrorPosModifiers": "-1,1,1",
+                      "MirrorRotModifiers": "-1,-1,1",
+                      "MirrorToOtherHand": false,
+                      "OtherHand": {
+                        "_type": "component",
+                        "component_id": "b4ee69b5-6ce1-433d-ba08-7a7b010e2a52",
+                        "go": "ca5c2139-4158-4996-887e-624fb02f6e06",
+                        "component_type": "HandPos"
+                      },
+                      "ParentTo": false,
+                      "PositionSpring": "100,10",
+                      "Rigidbody": {
+                        "_type": "component",
+                        "component_id": "b701193d-e3a8-48c1-a4ba-c0b771effaf9",
+                        "go": "ff37fd6f-9866-4b32-acb9-9a18557a9056",
+                        "component_type": "Rigidbody"
+                      },
+                      "ShowWithoutMain": true
+                    },
+                    {
+                      "__type": "Sandbox.SphereCollider",
+                      "__guid": "8c8be182-69f2-4a3e-bdc4-66555be5b9f6",
+                      "Center": "-2.4,0,-1.400001",
+                      "IsTrigger": false,
+                      "Radius": 0.5,
+                      "Static": false
+                    },
+                    {
+                      "__type": "Sandbox.Rigidbody",
+                      "__guid": "b58b0dc7-45ba-4ccd-bdbd-4c5a0792b745",
+                      "AngularDamping": 0,
+                      "Gravity": true,
+                      "LinearDamping": 0,
+                      "Locking": {},
+                      "MassCenterOverride": "0,0,0",
+                      "MassOverride": 0,
+                      "MotionEnabled": false,
+                      "OverrideMassCenter": false,
+                      "RigidbodyFlags": 0,
+                      "StartAsleep": false
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "__guid": "b172406c-a740-4cdc-9cc4-b845f95c0ae3",
+                      "Flags": 0,
+                      "Name": "Left",
+                      "Position": "-19.33862,-8.007805,6.683767",
+                      "Rotation": "-0.007491685,-0.1070292,-0.1155282,-0.9874928",
+                      "Enabled": true,
+                      "Components": [
+                        {
+                          "__type": "Sandbox.SkinnedModelRenderer",
+                          "__guid": "64da6bbf-8096-4cdd-82e0-829328e973ce",
+                          "__enabled": false,
+                          "BodyGroups": 18446744073709551615,
+                          "CreateBoneObjects": true,
+                          "Model": "models/player/arml.vmdl",
+                          "RenderType": "Off",
+                          "Tint": "1,1,1,1",
+                          "UseAnimGraph": true
+                        }
+                      ],
+                      "Children": [
+                        {
+                          "__guid": "80ba9ba9-290a-4713-a109-e15cd3276a85",
+                          "Flags": 4,
+                          "Name": "Upper_Arm_Left",
+                          "Position": "-0.02570811,5.570603,-0.01843596",
+                          "Rotation": "-0.4524401,-0.3001596,-0.4100825,0.7328265",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "__guid": "1fa06d07-a276-424c-98d3-2ba9aef42147",
+                              "Flags": 4,
+                              "Name": "Forarm_Left",
+                              "Position": "0.000005125999,10.21635,0.000004768372",
+                              "Rotation": "0.1734614,0.8106258,-0.2606761,0.4948182",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "__guid": "25c4a1a2-3046-45e4-9acd-83d02ca9835f",
+                                  "Flags": 4,
+                                  "Name": "Twist_Left",
+                                  "Position": "-0.00001549721,5.894411,-0.000005722046",
+                                  "Rotation": "-0.0000003874303,-0.000001593493,0.000000294298,1",
+                                  "Enabled": true
+                                },
+                                {
+                                  "__guid": "c98c4e58-ff3e-4963-9576-4c7d813ac8a5",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Left",
+                                  "Position": "-0.00001525879,9.341525,-0.000008583069",
+                                  "Rotation": "-0.0000003725287,-0.000001341103,0.0000000894069,1",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "__guid": "a7877f31-52fc-45d9-898a-b0097fdcbea0",
+                                      "Flags": 1028,
+                                      "Name": "Hand_Left",
+                                      "Position": "0.5210304,1.228937,1.621694",
+                                      "Rotation": "0.4182324,-0.006346162,0.8815353,-0.218945",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "__guid": "62492370-f27b-4e49-a396-27f384e6d8c1",
+                                          "Flags": 1028,
+                                          "Name": "Index_Root_Left",
+                                          "Position": "0.8991747,-0.7379379,-0.1610737",
+                                          "Rotation": "-0.6217852,-0.09982204,0.7724509,-0.08208695",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "2676d229-2736-4f81-99e9-c7a1ff846e72",
+                                              "Flags": 1028,
+                                              "Name": "Index_Start_Left",
+                                              "Position": "-0.00001001358,2.90877,0.00001478195",
+                                              "Rotation": "0.2077796,0.0006871298,0.4847225,0.8496302",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "1831fd07-0a19-4427-a3f2-8ef0342ddd92",
+                                                  "Flags": 1028,
+                                                  "Name": "Index_Middle_Left",
+                                                  "Position": "-0.00001621246,1.562124,0.000007867813",
+                                                  "Rotation": "0.1791128,-0.1187954,0.6927451,0.6884116",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "1eaa2b41-b15a-4c3d-afec-eadd03c3806f",
+                                                      "Flags": 1028,
+                                                      "Name": "Index_End_Left",
+                                                      "Position": "-0.00001525879,1.218348,0.00000834465",
+                                                      "Rotation": "0.3337629,0.05144945,0.5187676,0.7853894",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "7408d71e-704e-4cf4-955a-23c602d9ad26",
+                                          "Flags": 1028,
+                                          "Name": "Thumb_Root_Left",
+                                          "Position": "1.402056,-0.5835953,-0.3068705",
+                                          "Rotation": "0.6703382,0.3380193,0.658675,0.05036942",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "6cc0ee51-cd7a-40d4-a38b-99297ba8f463",
+                                              "Flags": 1028,
+                                              "Name": "Thumb_Start_Left",
+                                              "Position": "-0.000003814697,1.612969,0.000005722046",
+                                              "Rotation": "-0.07452105,0.4097762,-0.0473321,0.9079049",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "ec57a862-d642-4f76-ad5e-d2195b0abc0c",
+                                                  "Flags": 1028,
+                                                  "Name": "Thumb_End_Left",
+                                                  "Position": "-0.00006484985,2.123493,-0.00002098083",
+                                                  "Rotation": "-0.6885191,0.057268,-0.08231224,0.7182522",
+                                                  "Enabled": true
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "07b05f4f-11d1-4635-9183-ca3650529930",
+                                          "Flags": 1028,
+                                          "Name": "Ring_Root_Left",
+                                          "Position": "-0.04438877,-0.8050766,0.03713751",
+                                          "Rotation": "0.7912638,-0.01822764,0.6080291,0.0622108",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "0e9f6997-67f7-41f5-8842-85102baf72fb",
+                                              "Flags": 1028,
+                                              "Name": "Ring_Start_Left",
+                                              "Position": "-0.00005197525,3.164614,0.000008821487",
+                                              "Rotation": "0.1330098,0.0175814,-0.7098486,0.6914577",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "1ed8cb71-5aa6-4ce5-b244-52ddfca3a466",
+                                                  "Flags": 1028,
+                                                  "Name": "Ring_Middle_Left",
+                                                  "Position": "-0.00008869171,1.104042,0.000005722046",
+                                                  "Rotation": "-0.05736189,0.04320541,-0.3561172,0.9316776",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "cc6ddc1d-29ec-47ea-85ae-b74650a1d890",
+                                                      "Flags": 1028,
+                                                      "Name": "Ring_End_Left",
+                                                      "Position": "-0.00006103516,1.088041,0.000007629395",
+                                                      "Rotation": "0.235684,-0.1497139,-0.6875944,0.6702628",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "255cef90-07a3-4580-a6e2-15f43f8c1875",
+                                          "Flags": 1028,
+                                          "Name": "Middle_Root_Left",
+                                          "Position": "0.3720717,-1.080353,-0.09301853",
+                                          "Rotation": "0.7868592,0.01603413,0.6164494,-0.02420223",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "87e61171-1310-478a-85fa-837d57937b10",
+                                              "Flags": 1028,
+                                              "Name": "Middle_Start_Left",
+                                              "Position": "-0.00005626678,2.826473,0.000003814697",
+                                              "Rotation": "-0.01955625,0.02529485,-0.565459,0.8241562",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "7cdee043-6906-4cc4-bdaa-07e05b7af1f3",
+                                                  "Flags": 1028,
+                                                  "Name": "Middle_Middle_Left",
+                                                  "Position": "-0.00009059906,1.359255,0.000005245209",
+                                                  "Rotation": "-0.01648954,-0.02297631,-0.6039912,0.796489",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "4323e196-c112-40a9-872b-c6f20ceee9cb",
+                                                      "Flags": 1028,
+                                                      "Name": "Middle_End_Left",
+                                                      "Position": "0.00008392334,1.442549,-0.00000667572",
+                                                      "Rotation": "0.03366515,0.01597515,-0.6311965,0.7747273",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "eea48c48-3884-4dd1-9951-d66c28419e29",
+                                          "Flags": 1028,
+                                          "Name": "Pinky_Root_Left",
+                                          "Position": "-0.7397218,-0.6015015,0.2309785",
+                                          "Rotation": "0.7934439,-0.01579688,0.6058896,0.05563077",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "35c979a5-7258-429d-80ee-7e1a72d78b1c",
+                                              "Flags": 1028,
+                                              "Name": "Pinky_Start_Left",
+                                              "Position": "-0.0000500679,3.321579,0.000008106232",
+                                              "Rotation": "0.1778771,0.09047952,-0.7299553,0.6537119",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "528383bb-38e4-49d6-a2b5-7261d5830508",
+                                                  "Flags": 1028,
+                                                  "Name": "Pinky_Middle_Left",
+                                                  "Position": "-0.00003051758,0.7748795,0.00000333786",
+                                                  "Rotation": "0.1064085,0.07790498,-0.160314,0.9782168",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "b06a0926-d6b3-4930-96c7-2ccf2fb948de",
+                                                      "Flags": 1028,
+                                                      "Name": "Pinky_End_Left",
+                                                      "Position": "-0.00002861023,0.4951982,0.000008583069",
+                                                      "Rotation": "0.1914213,-0.04548026,-0.2056181,0.9586505",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "__guid": "a3edfc9a-7896-4168-a25b-972481ee0de9",
+                          "Flags": 4,
+                          "Name": "Wrist_Right",
+                          "Position": "18.03965,-6.286614,-4.28632",
+                          "Rotation": "-0.2564483,-0.3139085,-0.5775144,0.7086415",
+                          "Enabled": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "__guid": "ca5c2139-4158-4996-887e-624fb02f6e06",
+                  "Flags": 0,
+                  "Name": "wrist_right (1)",
+                  "Position": "0,0,0",
+                  "Rotation": "0.5,-0.5,-0.5,0.5",
+                  "Tags": "right",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.SphereCollider",
+                      "__guid": "984da480-063a-4627-960a-95c30a67bb6b",
+                      "Center": "-2.4,0,-1.400001",
+                      "IsTrigger": false,
+                      "Radius": 0.5,
+                      "Static": false
+                    },
+                    {
+                      "__type": "trollface.HandPos",
+                      "__guid": "b4ee69b5-6ce1-433d-ba08-7a7b010e2a52",
+                      "wristObject": {
+                        "_type": "gameobject",
+                        "go": "5dbe9a1d-c009-4f97-8024-ccc9f836664d"
+                      },
+                      "AngularSpring": "100,10",
+                      "Connect": true,
+                      "gotLocTrans": false,
+                      "locPos": "0,0,0",
+                      "locRot": "0,0,0,0",
+                      "Main": true,
+                      "MirrorPosModifiers": "-1,1,1",
+                      "MirrorRotModifiers": "-1,-1,1",
+                      "MirrorToOtherHand": false,
+                      "ParentTo": false,
+                      "PositionSpring": "100,10",
+                      "Rigidbody": {
+                        "_type": "component",
+                        "component_id": "b701193d-e3a8-48c1-a4ba-c0b771effaf9",
+                        "go": "ff37fd6f-9866-4b32-acb9-9a18557a9056",
+                        "component_type": "Rigidbody"
+                      },
+                      "ShowWithoutMain": true
+                    },
+                    {
+                      "__type": "Sandbox.Rigidbody",
+                      "__guid": "4a8d573a-6096-43ab-bb10-2121b52b2cb4",
+                      "AngularDamping": 0,
+                      "Gravity": true,
+                      "LinearDamping": 0,
+                      "Locking": {},
+                      "MassCenterOverride": "0,0,0",
+                      "MassOverride": 0,
+                      "MotionEnabled": false,
+                      "OverrideMassCenter": false,
+                      "RigidbodyFlags": 0,
+                      "StartAsleep": false
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "__guid": "250280a1-f4c3-4e90-95fb-8d5dfd2565a4",
+                      "Flags": 0,
+                      "Name": "Right",
+                      "Position": "-19.33891,8.007706,6.683769",
+                      "Rotation": "0.007490233,-0.1070303,0.1155302,-0.9874911",
+                      "Enabled": true,
+                      "Components": [
+                        {
+                          "__type": "Sandbox.SkinnedModelRenderer",
+                          "__guid": "7994bb6f-f455-4e9b-a824-b7db8b0e1b3c",
+                          "__enabled": false,
+                          "BodyGroups": 18446744073709551615,
+                          "CreateBoneObjects": true,
+                          "Model": "models/player/armr.vmdl",
+                          "RenderType": "Off",
+                          "Tint": "1,1,1,1",
+                          "UseAnimGraph": true
+                        }
+                      ],
+                      "Children": [
+                        {
+                          "__guid": "521cea56-8db7-4214-829e-22ae3c4af7ee",
+                          "Flags": 4,
+                          "Name": "Upper_Arm_Right",
+                          "Position": "-0.0257093,-5.570599,-0.01843476",
+                          "Rotation": "-0.3001598,-0.4524403,0.7328261,-0.4100829",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "__guid": "a71501bb-53d4-4467-b3a0-b54b90d83156",
+                              "Flags": 4,
+                              "Name": "Forarm_Right",
+                              "Position": "-0.0000003576279,10.21634,-0.00001621246",
+                              "Rotation": "-0.173461,0.8106259,-0.2606768,-0.4948176",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "__guid": "dfc32ce2-42bb-4991-90de-4e23a5f47f0d",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Right_001",
+                                  "Position": "-0.000020504,5.650315,0.00001239777",
+                                  "Rotation": "-0.0000002682211,0.00000181189,-0.0000001192094,1",
+                                  "Enabled": true
+                                },
+                                {
+                                  "__guid": "5dbe9a1d-c009-4f97-8024-ccc9f836664d",
+                                  "Flags": 4,
+                                  "Name": "Wrist_Right",
+                                  "Position": "-0.000001907349,9.341543,0",
+                                  "Rotation": "-0.0000002682208,0.000001817941,-0.0000001192092,1",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "__guid": "b239094a-9f9d-4e81-9219-2fe6360747dc",
+                                      "Flags": 1028,
+                                      "Name": "Hand_Right",
+                                      "Position": "-0.5210304,1.228937,1.621694",
+                                      "Rotation": "-0.4182324,-0.006346151,0.8815353,0.218945",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "__guid": "cd5e3de9-1ebf-40f7-baa1-91cc593886cf",
+                                          "Flags": 1028,
+                                          "Name": "Index_Root_Right",
+                                          "Position": "-0.8991747,-0.7379379,-0.1610737",
+                                          "Rotation": "0.6217853,-0.0998221,0.7724509,0.08208701",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "e69aa5de-6bec-40fe-bbd4-b97773a134c7",
+                                              "Flags": 1028,
+                                              "Name": "Index_Start_Right",
+                                              "Position": "-0.00003957748,2.908733,0.00001573563",
+                                              "Rotation": "0.2077796,-0.0006870925,-0.4847224,0.8496301",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "fa85981f-d3e3-4429-a584-6d9b5035d54e",
+                                                  "Flags": 1028,
+                                                  "Name": "Index_Middle_Right",
+                                                  "Position": "-0.00002384186,1.562094,0.0000193119",
+                                                  "Rotation": "0.1791128,0.1187955,-0.6927451,0.6884115",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "06694d9c-a9bf-4c4c-ab7c-54768c6c6dd3",
+                                                      "Flags": 1028,
+                                                      "Name": "Index_End_Right",
+                                                      "Position": "-0.00004482269,1.218323,0.00002193451",
+                                                      "Rotation": "0.3337625,-0.05144898,-0.5187671,0.7853893",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "7717aef1-773e-48d0-b69a-815367d2c867",
+                                          "Flags": 1028,
+                                          "Name": "Thumb_Root_Right",
+                                          "Position": "-1.402056,-0.5835953,-0.3068705",
+                                          "Rotation": "0.6703382,-0.338019,-0.658675,0.05036953",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "6212879d-fe18-4133-a78c-ad1645a07798",
+                                              "Flags": 1028,
+                                              "Name": "Thumb_Start_Right",
+                                              "Position": "-0.000003814697,1.612969,0.000005722046",
+                                              "Rotation": "-0.07452069,-0.4097767,0.04733181,0.9079039",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "2ad471ca-17bf-4bf8-b02f-e8611c9d70d6",
+                                                  "Flags": 1028,
+                                                  "Name": "Thumb_End_Right",
+                                                  "Position": "0.00006484985,2.123493,-0.00002098083",
+                                                  "Rotation": "-0.6885192,-0.05726804,0.08231226,0.7182523",
+                                                  "Enabled": true
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "9aed052c-828e-4400-a6e8-0317cc235bb3",
+                                          "Flags": 1028,
+                                          "Name": "Ring_Root_Right",
+                                          "Position": "0.04438877,-0.8050766,0.03713751",
+                                          "Rotation": "0.7912636,0.01822777,-0.6080292,0.06221085",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "199cb0cf-a73c-400a-bbda-c2f19d2d15e3",
+                                              "Flags": 1028,
+                                              "Name": "Ring_Start_Right",
+                                              "Position": "-0.00003099442,3.164591,-0.000007629395",
+                                              "Rotation": "0.1330098,-0.01758133,0.7098489,0.6914578",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "7460e689-b62b-425d-9ef8-1b693f7b116e",
+                                                  "Flags": 1028,
+                                                  "Name": "Ring_Middle_Right",
+                                                  "Position": "0.00008869171,1.104042,0.000005722046",
+                                                  "Rotation": "-0.05736191,-0.04320542,0.3561173,0.9316776",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "5e25f4a1-5883-444f-8cdc-6408bb1caf91",
+                                                      "Flags": 1028,
+                                                      "Name": "Ring_End_Right",
+                                                      "Position": "0.00006103516,1.088041,0.000007629395",
+                                                      "Rotation": "0.2356841,0.1497141,0.6875948,0.6702627",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "da89091a-d025-4d68-89f9-a295b256eee4",
+                                          "Flags": 1028,
+                                          "Name": "Middle_Root_Right",
+                                          "Position": "-0.3720717,-1.080353,-0.09301853",
+                                          "Rotation": "-0.786859,0.0160341,0.6164495,0.02420217",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "6fd89896-33f0-4ab7-94fd-98cc492af945",
+                                              "Flags": 1028,
+                                              "Name": "Middle_Start_Right",
+                                              "Position": "-0.00003194809,2.826431,-0.000005722046",
+                                              "Rotation": "-0.01955627,-0.02529487,0.5654593,0.8241562",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "f8a961e9-7255-43d0-8df3-4366bd7726bf",
+                                                  "Flags": 1028,
+                                                  "Name": "Middle_Middle_Right",
+                                                  "Position": "0.00009059906,1.359255,0.000005245209",
+                                                  "Rotation": "-0.01648953,0.02297631,0.6039912,0.7964891",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "31f99cbf-191f-4c9d-a88e-b1db93900dd5",
+                                                      "Flags": 1028,
+                                                      "Name": "Middle_End_Right",
+                                                      "Position": "-0.00008392334,1.442549,-0.00000667572",
+                                                      "Rotation": "0.03366515,-0.01597515,0.6311966,0.7747273",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "__guid": "9ff829e5-1b8a-4aa5-9ed8-b609b5c06d80",
+                                          "Flags": 1028,
+                                          "Name": "Pinky_Root_Right",
+                                          "Position": "0.7397218,-0.6015015,0.2309785",
+                                          "Rotation": "0.7934444,0.01579663,-0.6058893,0.0556307",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "__guid": "2f7e0ef6-7ed1-4196-a7e7-1641abec7e27",
+                                              "Flags": 1028,
+                                              "Name": "Pinky_Start_Right",
+                                              "Position": "-0.00003671646,3.321562,-0.000009298325",
+                                              "Rotation": "0.1778771,-0.09047969,0.7299548,0.6537119",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "__guid": "4e2c41e2-3e28-4361-93e5-bcbdf1c660fe",
+                                                  "Flags": 1028,
+                                                  "Name": "Pinky_Middle_Right",
+                                                  "Position": "-0.0000629425,0.7748737,-0.00000333786",
+                                                  "Rotation": "0.1064084,-0.07790502,0.1603138,0.9782165",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "__guid": "83bad0d8-1141-4fd0-87b7-45d503aa1637",
+                                                      "Flags": 1028,
+                                                      "Name": "Pinky_End_Right",
+                                                      "Position": "0.00002861023,0.4951982,0.000008583069",
+                                                      "Rotation": "0.1914212,0.04548026,0.2056181,0.9586504",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "108d809b-cacb-4f51-8e59-0a9c31b0ece9",
+          "Flags": 0,
+          "Name": "Hinge",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.HingeJoint",
+              "__guid": "423dce44-ee45-46a0-9296-cdd2206b8d83",
+              "Attachment": "Auto",
+              "Body": {
+                "_type": "gameobject",
+                "go": "ff37fd6f-9866-4b32-acb9-9a18557a9056"
+              },
+              "BreakForce": 0,
+              "BreakTorque": 0,
+              "DampingRatio": 1,
+              "EnableCollision": false,
+              "Fequency": 1,
+              "Friction": 0,
+              "LocalFrame1": {
+                "UniformScale": 1,
+                "IsValid": true,
+                "ForwardRay": {
+                  "Forward": "1,0,0"
+                },
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0,1"
+              },
+              "LocalFrame2": {
+                "UniformScale": 1,
+                "IsValid": true,
+                "ForwardRay": {
+                  "Forward": "1,0,0"
+                },
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0,1"
+              },
+              "MaxAngle": -2,
+              "MaxTorque": 0,
+              "MinAngle": -120,
+              "Motor": "Disabled",
+              "TargetAngle": 0,
+              "TargetVelocity": 0
+            },
+            {
+              "__type": "trollface.DoorLocker",
+              "__guid": "5c909bfb-2a54-46aa-9f1d-b5bd119c8263",
+              "Lever": {
+                "_type": "component",
+                "component_id": "6dacec16-d58a-4e5c-a3d3-87a1f42cd6e2",
+                "go": "b526dbd7-61a7-4bfc-9510-98d6a9bff012",
+                "component_type": "Lever"
+              },
+              "LockedAngles": "-2,-2",
+              "UnlockedAngles": "-120,-2"
+            }
+          ]
+        },
+        {
+          "__guid": "b526dbd7-61a7-4bfc-9510-98d6a9bff012",
+          "Flags": 0,
+          "Name": "Switch",
+          "Position": "-22.0018,32.46204,44.27374",
+          "Rotation": "0.04884976,0.000000002135291,0.9988061,-0.0000000436592",
+          "Enabled": true,
+          "__Prefab": "prefabs/switch.prefab",
+          "__PrefabVariables": {}
+        }
+      ]
+    },
+    {
+      "__guid": "e59e6267-7b59-4dea-a614-2f424fe10866",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "34.33321,0.000002046419,33.71328",
+      "Tags": "itemstore",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "dc0c6c70-bb57-4e2d-a568-eba8b6fb812a",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Scale": "2,2,2",
+          "Static": false
+        },
+        {
+          "__type": "trollface.ItemStorer",
+          "__guid": "ae263d12-864c-4dcb-80f6-2b0d26de1bee",
+          "items": [],
+          "spawnItem": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "3d39df3b-5827-4d9b-be68-534b5f110afe",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "2,2,2",
+          "Static": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2133da3c-dba7-4850-b1bc-1b30ceede977",
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "0,0,0",
+          "Scale": "0.02,0.02,0.02",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "19b2a29c-e9e8-4adb-9b14-fa4e90239bf2",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 4.8999963,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": "world"
+    }
+  },
+  "Title": "level1",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -6,7 +6,7 @@ public abstract class MagazineBase : Component
 	
 	[Property] public int MagSize {get;set;}
 	[Property] public List<int> Contents {get;set;}
-	public BarrelBase Barrel {get;set;}
+	[Property] public BarrelBase Barrel {get;set;}
 	[Property] public BulletTypes bulletTypes {get;set;}
 	[Property] public List<GameObject> Loaders {get;set;}
 	[Property] public SoundEvent LoadSound {get;set;}
@@ -33,6 +33,7 @@ public abstract class MagazineBase : Component
 	protected override void OnStart()
 	{
 		item = Components.GetInParentOrSelf<Item>();
+		
 	}
 
 	protected override void OnFixedUpdate()

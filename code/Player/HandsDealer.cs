@@ -114,7 +114,6 @@ public sealed class HandsDealer : Component
 		rightHandSJoint.IsActive = false;
 		
 	}
-	bool HoldingObject;
 	protected override void OnPreRender()
 	{
 		HandSmoothing();
@@ -181,8 +180,18 @@ public sealed class HandsDealer : Component
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
-		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = Grabber(grabPointsL,FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold, lastLeftTrigger);
-		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = Grabber(grabPointsR,FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold, lastRightTrigger);
+		VRHandGrabber leftHandController = new VRHandGrabber
+		{
+			VRSpace = VRSpace
+		};
+		VRHandGrabber rightHandController = new VRHandGrabber
+		{
+			VRSpace = VRSpace
+		};
+
+		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = leftHandController.Grabber(grabPointsL, FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold, lastLeftTrigger);
+		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = rightHandController.Grabber(grabPointsR, FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold, lastRightTrigger);
+
 
 		grabPointsL.Enabled = !lHolding;
 		grabPointsR.Enabled = !rHolding;
@@ -218,160 +227,6 @@ public sealed class HandsDealer : Component
 		HandSmoothR.Transform.Rotation = HandRawR.Transform.Rotation;
 	}
 
-
-	(Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos, bool reHold) 
-	Grabber(GrabPointFinder pointFinder, Rigidbody handPhys, VRController hand, GameObject handSkeleton, Sandbox.Physics.FixedJoint fixedJointRef, bool holdingRef, GameObject grabPointRef, GameObject handTarget, Vector3 handLocalPos, Rotation handLocalRot, HandPos currentHandPosRef, bool reHoldRef, float lastTrigger)
-	{
-		if(holdingRef)
-		{
-			reHoldRef = true;
-			if(hand.Grip < 0.5f || !grabPointRef.IsValid())
-			{
-				if(currentHandPosRef.item.HandsConnected <= 1)
-					currentHandPosRef.Rigidbody.AngularDamping = 0;
-				currentHandPosRef.item.HandsConnected--;
-				bool knifeTrigger = false;
-				if(grabPointRef.IsValid())
-				{
-					
-					
-					
-					if(currentHandPosRef.Main)
-					{
-						currentHandPosRef.Rigidbody.GameObject.SetParent(Scene);
-						knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
-						currentHandPosRef.item.Controller = null;
-						currentHandPosRef.item.mainHeld = false;
-					}
-					grabPointRef.Parent.Tags.Remove("grabbed");
-				}
-				if(currentHandPosRef.Connect) fixedJointRef.Remove();
-				//handTarget.SetParent(handPhys.GameObject);
-				currentHandPosRef.item.Throw(knifeTrigger);
-				handTarget.Transform.LocalPosition = handLocalPos;
-				handTarget.Transform.LocalRotation = handLocalRot;
-				
-				MakeAnimated(handSkeleton);
-				
-				return (null,false,null, null, reHoldRef);
-			}
-
-			handTarget.Transform.Position = currentHandPosRef.wristObject.Transform.Position;
-			handTarget.Transform.Rotation = currentHandPosRef.wristObject.Transform.Rotation;
-			CopyTransformRecursive(currentHandPosRef.wristObject,handSkeleton, Vector3.One,new Angles(1,1,1));
-
-			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
-		}
-
-		if(reHoldRef)
-		{
-			if(hand.Grip < 0.5f) reHoldRef = false;
-			return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
-		}
-
-		if(pointFinder.GrabbablePoints.Count == 0) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
-		
-		GameObject closest = null;
-		float closestDis = 500;
-		foreach(GameObject p in pointFinder.GrabbablePoints)
-		{
-			if(p.Tags.Contains("grabbed")) continue;
-			float distance = Vector3.DistanceBetween(p.Transform.Position,pointFinder.searchPoint);
-			if(distance > closestDis) continue;
-			closest = p;
-			closestDis = distance;
-		}
-
-		Interactable closestI = null;
-		float closestIDis = pointFinder.searchRadiusHand/2;
-		foreach(Interactable i in pointFinder.InteractablePoints)
-		{
-			if(i.ShowWithoutMain) {if (!i.item.mainHeld) continue;}
-			float distance = Vector3.DistanceBetween(i.Transform.Position,pointFinder.searchPoint);
-			if(distance > closestIDis) continue;
-			closestI = i;
-			closestIDis = distance;
-		}
-
-		
-		
-		if(closestI != null)
-		{
-			Gizmo.Draw.Color = Color.Gray;
-			Gizmo.Draw.SolidSphere(closestI.Transform.Position, 0.25f);
-			if(hand.Trigger >= 0.75f && lastTrigger < 0.75f)
-			{
-				closestI.interacted = !closestI.interacted;
-			}
-		}
-
-
-		if(closest == null) return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
-		Gizmo.Draw.Color = Color.White;
-		Gizmo.Draw.IgnoreDepth = true;
-		Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position,0.5f);
-
-		if(hand.Grip > 0.75f)
-		{
-			//handPhys.Transform.Position = closest.Transform.Position;
-			//handPhys.Transform.Rotation = closest.Transform.Rotation;
-			HandPos handPos = closest.Components.Get<HandPos>();
-
-			Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
-			Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
-
-			AlignByChild(handPos.Rigidbody.GameObject, handPos.GameObject, handPhys.GameObject);
-
-			Sandbox.Physics.FixedJoint newFixedJoint = null;
-			if(handPos.Connect)
-			{
-				var p1 = new PhysicsPoint( handPhys.PhysicsBody, handPhys.Transform.Position );
-				var p2 = new PhysicsPoint( handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
-				newFixedJoint = PhysicsJoint.CreateFixed(p1,p2);
-			}
-			
-			handPos.Rigidbody.Transform.Position = OriginPos;
-			handPos.Rigidbody.Transform.Rotation = OriginRot;
-
-			//AlignBy(closest.Parent.Parent, closest, handPhys.GameObject, handTarget);
-			/*
-			handTarget.SetParent(closest);
-			handTarget.Transform.LocalPosition = Vector3.Zero;
-			handTarget.Transform.LocalRotation = Rotation.Identity;
-			*/
-
-			Item item = handPos.Rigidbody.Components.Get<Item>();
-			if(item != null)
-			{
-				handPos.Rigidbody.AngularDamping = item.AngularDrag;
-				item.HandsConnected++;
-				item.rigidbody.MotionEnabled = true;
-				if(handPos.Connect)
-				{
-					newFixedJoint.SpringAngular = new PhysicsSpring(handPos.AngularSpring.x,handPos.AngularSpring.y);
-					newFixedJoint.SpringLinear = new PhysicsSpring(handPos.PositionSpring.x,handPos.PositionSpring.y);
-				}
-				
-				if(handPos.Main)
-				{
-					item.Controller = hand;
-					item.mainHeld = true;
-				}
-			}
-			else
-			{
-				newFixedJoint.SpringAngular = new PhysicsSpring(100, 10);
-				newFixedJoint.SpringLinear = new PhysicsSpring(100, 10);
-			}
-			handPos.Rigidbody.GameObject.SetParent(VRSpace);
-			closest.Parent.Tags.Add("grabbed");
-			MakeProcedual(handSkeleton);
-			return (newFixedJoint, true, closest, handPos, reHoldRef);
-		}
-
-
-		return (fixedJointRef, holdingRef, grabPointRef,currentHandPosRef, reHoldRef);
-	}
 
 	public static void MakeProcedual(GameObject target)
     {
@@ -441,4 +296,224 @@ public sealed class HandsDealer : Component
 			CopyTransformRecursiveLerp(target1Child, target2Child, setChild, posMod, angMod, frac);
         }
     }
+
+	public class VRHandGrabber
+	{
+		public GameObject VRSpace {get;set;}
+		public void DropItem(
+			ref Sandbox.Physics.FixedJoint fixedJointRef,
+			ref bool holdingRef,
+			ref GameObject grabPointRef,
+			ref HandPos currentHandPosRef,
+			ref bool reHoldRef,
+			GameObject handTarget,
+			Vector3 handLocalPos,
+			Rotation handLocalRot,
+			GameObject handSkeleton)
+		{
+			bool knifeTrigger = false;
+			if (grabPointRef.IsValid())
+			{
+				if (currentHandPosRef.Main && currentHandPosRef.item != null)
+				{
+					if (currentHandPosRef.ParentTo)
+						currentHandPosRef.Rigidbody.GameObject.SetParent(Game.ActiveScene);
+					knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
+					currentHandPosRef.item.Controller = null;
+					currentHandPosRef.item.mainHeld = false;
+				}
+				grabPointRef.Parent.Tags.Remove("grabbed");
+			}
+			if (currentHandPosRef.Connect) fixedJointRef.Remove();
+
+			if (currentHandPosRef.item != null)
+			{
+				if (currentHandPosRef.item.HandsConnected <= 1)
+					currentHandPosRef.Rigidbody.AngularDamping = 0;
+				currentHandPosRef.item.HandsConnected--;
+				currentHandPosRef.item.Throw(knifeTrigger);
+			}
+
+			handTarget.Transform.LocalPosition = handLocalPos;
+			handTarget.Transform.LocalRotation = handLocalRot;
+
+			MakeAnimated(handSkeleton);
+
+			fixedJointRef = null;
+			holdingRef = false;
+			grabPointRef = null;
+			currentHandPosRef = null;
+			reHoldRef = true;
+		}
+
+		public void PickupItem(
+			GameObject closest,
+			ref Sandbox.Physics.FixedJoint fixedJointRef,
+			ref bool holdingRef,
+			ref GameObject grabPointRef,
+			ref HandPos currentHandPosRef,
+			Rigidbody handPhys,
+			VRController hand,
+			GameObject handSkeleton)
+		{
+			HandPos handPos = closest.Components.Get<HandPos>();
+
+			Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
+			Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
+
+			AlignByChild(handPos.Rigidbody.GameObject, handPos.GameObject, handPhys.GameObject);
+
+			Sandbox.Physics.FixedJoint newFixedJoint = null;
+			if (handPos.Connect)
+			{
+				var p1 = new PhysicsPoint(handPhys.PhysicsBody, handPhys.Transform.Position);
+				var p2 = new PhysicsPoint(handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
+				newFixedJoint = PhysicsJoint.CreateFixed(p1, p2);
+			}
+
+			handPos.Rigidbody.Transform.Position = OriginPos;
+			handPos.Rigidbody.Transform.Rotation = OriginRot;
+
+			Item item = handPos.Rigidbody.Components.Get<Item>();
+			if (item != null)
+			{
+				handPos.Rigidbody.AngularDamping = item.AngularDrag;
+				item.HandsConnected++;
+				item.rigidbody.MotionEnabled = true;
+				if (handPos.Connect)
+				{
+					newFixedJoint.SpringAngular = new PhysicsSpring(handPos.AngularSpring.x, handPos.AngularSpring.y);
+					newFixedJoint.SpringLinear = new PhysicsSpring(handPos.PositionSpring.x, handPos.PositionSpring.y);
+				}
+
+				if (handPos.Main)
+				{
+					item.Controller = hand;
+					item.HandPos = handPos;
+					item.mainHeld = true;
+				}
+			}
+			else
+			{
+				newFixedJoint.SpringAngular = new PhysicsSpring(100, 10);
+				newFixedJoint.SpringLinear = new PhysicsSpring(100, 10);
+			}
+
+			if (handPos.ParentTo) handPos.Rigidbody.GameObject.SetParent(VRSpace);
+			closest.Parent.Tags.Add("grabbed");
+			MakeProcedual(handSkeleton);
+
+			fixedJointRef = newFixedJoint;
+			holdingRef = true;
+			grabPointRef = closest;
+			currentHandPosRef = handPos;
+		}
+
+		public (Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos, bool reHold)
+		Grabber(
+			GrabPointFinder pointFinder,
+			Rigidbody handPhys,
+			VRController hand,
+			GameObject handSkeleton,
+			Sandbox.Physics.FixedJoint fixedJointRef,
+			bool holdingRef,
+			GameObject grabPointRef,
+			GameObject handTarget,
+			Vector3 handLocalPos,
+			Rotation handLocalRot,
+			HandPos currentHandPosRef,
+			bool reHoldRef,
+			float lastTrigger)
+		{
+			if (holdingRef)
+			{
+				
+				reHoldRef = true;
+				if (hand.Grip < 0.5f || !grabPointRef.IsValid())
+				{
+					DropItem(ref fixedJointRef, ref holdingRef, ref grabPointRef, ref currentHandPosRef, ref reHoldRef, handTarget, handLocalPos, handLocalRot, handSkeleton);
+					return (null, false, null, null, reHoldRef);
+				}
+
+				handTarget.Transform.Position = currentHandPosRef.wristObject.Transform.Position;
+				handTarget.Transform.Rotation = currentHandPosRef.wristObject.Transform.Rotation;
+				CopyTransformRecursive(currentHandPosRef.wristObject, handSkeleton, Vector3.One, new Angles(1, 1, 1));
+
+				return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+			}
+
+			if (reHoldRef)
+			{
+				if (hand.Grip < 0.5f) reHoldRef = false;
+				return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+			}
+
+			
+
+			ItemStorer closestS = null;
+			
+			foreach (ItemStorer p in pointFinder.ItemStorers)
+			{
+				closestS = p;
+				break;
+			}
+
+			if(closestS != null && false)
+			{
+				if (hand.Grip > 0.75f)
+				{
+					Item item = closestS.ReleaseItem();
+					if(item != null)
+						PickupItem(item.HandPos.GameObject, ref fixedJointRef, ref holdingRef, ref grabPointRef, ref currentHandPosRef, handPhys, hand, handSkeleton);
+					return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+				}
+				return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+			}
+
+			GameObject closest = null;
+			float closestDis = 500;
+			foreach (GameObject p in pointFinder.GrabbablePoints)
+			{
+				if (p.Tags.Contains("grabbed")) continue;
+				float distance = Vector3.DistanceBetween(p.Transform.Position, pointFinder.searchPoint);
+				if (distance > closestDis) continue;
+				closest = p;
+				closestDis = distance;
+			}
+
+			Interactable closestI = null;
+			float closestIDis = pointFinder.searchRadiusHand / 2;
+			foreach (Interactable i in pointFinder.InteractablePoints)
+			{
+				if (!i.ShowWithoutMain) { if (!i.item.mainHeld) continue; }
+				float distance = Vector3.DistanceBetween(i.Transform.Position, pointFinder.searchPoint);
+				if (distance > closestIDis) continue;
+				closestI = i;
+				closestIDis = distance;
+			}
+
+			if (closestI != null)
+			{
+				Gizmo.Draw.Color = Color.Gray;
+				Gizmo.Draw.SolidSphere(closestI.Transform.Position, 0.25f);
+				if (hand.Trigger >= 0.75f && lastTrigger < 0.75f)
+				{
+					closestI.interacted = !closestI.interacted;
+				}
+			}
+
+			if (closest == null) return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+			Gizmo.Draw.Color = Color.White;
+			Gizmo.Draw.IgnoreDepth = true;
+			Gizmo.Draw.SolidSphere(closest.Parent.Transform.Position, 0.5f);
+
+			if (hand.Grip > 0.75f)
+			{
+				PickupItem(closest, ref fixedJointRef, ref holdingRef, ref grabPointRef, ref currentHandPosRef, handPhys, hand, handSkeleton);
+				return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+			}
+
+			return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
+		}
+	}
 }

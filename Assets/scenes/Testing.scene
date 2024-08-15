@@ -409,6 +409,7 @@
           "AngularDrag": 1000000,
           "Condition": 1,
           "HandsConnected": 0,
+          "knifeThrow": false,
           "mainHeld": false,
           "Renderer": {
             "_type": "component",

@@ -9,6 +9,7 @@ public sealed class Vrmovement : Component
 	[Property] public ColorAdjustments Camera {get;set;}
 
     FilmGrain filmGrain;
+	[Property] public AgroRelations AgroRelations {get;set;}
 	[Property] public ManualHitbox Hitbox {get;set;}
 	[Property] public CharacterController characterController {get;set;}
 	[Property] public GameObject VRSpace {get;set;}
@@ -22,8 +23,8 @@ public sealed class Vrmovement : Component
 	[Property] public float CrouchDistance {get;set;} = 19f;
 	[Property] public float PhysicalCrouchHeight {get;set;} = 40f;
 	[Property] public float StunTime {get;set;} = 5f;
-	public Vector3 offset {get;set;}
-    public float Stunned {get;set;}
+	[Hide, Property] public Vector3 offset {get;set;}
+    [Hide, Property] public float Stunned {get;set;}
 
     float CamHeight;
     bool hideCam;
@@ -35,7 +36,7 @@ public sealed class Vrmovement : Component
 
     Vector3 wantedVRSpacePos;
     float reverseStun;
-	protected override async void OnStart()
+	protected override void OnStart()
 	{
         filmGrain = Camera.Components.Get<FilmGrain>();
 	}
@@ -58,13 +59,15 @@ public sealed class Vrmovement : Component
         }
         characterController.Height = CamHeight;
 
-        if(Input.VR.LeftHand.Joystick.Value.Length > 0) Movement();
+        if(Input.VR.LeftHand.Joystick.Value.Length > 0 || !characterController.IsOnGround) Movement();
         else StationaryMovement();
         
 
         VRSpace.Transform.Position = wantedVRSpacePos;
 
-        FitHitbox(Hitbox, Camera.Transform.Position.WithZ(characterController.Transform.Position.z), Camera.Transform.Position+ Vector3.Up*HeadRadius, GameObject);
+        FitHitbox(Hitbox, Camera.Transform.Position.WithZ(characterController.Transform.Position.z), Camera.Transform.Position - Vector3.Up*HeadRadius, GameObject);
+
+        AgroRelations.attackPoint = Vector3.Zero.WithZ(Camera.Transform.Position.z*0.65f);
 
         Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
 
@@ -117,8 +120,8 @@ public sealed class Vrmovement : Component
     void Movement()
     {
         Vector3 wishVelocity = (
-            Input.VR.LeftHand.Joystick.Value.y * Camera.Transform.World.Forward) + 
-            (Input.VR.LeftHand.Joystick.Value.x * Camera.Transform.World.Right);
+            Input.VR.LeftHand.Joystick.Value.y * Camera.Transform.World.Forward.WithZ(0).Normal) + 
+            (Input.VR.LeftHand.Joystick.Value.x * Camera.Transform.World.Right.WithZ(0).Normal);
 
 
         if(crouchSpeed) wishVelocity *= CrouchSpeed;
@@ -127,7 +130,12 @@ public sealed class Vrmovement : Component
 
         characterController.Velocity = wishVelocity * reverseStun * reverseStun;
 
-        wantedVRSpacePos += characterController.Transform.Position.WithZ(0)-Camera.Transform.Position.WithZ(0);
+        if(!characterController.IsOnGround)
+        {
+            characterController.Velocity += Vector3.Up * Scene.PhysicsWorld.Gravity;
+        }
+
+        wantedVRSpacePos += characterController.Transform.Position-Camera.Transform.Position.WithZ(VRSpace.Transform.Position.z);
 
         characterController.Move();
     }

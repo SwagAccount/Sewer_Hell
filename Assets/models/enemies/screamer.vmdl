@@ -732,7 +732,7 @@
 								parent_bone = "Head"
 								surface_property = ""
 								translation_only = false
-								tags = "5"
+								tags = "3"
 								hitbox_mins = [ -1.49615, -0.429292, -0.824014 ]
 								hitbox_maxs = [ 1.496145, 10.430694, 4.925037 ]
 							},

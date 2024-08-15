@@ -1,0 +1,24 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "materials/water/watershader.shader"
+
+	//---- Texture Filtering ----
+	F_TEXTURE_FILTERING 3 // Point Sample
+
+	g_flTrans "0.315"
+	g_vTile "[1.000 1.000]"
+	Texture_ps_0 "materials/Water/Textures/0008.png"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Translucent ----
+	g_flOpacityScale "1.000"
+
+	DynamicParams
+	{
+		Texture_ps_0 "Colour"
+	}
+}
