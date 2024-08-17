@@ -64,8 +64,12 @@ public sealed class HandsDealer : Component
 	Sandbox.Physics.SpringJoint leftHandSJoint;
 	Sandbox.Physics.SpringJoint rightHandSJoint;
 
+	ChunkDealer chunkDealer;
+
 	protected override void OnStart()
 	{
+		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
+
 		handTargetLocalStartPosL = HandTargetL.Transform.LocalPosition;
 		handTargetLocalStartRotL = HandTargetL.Transform.LocalRotation;
 		handTargetLocalStartPosR = HandTargetR.Transform.LocalPosition;
@@ -170,6 +174,8 @@ public sealed class HandsDealer : Component
 
 	float lastLeftTrigger;
 	float lastRightTrigger;
+	public VRHandGrabber leftHandGrabber;
+	public VRHandGrabber rightHandGrabber;
 	
 	void Inputs()
 	{
@@ -180,17 +186,17 @@ public sealed class HandsDealer : Component
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
 
-		VRHandGrabber leftHandController = new VRHandGrabber
+		leftHandGrabber = new VRHandGrabber
 		{
 			VRSpace = VRSpace
 		};
-		VRHandGrabber rightHandController = new VRHandGrabber
+		rightHandGrabber = new VRHandGrabber
 		{
 			VRSpace = VRSpace
 		};
 
-		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = leftHandController.Grabber(grabPointsL, FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold, lastLeftTrigger);
-		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = rightHandController.Grabber(grabPointsR, FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold, lastRightTrigger);
+		(grabJointLeft, lHolding, grabPointL, currentHandPosL, reLHold) = leftHandGrabber.Grabber(grabPointsL, FinalPhysL, Input.VR.LeftHand, HandSkeletonL, grabJointLeft, lHolding, grabPointL, HandTargetL, handTargetLocalStartPosL, handTargetLocalStartRotL, currentHandPosL, reLHold, lastLeftTrigger);
+		(grabJointRight, rHolding, grabPointR, currentHandPosR, reRHold) = rightHandGrabber.Grabber(grabPointsR, FinalPhysR, Input.VR.RightHand, HandSkeletonR, grabJointRight, rHolding, grabPointR, HandTargetR, handTargetLocalStartPosR, handTargetLocalStartRotR, currentHandPosR, reRHold, lastRightTrigger);
 
 
 		grabPointsL.Enabled = !lHolding;
@@ -300,6 +306,7 @@ public sealed class HandsDealer : Component
 	public class VRHandGrabber
 	{
 		public GameObject VRSpace {get;set;}
+		
 		public void DropItem(
 			ref Sandbox.Physics.FixedJoint fixedJointRef,
 			ref bool holdingRef,
@@ -316,8 +323,9 @@ public sealed class HandsDealer : Component
 			{
 				if (currentHandPosRef.Main && currentHandPosRef.item != null)
 				{
+					currentHandPosRef.Rigidbody.MotionEnabled = currentHandPosRef.item.MotionEnabled;
 					if (currentHandPosRef.ParentTo)
-						currentHandPosRef.Rigidbody.GameObject.SetParent(Game.ActiveScene);
+						Game.ActiveScene.Components.GetInChildren<ChunkDealer>().PlaceInChunk(currentHandPosRef.Rigidbody.GameObject);
 					knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
 					currentHandPosRef.item.Controller = null;
 					currentHandPosRef.item.mainHeld = false;
@@ -328,10 +336,11 @@ public sealed class HandsDealer : Component
 
 			if (currentHandPosRef.item != null)
 			{
+				
 				if (currentHandPosRef.item.HandsConnected <= 1)
 					currentHandPosRef.Rigidbody.AngularDamping = 0;
 				currentHandPosRef.item.HandsConnected--;
-				currentHandPosRef.item.Throw(knifeTrigger);
+				if(currentHandPosRef.item.MotionEnabled) currentHandPosRef.item.Throw(knifeTrigger);
 			}
 
 			handTarget.Transform.LocalPosition = handLocalPos;
@@ -357,7 +366,7 @@ public sealed class HandsDealer : Component
 			GameObject handSkeleton)
 		{
 			HandPos handPos = closest.Components.Get<HandPos>();
-
+			handPos.Rigidbody.Enabled = true;
 			Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
 			Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
 
@@ -458,13 +467,17 @@ public sealed class HandsDealer : Component
 				break;
 			}
 
-			if(closestS != null && false)
+			if(closestS != null)
 			{
 				if (hand.Grip > 0.75f)
 				{
 					Item item = closestS.ReleaseItem();
+					
 					if(item != null)
-						PickupItem(item.HandPos.GameObject, ref fixedJointRef, ref holdingRef, ref grabPointRef, ref currentHandPosRef, handPhys, hand, handSkeleton);
+					{
+						HandPos handPos = item.HandPos.Tags.Contains(hand == Input.VR.LeftHand ? "left" : "right") ? item.HandPos : item.HandPos.OtherHand;
+						PickupItem(handPos.GameObject, ref fixedJointRef, ref holdingRef, ref grabPointRef, ref currentHandPosRef, handPhys, hand, handSkeleton);
+					}
 					return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);
 				}
 				return (fixedJointRef, holdingRef, grabPointRef, currentHandPosRef, reHoldRef);

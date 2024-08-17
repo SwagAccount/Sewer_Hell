@@ -1,5 +1,5 @@
 {
-  "__guid": "4fb36c96-acb9-4b8e-9be7-cb2272b95a06",
+  "__guid": "a0098ba0-9d7e-4767-b264-24b177da5945",
   "GameObjects": [
     {
       "__guid": "d8c7b953-d03c-4052-a1c4-3adcd56cdc88",
@@ -8,15 +8,184 @@
       "Enabled": true
     },
     {
+      "__guid": "56362d52-5fcc-4506-be31-1ec27d0cf235",
+      "Flags": 0,
+      "Name": "GameManager",
+      "Position": "347.3747,164.0759,106.0979",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GameManager",
+          "__guid": "a863eaf0-3304-4eea-9414-3277b9b89a37",
+          "DayTime": 30,
+          "FloodDays": 1,
+          "NextFlood": 0,
+          "SpawnerParent": {
+            "_type": "gameobject",
+            "go": "81e1a4c4-5b20-4a9a-be61-f93b5f94a077"
+          },
+          "TimeM": 0
+        }
+      ]
+    },
+    {
+      "__guid": "81e1a4c4-5b20-4a9a-be61-f93b5f94a077",
+      "Flags": 0,
+      "Name": "Spawners",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "384105fd-f90b-4a58-929b-06b124eb2bc4",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "176.1636,937.3869,5.515429",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "305c8df4-a962-490c-9f87-5f479ac45f0a",
+              "LockZ": true,
+              "SpawnCount": "2,3",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 105.89997,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "b8303756-2934-42c3-a8e2-6b5766f05964",
+          "Flags": 0,
+          "Name": "EnemySpawner (4)",
+          "Position": "897.1116,1020.384,5.515476",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "df0a51bc-b365-4b5a-bd00-b66a08ef0ec6",
+              "LockZ": true,
+              "SpawnCount": "2,3",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 105.89997,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "db887949-b4d5-49d6-ad28-3a0706fcc8f8",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "174.4545,703.3286,5.515429",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "ee3e2912-fed5-47c3-bf41-e686110ff0cb",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 34.599957,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "a1c6f8ec-7152-4c25-b1b2-f64e2d57de9c",
+          "Flags": 0,
+          "Name": "EnemySpawner (1)",
+          "Position": "528.1234,798.2941,5.51545",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "acbdc5aa-4670-4c71-ad90-dc10f3452ed3",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 58.999973,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "5b7e1ff1-aecb-4c78-87bf-d237cb7653ef",
+          "Flags": 0,
+          "Name": "EnemySpawner (3)",
+          "Position": "763.0887,611.1332,5.515331",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "d6effb4b-b096-4e9a-8352-a48890f6fbe2",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 58.999973,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "9d3530eb-485a-4c85-b5be-0e016dae3b62",
+          "Flags": 0,
+          "Name": "EnemySpawner (5)",
+          "Position": "1032.514,611.1332,5.515331",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "20bf4542-8261-4594-b352-998c2003cb6b",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 58.999973,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "57742d12-89d0-49ad-bf5f-5e1cef236983",
+          "Flags": 0,
+          "Name": "EnemySpawner (6)",
+          "Position": "895.2778,741.6096,5.515323",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "c78aa602-e21b-4fbe-9218-dfbae4399551",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 58.999973,
+              "SpawnTest": false
+            }
+          ]
+        },
+        {
+          "__guid": "cb569ccd-b552-4102-871e-23ee06bcb31a",
+          "Flags": 0,
+          "Name": "EnemySpawner (2)",
+          "Position": "650.7224,780.4911,8.83347",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "9a56b46e-e0e4-4c2b-8c67-04f121f607c7",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 17.500004,
+              "SpawnTest": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "__guid": "d2bf739a-824b-4997-9a7f-947a96d50706",
       "Flags": 0,
       "Name": "Chunks",
       "Enabled": true,
       "Components": [
-        {
-          "__type": "ChunkSaver",
-          "__guid": "7f22512d-1679-4857-9b72-c14383358451"
-        },
         {
           "__type": "ChunkDealer",
           "__guid": "0c0b860f-3bf7-4165-af62-85df1fa1aeea",
@@ -25,7 +194,7 @@
             "go": "d8c7b953-d03c-4052-a1c4-3adcd56cdc88"
           },
           "ChunkCount": "11,11",
-          "ChunkDistance": 2,
+          "ChunkDistance": 3,
           "chunks": [
             [
               {
@@ -793,6 +962,25 @@
             {
               "__type": "ChunkSaver",
               "__guid": "e0193c9e-d6a7-4333-bdb5-eb9e38b62502"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "f1e003d7-b749-4171-b403-a9a01b5df8c1",
+              "Flags": 0,
+              "Name": "Cube",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "55882c14-099a-4f41-8ab4-0ccb5ac1cb38",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
             }
           ]
         },
@@ -2462,26 +2650,6 @@
       ]
     },
     {
-      "__guid": "4679f44a-4573-4b92-ab13-0d5bd8b0d089",
-      "Flags": 0,
-      "Name": "screamer",
-      "Position": "161.3086,946.0953,8.000034",
-      "Tags": "relations,enemy",
-      "__Prefab": "prefabs/enemies/screamer.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "4c353590-3c15-4c43-af9b-d7b3eef51c91",
-      "Flags": 0,
-      "Name": "dog",
-      "Position": "92.26682,939.2905,3.000033",
-      "Rotation": "0,0,0.9999999,0",
-      "Tags": "relations",
-      "Enabled": true,
-      "__Prefab": "prefabs/enemies/dog.prefab",
-      "__PrefabVariables": {}
-    },
-    {
       "__guid": "537cf149-71e0-44a4-86c7-30775b4d209e",
       "Flags": 0,
       "Name": "GameObject",
@@ -3904,7 +4072,7 @@
               "__guid": "5c909bfb-2a54-46aa-9f1d-b5bd119c8263",
               "Lever": {
                 "_type": "component",
-                "component_id": "6dacec16-d58a-4e5c-a3d3-87a1f42cd6e2",
+                "component_id": "0e066cc1-2804-460d-9c72-095740b3c200",
                 "go": "b526dbd7-61a7-4bfc-9510-98d6a9bff012",
                 "component_type": "Lever"
               },
@@ -3929,7 +4097,7 @@
       "__guid": "e59e6267-7b59-4dea-a614-2f424fe10866",
       "Flags": 0,
       "Name": "Object",
-      "Position": "34.33321,0.000002046419,33.71328",
+      "Position": "56.51321,0.00000336845,34.28271",
       "Tags": "itemstore",
       "Enabled": true,
       "Components": [
@@ -3937,23 +4105,19 @@
           "__type": "Sandbox.BoxCollider",
           "__guid": "dc0c6c70-bb57-4e2d-a568-eba8b6fb812a",
           "Center": "0,0,0",
-          "IsTrigger": true,
-          "Scale": "2,2,2",
+          "IsTrigger": false,
+          "Scale": "1,1,1",
           "Static": false
         },
         {
           "__type": "trollface.ItemStorer",
           "__guid": "ae263d12-864c-4dcb-80f6-2b0d26de1bee",
+          "Categories": [
+            "Backpack"
+          ],
           "items": [],
+          "SearchRadius": 10,
           "spawnItem": false
-        },
-        {
-          "__type": "Sandbox.BoxCollider",
-          "__guid": "3d39df3b-5827-4d9b-be68-534b5f110afe",
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Scale": "2,2,2",
-          "Static": false
         }
       ],
       "Children": [
@@ -3976,6 +4140,26 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "49b1fb86-295a-4b6d-8b70-ab8fd11efeb0",
+      "Flags": 0,
+      "Name": "metal door",
+      "Position": "0,104,2.533928",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Enabled": true,
+      "__Prefab": "prefabs/metaldoor.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "a1f0f77b-7fb8-41f0-85d1-0f919aea63f4",
+      "Flags": 0,
+      "Name": "metal door (1)",
+      "Position": "0,-104,2.533928",
+      "Rotation": "0,-0,-0.7071068,0.7071068",
+      "Enabled": true,
+      "__Prefab": "prefabs/metaldoor.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
@@ -3992,7 +4176,7 @@
       "IncludeKeyframedBodies": true,
       "EditorAutoUpdate": true,
       "AgentHeight": 64,
-      "AgentRadius": 4.8999963,
+      "AgentRadius": 0,
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",

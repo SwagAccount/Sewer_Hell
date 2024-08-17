@@ -49,3 +49,13 @@ Top Bricks Texture
 
 Water Texture
 	https://opengameart.org/content/animated-water-texture-128px - YCbCr on Open Game Art
+
+Backpack reference and textures
+	"Survival Backpack" (https://skfb.ly/6WBpu) by Thunder is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).}
+
+Metal Door Shut Sound
+	remix 2 of 98946__Tomlija__metal_door_close.wav by Timbre -- https://freesound.org/s/125356/ -- License: Attribution NonCommercial 4.0
+	metal door close.wav by Tomlija -- https://freesound.org/s/98946/ -- License: Attribution 3.0
+
+Metal Door Open Sound
+	Metal Door Opening & Closing Horror Sound (3).wav by iammokhtari -- https://freesound.org/s/529719/ -- License: Creative Commons 0

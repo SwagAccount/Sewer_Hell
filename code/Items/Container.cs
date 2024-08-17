@@ -4,11 +4,13 @@ namespace trollface;
 public sealed class Container : Component, Component.ITriggerListener
 {
 	[Property] public List<Item> items {get; set;} = new List<Item>();
+	[Property] public GameObject ObjectRef {get;set;}
 	void ITriggerListener.OnTriggerEnter(Collider other)
 	{
 		Item item =  other.Components.Get<Item>();
 		if(!item.IsValid()) return;
 		if(items.Contains(item)) return;
+		if(other.GameObject == ObjectRef) return;
 		items.Add(item);
 	}
 
@@ -16,8 +18,8 @@ public sealed class Container : Component, Component.ITriggerListener
 	{
 		Item item = other.Components.Get<Item>();
 		if(!item.IsValid()) return;
-		if(items.Contains(item))
-			items.Remove(item);
+		if(!items.Contains(item)) return;
+		items.Remove(item);
 	}
 
 	BoxCollider collider;
@@ -28,8 +30,14 @@ public sealed class Container : Component, Component.ITriggerListener
 	}
 	protected override void OnUpdate()
 	{
+		List<Item> itemsToRemove = new List<Item>();
 		foreach(Item item in items)
 		{
+			if(!item.IsValid())
+			{
+				itemsToRemove.Add(item);
+				continue;
+			}
 			if(item.HandsConnected <= 0)
 			{
 				item.rigidbody.MotionEnabled = false;
@@ -40,6 +48,10 @@ public sealed class Container : Component, Component.ITriggerListener
 				item.rigidbody.MotionEnabled = true;
 				DrawBoxCorners(Transform.Position, Transform.Rotation, collider.Scale, Color.Green);
 			}
+		}
+		while(itemsToRemove.Count > 0)
+		{
+			itemsToRemove.RemoveAt(0);
 		}
 	}
 

@@ -1,0 +1,61 @@
+{
+  "RootObject": {
+    "__guid": "49b1fb86-295a-4b6d-8b70-ab8fd11efeb0",
+    "Flags": 0,
+    "Name": "metaldoor",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "49a5b94d-a916-45af-a9ae-a303c9f470f8",
+        "BodyGroups": 18446744073709551615,
+        "CreateBoneObjects": false,
+        "Model": "models/metal door/metal door.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.ModelPhysics",
+        "__guid": "ac9b955c-067b-44ee-8f97-0f555b6a8404",
+        "Locking": {},
+        "Model": "models/metal door/metal door.vmdl",
+        "MotionEnabled": false,
+        "Renderer": {
+          "_type": "component",
+          "component_id": "49a5b94d-a916-45af-a9ae-a303c9f470f8",
+          "go": "49b1fb86-295a-4b6d-8b70-ab8fd11efeb0",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "RigidbodyFlags": 0
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "a921fc1a-b11b-4f21-aded-e870aca027a8",
+        "Center": "13.6,0,35",
+        "IsTrigger": true,
+        "Scale": "55.19991,83.60004,75.29994",
+        "Static": false
+      },
+      {
+        "__type": "trollface.SafeDoor",
+        "__guid": "30b6fca9-101d-4f9a-a57a-b02dbfa95707",
+        "ModelRenderer": {
+          "_type": "component",
+          "component_id": "49a5b94d-a916-45af-a9ae-a303c9f470f8",
+          "go": "49b1fb86-295a-4b6d-8b70-ab8fd11efeb0",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "Open": false
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

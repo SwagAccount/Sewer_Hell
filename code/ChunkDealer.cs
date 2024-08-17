@@ -16,11 +16,17 @@ public sealed class ChunkDealer : Component
 
 	[Property] public List<List<ChunkSaver>> chunks {get;set;}
 	int SetChunkDis;
+	GameManager gameManager;
 
 	protected override void OnStart()
 	{
+		gameManager = Scene.Components.GetInChildren<GameManager>();
 		Player = Scene.Components.GetInChildren<Vrmovement>();
 		SetChunkDis = ChunkDistance;
+		playerChunkX = (int)SafeChunk.x;
+		playerChunkY = (int)SafeChunk.y;
+		lastPlayerChunkX = playerChunkX;
+		lastPlayerChunkY = playerChunkY;
 	}
 	protected override void DrawGizmos()
 	{
@@ -94,10 +100,38 @@ public sealed class ChunkDealer : Component
 			PlaceInChunk(ActiveChunk.Children[0]);
 		}
 	}
+	public void SaveAllChunks()
+	{
+		for (int x = 0; x < chunks.Count; x++)
+        {
+            for (int y = 0; y < chunks[x].Count; y++)
+            {
+				bool enabled = chunks[x][y].Enabled;
+				chunks[x][y].Enabled = true;
+                chunks[x][y].Save();
+				chunks[x][y].Enabled = enabled;
+            }
+        }
+	}
+
+	public void LoadAllChunks()
+	{
+		for (int x = 0; x < chunks.Count; x++)
+        {
+            for (int y = 0; y < chunks[x].Count; y++)
+            {
+				bool enabled = chunks[x][y].Enabled;
+				chunks[x][y].Enabled = true;
+                chunks[x][y].Load();
+				chunks[x][y].Enabled = enabled;
+            }
+        }
+	}
 	void EnterSafeChunk()
 	{
 		safe = true;
 		UnActivateAll();
+		gameManager.Save();
 		ChunkDistance = 0;
 	}
 	void ExitSafeChunk()
@@ -106,8 +140,9 @@ public sealed class ChunkDealer : Component
 		ChunkDistance = SetChunkDis;
 	}
 	
-	public void PlaceInChunk(GameObject gameObject)
+	public void PlaceInChunk(GameObject gameObject, bool test = false)
 	{
+		if(!test) gameObject.Enabled = false;
 		Vector3 position = gameObject.Transform.Position;
 
 		int chunkX = MathX.FloorToInt((position.x + (ChunkCount.x * ChunkSize) / 2) / ChunkSize);
@@ -119,6 +154,7 @@ public sealed class ChunkDealer : Component
 		ChunkSaver chunkSaver = chunks[chunkX][chunkY];
 
 		gameObject.SetParent(chunkSaver.GameObject);
+		if(!test) gameObject.Enabled = true;
 	}
 
 	void CreateChunks()

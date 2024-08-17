@@ -11,11 +11,11 @@ public sealed class Recoil : Component
 	[Property] public float PosReturnSpeed {get;set;}
 	[Property] public float RotReturnSpeed {get;set;}
 
-	public Vector3 RecoilTargetPos {get;set;}
-	public Angles RecoilTargetRot {get;set;}
-	public Vector3 ReturnPos {get;set;}
+	[Hide, Property] public Vector3 RecoilTargetPos {get;set;}
+	[Hide, Property] public Angles RecoilTargetRot {get;set;}
+	[Hide, Property] public Vector3 ReturnPos {get;set;}
 	[Property] public Angles ReturnRot {get;set;}
-	public bool GotReturn {get;set;}
+	[Hide, Property] public bool GotReturn {get;set;}
 	
 	Item item;
 	protected override void OnStart()

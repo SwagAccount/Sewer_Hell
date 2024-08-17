@@ -61,6 +61,8 @@
         "__type": "trollface.FindChooseEnemy",
         "__guid": "2916900d-21e3-43ee-ae4d-699c832b093d",
         "DetectRange": 300,
+        "eyeDir": "1,0,0",
+        "eyePos": "3.8,0,61.09998",
         "ForceTargetRange": 0,
         "HealthComponent": {
           "_type": "component",
@@ -69,7 +71,8 @@
           "component_type": "HealthComponent"
         },
         "NewEnemy": false,
-        "TimeSinceSeen": 0
+        "TimeSinceSeen": 0,
+        "ViewAngle": 44.599995
       },
       {
         "__type": "trollface.HealthComponent",

@@ -9,9 +9,30 @@ public sealed class FindChooseEnemy : Component
 	[Property] public float TimeSinceSeen {get;set;}
 	[Property] public float DetectRange {get;set;} = 700f;
 	[Property] public float ForceTargetRange {get;set;} = 300f;
+	[Property] public Vector3 eyePos {get;set;}
+	[Property] public Vector3 eyeDir {get;set;} = new Vector3(1,0,0);
+	[Property] public float ViewAngle {get;set;}
 
 	AgroRelations agroRelations;
 
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.Arrow(eyePos,eyePos+eyeDir,1,1);
+		var baseRotation = Rotation.LookAt(eyeDir);
+
+		var axes = new[] { Vector3.Up, Vector3.Right };
+		var angles = new[] { ViewAngle, -ViewAngle };
+
+		foreach (var axis in axes)
+		{
+			foreach (var angle in angles)
+			{
+				var rotatedDirection = baseRotation.RotateAroundAxis(axis, angle).Forward * 50;
+
+				Gizmo.Draw.Line(eyePos, eyePos + rotatedDirection);
+			}
+		}
+	}
 	protected override void OnStart()
 	{
 		agroRelations = Components.GetOrCreate<AgroRelations>();
@@ -82,7 +103,10 @@ public sealed class FindChooseEnemy : Component
 			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			if(!isTrue) continue;	
-			
+			GameObject hitObject = Scene.Trace.Ray(Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().Run().GameObject;
+			if(hitObject != gAgroRelations.ObjectRef) continue;
+			if(Vector3.GetAngle(gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-Transform.World.PointToWorld(eyePos),Transform.World.PointToWorld(eyeDir)) > ViewAngle) continue;
+
 			float distance = Vector3.DistanceBetween(g.Transform.Position,Transform.Position);
 			if(distance < closestRange)
 			{

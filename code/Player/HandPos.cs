@@ -36,6 +36,7 @@ public sealed class HandPos : Component
 	}
 	protected override void OnFixedUpdate()
 	{
+		//Rigidbody.Enabled = !Tags.Contains("container");
 		Transform.LocalPosition = locPos;
 		Transform.LocalRotation = locRot;
 	}

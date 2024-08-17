@@ -9,6 +9,7 @@ public sealed class Vrmovement : Component
 	[Property] public ColorAdjustments Camera {get;set;}
 
     FilmGrain filmGrain;
+	[Property] public ItemStorer BackpackStorer {get;set;}
 	[Property] public AgroRelations AgroRelations {get;set;}
 	[Property] public ManualHitbox Hitbox {get;set;}
 	[Property] public CharacterController characterController {get;set;}
