@@ -24,9 +24,10 @@ public sealed class MultiBarrelTrigger : Component
     public MultiBarrelMagazine multiBarrelMagazine;
     protected override void OnEnabled()
 	{
+        if(!item.mainHeld) return;
 		canShoot = item.Controller.Trigger.Value < 0.75f;
 	}
-	protected override void OnStart()
+	protected override void OnAwake()
 	{
         multiBarrelMagazine = Components.Get<MultiBarrelMagazine>();
 		item = GameObject.Parent.Components.Get<Item>();

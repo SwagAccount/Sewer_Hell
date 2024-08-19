@@ -103,13 +103,14 @@ public sealed class FindChooseEnemy : Component
 			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			if(!isTrue) continue;	
-			GameObject hitObject = Scene.Trace.Ray(Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().Run().GameObject;
+			GameObject hitObject = Scene.Trace.Ray(Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().IgnoreGameObjectHierarchy(GameObject).Run().GameObject;
 			if(hitObject != gAgroRelations.ObjectRef) continue;
 			if(Vector3.GetAngle(gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-Transform.World.PointToWorld(eyePos),Transform.World.PointToWorld(eyeDir)) > ViewAngle) continue;
 
 			float distance = Vector3.DistanceBetween(g.Transform.Position,Transform.Position);
 			if(distance < closestRange)
 			{
+				TimeSinceSeen = 0;
 				closest = g;
 				closestRelations = gAgroRelations;
 				closestRange = distance;
@@ -123,7 +124,6 @@ public sealed class FindChooseEnemy : Component
 			Enemy = closest;
 			EnemyRelations = closestRelations;
 			NewEnemy = true;
-			TimeSinceSeen = 0;
 			return;
 		}
 
@@ -133,7 +133,6 @@ public sealed class FindChooseEnemy : Component
 			Enemy = closest;
 			EnemyRelations = closestRelations;
 			NewEnemy = true;
-			TimeSinceSeen = 0;
 		}
 	}
 

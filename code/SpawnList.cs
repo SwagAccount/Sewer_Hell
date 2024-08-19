@@ -1,5 +1,4 @@
 using System;
-
 namespace trollface;
 
 [GameResource("Spawn List", "sl","List of Prefabs and There Spawn Chances", Icon = "List")]
@@ -9,31 +8,36 @@ public sealed class SpawnList : GameResource
     public class SpawnItem
     {
         [KeyProperty] public GameObject Prefab {get;set;}
-        [KeyProperty] public float Weight {get;set;} = 1;
+        [KeyProperty] public int Weight {get;set;} = 1;
+        [KeyProperty] public string DisplayedChance {get;set;}
     }
 
-    public GameObject GetItem()
+	protected override void PostReload()
+	{
+		int totalWeight = SpawnItems.Sum(item => item.Weight);
+        Log.Info(totalWeight);
+        for(int i = 0; i < SpawnItems.Count; i++)
+        {
+            SpawnItems[i].DisplayedChance = $"{MathF.Round((float)SpawnItems[i].Weight/(float)totalWeight*100f)}%";
+        }
+	}
+
+	public GameObject GetItem()
     {
         if (SpawnItems == null || SpawnItems.Count == 0)
             return null;
 
-        float totalWeight = SpawnItems.Sum(item => item.Weight);
+        int totalWeight = SpawnItems.Sum(item => item.Weight);
 
-        float randomWeight = totalWeight * (Game.Random.Next(0,1000)/1000f);
-        float closestDistance = 1000;
-        float cumulativeWeight = 0;
-        SpawnItem closestItem = null;
+        int randomWeight = (int)MathF.Round(totalWeight * (Game.Random.Next(0,1000)/1000f));
+        int cumulativeWeight = 0;
         foreach (var item in SpawnItems)
         {
+            int beforeWeight = cumulativeWeight;
             cumulativeWeight += item.Weight;
-            float dis = MathF.Abs(randomWeight - cumulativeWeight);
-            if(dis < closestDistance)
-            {
-                closestDistance = dis;
-                closestItem = item;
-            }
+            if(randomWeight > beforeWeight && randomWeight <= cumulativeWeight) return item.Prefab;
         }
 
-        return closestItem.Prefab;
+        return null;
     }
 }

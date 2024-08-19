@@ -2,31 +2,37 @@
   "RootObject": {
     "__guid": "ca6355ea-ac58-41f1-9275-a655709482d7",
     "Flags": 0,
-    "Name": "Shotgun",
-    "Position": "28.66229,16.89371,40.00206",
-    "Rotation": "0,0,-0.7071068,0.7071068",
+    "Name": "shotgun",
     "Enabled": true,
     "Components": [
       {
         "__type": "trollface.Item",
         "__guid": "3b4b0103-c0f0-428c-b4d2-e484e92525f8",
         "AngularDrag": 1000000,
+        "Catagories": [],
         "Condition": 1,
+        "containerPos": "0,0,0",
+        "containerRot": "0,0,0,0",
         "Functions": {
           "_type": "gameobject",
           "go": "15715869-0621-4c67-9ca4-6ccfbd083bd0"
         },
+        "HandPoss": [],
         "HandsConnected": 0,
         "ItemName": "Sawed Off Double Barrel",
         "knifeThrow": false,
-        "mainHeld": false
+        "lastInContainer": false,
+        "mainHeld": false,
+        "MotionEnabled": true,
+        "TimeAlive": 0
       },
       {
         "__type": "Sandbox.ModelCollider",
         "__guid": "948b6250-218f-4d63-955f-d0fb001220c7",
         "IsTrigger": false,
         "Model": "models/weapons/shotgun.vmdl",
-        "Static": false
+        "Static": false,
+        "Surface": "surfaces/metal.weapon.surface"
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -1243,6 +1249,9 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": true,
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
@@ -1253,6 +1262,7 @@
                   "go": "34b5d137-dddb-4981-ad5e-fff38204fcfa",
                   "component_type": "HandPos"
                 },
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",
@@ -1312,10 +1322,14 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": true,
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
                 "MirrorToOtherHand": false,
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",
@@ -1378,6 +1392,9 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": false,
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
@@ -1388,6 +1405,7 @@
                   "go": "4109e22c-6f8f-4359-bab1-e5a70e0c8524",
                   "component_type": "HandPos"
                 },
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",
@@ -1431,10 +1449,14 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": false,
                 "MirrorPosModifiers": "1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
                 "MirrorToOtherHand": false,
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",
@@ -1474,7 +1496,6 @@
         "__guid": "15715869-0621-4c67-9ca4-6ccfbd083bd0",
         "Flags": 0,
         "Name": "Functions",
-        "Position": "0,0,0",
         "Enabled": true,
         "Components": [
           {
@@ -1547,7 +1568,7 @@
           {
             "__type": "trollface.MultiBarrelMagazine",
             "__guid": "bfa57213-6247-4f45-b6d1-099a56fe755b",
-            "ActualMag": false,
+            "ActualMag": true,
             "bulletTypes": {
               "_type": "component",
               "component_id": "8e47aa74-106f-4b4c-97d8-4511dbffe9a0",
@@ -1574,6 +1595,7 @@
               0,
               0
             ],
+            "currentBarrel": 0,
             "DropAxisRef": {
               "_type": "gameobject",
               "go": "253a3ff3-38af-4b75-a071-e92348552b7d"
@@ -1593,6 +1615,10 @@
             ],
             "LoadSound": "sounds/guns/shotgunn/shotgun load.sound",
             "MagSize": 0,
+            "notMagAccepted": [],
+            "notMagPrefabs": [],
+            "open": false,
+            "OpenAmount": 0,
             "OpenSound": "sounds/guns/shotgunn/shotgun open.sound",
             "OpenSpeed": 20,
             "PushBack": false,
@@ -1629,6 +1655,7 @@
               "_type": "gameobject",
               "go": "5479d75a-37f2-4615-b1ad-6b8f75a3445a"
             },
+            "GotReturn": false,
             "PosRecoilSpeed": 40,
             "PosReturnSpeed": 20,
             "RecoilPos": [
@@ -1639,6 +1666,9 @@
               "-7.412,-7.412,71.153",
               "7.412,7.4118,106.729"
             ],
+            "RecoilTargetPos": "0,0,0",
+            "RecoilTargetRot": "0,0,0",
+            "ReturnPos": "0,0,0",
             "ReturnRot": "0,0,0",
             "RotRecoilSpeed": 40,
             "RotReturnSpeed": 20
@@ -1880,7 +1910,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

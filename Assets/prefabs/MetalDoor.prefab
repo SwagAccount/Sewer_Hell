@@ -35,7 +35,8 @@
         "Center": "13.6,0,35",
         "IsTrigger": true,
         "Scale": "55.19991,83.60004,75.29994",
-        "Static": false
+        "Static": false,
+        "Surface": "surfaces/brick.surface"
       },
       {
         "__type": "trollface.SafeDoor",

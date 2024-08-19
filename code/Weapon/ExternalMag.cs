@@ -4,14 +4,21 @@ namespace trollface;
 public sealed class ExternalMagazine : MagazineBase
 {
 	[Property] public GameObject EjectPoint {get;set;}
-    [Property] public bool CantEject {get;set;}
+	[Property] public TextRenderer AmmoCount {get;set;}
 
-    bool triggerPressed;
+    [Property] public bool CantEject {get;set;}
+    ChunkDealer chunkDealer;
+	protected override void OnStart()
+	{
+		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
+	}
+	bool triggerPressed;
     bool triggerWasPressed;
 	protected override void OnFixedUpdate()
 	{
         
         base.OnFixedUpdate();
+        if(AmmoCount != null) AmmoCount.Text = Contents.Count.ToString();
         if(CantEject) return;
 		if(!item.mainHeld) return;
 
@@ -41,6 +48,6 @@ public sealed class ExternalMagazine : MagazineBase
     {
         if(EjectPoint.Children.Count <= 0) return;
         EjectPoint.Children[0].Components.Get<Rigidbody>().MotionEnabled = true;
-        EjectPoint.Children[0].SetParent(null);
+        chunkDealer.PlaceInChunk(EjectPoint.Children[0]);
     }
 }

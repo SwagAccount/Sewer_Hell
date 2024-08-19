@@ -50,6 +50,9 @@
           "_type": "gameobject",
           "go": "f97d566c-a364-43ce-99ca-cea2d923d553"
         },
+        "LooseTime": 20,
+        "RandomMoveDis": "50,100",
+        "RandomMoveTime": 10,
         "RotateSpeed": 10,
         "ScreamDistance": 500,
         "ScreamSound": "sounds/scream.sound",
@@ -62,7 +65,7 @@
         "__guid": "2916900d-21e3-43ee-ae4d-699c832b093d",
         "DetectRange": 300,
         "eyeDir": "1,0,0",
-        "eyePos": "3.8,0,61.09998",
+        "eyePos": "0,0,56.60002",
         "ForceTargetRange": 0,
         "HealthComponent": {
           "_type": "component",
@@ -72,7 +75,7 @@
         },
         "NewEnemy": false,
         "TimeSinceSeen": 0,
-        "ViewAngle": 44.599995
+        "ViewAngle": 120
       },
       {
         "__type": "trollface.HealthComponent",
@@ -107,10 +110,10 @@
         "Acceleration": 500,
         "Height": 64,
         "MaxSpeed": 24,
-        "Radius": 16,
+        "Radius": 4.9999967,
         "Separation": 0.25,
         "UpdatePosition": true,
-        "UpdateRotation": false
+        "UpdateRotation": true
       }
     ],
     "Children": [

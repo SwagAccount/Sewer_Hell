@@ -199,6 +199,52 @@
 						take = 1
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "PrepJump"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/doganims/jumping.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Air"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/enemies/doganims/air.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -215,7 +261,7 @@
 								_class = "Hitbox"
 								name = "ORG_spine_005"
 								parent_bone = "ORG_spine_005"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -12.034848, -16.123337, -0.80459 ]
@@ -225,7 +271,7 @@
 								_class = "Hitbox"
 								name = "ORG_pelvis_L"
 								parent_bone = "ORG_pelvis_L"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -0.5, -1.62689, -2.928958 ]
@@ -235,7 +281,7 @@
 								_class = "Hitbox"
 								name = "ORG_pelvis_R"
 								parent_bone = "ORG_pelvis_R"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -3.283481, -1.606709, -2.995285 ]
@@ -245,7 +291,7 @@
 								_class = "Hitbox"
 								name = "DEF_thigh_L"
 								parent_bone = "DEF_thigh_L"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -3.932964, -2.912847, -12.511223 ]
@@ -255,7 +301,7 @@
 								_class = "Hitbox"
 								name = "DEF_shin_L"
 								parent_bone = "DEF_shin_L"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -2.431592, -9.137571, -3.746567 ]
@@ -265,7 +311,7 @@
 								_class = "Hitbox"
 								name = "DEF_foot_L"
 								parent_bone = "DEF_foot_L"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -0.942377, -3.597909, -3.936798 ]
@@ -275,7 +321,7 @@
 								_class = "Hitbox"
 								name = "DEF_thigh_R"
 								parent_bone = "DEF_thigh_R"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -5.512136, -2.90511, -4.709771 ]
@@ -285,7 +331,7 @@
 								_class = "Hitbox"
 								name = "DEF_shin_R"
 								parent_bone = "DEF_shin_R"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -1.562433, -10.512188, -4.94408 ]
@@ -295,7 +341,7 @@
 								_class = "Hitbox"
 								name = "DEF_foot_R"
 								parent_bone = "DEF_foot_R"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -0.5, -3.279962, -3.934746 ]
@@ -305,7 +351,7 @@
 								_class = "Hitbox"
 								name = "spine_fk_008"
 								parent_bone = "spine_fk_008"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -14.787029, -4.588251, -9.667371 ]
@@ -315,7 +361,7 @@
 								_class = "Hitbox"
 								name = "Headfront"
 								parent_bone = "Headfront"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "5"
 								hitbox_mins = [ -10.043794, -0.885639, -7.534534 ]
@@ -325,7 +371,7 @@
 								_class = "Hitbox"
 								name = "ORG_spine_008"
 								parent_bone = "ORG_spine_008"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -12.91233, -30.498531, -7.614879 ]
@@ -335,7 +381,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_thigh_L"
 								parent_bone = "DEF_front_thigh_L"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -6.120285, -5.08117, -8.798456 ]
@@ -345,7 +391,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_shin_L_001"
 								parent_bone = "DEF_front_shin_L_001"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -4.023027, -7.553758, -5.440523 ]
@@ -355,7 +401,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_foot_L_001"
 								parent_bone = "DEF_front_foot_L_001"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -5.226157, -1.252359, -0.923022 ]
@@ -365,7 +411,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_thigh_R"
 								parent_bone = "DEF_front_thigh_R"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -4.468321, -5.086493, -9.328026 ]
@@ -375,7 +421,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_shin_R_001"
 								parent_bone = "DEF_front_shin_R_001"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -2.474912, -8.630095, -5.479256 ]
@@ -385,7 +431,7 @@
 								_class = "Hitbox"
 								name = "DEF_front_foot_R_001"
 								parent_bone = "DEF_front_foot_R_001"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -0.606904, -1.254716, -0.935092 ]
@@ -395,7 +441,7 @@
 								_class = "Hitbox"
 								name = "head"
 								parent_bone = "head"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = ""
 								hitbox_mins = [ -8.997975, -20.019766, -13.979183 ]

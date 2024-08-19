@@ -17,7 +17,10 @@
           "component_type": "SkinnedModelRenderer"
         },
         "JumpDis": 120,
-        "JumpForce": 10000000,
+        "JumpForce": 4000000,
+        "JumpWarmTime": 0.625,
+        "RandomMoveDis": "50,100",
+        "RandomMoveTime": 10,
         "Rigidbody": {
           "_type": "component",
           "component_id": "6f394116-1521-4bd6-8ac2-01522fcc1eec",
@@ -27,7 +30,7 @@
         "RotateSpeed": 10,
         "RunAttackDis": 200,
         "runSpeed": 120,
-        "walkSpeed": 0
+        "walkSpeed": 60
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -51,9 +54,12 @@
         "__type": "trollface.FindChooseEnemy",
         "__guid": "424a43c1-ff9d-4813-a8c6-82d395b9e7b2",
         "DetectRange": 700,
+        "eyeDir": "1,0,0",
+        "eyePos": "2.90001,0,28.9",
         "ForceTargetRange": 300,
         "NewEnemy": false,
-        "TimeSinceSeen": 0
+        "TimeSinceSeen": 0,
+        "ViewAngle": 158.90004
       },
       {
         "__type": "trollface.AgroRelations",
@@ -96,7 +102,7 @@
         "__guid": "4224f610-07e0-40ea-b9f5-b62ca8184e7b",
         "Center": "0,0,8.499989",
         "IsTrigger": false,
-        "Scale": "37.59999,9.70001,14.10002",
+        "Scale": "35.19999,9.70001,14.10002",
         "Static": false
       },
       {
@@ -105,7 +111,7 @@
         "Acceleration": 120,
         "Height": 64,
         "MaxSpeed": 120,
-        "Radius": 16,
+        "Radius": 7.3999963,
         "Separation": 0.25,
         "UpdatePosition": true,
         "UpdateRotation": true
@@ -172,7 +178,7 @@
                     "__guid": "f4ae63fb-ce59-4393-a15c-ef1f1222bc47",
                     "Flags": 4,
                     "Name": "tweak_spine_005",
-                    "Position": "0.000009454787,-0.000005722046,0.000001907349",
+                    "Position": "0,0,0",
                     "Rotation": "-0.01208437,-0.000000000000003552977,0.000000009546054,0.999927",
                     "Enabled": true,
                     "Children": [
@@ -180,7 +186,7 @@
                         "__guid": "b10fa9f5-bde3-4831-a441-3d3f1c9ff253",
                         "Flags": 4,
                         "Name": "ORG_spine_005",
-                        "Position": "0.000008028001,-0.00001907349,0.000001907349",
+                        "Position": "0,0,0",
                         "Enabled": true,
                         "Children": [
                           {
@@ -195,7 +201,7 @@
                                 "__guid": "2010b553-27eb-4b1b-b688-b532a716745a",
                                 "Flags": 4,
                                 "Name": "DEF_pelvis_L",
-                                "Position": "0.000008583069,-0.00001716614,-0.00002479553",
+                                "Position": "0,0,0",
                                 "Enabled": true
                               }
                             ]
@@ -212,7 +218,7 @@
                                 "__guid": "dfa6bb94-f9db-4f97-b44c-71656d4199ee",
                                 "Flags": 4,
                                 "Name": "DEF_pelvis_R",
-                                "Position": "0.000008583069,-0.0000333786,-0.0000333786",
+                                "Position": "0,0,0",
                                 "Enabled": true
                               }
                             ]
@@ -432,7 +438,7 @@
                     "__guid": "fddfa084-a35f-4bbd-83c9-08d8cc99062f",
                     "Flags": 4,
                     "Name": "ORG_spine_008",
-                    "Position": "-0.000003308058,0.00001192093,-0.0000629425",
+                    "Position": "0,0,0",
                     "Enabled": true,
                     "Children": [
                       {
@@ -447,7 +453,7 @@
                             "__guid": "0caa31fd-b4c0-442c-b882-8c150c23e5a6",
                             "Flags": 4,
                             "Name": "DEF_shoulder_L",
-                            "Position": "-0.00001525879,0.00001716614,-0.00005340576",
+                            "Position": "0,0,0",
                             "Enabled": true
                           },
                           {
@@ -512,7 +518,7 @@
                             "__guid": "0dbe32fa-0303-4a60-a781-3ac53ed5cab5",
                             "Flags": 4,
                             "Name": "DEF_shoulder_R",
-                            "Position": "-0.00001525879,0.00002384186,-0.00005722046",
+                            "Position": "0,0,0",
                             "Enabled": true
                           },
                           {

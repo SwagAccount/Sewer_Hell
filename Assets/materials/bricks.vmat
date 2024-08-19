@@ -30,4 +30,9 @@ Layer0
 	TextureNormalB "materials/default/default_normal.tga"
 	TextureRoughnessB "[1.000000 1.000000 1.000000 0.000000]"
 	TextureTintMaskB "materials/default/default.tga"
+
+	SystemAttributes
+	{
+		PhysicsSurfaceProperties "brick"
+	}
 }

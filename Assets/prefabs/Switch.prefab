@@ -39,7 +39,8 @@
             "__guid": "e505679d-1c11-4335-9b32-f11bde3f61da",
             "IsTrigger": false,
             "Model": "models/switch/switch.vmdl",
-            "Static": false
+            "Static": false,
+            "Surface": "surfaces/metal.surface"
           },
           {
             "__type": "Sandbox.Rigidbody",
@@ -97,6 +98,9 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "-1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
@@ -398,6 +402,9 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "-1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
@@ -727,7 +734,8 @@
             "__guid": "5f4240d7-2135-4af7-b8e0-212fc34ea5f5",
             "IsTrigger": false,
             "Model": "models/switch/switchbody.vmdl",
-            "Static": false
+            "Static": false,
+            "Surface": "surfaces/metal.surface"
           }
         ]
       },

@@ -40,7 +40,7 @@ public abstract class MagazineBase : Component
 	{
 		
 		if(!Contents.Contains(-1) && !PushBack) return;
-
+		
 		for(int i = 0; i < Loaders.Count; i++)
 		{
 			
@@ -49,12 +49,14 @@ public abstract class MagazineBase : Component
 			IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(Loaders[i].Transform.Position,0.25f));
 			foreach(GameObject g in gameObjects)
 			{
+				
 				Item item = g.Components.Get<Item>();
 				if(item == null) return;
-
+				Log.Info(g.Name);
 				if(ActualMag)
 				{
 					Bullet bullet = ResourceLibrary.Get<Bullet>($"bullets/{item.ItemName}.bullet");
+					Log.Info(bullet);
 					if(bulletTypes.Bullets.Contains(bullet))
 					{
 						AddContent(g, i, bulletTypes.Bullets.IndexOf(bullet));

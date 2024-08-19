@@ -32,7 +32,7 @@ public sealed class HandPos : Component
 			locPos = Transform.LocalPosition; 
 		}
 		item = Rigidbody.Components.Get<Item>();
-
+		if(!item.HandPoss.Contains(this)) item.HandPoss.Add(this);
 	}
 	protected override void OnFixedUpdate()
 	{

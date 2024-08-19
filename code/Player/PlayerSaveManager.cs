@@ -9,13 +9,14 @@ public sealed class PlayerSaveManager : Component
 	Survival survival;
 	Vrmovement vrmovement;
 	ChunkDealer chunkDealer;
+	[Property] public List<ItemStorer> ItemStores {get;set;}
 	protected override void OnAwake()
 	{
 		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
-
 		healthComponent = Components.Get<HealthComponent>();
 		survival = Components.Get<Survival>();
 		vrmovement = Components.Get<Vrmovement>();
+		GameObject.BreakFromPrefab();
 	}
 
 	class PlayerSaveData
@@ -24,6 +25,7 @@ public sealed class PlayerSaveManager : Component
 		public string healthComponent {get;set;}
 		public string survival {get;set;}
 		public List<string> HeldItems {get;set;}
+		public List<string> ItemStores {get;set;}
 	}
 
 	public void Save()
@@ -33,7 +35,8 @@ public sealed class PlayerSaveManager : Component
 			position = vrmovement.characterController.Transform.Position,
 			healthComponent = healthComponent.Serialize().ToJsonString(),
 			survival = survival.Serialize().ToJsonString(),
-			HeldItems = new List<string>()
+			HeldItems = new List<string>(),
+			ItemStores = new List<string>()
 		};
 		
 		foreach(GameObject c in vrmovement.VRSpace.Children)
@@ -41,7 +44,14 @@ public sealed class PlayerSaveManager : Component
 			Item item = c.Components.Get<Item>();
 			if(item == null) continue;
 			if(c.IsPrefabInstance) c.BreakFromPrefab();
-			playerSaveData.HeldItems.Add(c.Serialize().ToJsonString());
+			JsonObject serialized = c.Serialize();
+			SceneUtility.MakeIdGuidsUnique(serialized);
+			playerSaveData.HeldItems.Add(serialized.ToJsonString());
+		}
+
+		foreach(ItemStorer itemStorer in ItemStores)
+		{
+			playerSaveData.ItemStores.Add(itemStorer.StoredItem);
 		}
 
 		FileSystem.Data.WriteAllText
@@ -62,13 +72,30 @@ public sealed class PlayerSaveManager : Component
 		
 		foreach(string item in playerSaveData.HeldItems)
 		{
-			Log.Info(item);
 			GameObject spawnedItem = new GameObject();
 			spawnedItem.Deserialize(Json.Deserialize<JsonObject>(item));
 
-			spawnedItem.Transform.Position = Transform.World.PointToWorld(spawnedItem.Transform.Position - playerSaveData.position);
+			Item itemC = spawnedItem.Components.Get<Item>();
+
+			itemC.mainHeld = false;	
+
+			foreach(HandPos handPos in itemC.HandPoss)
+			{
+				if(handPos.GameObject.Parent.Tags.Contains("grabbed")) handPos.GameObject.Parent.Tags.Remove("grabbed");
+			}
+
+			Rigidbody rigidbody = spawnedItem.Components.Get<Rigidbody>();
+			rigidbody.MotionEnabled = false;
+
+			//spawnedItem.Transform.Position = Transform.World.PointToWorld(playerSaveData.position - spawnedItem.Transform.Position);
 			
 			chunkDealer.PlaceInChunk(spawnedItem);
+		}
+
+		for(int i = 0; i < ItemStores.Count; i++)
+		{
+			Log.Info(playerSaveData.ItemStores[i]);
+			ItemStores[i].StoredItem = playerSaveData.ItemStores[i];
 		}
 		
 	}

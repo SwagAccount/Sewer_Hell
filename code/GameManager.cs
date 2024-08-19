@@ -51,7 +51,7 @@ public sealed class GameManager : Component
 				if(chunkDealer.SafeChunk == new Vector2(x,y)) continue;
 				foreach(GameObject c in chunkDealer.chunks[x][y].GameObject.Children)
 				{
-					c.Destroy();
+					if(!c.Tags.Contains("dontdelete")) c.Destroy();
 				}
             }
         }
@@ -99,6 +99,6 @@ public sealed class GameManager : Component
 		chunkDealer.LoadAllChunks();
 		
 		playerSaveManager.Load();
-		Log.Info("balls");
+		
 	}
 }

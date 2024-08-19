@@ -25,8 +25,6 @@ public sealed class ChunkDealer : Component
 		SetChunkDis = ChunkDistance;
 		playerChunkX = (int)SafeChunk.x;
 		playerChunkY = (int)SafeChunk.y;
-		lastPlayerChunkX = playerChunkX;
-		lastPlayerChunkY = playerChunkY;
 	}
 	protected override void DrawGizmos()
 	{

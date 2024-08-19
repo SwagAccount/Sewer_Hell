@@ -10,9 +10,13 @@ public sealed class DogAI : AIAgent
 	[Property] public float RotateSpeed {get;set;}
 	[Property] public float JumpDis {get;set;}
 	[Property] public float JumpForce {get;set;} = 10560;
+	[Property] public float JumpWarmTime {get;set;} = 0.625f;
 	[Property] public float RunAttackDis {get;set;}
-	[Property] public float walkSpeed {get;set;}
+	[Property] public float walkSpeed {get;set;} = 60f;
 	[Property] public float runSpeed {get;set;} = 120f;
+	[Property] public float RandomMoveTime {get;set;} = 10f;
+    [Property] public Vector2 RandomMoveDis {get;set;} = new Vector2(50,100);
+
     public FindChooseEnemy FindChooseEnemy;
     HealthComponent healthComponent;
 	
@@ -22,7 +26,9 @@ public sealed class DogAI : AIAgent
 	{
 		IDLE,
 		WALK,
-		RUN
+		RUN,
+		PREPJUMP,
+		AIR
 	}
     protected override void SetStates()
     {
@@ -48,6 +54,7 @@ public sealed class DogAI : AIAgent
         }
 		if(jumped) { JumpLogic(); return; }
 
+		
 		Body.Set("State", dogAnimState.AsInt());
 
 		//Jump();
@@ -59,31 +66,42 @@ public sealed class DogAI : AIAgent
         else
         {
             stateMachine.ChangeState("DOGIDLE");
-			
         }
 
+		
 		//FacePoint(Agent.TargetPosition.HasValue ? Agent.TargetPosition.Value : Transform.Position);
     }
 	float jumptime;		
+
+	Vector3 JumpFacePoint;
 	void JumpLogic()
 	{
-		if(Rigidbody.Velocity.Length <= 10f && Time.Now-jumptime > 0.25f)
+		Body.Set("State", dogAnimState.AsInt());
+		if(Agent.Enabled)
 		{
-			jumped = false;
-			Body.Set("speed", 1);
-			Agent.Enabled = true;
-			Rigidbody.Enabled = false;
+			FacePoint(JumpFacePoint);
+			Agent.MoveTo(Agent.Transform.Position);
+			return;
 		}
+
+		if(Rigidbody.Velocity.Length > 10f || Time.Now-jumptime < 0.25f) return;
+		jumped = false;
+		dogAnimState = DogAnimState.IDLE;
+		Agent.Enabled = true;
+		Rigidbody.Enabled = false;
 	}
 
-	public void Jump(Vector3 at)
+	public async void Jump(Vector3 at)
 	{
+		jumped = true;
+		dogAnimState = DogAnimState.PREPJUMP;
+		JumpFacePoint = at;
+		await Task.DelaySeconds(JumpWarmTime);
 		jumptime = Time.Now;
-		Log.Info("Jump");
-		Body.Set("speed", 0);
+		dogAnimState = DogAnimState.AIR;
 		Agent.Enabled = false;
 		Rigidbody.Enabled = true;
-		Rigidbody.ApplyForce((at-Transform.Position).Normal*JumpForce);
+		Rigidbody.ApplyForce(((at-Transform.Position).Normal+Vector3.Up/2)*JumpForce);
 		jumped = true;
 	}
 
@@ -120,6 +138,7 @@ public class DOGIDLE : AIState
 	public void Enter( AIAgent agent )
 	{
 		dogAI = agent.Components.Get<DogAI>();
+		agent.Agent.MoveTo(agent.Transform.Position);
 	}
 
 	public void Exit( AIAgent agent )
@@ -134,8 +153,17 @@ public class DOGIDLE : AIState
 
 	public void Update( AIAgent agent )
 	{
-		agent.Agent.MoveTo(agent.Transform.Position);
-		dogAI.dogAnimState = DogAI.DogAnimState.IDLE;
+		agent.Agent.MaxSpeed = dogAI.walkSpeed;
+		float chance = Time.Delta / dogAI.RandomMoveTime;
+        //Log.Info(chance);   
+        if(Game.Random.Next(0,100000)/100000f < chance)
+        {
+            float distanceMod = Game.Random.Next(0,100)/100;
+            float distance = (distanceMod * (dogAI.RandomMoveDis.y-dogAI.RandomMoveDis.x))+dogAI.RandomMoveDis.x;
+            agent.Agent.MoveTo(agent.Transform.Position+(Vector3.Random.WithZ(0)*distance));
+        }
+
+		dogAI.dogAnimState = agent.Agent.Velocity.Length > dogAI.walkSpeed/2 ? DogAI.DogAnimState.WALK : DogAI.DogAnimState.IDLE;
 	}
 }
 
@@ -162,7 +190,8 @@ public class DOGATTACK : AIState
 	{
 		
 		if(dogAI.jumped) return;
-		
+
+		agent.Agent.MaxSpeed = dogAI.runSpeed;
 		agent.Controller.Speed = dogAI.runSpeed;
 		agent.Agent.MoveTo(dogAI.FindChooseEnemy.Enemy.Transform.Position);
 		dogAI.dogAnimState = DogAI.DogAnimState.RUN;

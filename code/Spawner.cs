@@ -1,20 +1,26 @@
 using System;
 
 namespace trollface;
+
+[EditorHandle("materials/gizmo/ui.png")]
 public abstract class Spawner : Component
 {
     [Property] public SpawnList SpawnList {get;set;}
 	[Property] public Vector2 SpawnCount {get;set;}
 	[Property] public float SpawnRadius {get;set;}
+	[Property] public float zOffset {get;set;}
 	[Property] public bool LockZ {get;set;}
     [Property] public bool SpawnTest {get; set;}
 
     public ChunkDealer chunkDealer;
-
 	protected override void DrawGizmos()
 	{
 		if(!LockZ) Gizmo.Draw.LineSphere(Vector3.Zero,SpawnRadius);
         else Gizmo.Draw.LineCircle(Vector3.Zero, Vector3.Up,SpawnRadius);
+        if(zOffset!=0)
+        {
+            Gizmo.Draw.Arrow(Vector3.Zero.WithZ(zOffset), Vector3.Zero , zOffset/5, zOffset/10);
+        }
         if(SpawnTest)
         {
             SpawnTest = false;
@@ -28,6 +34,7 @@ public abstract class Spawner : Component
 	public virtual void Spawn( bool test = false)
     {
         int spawnCount = Game.Random.Next((int)SpawnCount.x,(int)SpawnCount.y+1);
+        if(SpawnCount.y == 1) Log.Info(spawnCount);
 		for (int i = 0; i < spawnCount; i++)
 		{
             var pos = Transform.Position + (Vector3.Random * SpawnRadius);

@@ -1,5 +1,5 @@
 {
-  "__guid": "a0098ba0-9d7e-4767-b264-24b177da5945",
+  "__guid": "79beb147-1c14-4fd3-a443-31975932225a",
   "GameObjects": [
     {
       "__guid": "d8c7b953-d03c-4052-a1c4-3adcd56cdc88",
@@ -35,6 +35,770 @@
       "Enabled": true,
       "Children": [
         {
+          "__guid": "245e1f67-c8f7-4fc9-b476-7d6e221f5b69",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "159.272,690.0771,25.1643",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "c20ccebb-5018-42b1-aa90-c1fb47bbc985",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 9.799999,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "010cc2a4-1cfa-4b96-a387-ce6f7f29aba9",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "197.2138,714.2353,25.1643",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "253217cd-566e-4830-b191-592a703c88ad",
+              "LockZ": true,
+              "SpawnCount": "1,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 7.0999966,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "dec3288f-93f1-4672-9f46-db198cc1d5c8",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "102.5488,488.5216,35.48418",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "d3cc4c59-74e6-459d-a053-7eae2f50b6fd",
+              "LockZ": true,
+              "SpawnCount": "1,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 7.0999966,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "44781f72-457f-4782-9164-4e24b32c19b9",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "407.9324,794.6849,1.717376",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "39c5448c-67bc-4f77-9dbe-881f23ec72ba",
+              "LockZ": true,
+              "SpawnCount": "1,4",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 16.8,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "9b0a1d5d-cb48-4094-9d60-44a270ba8c38",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "663.7424,763.6583,33.01579",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "1f25835e-d430-496b-af18-ff214fde988a",
+              "LockZ": true,
+              "SpawnCount": "1,3",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "4354c70f-d95f-45c0-95f7-6aeda6c76232",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "517.4885,992.6709,0.2193653",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "d428957a-fac5-42b6-b422-8187ec26e88b",
+              "LockZ": true,
+              "SpawnCount": "2,5",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 25.699995,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "3021d703-35a8-41d3-bebe-5da342b69600",
+          "Flags": 0,
+          "Name": "ItemSpawnerL2",
+          "Position": "869.6697,704.1055,0.2195293",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "99f9ac4b-fc4f-445e-bf1a-e88688840750",
+              "LockZ": true,
+              "SpawnCount": "1,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "ab69d54d-6bac-4b1e-b68c-c383d38e5c4d",
+          "Flags": 0,
+          "Name": "ItemSpawnerL2",
+          "Position": "930.6556,773.3008,0.219533",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "d38895b7-6086-4f9c-97c4-b39de9b0d396",
+              "LockZ": true,
+              "SpawnCount": "1,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "2306b3ed-bbc4-4b86-8c70-ba60c2a24eaf",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "11.50428,830.6251,37.1621",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "9ecbf2ec-5b00-4aca-a5e6-6c179b9f5044",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "f1ce5d3c-7406-44bc-a3e3-cb144cb10ad9",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "488.6815,-639.4301,37.16213",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "22e03be3-4b7e-4e5a-80ef-6079d2141bdf",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "73fcdd6d-f2a6-4948-965d-380c6a79fb90",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "455.0446,-640.9547,37.16212",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "fe5a6f09-2416-451b-a174-148d4bb57d9c",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "389e5107-9e26-4828-900b-d2986285fd93",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "513.5869,-758.1687,37.16212",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "cb9cfb89-9a88-4ce4-adab-a3981236d336",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "06350467-4cc3-4157-8686-141982722422",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "970.5657,-1166.682,37.16215",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "068c4054-bc0b-4e08-b9cb-f91de4fe9a29",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "ec647ba0-71d5-40d9-9eb1-e98eed08d0e0",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "8.651617,-1026.406,2.53817",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "63050056-20c9-4b89-98be-e828db1754f1",
+              "LockZ": true,
+              "SpawnCount": "0,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 22.999992,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "7b620c23-ad09-4617-b33c-e704732a0204",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "75.29333,-962.8817,2.53818",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "3a0aef48-81ae-4ffd-b0b1-096077c306bc",
+              "LockZ": true,
+              "SpawnCount": "0,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 22.999992,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "49f210b3-6fbe-4141-9812-fe7500f3973a",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "163.8125,-867.6628,2.538185",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "7400ab5e-9b08-40a8-87a0-7e11c621d1bf",
+              "LockZ": true,
+              "SpawnCount": "0,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 22.999992,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "f8229a08-5eb7-483b-ba3d-617f28881a87",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1031.687,-650.3701,32.26498",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "7b65f87e-14b3-434b-b1f8-339cf7b11650",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "1148c4cc-2b30-4460-be4f-86914aae0e63",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "930.6898,-598.5933,32.26496",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "99135790-327e-4ad4-b1b2-b455f9590e76",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "9f7ade6e-4974-4fe2-b4e6-405d439edc96",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1031.687,-650.3701,50.98451",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "542e2d1b-a6b1-48bd-821c-a96ab22aef0a",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "2d1f2ca7-3413-4136-9f3f-1e4c06e97c6c",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "930.6898,-598.5933,50.9845",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "f181f4b8-7f61-4446-a00f-81bdd15425f2",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "ed1398c7-4424-4dc7-8174-20624df1456c",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1031.687,-650.3701,12.61165",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "9b5a76a2-ca53-4232-a049-188af4d7e662",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "de802030-ef0f-496b-96ca-05c57dc738ec",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "957.7521,-598.5932,12.61164",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "bb639bbf-e2d4-49ac-b6c5-887f3f8ec266",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "692640e8-eac3-4a65-b1a1-01a51f8970ab",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1031.687,-676.1124,32.26498",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "892c34d3-a6fa-47c7-9566-b0426d12770d",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "46ff99e1-f9ee-4a4e-8c0e-9d3e59f25d15",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "956.4321,-598.5933,32.26496",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "fd7bc581-1d4c-4a0b-95ff-27e94bd0b76d",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "0f1601bb-5395-436f-8f9c-f1f765f60b8f",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "730.403,-946.0529,6.062536",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "b7024ec8-4e8e-4c53-9c78-0f8187e6e016",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/items/l2items.sl",
+              "SpawnRadius": 24.799997,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "ec61eb44-22ba-4548-9489-2f2f54a30b5e",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "862.1906,-1055.807,6.062543",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "ef09071e-e3fe-41e4-9a85-0df3ca6aa923",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 24.799997,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "bba2408f-ffed-4bde-aa4a-f0334c4ed9f1",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "853.5773,-936.3723,6.062543",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "90f2e839-f872-4d4b-b171-42f710d31343",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 24.799997,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "b6691311-0548-42f6-ba91-e20cf8e14bdd",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "484.3121,-1033.884,31.10866",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "e4a7e272-6386-4734-9d4b-be8e3983280f",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "bccabe31-abff-46d3-8612-6e944a04f16f",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "479.015,-1022.43,49.47781",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "fb7ec5e5-4594-4300-a3b4-0d3413d24ed2",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "e03b5a17-240a-42dc-bb82-c82a7ca615d4",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "-167.175,-966.4425,37.16208",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "14acd873-431f-4e95-9a77-3d10c69356d0",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "d2603038-de04-4ee6-9469-591ec417feb0",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "-27.68871,-712.2812,31.15886",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "44432c8c-9aef-491d-9b2e-f67952f6a47d",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "972be8e7-2580-4c8a-9e68-70b850954d10",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "-3.561169,-712.2812,31.15886",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "6a14c46c-066f-4985-8b86-b70a79ebb2b6",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "cd35c2aa-7792-49e6-8695-756a250faf70",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "-3.561169,-712.2812,11.83482",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "ddd3832d-181c-4ae1-bdbd-7a0a8150a10b",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "d1d6ef38-e04f-4b09-8799-08d899ea39e8",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "-27.86425,-712.2812,50.36358",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "e757869b-56c0-4542-b0a9-8add4769c506",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "76bfbddc-3010-4a4c-86a6-750a18a54c23",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "73.47455,948.9042,37.16217",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "45c31745-9155-42ab-a4f8-87461b944b89",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "050bec0f-36c2-4fcb-9b3c-b5bf3f460a07",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "527.722,743.8591,37.16221",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "332f5b30-dc0c-42e5-9d66-70c8ec4699cf",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "f6dcb84e-d0c9-422a-9236-7d55358a483e",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "747.8371,879.4722,37.16207",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "ddb00f36-8dba-4b2c-9316-6c20c4b5c6a8",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "d85c813b-9bb2-4eeb-9a83-b0ffddfdffba",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1025.533,1015.349,37.16209",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "2743a52e-b91c-405d-a54c-61743b5efc82",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "cfb9df88-bcbc-4a4a-b718-97fb3c03dc3b",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "1021.934,644.5718,53.62066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "25e14e62-6353-4a05-b9e7-ad59160884f9",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 6.899994,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
+          "__guid": "c7c72555-fd8e-4e0d-8843-185a284fa797",
+          "Flags": 0,
+          "Name": "ItemSpawner",
+          "Position": "232.1744,929.0471,26.83688",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.ItemSpawner",
+              "__guid": "f191b89c-24a8-4be5-a4c7-e2d2cdd49c01",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/items/l1items.sl",
+              "SpawnRadius": 15.999992,
+              "SpawnTest": false,
+              "zOffset": 5
+            }
+          ]
+        },
+        {
           "__guid": "384105fd-f90b-4a58-929b-06b124eb2bc4",
           "Flags": 0,
           "Name": "EnemySpawner",
@@ -48,7 +812,8 @@
               "SpawnCount": "2,3",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 105.89997,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -66,7 +831,8 @@
               "SpawnCount": "2,3",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 105.89997,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -74,7 +840,7 @@
           "__guid": "db887949-b4d5-49d6-ad28-3a0706fcc8f8",
           "Flags": 0,
           "Name": "EnemySpawner",
-          "Position": "174.4545,703.3286,5.515429",
+          "Position": "200.2169,657.7703,5.515429",
           "Enabled": true,
           "Components": [
             {
@@ -84,7 +850,8 @@
               "SpawnCount": "0,1",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 34.599957,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -102,7 +869,8 @@
               "SpawnCount": "1,2",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 58.999973,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -120,7 +888,8 @@
               "SpawnCount": "1,2",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 58.999973,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -138,7 +907,8 @@
               "SpawnCount": "1,2",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 58.999973,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -156,7 +926,8 @@
               "SpawnCount": "1,2",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 58.999973,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         },
@@ -174,7 +945,141 @@
               "SpawnCount": "0,1",
               "SpawnList": "spawn lists/enemies/enemiesl1.sl",
               "SpawnRadius": 17.500004,
-              "SpawnTest": false
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "9aaa3b3d-bf3f-41e4-be37-9273950b1d7e",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "14.68623,-880.5482,5.515496",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "2006464f-9995-4027-8feb-06fa2453b3c6",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 47.900017,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "0aa0dc77-56c6-4e69-87b8-637e28f62f52",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "355.4856,-898.8369,5.515516",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "9722f733-4735-41b8-a5e5-1ec9b83cf592",
+              "LockZ": true,
+              "SpawnCount": "1,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 47.900017,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "44fdf6a7-5994-49ab-9b4e-b0951393c7d9",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "736.5438,-957.8495,5.515554",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "700d3131-db44-4c69-ae80-32b64b64c117",
+              "LockZ": true,
+              "SpawnCount": "0,1",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 47.900017,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "a6611a2b-641e-4af7-8fe2-cc865f64f571",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "974.2139,-775.9499,5.515568",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "856918fc-e73d-4ceb-972e-7811d2d794b9",
+              "LockZ": true,
+              "SpawnCount": "0,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 47.900017,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "559363d0-5d3c-478b-8a24-97d3fca7e357",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "1016.152,-604.057,5.51557",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "4923afb8-fa7a-4351-9b53-a3c8cc4eb518",
+              "LockZ": true,
+              "SpawnCount": "0,2",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 47.900017,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "74e1387f-5a7f-4ce8-8117-484f292ddfb5",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "466.4967,-1169.182,5.515522",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "2e94910c-ce1c-4528-b4a7-71852105e6cc",
+              "LockZ": true,
+              "SpawnCount": "1,4",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 100.90002,
+              "SpawnTest": false,
+              "zOffset": 0
+            }
+          ]
+        },
+        {
+          "__guid": "47fe2512-1b16-4224-bf21-f8b50c1d1691",
+          "Flags": 0,
+          "Name": "EnemySpawner",
+          "Position": "624.2203,-634.6985,5.515532",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "trollface.EnemySpawner",
+              "__guid": "5a737239-5a6b-4121-a2b3-154fa5f63752",
+              "LockZ": true,
+              "SpawnCount": "2,3",
+              "SpawnList": "spawn lists/enemies/enemiesl1.sl",
+              "SpawnRadius": 105.89997,
+              "SpawnTest": false,
+              "zOffset": 0
             }
           ]
         }
@@ -962,25 +1867,6 @@
             {
               "__type": "ChunkSaver",
               "__guid": "e0193c9e-d6a7-4333-bdb5-eb9e38b62502"
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "f1e003d7-b749-4171-b403-a9a01b5df8c1",
-              "Flags": 0,
-              "Name": "Cube",
-              "Position": "0,0,0",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "Sandbox.ModelRenderer",
-                  "__guid": "55882c14-099a-4f41-8ab4-0ccb5ac1cb38",
-                  "BodyGroups": 18446744073709551615,
-                  "Model": "models/dev/box.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                }
-              ]
             }
           ]
         },
@@ -2601,31 +3487,6 @@
       "__PrefabVariables": {}
     },
     {
-      "__guid": "e24374a0-e716-4476-8e29-87d0b2fcc0e4",
-      "Flags": 0,
-      "Name": "waterl1",
-      "Position": "-160,-288,0",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "106dd4d5-1b0d-42f0-bf07-d475806bdee7",
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": "materials/water/water.vmat",
-          "Model": "models/waterl1.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "trollface.Water",
-          "__guid": "40360d5f-e868-48cd-a6a6-525dbf0a879b",
-          "folder": "materials/water/textures",
-          "FPS": 24,
-          "textures": []
-        }
-      ]
-    },
-    {
       "__guid": "eedb28d9-7b2d-48a1-ad9e-ac7b5f9db2e8",
       "Flags": 0,
       "Name": "Object",
@@ -4070,12 +4931,6 @@
             {
               "__type": "trollface.DoorLocker",
               "__guid": "5c909bfb-2a54-46aa-9f1d-b5bd119c8263",
-              "Lever": {
-                "_type": "component",
-                "component_id": "0e066cc1-2804-460d-9c72-095740b3c200",
-                "go": "b526dbd7-61a7-4bfc-9510-98d6a9bff012",
-                "component_type": "Lever"
-              },
               "LockedAngles": "-2,-2",
               "UnlockedAngles": "-120,-2"
             }
@@ -4160,6 +5015,326 @@
       "Enabled": true,
       "__Prefab": "prefabs/metaldoor.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "a4d728a0-bfa7-47fb-a527-dd662e4cfed1",
+      "Flags": 0,
+      "Name": "backpack",
+      "Position": "-41.35734,34.00054,4.503159",
+      "Rotation": "-0.002672523,0.002192795,0.7733995,0.6339094",
+      "Tags": "item",
+      "Enabled": true,
+      "__Prefab": "prefabs/backpack.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "0cf57110-8bb0-40f8-9dcd-13a2517c1a82",
+      "Flags": 0,
+      "Name": "356 Magnum Box",
+      "Position": "-19.02082,44.52043,8.226472",
+      "Rotation": "-0.000001385834,0.003478466,0.000000004820605,0.9999939",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/356 magnum box.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "133aaf3f-0978-4839-91bf-1fc8240c2198",
+      "Flags": 0,
+      "Name": "356 Magnum Box (1)",
+      "Position": "-19.02082,44.52043,9.845582",
+      "Rotation": "-0.000001385834,0.003478466,0.000000004820605,0.9999939",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/356 magnum box.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "a402021c-385d-4079-ad9d-2ac482ed32ab",
+      "Flags": 0,
+      "Name": "357 magnum",
+      "Position": "-6.573648,5.776563,6.670902",
+      "Rotation": "-0.002178758,0.002711594,0.6260415,0.7797819",
+      "Tags": "item",
+      "Enabled": true,
+      "__Prefab": "prefabs/bullets/357 magnum.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "d174d1c0-5e7e-46dd-9d64-71c960c7919f",
+      "Flags": 0,
+      "Name": "crackercan",
+      "Position": "-12.03191,11.72303,5.638678",
+      "Rotation": "-0.002178758,0.002711594,0.6260415,0.7797819",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/crackercan.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "f3036397-c6d5-41ac-a240-c0e8cb4d6c7b",
+      "Flags": 0,
+      "Name": "waterl1",
+      "Position": "-150,-280,0",
+      "Tags": "nocollide,world",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "abc0e984-6843-4302-811e-3312fd147f46",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/water/water.vmat",
+          "Model": "models/waterl1.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "0700b493-660e-4d1f-872a-29313c246ddc",
+          "IsTrigger": false,
+          "Model": "models/waterl1.vmdl",
+          "Static": false,
+          "Surface": "water.surface"
+        }
+      ]
+    },
+    {
+      "__guid": "f96023c5-d0aa-4d7d-99e7-656a4bafa761",
+      "Flags": 0,
+      "Name": "Shotgun",
+      "Position": "44.88194,10.72642,15.60633",
+      "Rotation": "-0.002104104,0.002468407,0.6487086,0.7610298",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/weapon/shotgun.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "bd762143-ad6a-48ee-9215-a60b20c46612",
+      "Flags": 0,
+      "Name": "buckshot",
+      "Position": "54.64218,-3.013386,5.684092",
+      "Rotation": "-0.002104104,0.002468407,0.6487086,0.7610298",
+      "Tags": "item",
+      "Enabled": true,
+      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "a90ed26a-9281-4f4a-afa0-38b1beed704b",
+      "Flags": 0,
+      "Name": "buckshot (1)",
+      "Position": "64.75375,-11.66019,5.713932",
+      "Rotation": "-0.001015559,0.004001975,0.2459335,0.9692779",
+      "Tags": "item",
+      "Enabled": true,
+      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "b6a1100c-8e69-4e63-ba9a-64f5c7c9cf90",
+      "Flags": 0,
+      "Name": "Ambience",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundPointComponent",
+          "__guid": "582da4e3-1af5-4a6f-8faf-7421315ec6f6",
+          "DistanceAttenuation": false,
+          "DistanceAttenuationOverride": false,
+          "Force2d": true,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Occlusion": false,
+          "OcclusionOverride": false,
+          "OcclusionRadius": 32,
+          "Pitch": 0.76,
+          "PlayOnStart": true,
+          "ReflectionOverride": false,
+          "Reflections": false,
+          "Repeat": true,
+          "SoundEvent": "sounds/sewer ambience.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "TargetMixer": {
+            "Name": "game",
+            "Id": "8f9ef22d-05ce-4e07-9a50-5b15847d69a3"
+          },
+          "Volume": 0.34
+        }
+      ]
+    },
+    {
+      "__guid": "505335a7-b260-4cac-8765-c87808f5d353",
+      "Flags": 0,
+      "Name": "DripEffect",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "FollowPlayer",
+          "__guid": "5b608622-2a6f-4645-a556-7888fed8ba51"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "0721b813-d005-4ccd-b034-f0fbc2ec53ef",
+          "Flags": 0,
+          "Name": "Spray (1)",
+          "Position": "0,0,122.3844",
+          "Tags": "particles",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ParticleEffect",
+              "__guid": "6c68ad40-2ccc-4646-a41c-6aca4fc8d150",
+              "Alpha": {
+                "CurveA": [
+                  {
+                    "y": 1
+                  },
+                  {
+                    "x": 0.48029557,
+                    "y": 1,
+                    "in": 1.5365853,
+                    "out": -1.5365853
+                  },
+                  {
+                    "x": 1,
+                    "in": 1.312303,
+                    "out": -1.312303
+                  }
+                ],
+                "Constants": "0.5,0,0,0"
+              },
+              "ApplyColor": true,
+              "ApplyRotation": false,
+              "ApplyShape": true,
+              "Bounce": {
+                "Constants": "1,0,0,0"
+              },
+              "Brightness": {
+                "Constants": "1,0,0,0"
+              },
+              "Bumpiness": {},
+              "Collision": false,
+              "CollisionRadius": 1,
+              "Damping": {},
+              "DieOnCollisionChance": {},
+              "Force": true,
+              "ForceDirection": "0,0,-200",
+              "ForceScale": {
+                "Constants": "1,0,0,0"
+              },
+              "Friction": {
+                "Constants": "1,0,0,0"
+              },
+              "Gradient": {
+                "Evaluation": "Particle",
+                "GradientA": {
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "GradientB": {
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "ConstantA": "1,1,1,1",
+                "ConstantB": "1,1,1,1"
+              },
+              "Lifetime": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "1,2,0,0"
+              },
+              "MaxParticles": 5000,
+              "OrbitalForce": {},
+              "OrbitalPull": {},
+              "PerParticleTimeScale": {
+                "Constants": "1,0.4,0,0"
+              },
+              "Pitch": {},
+              "PreWarm": 0,
+              "PushStrength": {},
+              "Roll": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "0,360,0,0"
+              },
+              "Scale": {
+                "CurveA": {
+                  "rangey": "1,3",
+                  "frames": [
+                    {}
+                  ]
+                },
+                "Constants": "0.5,0,0,0"
+              },
+              "SequenceId": {},
+              "SequenceSpeed": {
+                "Constants": "1,0,0,0"
+              },
+              "SequenceTime": {
+                "Constants": "1,0,0,0"
+              },
+              "SheetSequence": false,
+              "Space": "World",
+              "StartDelay": {},
+              "StartVelocity": {
+                "Type": "Range",
+                "Evaluation": "Particle"
+              },
+              "Stretch": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "5,6,0,0"
+              },
+              "TimeScale": 1,
+              "Tint": "0,0,0,1",
+              "Yaw": {}
+            },
+            {
+              "__type": "Sandbox.ParticleSpriteRenderer",
+              "__guid": "6ed15955-b33c-407b-8f3b-9ca0500a70aa",
+              "Additive": false,
+              "Alignment": "RotateToCamera",
+              "BlurAmount": 0.5,
+              "BlurOpacity": 0.91,
+              "BlurSpacing": 0.73,
+              "DepthFeather": 0,
+              "FaceVelocity": false,
+              "FogStrength": 1,
+              "LeadingTrail": true,
+              "Lighting": false,
+              "MotionBlur": false,
+              "Opaque": false,
+              "RotationOffset": 0,
+              "Scale": 1,
+              "Shadows": false,
+              "SortMode": "Unsorted",
+              "Texture": "materials/particles/shapes/square1.vtex"
+            },
+            {
+              "__type": "Sandbox.ParticleBoxEmitter",
+              "__guid": "21453e81-ef57-46d1-95ca-91121632554c",
+              "Burst": 0,
+              "Delay": 0,
+              "DestroyOnEnd": false,
+              "Duration": 10,
+              "Loop": true,
+              "OnEdge": false,
+              "Rate": 14,
+              "RateOverDistance": 0,
+              "Size": "624,624,1"
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -4175,11 +5350,11 @@
       "IncludeStaticBodies": true,
       "IncludeKeyframedBodies": true,
       "EditorAutoUpdate": true,
-      "AgentHeight": 64,
+      "AgentHeight": 58,
       "AgentRadius": 0,
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
-      "ExcludedBodies": "",
+      "ExcludedBodies": "nocollide",
       "IncludedBodies": "world"
     }
   },

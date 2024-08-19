@@ -40,6 +40,7 @@ public sealed class Container : Component, Component.ITriggerListener
 			}
 			if(item.HandsConnected <= 0)
 			{
+				item.GameObject.BreakFromPrefab();
 				item.rigidbody.MotionEnabled = false;
 				item.GameObject.SetParent(GameObject);
 			}

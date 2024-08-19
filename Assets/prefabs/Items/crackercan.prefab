@@ -3,7 +3,6 @@
     "__guid": "77f549b4-b1b5-4a35-8fac-0d4964551465",
     "Flags": 0,
     "Name": "crackercan",
-    "Position": "24.31575,3.078175,44.53984",
     "Enabled": true,
     "Components": [
       {
@@ -19,7 +18,8 @@
         "__guid": "69726b2d-c1b2-4fc5-98ed-4c15f2f779b4",
         "IsTrigger": false,
         "Model": "models/items/crackercan.vmdl",
-        "Static": false
+        "Static": false,
+        "Surface": "surfaces/metal.sheet.surface"
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -39,21 +39,28 @@
         "__type": "trollface.Item",
         "__guid": "ab76375d-bf04-4d42-80e3-783dbb4e2201",
         "AngularDrag": 1000000,
+        "Catagories": [],
         "Condition": 1,
+        "containerPos": "0,0,0",
+        "containerRot": "0,0,0,0",
         "Functions": {
           "_type": "gameobject",
           "go": "145ccd23-d86f-431f-8424-d8d98d03c859"
         },
+        "HandPoss": [],
         "HandsConnected": 0,
         "ItemName": "Cracker Can",
         "knifeThrow": false,
+        "lastInContainer": false,
         "mainHeld": false,
+        "MotionEnabled": true,
         "Renderer": {
           "_type": "component",
           "component_id": "985226a0-dad2-4e98-8dac-e16e7f384ab9",
           "go": "77f549b4-b1b5-4a35-8fac-0d4964551465",
           "component_type": "ModelRenderer"
-        }
+        },
+        "TimeAlive": 0
       },
       {
         "__type": "trollface.HealthComponent",
@@ -67,7 +74,6 @@
         "__guid": "3bfc9a5f-118b-4e35-a84c-2e85a0a0317e",
         "Flags": 0,
         "Name": "crackerlid",
-        "Position": "0,0,0",
         "Enabled": true,
         "Components": [
           {
@@ -84,7 +90,8 @@
             "__enabled": false,
             "IsTrigger": false,
             "Model": "models/items/crackerlid.vmdl",
-            "Static": false
+            "Static": false,
+            "Surface": "surfaces/metal.sheet.surface"
           },
           {
             "__type": "Sandbox.Rigidbody",
@@ -326,6 +333,9 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "-1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
@@ -336,6 +346,7 @@
                       "go": "9309ebe7-1765-4ae2-b9f9-b6f8ac39c4c8",
                       "component_type": "HandPos"
                     },
+                    "ParentTo": true,
                     "PositionSpring": "100,10",
                     "Rigidbody": {
                       "_type": "component",
@@ -632,10 +643,14 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
                     "MirrorToOtherHand": false,
+                    "ParentTo": true,
                     "PositionSpring": "100,10",
                     "Rigidbody": {
                       "_type": "component",
@@ -938,7 +953,6 @@
         "__guid": "145ccd23-d86f-431f-8424-d8d98d03c859",
         "Flags": 0,
         "Name": "Functions",
-        "Position": "0,0,0",
         "Enabled": true,
         "Components": [
           {
@@ -1048,7 +1062,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

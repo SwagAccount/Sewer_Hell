@@ -59,3 +59,24 @@ Metal Door Shut Sound
 
 Metal Door Open Sound
 	Metal Door Opening & Closing Horror Sound (3).wav by iammokhtari -- https://freesound.org/s/529719/ -- License: Creative Commons 0
+
+Barrel Model
+	"Barrels! - PSX Low Poly" (https://skfb.ly/oyn7S) by Drops is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Wooden Crate Model
+	"PSX Wooden Crate" (https://skfb.ly/oMPr7) by zhya is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+.45 Bullet Box
+	"PS1 Style Weathered .45 Ammo Box" (https://skfb.ly/oT8zN) by Jan_Strydom is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Ambience
+	https://swordcoastsoundscapes.bandcamp.com/track/city-sewer - by Sword Coast Soundscapes on Bandcamp
+
+Water footsteps
+	https://freesound.org/people/duckduckpony/ - Duckduckpony on Freesound
+
+Health/Stamina Bar Masks
+	https://www.vecteezy.com/vector-art/2432022-hand-drawn-lines - grayscaledesign on vecteezy
+
+Font
+	https://www.dafont.com/destoria.font?text=fuck+me%2C+I+will+die+this+day&back=theme - Destoria by Lemonthe on dafont

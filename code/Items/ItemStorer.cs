@@ -10,9 +10,10 @@ public sealed class ItemStorer : Component
 	[Property] public bool spawnItem { get; set; }
 	[Property] public string StoredItem { get; set; }
 	[Property] public float SearchRadius { get; set; } = 10;
-
+	ChunkDealer chunkDealer;
 	protected override void OnStart()
 	{
+		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
 		base.OnStart();
 	}
 
@@ -69,6 +70,7 @@ public sealed class ItemStorer : Component
 		GameObject newObject = new();
 		newObject.Deserialize(Json.Deserialize<JsonObject>( StoredItem ));
 		StoredItem = null;
+		newObject.Transform.Position = Transform.Position;	
 		return newObject.Components.Get<Item>();
 	}
 }

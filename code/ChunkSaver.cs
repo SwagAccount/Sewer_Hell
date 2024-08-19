@@ -19,10 +19,10 @@ public sealed class ChunkSaver : Component
 
 	public void Load()
 	{
-		if(!FileSystem.Data.FileExists($"Saves/Slot1/{Scene.Name}/{GameObject.Name}.json")) return;
+		if(!FileSystem.Data.FileExists($"Saves/Slot1/{Scene.Name}/Chunks/{GameObject.Name}.json")) return;
 		
 		GameObject.Deserialize(
-			Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot1/{Scene.Name}/{GameObject.Name}.json"))
+			Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot1/{Scene.Name}/Chunks/{GameObject.Name}.json"))
 		);
 	}
 }

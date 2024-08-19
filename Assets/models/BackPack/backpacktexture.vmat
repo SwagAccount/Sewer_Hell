@@ -34,4 +34,9 @@ Layer0
 
 	//---- Translucent ----
 	g_vTranslucentScrollSpeed "[0.000 0.000]"
+
+	SystemAttributes
+	{
+		PhysicsSurfaceProperties "chair_foam"
+	}
 }

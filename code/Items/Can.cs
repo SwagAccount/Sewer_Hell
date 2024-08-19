@@ -19,7 +19,7 @@ public sealed class Can : Component
 	}
 	protected override void OnUpdate()
 	{
-		if(interactable.interacted || healthComponent.Health <= 0)
+		if(healthComponent.Health <= 0)
 		{
 			externalMagazine.CantEject = false;
 			externalMagazine.CantLoad = false;
@@ -29,6 +29,10 @@ public sealed class Can : Component
 			Lid.ApplyForce(Lid.Transform.World.Up * LidForce);
 			collider.Enabled = true;
 			Destroy();
+		}
+		if(interactable.interacted)
+		{
+			healthComponent.Health = 0;
 		}
 	}
 }

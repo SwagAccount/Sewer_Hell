@@ -16,6 +16,7 @@ public sealed class Item : Component
 	[Property] public bool knifeThrow {get;set;}
 	[Hide, Property] public Rigidbody rigidbody {get;set;}
 
+	[Hide, Property] public List<HandPos> HandPoss {get;set;} = new List<HandPos>();
 	[Hide, Property] public HandPos HandPos {get;set;}
 
 	[Hide, Property] public PhysicsTracker physicsTracker {get;set;}
@@ -33,7 +34,8 @@ public sealed class Item : Component
 
 	public bool InCatagory(List<string> CatagoriesRef)
 	{
-		if(CatagoriesRef == null) return true; 
+		if(CatagoriesRef == null) return true;
+		if(CatagoriesRef.Count == 0) return true;
 		if(Catagories == null) return false;
 		foreach(string Catagory in CatagoriesRef)
 		{

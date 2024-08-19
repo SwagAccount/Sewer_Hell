@@ -517,7 +517,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "Hips"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.687733
 						point0 = [ 2.634984, -1.581576, -0.14595 ]
@@ -526,7 +526,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "Spine"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 3.0
 						point0 = [ 1.779935, 0.0, 0.0 ]
@@ -535,7 +535,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "Spine2"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 5.0
 						point0 = [ 2.27629, 0.0, 0.0 ]
@@ -544,7 +544,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "Neck"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 2.0, 0.0 ]
@@ -553,7 +553,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "Head"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 2.0
 						point0 = [ 0.0, 10.0, 0.0 ]
@@ -562,7 +562,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftShoulder"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -571,7 +571,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftArm"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 2.0, 0.0 ]
@@ -580,7 +580,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftForeArm"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -589,7 +589,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftHand"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 0.000004
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -598,7 +598,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightShoulder"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -607,7 +607,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightArm"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 2.0, 0.0 ]
@@ -616,7 +616,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightForeArm"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -625,7 +625,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightHand"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 0.000001
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -634,7 +634,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftUpLeg"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 2.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -643,7 +643,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftLeg"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -652,7 +652,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "LeftFoot"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 0.000005
 						point0 = [ 0.00002, 0.0, 0.0 ]
@@ -661,7 +661,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightUpLeg"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 2.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -670,7 +670,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightLeg"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 1.0
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -679,7 +679,7 @@
 					{
 						_class = "PhysicsShapeCapsule"
 						parent_bone = "RightFoot"
-						surface_prop = "default"
+						surface_prop = "flesh"
 						collision_tags = "solid"
 						radius = 0.000004
 						point0 = [ 0.0, 0.0, 0.0 ]
@@ -700,7 +700,7 @@
 								_class = "Hitbox"
 								name = "Spine"
 								parent_bone = "Spine"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -3.262266, -4.232852, -2.98 ]
@@ -710,7 +710,7 @@
 								_class = "Hitbox"
 								name = "Spine1"
 								parent_bone = "Spine1"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "2"
 								hitbox_mins = [ -4.272655, -0.634151, -4.828347 ]
@@ -720,7 +720,7 @@
 								_class = "Hitbox"
 								name = "Spine2"
 								parent_bone = "Spine2"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "2"
 								hitbox_mins = [ -6.13711, -0.645821, -4.82835 ]
@@ -730,7 +730,7 @@
 								_class = "Hitbox"
 								name = "Head"
 								parent_bone = "Head"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "3"
 								hitbox_mins = [ -1.49615, -0.429292, -0.824014 ]
@@ -740,7 +740,7 @@
 								_class = "Hitbox"
 								name = "LeftShoulder"
 								parent_bone = "LeftShoulder"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.321202, -0.5, -0.857629 ]
@@ -750,7 +750,7 @@
 								_class = "Hitbox"
 								name = "LeftArm"
 								parent_bone = "LeftArm"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.292592, -0.5, -1.165788 ]
@@ -760,7 +760,7 @@
 								_class = "Hitbox"
 								name = "LeftForeArm"
 								parent_bone = "LeftForeArm"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -1.275605, -0.5, -1.077866 ]
@@ -770,7 +770,7 @@
 								_class = "Hitbox"
 								name = "RightShoulder"
 								parent_bone = "RightShoulder"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.245752, -0.5, -0.859836 ]
@@ -780,7 +780,7 @@
 								_class = "Hitbox"
 								name = "RightArm"
 								parent_bone = "RightArm"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.262947, -0.5, -1.166377 ]
@@ -790,7 +790,7 @@
 								_class = "Hitbox"
 								name = "RightForeArm"
 								parent_bone = "RightForeArm"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -1.144732, -0.5, -1.078589 ]
@@ -800,7 +800,7 @@
 								_class = "Hitbox"
 								name = "LeftUpLeg"
 								parent_bone = "LeftUpLeg"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.076976, -1.726379, -2.621847 ]
@@ -810,7 +810,7 @@
 								_class = "Hitbox"
 								name = "LeftLeg"
 								parent_bone = "LeftLeg"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -1.504896, -0.5, -2.098466 ]
@@ -820,7 +820,7 @@
 								_class = "Hitbox"
 								name = "LeftFoot"
 								parent_bone = "LeftFoot"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -1.59823, -3.745369, -3.866269 ]
@@ -830,7 +830,7 @@
 								_class = "Hitbox"
 								name = "RightUpLeg"
 								parent_bone = "RightUpLeg"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.07698, -1.72638, -2.62185 ]
@@ -840,7 +840,7 @@
 								_class = "Hitbox"
 								name = "RightLeg"
 								parent_bone = "RightLeg"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -1.372265, -0.5, -2.035853 ]
@@ -850,7 +850,7 @@
 								_class = "Hitbox"
 								name = "RightFoot"
 								parent_bone = "RightFoot"
-								surface_property = ""
+								surface_property = "flesh"
 								translation_only = false
 								tags = "1"
 								hitbox_mins = [ -2.258266, -1.752541, -3.821343 ]

@@ -24,6 +24,9 @@ public sealed class Vrmovement : Component
 	[Property] public float CrouchDistance {get;set;} = 19f;
 	[Property] public float PhysicalCrouchHeight {get;set;} = 40f;
 	[Property] public float StunTime {get;set;} = 5f;
+	[Property] public float FootStepTime {get;set;} = 1.1f;
+	[Property] public GameObject FeetOrigin;
+	[Property] public GameObject FeetEnd;
 	[Hide, Property] public Vector3 offset {get;set;}
     [Hide, Property] public float Stunned {get;set;}
 
@@ -41,8 +44,33 @@ public sealed class Vrmovement : Component
 	{
         filmGrain = Camera.Components.Get<FilmGrain>();
 	}
+    float footStepTimer;
 	protected override void OnUpdate()
 	{
+        footStepTimer += Time.Delta * (characterController.Velocity.Length/WalkSpeed);
+
+        if(footStepTimer >= FootStepTime)
+        {
+            footStepTimer= 0;
+            var ray = Scene.Trace.Ray(FeetOrigin.Transform.Position,FeetEnd.Transform.Position).WithTag("world").Run();
+            if(ray.Hit)
+            {
+                
+                SoundEvent refEvent = ResourceLibrary.Get<SoundEvent>(ray.Surface.Sounds.FootLand);
+				SoundEvent soundEvent = new SoundEvent
+				{
+					Volume = refEvent.Volume.FixedValue * 10,
+					Decibels = refEvent.Decibels,
+					Pitch = refEvent.Pitch,
+					Occlusion = refEvent.Occlusion,
+                    OcclusionRadius = refEvent.OcclusionRadius,
+                    SelectionMode = refEvent.SelectionMode,
+                    Sounds = refEvent.Sounds,
+                    Transmission = refEvent.Transmission
+				};
+				Sound.Play(soundEvent,characterController.Transform.Position);
+            }
+        }
         Hitbox.Rebuild();
         filmGrain.Intensity = Stunned*0.5f;
         Stunned = MathX.Lerp(Stunned,0,(1/StunTime)*Time.Delta);

@@ -1,0 +1,38 @@
+{
+  "BaseSurface": "surfaces/default.surface",
+  "AudioSurface": "Water",
+  "Description": "",
+  "Friction": 0.7,
+  "Elasticity": 0.25,
+  "Density": 1000,
+  "Thickness": 0,
+  "Dampening": 0,
+  "BounceThreshold": 0,
+  "ImpactEffects": {
+    "Regular": [],
+    "Bullet": [
+      "particles/impact.water.vpcf"
+    ],
+    "BulletDecal": [
+      "decals/empty.decal"
+    ]
+  },
+  "ScrapeEffects": {
+    "RoughnessFactor": 0.25,
+    "RoughThreshold": 0.5
+  },
+  "Sounds": {
+    "FootLeft": "",
+    "FootRight": "",
+    "FootLaunch": "",
+    "FootLand": "",
+    "Bullet": "sounds/water/water_bullet_impact.sound",
+    "ImpactHard": "sounds/water/water_splash_medium.sound",
+    "ImpactSoft": "sounds/water/water_bullet_impact.sound"
+  },
+  "Breakables": {
+    "BreakSound": ""
+  },
+  "Tags": null,
+  "__references": []
+}

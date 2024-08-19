@@ -24,6 +24,7 @@
         "Condition": 1,
         "containerPos": "0,0,0",
         "containerRot": "0,0,0,0",
+        "HandPoss": [],
         "HandsConnected": 0,
         "ItemName": "Backpack",
         "knifeThrow": false,
@@ -55,10 +56,11 @@
       {
         "__type": "Sandbox.BoxCollider",
         "__guid": "09efb5b1-22b5-4e6a-86d2-8c0ac2f64852",
-        "Center": "9.700005,0,9.7",
+        "Center": "9.800004,-0.5,10.1",
         "IsTrigger": false,
-        "Scale": "1,1,1",
-        "Static": false
+        "Scale": "1,11.3,17.10001",
+        "Static": false,
+        "Surface": "surfaces/chair_foam.surface"
       }
     ],
     "Children": [
@@ -103,6 +105,12 @@
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
                 "MirrorToOtherHand": false,
+                "OtherHand": {
+                  "_type": "component",
+                  "component_id": "86a74d49-e245-4ac1-8044-9970c13e42ba",
+                  "go": "3ee454f8-b200-4e78-a977-19a2662227af",
+                  "component_type": "HandPos"
+                },
                 "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {

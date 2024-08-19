@@ -55,8 +55,6 @@ public sealed class RevolverTrigger : Component
 	{
 
         if(!item.mainHeld) return;
-        
-        
 
         if(canFire && !RevolverCylinder.open)
         {

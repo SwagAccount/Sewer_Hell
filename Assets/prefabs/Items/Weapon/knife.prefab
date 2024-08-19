@@ -3,7 +3,7 @@
     "__guid": "a6659900-1a37-4220-ade7-f7e8b41458bb",
     "Flags": 0,
     "Name": "knife",
-    "Position": "24.26534,-13.41263,41.65778",
+    "Tags": "item",
     "Enabled": true,
     "Components": [
       {
@@ -24,11 +24,18 @@
         "__type": "trollface.Item",
         "__guid": "5a85946f-41ee-416d-a3d0-6e0793f5d735",
         "AngularDrag": 1000000,
+        "Catagories": [],
         "Condition": 1,
+        "containerPos": "0,0,0",
+        "containerRot": "0,0,0,0",
+        "HandPoss": [],
         "HandsConnected": 0,
         "ItemName": "Knife",
         "knifeThrow": true,
-        "mainHeld": false
+        "lastInContainer": false,
+        "mainHeld": false,
+        "MotionEnabled": true,
+        "TimeAlive": 0
       },
       {
         "__type": "trollface.PhysicsTracker",
@@ -45,7 +52,6 @@
         "__guid": "699e4c1a-3da0-45f1-b042-b90f80686ef5",
         "Flags": 0,
         "Name": "Model",
-        "Position": "0,0,0",
         "Rotation": "0.00000006181724,-0.7071068,0.7071068,0",
         "Enabled": true,
         "Components": [
@@ -62,7 +68,8 @@
             "__guid": "7d3cc358-3b07-4a0c-a558-b149b463d395",
             "IsTrigger": false,
             "Model": "models/weapons/knife.vmdl",
-            "Static": false
+            "Static": false,
+            "Surface": "surfaces/metal.weapon.surface"
           }
         ],
         "Children": [
@@ -92,6 +99,9 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "-1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
@@ -102,6 +112,7 @@
                       "go": "6138fc14-504d-4f1d-993e-4cb1d3792e78",
                       "component_type": "HandPos"
                     },
+                    "ParentTo": true,
                     "PositionSpring": "100,10",
                     "Rigidbody": {
                       "_type": "component",
@@ -422,10 +433,14 @@
                     },
                     "AngularSpring": "100,10",
                     "Connect": true,
+                    "gotLocTrans": false,
+                    "locPos": "0,0,0",
+                    "locRot": "0,0,0,0",
                     "Main": true,
                     "MirrorPosModifiers": "-1,1,1",
                     "MirrorRotModifiers": "-1,-1,1",
                     "MirrorToOtherHand": false,
+                    "ParentTo": true,
                     "PositionSpring": "100,10",
                     "Rigidbody": {
                       "_type": "component",
@@ -756,7 +771,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

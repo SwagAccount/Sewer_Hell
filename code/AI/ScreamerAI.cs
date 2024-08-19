@@ -9,6 +9,7 @@ public sealed class ScreamerAI : AIAgent
     [Property] public GameObject HeadBones {get; set;}
     [Property] public SkinnedModelRenderer Body {get; set;}
     [Property] public BodyDeath BodyDeath {get; set;}
+    [Property] public float LooseTime {get;set;} = 20f;
     [Property] public float RotateSpeed {get;set;} = 10f;
     [Property] public float ScreamDistance {get;set;} = 500f;
     [Property] public float ScreamTime {get;set;} = 30f;
@@ -16,6 +17,8 @@ public sealed class ScreamerAI : AIAgent
     [Property] public float AttackDistance {get;set;} = 30f;
     [Property] public float StopDistance {get;set;} = 10f;
     [Property] public float AttackTime {get;set;} = 0.28f;
+    [Property] public float RandomMoveTime {get;set;} = 10f;
+    [Property] public Vector2 RandomMoveDis {get;set;} = new Vector2(50,100);
     public FindChooseEnemy FindChooseEnemy;
     HealthComponent healthComponent;
 
@@ -41,17 +44,24 @@ public sealed class ScreamerAI : AIAgent
     SoundHandle screamSound;
     float lastScream = -1000;
     float lastTryScream = -1000;
-    public void Scream()
+    public async void Scream()
     {
         if(Time.Now - lastScream < ScreamTime && Time.Now - lastTryScream < ScreamTime) return;
-        var ray = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).WithAnyTags("world","player").UseHitboxes().Run();
         lastTryScream = Time.Now;
-        if(ray.GameObject == player.GameObject)
-        {
-            lastScream = Time.Now;
-            player.Stunned = 1;
-            screamSound = Sound.Play(ScreamSound,  HeadBones.Transform.Position);
-        }
+
+        var hit = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).WithAnyTags("world","player").UseHitboxes().Run();
+        if(hit.GameObject != player.GameObject) return;
+
+        lastScream = Time.Now;
+        screamSound = Sound.Play(ScreamSound,  HeadBones.Transform.Position);
+        await Task.DelaySeconds(hit.Distance/200);
+
+        hit = Scene.Trace.Ray(HeadBones.Transform.Position, player.Camera.Transform.Position).IgnoreGameObjectHierarchy(GameObject).WithAnyTags("world","player").UseHitboxes().Run();
+        if(hit.GameObject != player.GameObject) return;
+
+        
+        player.Stunned = 1;
+        
     }
     protected override void Update()
     {
@@ -63,7 +73,7 @@ public sealed class ScreamerAI : AIAgent
         if(FindChooseEnemy.Enemy.IsValid())
         {
             stateMachine.ChangeState(FindCondition());
-            FaceThing(FindChooseEnemy.Enemy);
+            //FaceThing(FindChooseEnemy.Enemy);
         }
         else
         {
@@ -120,11 +130,12 @@ public class IDLE : AIState
 	public void Enter( AIAgent agent )
 	{
 		screamerAI = agent.Components.Get<ScreamerAI>();
+        agent.Agent.MoveTo(agent.Transform.Position);  
 	}
 
 	public void Exit( AIAgent agent )
 	{
-		
+
 	}
 
 	public string GetID()
@@ -134,7 +145,13 @@ public class IDLE : AIState
 
 	public void Update( AIAgent agent )
 	{
-		agent.Agent.MoveTo(agent.Transform.Position);  
+		float chance = Time.Delta / screamerAI.RandomMoveTime;
+        if(Game.Random.Next(0,100000)/100000f < chance)
+        {
+            float distanceMod = Game.Random.Next(0,100)/100;
+            float distance = (distanceMod * (screamerAI.RandomMoveDis.y-screamerAI.RandomMoveDis.x))+screamerAI.RandomMoveDis.x;
+            agent.Agent.MoveTo(agent.Transform.Position+(Vector3.Random.WithZ(0)*distance));
+        }
 	}
 }
 
@@ -159,6 +176,12 @@ public class APPROACH_ATTACK : AIState
 	}
 	public void Update( AIAgent agent )
 	{
+        if(screamerAI.FindChooseEnemy.TimeSinceSeen > screamerAI.LooseTime)
+        {
+            screamerAI.FindChooseEnemy.Enemy = null;
+            agent.stateMachine.ChangeState("IDLE");
+            return;
+        }
 
         float distance = Vector3.DistanceBetween(agent.Transform.Position,screamerAI.FindChooseEnemy.Enemy.Transform.Position);
         
@@ -170,7 +193,10 @@ public class APPROACH_ATTACK : AIState
 		agent.Agent.MoveTo(distance > screamerAI.StopDistance ? screamerAI.FindChooseEnemy.Enemy.Transform.Position : agent.Transform.Position);
         
         screamerAI.attack = distance < screamerAI.AttackDistance;
-        
+        if(screamerAI.attack)
+        {
+            screamerAI.FaceThing(screamerAI.FindChooseEnemy.Enemy);
+        }
         lastDis = distance;
 	}
 }

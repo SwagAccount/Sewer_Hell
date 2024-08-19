@@ -1,0 +1,21 @@
+{
+  "UI": false,
+  "Volume": "0.10,2.00,0",
+  "Pitch": "1.00,1.00,0",
+  "Decibels": 70,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/waterfootsteps/204033__duckduckpony__footsteps_water_light_006.vsnd",
+    "sounds/waterfootsteps/204032__duckduckpony__footsteps_water_light_005.vsnd",
+    "sounds/waterfootsteps/204017__duckduckpony__footsteps_water_light_004.vsnd",
+    "sounds/waterfootsteps/204014__duckduckpony__footsteps_water_light_001.vsnd",
+    "sounds/waterfootsteps/204013__duckduckpony__footsteps_water_light_002.vsnd"
+  ],
+  "Occlusion": true,
+  "AirAbsorption": true,
+  "Transmission": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": [],
+  "__version": 0
+}
