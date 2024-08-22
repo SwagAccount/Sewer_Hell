@@ -2,16 +2,28 @@
   "RootObject": {
     "__guid": "66a03c4a-aaa7-4214-a29b-87b25ec06d11",
     "Flags": 0,
-    "Name": "NixieTubeNumber",
-    "Position": "103.5096,8.455036,43.74579",
+    "Name": "nixietubenumber",
     "Enabled": true,
     "Components": [
       {
         "__type": "NixieTubeNumber",
         "__guid": "f311b3ef-1072-4a0a-8db3-fb12fc7697af",
+        "delay": 0.1,
+        "MainNumber": {
+          "_type": "component",
+          "component_id": "b5988a32-629f-4ec9-8214-3ea0e2289a05",
+          "go": "e1810def-141e-4617-a4a9-b3a31bfaed46",
+          "component_type": "TextRenderer"
+        },
         "Number": 5,
         "Off": "0.40784,0.40784,0.40784,0.02745",
         "On": "1,0.46667,0.13333,1",
+        "pointLight": {
+          "_type": "component",
+          "component_id": "ab9afe75-cc0c-463d-8ac1-36ac812792f1",
+          "go": "637c8ffa-637b-493a-8808-11807be38356",
+          "component_type": "PointLight"
+        },
         "TextRenderers": [
           {
             "_type": "component",
@@ -78,202 +90,243 @@
     ],
     "Children": [
       {
-        "__guid": "5b5ff13b-00f0-448a-86ad-4d5c3aad584f",
+        "__guid": "98f42678-10bb-4d70-bbe1-a7dd38493234",
         "Flags": 0,
-        "Name": "Text (9)",
-        "Position": "0,-0.8407726,6.289",
+        "Name": "Object",
+        "Scale": "0.344228,1,1",
         "Enabled": true,
-        "Components": [
+        "Children": [
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "c3c274be-8d53-4b3c-a770-24fd0c9c0df0",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "9\n",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "2edfaa41-c50f-49fa-907a-54f63f2be9a6",
-        "Flags": 0,
-        "Name": "Text (8)",
-        "Position": "-0.1999969,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "5b5ff13b-00f0-448a-86ad-4d5c3aad584f",
+            "Flags": 0,
+            "Name": "Text (9)",
+            "Position": "0.9246663,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "c3c274be-8d53-4b3c-a770-24fd0c9c0df0",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "9\n",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "47b8707b-dcee-48d1-b4aa-c8e8ce600ae3",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "8",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "f4dc48f3-6e6c-4b3c-9dac-17c97d8a9d83",
-        "Flags": 0,
-        "Name": "Text (7)",
-        "Position": "-0.4000015,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "2edfaa41-c50f-49fa-907a-54f63f2be9a6",
+            "Flags": 0,
+            "Name": "Text (8)",
+            "Position": "0.7246695,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "47b8707b-dcee-48d1-b4aa-c8e8ce600ae3",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "8",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "a7e6b186-d530-466d-a8f1-aeb4a916bf0b",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "7",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "0af43b73-a70c-40e1-9101-091d3de7128e",
-        "Flags": 0,
-        "Name": "Text (6)",
-        "Position": "-0.5999985,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "f4dc48f3-6e6c-4b3c-9dac-17c97d8a9d83",
+            "Flags": 0,
+            "Name": "Text (7)",
+            "Position": "0.5246648,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "a7e6b186-d530-466d-a8f1-aeb4a916bf0b",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "7",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "cfe51e38-8d63-420b-b9da-54c1a9c36e39",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "6",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "a803f0ea-9d11-4438-9ff1-39da912a3f7f",
-        "Flags": 0,
-        "Name": "Text (5)",
-        "Position": "-0.8000031,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "0af43b73-a70c-40e1-9101-091d3de7128e",
+            "Flags": 0,
+            "Name": "Text (6)",
+            "Position": "0.3246678,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "cfe51e38-8d63-420b-b9da-54c1a9c36e39",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "6",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "928ddb8a-f9f0-4395-83e8-bbf6822472d6",
-            "Color": "1,0.46667,0.13333,1",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "5",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "9e2fb22a-73a2-4ab5-88ad-32f775530a15",
-        "Flags": 0,
-        "Name": "Text (4)",
-        "Position": "-1,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "a803f0ea-9d11-4438-9ff1-39da912a3f7f",
+            "Flags": 0,
+            "Name": "Text (5)",
+            "Position": "0.1246632,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "928ddb8a-f9f0-4395-83e8-bbf6822472d6",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "5",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "e214e810-d808-416f-9326-8dc9755eb1dd",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "4",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "90612a84-0d02-4fac-97d4-d1e0353909bb",
-        "Flags": 0,
-        "Name": "Text (3)",
-        "Position": "-1.199997,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "9e2fb22a-73a2-4ab5-88ad-32f775530a15",
+            "Flags": 0,
+            "Name": "Text (4)",
+            "Position": "-0.07533368,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "e214e810-d808-416f-9326-8dc9755eb1dd",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "4",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "f125dcf3-d8fc-457b-a4e0-caf0bd8ebed8",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "3",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "0b111463-3e67-403a-bc83-08f1a6c1971d",
-        "Flags": 0,
-        "Name": "Text (2)",
-        "Position": "-1.400002,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "90612a84-0d02-4fac-97d4-d1e0353909bb",
+            "Flags": 0,
+            "Name": "Text (3)",
+            "Position": "-0.2753307,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "f125dcf3-d8fc-457b-a4e0-caf0bd8ebed8",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "3",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "d552cc46-96c1-48bd-b08e-6990fb67b3f1",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "2",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "e40b4961-a554-4584-a008-27906725f9ef",
-        "Flags": 0,
-        "Name": "Text (1)",
-        "Position": "-1.599998,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "0b111463-3e67-403a-bc83-08f1a6c1971d",
+            "Flags": 0,
+            "Name": "Text (2)",
+            "Position": "-0.4753357,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "d552cc46-96c1-48bd-b08e-6990fb67b3f1",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "2",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "f6e23a02-731f-4c98-b968-a3c3057efec8",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "1",
-            "TextAlignment": "Center"
-          }
-        ]
-      },
-      {
-        "__guid": "cf0bd09c-8e4a-43b5-8585-994574ab0125",
-        "Flags": 0,
-        "Name": "Text",
-        "Position": "-1.800003,-0.8407726,6.289",
-        "Enabled": true,
-        "Components": [
+            "__guid": "e40b4961-a554-4584-a008-27906725f9ef",
+            "Flags": 0,
+            "Name": "Text (1)",
+            "Position": "-0.6753317,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "f6e23a02-731f-4c98-b968-a3c3057efec8",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "1",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
           {
-            "__type": "Sandbox.TextRenderer",
-            "__guid": "f836cbe5-71a5-4646-9937-245c58ec38e0",
-            "Color": "0.40784,0.40784,0.40784,0.02745",
-            "FontFamily": "Nixie One",
-            "FontSize": 28.37,
-            "FontWeight": 800,
-            "Scale": 0.27,
-            "Text": "0",
-            "TextAlignment": "Center"
+            "__guid": "cf0bd09c-8e4a-43b5-8585-994574ab0125",
+            "Flags": 0,
+            "Name": "Text",
+            "Position": "-0.8753368,-0.8407726,6.289",
+            "Scale": "0.9742675,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "f836cbe5-71a5-4646-9937-245c58ec38e0",
+                "Color": "0.40784,0.40784,0.40784,0.02745",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "0",
+                "TextAlignment": "Center"
+              }
+            ]
+          },
+          {
+            "__guid": "e1810def-141e-4617-a4a9-b3a31bfaed46",
+            "Flags": 0,
+            "Name": "MainText",
+            "Position": "-1.71934,-0.8407726,6.289",
+            "Scale": "0.9742676,1,1",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "b5988a32-629f-4ec9-8214-3ea0e2289a05",
+                "__enabled": false,
+                "Color": "1,0.46667,0.13333,1",
+                "FontFamily": "Nixie One",
+                "FontSize": 28.37,
+                "FontWeight": 800,
+                "Scale": 0.27,
+                "Text": "0",
+                "TextAlignment": "Center"
+              }
+            ]
           }
         ]
       },
@@ -288,11 +341,12 @@
           {
             "__type": "Sandbox.PointLight",
             "__guid": "ab9afe75-cc0c-463d-8ac1-36ac812792f1",
+            "__enabled": false,
             "Attenuation": 10,
             "FogMode": "Enabled",
             "FogStrength": 1,
             "LightColor": "1,0.46667,0.13333,1",
-            "Radius": 27.899952,
+            "Radius": 5.3,
             "Shadows": true
           }
         ]
@@ -301,7 +355,6 @@
         "__guid": "fc4458f2-58ea-4a47-b6f3-b098da90ef4b",
         "Flags": 0,
         "Name": "dixietube",
-        "Position": "0,0,0",
         "Scale": "0.02688799,0.02688799,0.02688799",
         "Enabled": true,
         "Components": [
@@ -315,7 +368,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

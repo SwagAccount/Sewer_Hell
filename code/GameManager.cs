@@ -13,6 +13,8 @@ public sealed class GameManager : Component
 
 	[Property] public GameObject SpawnerParent {get;set;}
 
+	int SaveSlot = 0;
+
 	List<Spawner> spawners {get;set;}
 	ChunkDealer chunkDealer {get;set;}
 
@@ -20,6 +22,9 @@ public sealed class GameManager : Component
 
 	protected override void OnStart()
 	{
+		if(FileSystem.Data.FileExists("SaveSlot.txt"))
+			SaveSlot = int.Parse(FileSystem.Data.ReadAllText("SaveSlot.txt"));
+		
 		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
 		playerSaveManager = Scene.Components.GetInChildren<PlayerSaveManager>();
 		spawners = new List<Spawner>();
@@ -67,20 +72,20 @@ public sealed class GameManager : Component
 	{
 		if(!FileSystem.Data.DirectoryExists($"Saves/Slot1/{Scene.Name}")) FileSystem.Data.CreateDirectory($"Saves/Slot1/{Scene.Name}");
 
-		chunkDealer.SaveAllChunks();
-		playerSaveManager.Save();
+		chunkDealer.SaveAllChunks(SaveSlot);
+		playerSaveManager.Save(SaveSlot);
 
 		GameSaveData gameSaveData = new GameSaveData();
 		gameSaveData.TimeM = TimeM;
 		gameSaveData.NextFlood = NextFlood;
 		FileSystem.Data.WriteAllText
 		(
-			$"Saves/Slot1/GameData.json",
+			$"Saves/Slot{SaveSlot}/GameData.json",
 			Json.Serialize(gameSaveData)
 		);
 	}
 
-	class GameSaveData
+	public class GameSaveData
 	{
 		public float TimeM {get;set;}
 		public float NextFlood {get;set;}
@@ -88,17 +93,17 @@ public sealed class GameManager : Component
 
 	public void Load()
 	{
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot1/{Scene.Name}")) return;
+		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{Scene.Name}")) return;
 
-		string data = FileSystem.Data.ReadAllText($"Saves/Slot1/GameData.json");
+		string data = FileSystem.Data.ReadAllText($"Saves/Slot{SaveSlot}/GameData.json");
 		GameSaveData gameSaveData = Json.Deserialize<GameSaveData>(data);
 		
 		TimeM = gameSaveData.TimeM;
 		NextFlood = gameSaveData.NextFlood;
 
-		chunkDealer.LoadAllChunks();
+		chunkDealer.LoadAllChunks(SaveSlot);
 		
-		playerSaveManager.Load();
+		playerSaveManager.Load(SaveSlot);
 		
 	}
 }

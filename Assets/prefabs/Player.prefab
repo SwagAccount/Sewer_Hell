@@ -96,7 +96,8 @@
         "HungerUseTime": 60,
         "Stamina": 1,
         "StaminaTime": 30,
-        "StaminaUseTime": 15
+        "StaminaUseTime": 15,
+        "TransSpeed": 7
       },
       {
         "__type": "trollface.PlayerSaveManager",
@@ -507,7 +508,7 @@
                                             "__guid": "8f427ad6-450b-459e-b13a-e1ca64f90472",
                                             "Flags": 4,
                                             "Name": "Hand_Left",
-                                            "Position": "-0.00001716614,-0.000003814697,-0.000008583069",
+                                            "Position": "0,0,0",
                                             "Rotation": "0.4677832,0.06108721,0.881679,0.009447508",
                                             "Enabled": true,
                                             "Children": [
@@ -805,7 +806,7 @@
                                             "__guid": "29279a6b-7e8b-4e4b-901e-583545fcdb24",
                                             "Flags": 4,
                                             "Name": "Hand_Right",
-                                            "Position": "-0.000007152557,-0.00001716614,-0.00001621246",
+                                            "Position": "0,0,0",
                                             "Rotation": "-0.4677832,0.06108763,0.8816791,-0.009447395",
                                             "Enabled": true,
                                             "Children": [

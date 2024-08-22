@@ -75,6 +75,7 @@ public sealed class EnemyWeaponDealer : Component
 			Rigidbody bulletBody = bulletObject.Components.Create<Rigidbody>();
 			bulletBody.Velocity = dir * VelocityMultiplier * bullet.BaseVelocity * 12;
 			BulletProjectile bulletProjectile = bulletObject.Components.Create<BulletProjectile>();
+			bulletProjectile.owner = GameObject;
 			bulletProjectile.Firerer = GameObject;
 			bulletProjectile.bullet = bullet;
 		}

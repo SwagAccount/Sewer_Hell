@@ -64,7 +64,7 @@ public sealed class Item : Component
 	protected override void OnFixedUpdate()
 	{
 		TimeAlive += Time.Delta;
-		Renderer.SceneObject.Attributes.Set("Condition", 1-Condition);
+		if(Renderer.IsValid()) Renderer.SceneObject.Attributes.Set("Condition", 1-Condition);
 		if(Tags.Contains("container") && HandsConnected <= 0)
 		{
 			if(!Tags.Contains("contained")) Tags.Add("contained");

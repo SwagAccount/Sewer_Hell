@@ -1,19 +1,20 @@
+using System.Threading.Tasks;
 using Sandbox;
 
 public sealed class NixieTubeNumber : Component
 {
-	[Property] public List<TextRenderer> TextRenderers {get;set;}
-	[Property] public Color Off {get;set;}
-	[Property] public Color On {get;set;}
+	[Property] public TextRenderer MainNumber {get;set;}
+	[Property] public PointLight pointLight {get;set;}
 	[Property] public int Number {get;set;}
+	[Property] public float delay {get;set;} = 0.1f;
 
 	[Button("TestNumber")] public void TestNumber() => SetNumber(Number);
 
- 	public void SetNumber(int Number)
+ 	public async Task SetNumber(int Number)
 	{
-		for(int i = 0; i < TextRenderers.Count; i++)
-		{
-			TextRenderers[i].Color = i==Number ? On : Off;
-		}
+		await Task.DelaySeconds(delay);
+		pointLight.Enabled = Number > -1;
+		MainNumber.Enabled = Number > -1;
+		MainNumber.Text = Number.ToString();
 	}
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Sandbox;
 using trollface;
 
@@ -10,17 +11,33 @@ public sealed class Survival : Component
 	[Property] public float BreathTime {get;set;} = 1;
 	[Property] public float Stamina {get;set;} = 1;
 	[Property] public float Hunger {get;set;} = 1;
+	[Property] public float TransSpeed {get;set;} = 1;
 
 	Vrmovement vrMovement;
 
+	HealthComponent healthComponent;
+
 	protected override void OnStart()
 	{
+		healthComponent = Components.Get<HealthComponent>();
 		vrMovement = Components.Get<Vrmovement>();
 	}
 
 	float staminaRanOutTime = -100;
-	protected override void OnUpdate()
+
+	bool transitioning;
+	protected override async void OnUpdate()
 	{
+		if(transitioning)
+			vrMovement.Camera.Brightness = MathX.Lerp(vrMovement.Camera.Brightness, 0, Time.Delta*TransSpeed);
+
+		if(healthComponent.Health <= 0)
+		{
+			if(!transitioning) Transition("scenes/menu.scene");
+			
+			return;
+		}
+		
 		bool running = vrMovement.characterController.IsOnGround && vrMovement.characterController.Velocity.Length > (vrMovement.WalkSpeed+vrMovement.RunSpeed)/2;
 		Stamina = MathX.Clamp(
 			Stamina + (running ? Time.Delta * -(1/StaminaUseTime) : 1/StaminaTime * Time.Delta),
@@ -31,5 +48,18 @@ public sealed class Survival : Component
 
 		if(Stamina <= 0.01f) staminaRanOutTime = Time.Now;
 		vrMovement.canRun = Time.Now - staminaRanOutTime > BreathTime;
+	}
+
+	public async void Transition(string file)
+	{
+		vrMovement.inTransition = true;
+		transitioning = true;
+		vrMovement.Camera.Brightness = 1;
+		while (vrMovement.Camera.Brightness > 0.00001f)
+		{
+			await Task.Delay(1);
+		}
+
+		Scene.LoadFromFile(file);
 	}
 }

@@ -15,8 +15,11 @@ public abstract class BarrelBase : Component
 	BulletTypes bulletTypes;	 
 	Rigidbody rigidbody;
 	[Property] public Item item {get;set;}
+
+	Vrmovement vrmovement;
 	protected override void OnStart()
 	{
+		vrmovement = Scene.Components.GetInChildren<Vrmovement>();
 		item = GameObject.Parent.Components.Get<Item>();
 		bulletTypes = Components.Get<BulletTypes>();
 		rigidbody = GameObject.Parent.Components.Get<Rigidbody>();
@@ -50,6 +53,7 @@ public abstract class BarrelBase : Component
 				Rigidbody bulletBody = bulletObject.Components.Create<Rigidbody>();
 				bulletBody.Velocity = CalculateSpread(bullet) * VelocityMultiplier * bullet.BaseVelocity * 12;
 				BulletProjectile bulletProjectile = bulletObject.Components.Create<BulletProjectile>();
+				bulletProjectile.owner = vrmovement.GameObject;
 				bulletProjectile.Firerer = GameObject.Parent;
 				bulletProjectile.bullet = bullet;
 			}

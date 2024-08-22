@@ -40,6 +40,8 @@ public sealed class Vrmovement : Component
 
     public bool canRun = true;
 
+    public bool inTransition;
+
     Vector3 wantedVRSpacePos;
     float reverseStun;
 	protected override void OnStart()
@@ -100,7 +102,7 @@ public sealed class Vrmovement : Component
 
         AgroRelations.attackPoint = Vector3.Zero.WithZ(Camera.Transform.Position.z*0.65f);
 
-        Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
+        if(!inTransition) Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
 
         RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up,Input.VR.RightHand.Joystick.Value.x*Time.Delta*-RotateSpeed);
         wantedVRSpacePos = VRSpace.Transform.Position;

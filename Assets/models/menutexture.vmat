@@ -4,9 +4,6 @@ Layer0
 {
 	shader "shaders/goback_material.shader"
 
-	//---- Psx ----
-	F_TRANSLUCENT 1
-
 	//---- Color ----
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
@@ -23,10 +20,10 @@ Layer0
 
 	//---- Material ----
 	g_flTintColor "[1.000000 1.000000 1.000000 0.000000]"
-	TextureColor "models/props/grate.jpg"
-	TextureNormal "materials/default/default_normal.tga"
+	TextureColor "models/menutexture.png"
+	TextureNormal "[0.501961 0.501961 1.000000 0.000000]"
 	TextureTintMask "materials/default/default_mask.tga"
-	TextureTranslucency "models/props/grate alpha.png"
+	TextureTranslucency "materials/default/default_trans.tga"
 
 	//---- Texture Coordinates ----
 	g_nScaleTexCoordUByModelScaleAxis "0"
@@ -36,6 +33,5 @@ Layer0
 	g_vTexCoordScrollSpeed "[0.000 0.000]"
 
 	//---- Translucent ----
-	g_flOpacityScale "0.677"
 	g_vTranslucentScrollSpeed "[0.000 0.000]"
 }

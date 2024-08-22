@@ -4,6 +4,7 @@ namespace trollface;
 public sealed class Blade : Component
 {
 	[Property] public float damage {get;set;}
+	[Property] public bool PlayerBlade {get;set;}
 	[Property] public float baseAcceleration {get;set;}
 	[Property] public float minAcceleration {get;set;} = 500f;
 	[Property] public GameObject BladeEnd {get;set;}
@@ -14,8 +15,11 @@ public sealed class Blade : Component
 	[Property] public bool Stick {get;set;}
 
 	[Property] public PhysicsTracker physicsTracker {get;set;}
+
+	Vrmovement vrmovement;
 	protected override void OnStart()
 	{
+		vrmovement = Scene.Components.GetInChildren<Vrmovement>();
 		if(physicsTracker == null) physicsTracker = Components.GetOrCreate<PhysicsTracker>();
 		physicsTracker.TrackedObject = BladeEnd;
 		
@@ -24,6 +28,7 @@ public sealed class Blade : Component
 	public bool thrown;
 	protected override void OnUpdate()
 	{
+		
 		var ray = Scene.Trace.Ray(Transform.Position, BladeEnd.Transform.Position).IgnoreGameObjectHierarchy(User).Radius(BladeRadius).UseHitboxes().WithoutTags(ignoreTags).Run();
 		if(ray.Hit && !hit && thrown)
 		{
@@ -47,7 +52,7 @@ public sealed class Blade : Component
 				Vector3 hitAcc = Vector3.Zero;
 				PhysicsTracker tracker = ray.GameObject.Components.GetInChildrenOrSelf<PhysicsTracker>();
 				if(tracker != null) hitAcc = tracker.Acceleration;
-				healthComponent.Health -= damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult;
+				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, PlayerBlade ? vrmovement.GameObject : User);
 				
 				if(ray.Surface.Sounds.ImpactHard != null)
 					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);

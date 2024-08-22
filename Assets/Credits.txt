@@ -83,3 +83,12 @@ Written Font
 
 Clock Font
 	https://www.dafont.com/ds-digital.font - DS-Digital by Dusit Supasawat
+
+Tube Number Font
+	https://fonts.google.com/specimen/Nixie+One
+
+Main Menu Box Insides
+	http://www.vintagecalculators.com/html/cold-cathode_tube_-_dekatron.html - Nigel Tout on Vintage Calculators
+
+Part of the Main Menu Box (the panel)
+	"Transformer box" (https://skfb.ly/oIU6t) by asvp is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

@@ -3143,6 +3143,7 @@
                 {
                   "__type": "Rotater",
                   "__guid": "29dea489-a89b-40d2-a782-d102d5bc0bf1",
+                  "Increments": 0,
                   "item": {
                     "_type": "component",
                     "component_id": "b067b8c0-8575-4f75-b44d-57333fc8ebf8",
@@ -4533,6 +4534,7 @@
                     {
                       "__type": "Rotater",
                       "__guid": "edc3c219-a593-4933-9fd6-24d6d8c06e24",
+                      "Increments": 0,
                       "item": {
                         "_type": "component",
                         "component_id": "cc1fed01-a3ef-41fc-a2ce-7597af395bd9",
@@ -5518,6 +5520,7 @@
                 {
                   "__type": "Rotater",
                   "__guid": "4a673ca2-8844-405d-b9e8-e408f2d7be64",
+                  "Increments": 0,
                   "item": {
                     "_type": "component",
                     "component_id": "4a6a80e5-0803-477b-9a52-c5783691d04b",
@@ -6908,6 +6911,7 @@
                     {
                       "__type": "Rotater",
                       "__guid": "3b0f3100-ca0c-4fbc-a745-b11dd610b5ca",
+                      "Increments": 0,
                       "item": {
                         "_type": "component",
                         "component_id": "29c5cfd4-3c22-40be-b42d-bc3e976d492c",
@@ -8065,6 +8069,7 @@
                 {
                   "__type": "Rotater",
                   "__guid": "7f9ac225-b0fc-47b0-b47b-b441b93467a4",
+                  "Increments": 0,
                   "item": {
                     "_type": "component",
                     "component_id": "a13dd2fc-7e93-4ab1-a14d-668466d8e934",
@@ -9455,6 +9460,7 @@
                     {
                       "__type": "Rotater",
                       "__guid": "63d5307a-01bc-4d45-94ac-77c56843f3ba",
+                      "Increments": 0,
                       "item": {
                         "_type": "component",
                         "component_id": "3944bb9c-8f64-4c6f-85d9-b61f0b9f3b2d",
@@ -11022,54 +11028,6 @@
       "Flags": 0,
       "Name": "GameObject",
       "Enabled": true
-    },
-    {
-      "__guid": "e59e6267-7b59-4dea-a614-2f424fe10866",
-      "Flags": 0,
-      "Name": "Object",
-      "Position": "56.51321,0.00000336845,34.28271",
-      "Tags": "itemstore",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.BoxCollider",
-          "__guid": "dc0c6c70-bb57-4e2d-a568-eba8b6fb812a",
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Scale": "1,1,1",
-          "Static": false
-        },
-        {
-          "__type": "trollface.ItemStorer",
-          "__guid": "ae263d12-864c-4dcb-80f6-2b0d26de1bee",
-          "Categories": [
-            "Backpack"
-          ],
-          "items": [],
-          "SearchRadius": 10,
-          "spawnItem": false
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "2133da3c-dba7-4850-b1bc-1b30ceede977",
-          "Flags": 0,
-          "Name": "Cube",
-          "Position": "0,0,0",
-          "Scale": "0.02,0.02,0.02",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.ModelRenderer",
-              "__guid": "19b2a29c-e9e8-4adb-9b14-fa4e90239bf2",
-              "BodyGroups": 18446744073709551615,
-              "Model": "models/dev/box.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        }
-      ]
     },
     {
       "__guid": "f3036397-c6d5-41ac-a240-c0e8cb4d6c7b",
