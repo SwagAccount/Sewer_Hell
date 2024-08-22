@@ -27,6 +27,8 @@ public sealed class Vrmovement : Component
 	[Property] public float FootStepTime {get;set;} = 1.1f;
 	[Property] public GameObject FeetOrigin;
 	[Property] public GameObject FeetEnd;
+	[Property] public GameObject RawLeftHand;
+	[Property] public GameObject RawRightHand;
 	[Hide, Property] public Vector3 offset {get;set;}
     [Hide, Property] public float Stunned {get;set;}
 

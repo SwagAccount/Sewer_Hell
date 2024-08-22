@@ -13,6 +13,7 @@ public sealed class CoverFinder : Component
     [Property] public float zSpacing { get; set; } = 10f;
     [Property] public float EnemyDistance { get; set; } = 150f;
     [Property] Vector2 pointGrid {get;set;}
+    [Button( "Generate Cover Points " )] private void GenerateCover() => GenerateCoverPoints();
     List<Vector3> generatedPoints = new List<Vector3>();
 
     protected override async void OnStart()
@@ -23,7 +24,6 @@ public sealed class CoverFinder : Component
 
     public CoverContext GetClosestCover(Vector3 position,Vector3 enemyPosition,float AttackDistance)
     {
-        GenerateCoverPoints(position);
         List<GameObject> gameObjects = Scene.FindInPhysics(BBox.FromPositionAndSize(position,MathF.Max(pointGrid.x,pointGrid.y))).ToList();
 
         CoverContext idealCover = null;
@@ -65,36 +65,30 @@ public sealed class CoverFinder : Component
     }
  
 
-	void GenerateCoverPoints(Vector3 position)
+	void GenerateCoverPoints()
 	{
-        Vector3 clampedPos = new Vector3
-        (
-            MathF.Round(position.x / pointGrid.x)*pointGrid.x,
-            MathF.Round(position.y / pointGrid.y)*pointGrid.y,
-            MathF.Round(position.z / zSpacing)*zSpacing
-        );
-        if(generatedPoints.Contains(clampedPos)) return;
-        generatedPoints.Add(clampedPos);
-
-        position = clampedPos;
 		for ( float x = -pointGrid.x / 2; x <= pointGrid.x / 2; x += flatSpacing )
 		{
 			for ( float y = -pointGrid.y / 2; y <= pointGrid.y / 2; y += flatSpacing )
 			{
-				Vector3 point = Scene.NavMesh.GetClosestPoint( new Vector3( position.x + x, position.y + y, Transform.Position.z ) ) ?? Vector3.Zero;
+				Vector3 point = Scene.NavMesh.GetClosestPoint( new Vector3( x, y, Transform.Position.z ) ) ?? Vector3.Zero;
 				if ( point == Vector3.Zero ) continue;
+
+                Log.Info(point);
 
 				List<Vector3> rayPoints = GenerateSquarePoints( point + Vector3.Up, flatSpacing * 2, coverSpacing );
 
 				for ( int i = 0; i < rayPoints.Count; i++ )
 				{
-					var Trace = Scene.Trace.Ray( point, rayPoints[i] ).WithTag( "map" ).Run();
+					var Trace = Scene.Trace.Ray( point, rayPoints[i] ).WithTag( "world" ).Run();
 					if ( Trace.Hit )
 					{
-						var HeightCheck = Scene.Trace.Ray( point, Trace.EndPosition + ((Vector3.Up * coverHeight) - Vector3.Up) + (Trace.EndPosition - point).Normal ).WithTag( "map" ).Run();
+                        
+						var HeightCheck = Scene.Trace.Ray( point, Trace.EndPosition + ((Vector3.Up * coverHeight) - Vector3.Up) + (Trace.EndPosition - point).Normal ).WithTag( "world" ).Run();
 						if ( HeightCheck.Hit )
 						{
-                            var WallCheck = Scene.Trace.Ray( point, Trace.EndPosition + ((Vector3.Up * wallHeight) - Vector3.Up) + (Trace.EndPosition - point).Normal ).WithTag( "map" ).Run();
+                            
+                            var WallCheck = Scene.Trace.Ray( point, Trace.EndPosition + ((Vector3.Up * wallHeight) - Vector3.Up) + (Trace.EndPosition - point).Normal ).WithTag( "world" ).Run();
 							CreateCoverPoint( Trace.EndPosition-Trace.Direction*CoverRadius, -Trace.Normal, WallCheck.Hit);
 						}
 					}
@@ -141,12 +135,18 @@ public sealed class CoverFinder : Component
 
 	void CreateCoverPoint(Vector3 location, Vector3 direction, bool wall)
 	{
+        var colliders = Scene.FindInPhysics(new Sphere(location,coverSpacing/2));
+        foreach(GameObject collider in colliders)
+        {
+            if(collider.Tags.Contains("cover")) return;
+        }
         (Vector3 centerDirection, float angle, float firstStopAngle) = CheckCoverDirections(location,direction,coverCheckDistance);
         if(firstStopAngle > flatFaceAngleCheck && wall)
         {
             return;
         }
 		GameObject point = new GameObject();
+        point.Tags.Add("cover");
 		point.Components.Create<SphereCollider>();
         //point.Components.Create<ModelRenderer>();
 		point.Transform.Position = location;
@@ -173,14 +173,14 @@ public sealed class CoverFinder : Component
             if(hitLeftFound)
             {
                 leftDirection = (Rotation)new Angles(0, -currentAngle, 0) * initialDirection;
-                var trace = Game.ActiveScene.Trace.Ray(position, position+leftDirection*Range).WithTag("map").Run();
+                var trace = Game.ActiveScene.Trace.Ray(position, position+leftDirection*Range).WithTag("world").Run();
                 hitLeftFound = trace.Hit;
                 if(!trace.Hit && stopAngle == 0) stopAngle = currentAngle;
             }
             if(hitRightFound)
             {
                 rightDirection = (Rotation)new Angles(0, currentAngle, 0) * initialDirection;
-                var trace = Game.ActiveScene.Trace.Ray(position, position+rightDirection*Range).WithTag("map").Run();
+                var trace = Game.ActiveScene.Trace.Ray(position, position+rightDirection*Range).WithTag("world").Run();
                 hitRightFound = trace.Hit;
                 if(!trace.Hit && stopAngle == 0) stopAngle = currentAngle;
             }

@@ -35,6 +35,12 @@
         "lastInContainer": false,
         "mainHeld": false,
         "MotionEnabled": true,
+        "thrownBlade": {
+          "_type": "component",
+          "component_id": "c4e35e71-f46d-444d-ba46-a3c0d7131810",
+          "go": "00ea2fb0-952f-475d-b660-52115ce9825b",
+          "component_type": "Blade"
+        },
         "TimeAlive": 0
       },
       {
@@ -772,7 +778,18 @@
         ]
       }
     ],
-    "__variables": []
+    "__variables": [
+      {
+        "Id": "Condition",
+        "Title": "Condition",
+        "Targets": [
+          {
+            "Id": "5a85946f-41ee-416d-a3d0-6e0793f5d735",
+            "Property": "Condition"
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,

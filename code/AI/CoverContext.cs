@@ -1,5 +1,6 @@
 namespace trollface;
 
+[EditorHandle("materials/gizmos/spawnpoint.png")]
 public sealed class CoverContext : Component
 {
     [Property] public float angle {get;set;}

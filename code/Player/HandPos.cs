@@ -3,6 +3,7 @@ namespace trollface;
 public sealed class HandPos : Component
 {
 	[Property] public Rigidbody Rigidbody {get;set;}
+	[Property] public Item item {get;set;}
 	[Property] public HandPos OtherHand {get;set;}
 	[Property] public bool Main {get;set;} = true;
 	[Property] public bool ShowWithoutMain {get;set;} = true;
@@ -21,7 +22,6 @@ public sealed class HandPos : Component
 	[Hide, Property] public Rotation locRot {get;set;}
 	[Hide, Property] public Vector3 locPos {get;set;}
 	bool lastMirrorBool;
-	public Item item;
 	protected override void OnStart()
 	{
 		//Components.Get<SphereCollider>().Center = Transform.World.PointToLocal(GameObject.Transform.Parent.Transform.Position);
@@ -31,7 +31,7 @@ public sealed class HandPos : Component
 			locRot = Transform.LocalRotation; 
 			locPos = Transform.LocalPosition; 
 		}
-		item = Rigidbody.Components.Get<Item>();
+		if(item == null) item = Rigidbody.Components.Get<Item>();
 		if(!item.HandPoss.Contains(this)) item.HandPoss.Add(this);
 	}
 	protected override void OnFixedUpdate()

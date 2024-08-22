@@ -78,5 +78,8 @@ Water footsteps
 Health/Stamina Bar Masks
 	https://www.vecteezy.com/vector-art/2432022-hand-drawn-lines - grayscaledesign on vecteezy
 
-Font
+Written Font
 	https://www.dafont.com/destoria.font?text=fuck+me%2C+I+will+die+this+day&back=theme - Destoria by Lemonthe on dafont
+
+Clock Font
+	https://www.dafont.com/ds-digital.font - DS-Digital by Dusit Supasawat

@@ -41,11 +41,13 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 			
 			foreach(GameObject g in gameObjects)
 			{
+				if(i > 0 && g.Tags.Contains("closepickup")) continue;
+				
 				if(g.Tags.Contains("interactable"))
 				{
 					InteractablePoints.Add(g.Components.Get<Interactable>());
 				}
-				if(g.Tags.Contains("itemstore"))
+				if(g.Tags.Contains("itemstore") && i == 0)
 				{
 					ItemStorers.Add(g.Components.Get<ItemStorer>());
 				}

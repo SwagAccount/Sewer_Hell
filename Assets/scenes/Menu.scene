@@ -1,0 +1,69 @@
+{
+  "__guid": "f22126b0-7159-4e45-a6b0-715a25c7b98d",
+  "GameObjects": [
+    {
+      "__guid": "4f402206-d7bb-4d0e-8766-8a722b1acf67",
+      "Flags": 0,
+      "Name": "Player",
+      "Position": "0,10.50471,-0.4677086",
+      "Tags": "player",
+      "Enabled": true,
+      "__Prefab": "prefabs/player.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "3337a7ae-d23b-4ddf-b53d-83418be3f589",
+      "Flags": 0,
+      "Name": "ChunkDealer",
+      "Position": "118.7231,-210.1828,-73.6507",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ChunkDealer",
+          "__guid": "85608e0e-6506-4f3e-88ea-cdcd9374131c",
+          "ChunkCount": "0,0",
+          "ChunkDistance": 2,
+          "chunks": [],
+          "ChunkSize": 5000,
+          "CreateChunksNow": false,
+          "EditorPlaceInChunk": [],
+          "SafeChunk": "0,0",
+          "TestChunkFind": false
+        }
+      ]
+    },
+    {
+      "__guid": "0aae4ccb-072f-40ab-9072-97bee8829d2c",
+      "Flags": 0,
+      "Name": "ActiveChunk",
+      "Position": "118.7231,-210.1828,-73.6507",
+      "Enabled": true
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "menu",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

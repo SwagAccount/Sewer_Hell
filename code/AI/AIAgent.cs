@@ -9,8 +9,11 @@ public abstract class AIAgent : Component
     [Hide, Property] public NavMeshCharacter Controller { get; set; }
     [Hide, Property] public NavMeshAgent Agent { get; set; }
 
+    public ChunkDealer chunkDealer;
+
     protected override void OnStart()
     {
+        chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
         Controller = Components.GetOrCreate<NavMeshCharacter>();
         Agent = Components.GetOrCreate<NavMeshAgent>();
         Controller.currentTarget = Transform.Position;

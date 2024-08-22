@@ -2065,7 +2065,28 @@
         "Enabled": true
       }
     ],
-    "__variables": []
+    "__variables": [
+      {
+        "Id": "Contents",
+        "Title": "Contents",
+        "Targets": [
+          {
+            "Id": "6a27474a-359f-45c5-80a5-7e970d363178",
+            "Property": "Contents"
+          }
+        ]
+      },
+      {
+        "Id": "Condition",
+        "Title": "Condition",
+        "Targets": [
+          {
+            "Id": "f5ecc09c-9eac-45d5-a4ef-57adff2745a4",
+            "Property": "Condition"
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,

@@ -130,7 +130,8 @@ public class IDLE : AIState
 	public void Enter( AIAgent agent )
 	{
 		screamerAI = agent.Components.Get<ScreamerAI>();
-        agent.Agent.MoveTo(agent.Transform.Position);  
+        agent.Agent.MoveTo(agent.Transform.Position); 
+        agent.chunkDealer.PlaceInChunk(agent.GameObject);
 	}
 
 	public void Exit( AIAgent agent )
@@ -163,6 +164,7 @@ public class APPROACH_ATTACK : AIState
 	{
         lastDis = 100000;
 		screamerAI = agent.Components.Get<ScreamerAI>();
+        agent.GameObject.SetParent(agent.chunkDealer.ActiveChunk);
 	}
 
 	public void Exit( AIAgent agent )

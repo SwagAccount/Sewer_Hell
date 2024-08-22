@@ -8,6 +8,7 @@
   "Resources": null,
   "PackageReferences": [],
   "EditorReferences": null,
+  "IsWhitelistDisabled": false,
   "Metadata": {
     "MaxPlayers": 64,
     "MinPlayers": 1,
@@ -211,6 +212,18 @@
           "Name": "Chat",
           "KeyboardCode": "enter",
           "GamepadCode": "None",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "SelectMenu",
+          "KeyboardCode": "mouse1",
+          "GamepadCode": "RightTrigger",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "SecondarySelectMenu",
+          "KeyboardCode": "mouse2",
+          "GamepadCode": "LeftTrigger",
           "GroupName": "Other"
         }
       ],

@@ -14,7 +14,7 @@ public abstract class BarrelBase : Component
 	[Property] public GameObject MuzzleFlashPrefab {get;set;}
 	BulletTypes bulletTypes;	 
 	Rigidbody rigidbody;
-	Item item;
+	[Property] public Item item {get;set;}
 	protected override void OnStart()
 	{
 		item = GameObject.Parent.Components.Get<Item>();

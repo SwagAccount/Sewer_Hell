@@ -1,0 +1,79 @@
+@using Sandbox;
+@using Sandbox.UI;
+
+@inherits PanelComponent
+
+<root>
+	@if (Menu == Menus.Main)
+	{
+		<div class="menu">
+			<div class="menu-item" onclick="ResumeGame()">Resume</div>
+			<div class="menu-item" style=@(chunkDealer.PlayerInSafeChunk() ? "" : "background-color: #444;") onclick="SaveGame()">Save</div>
+			<div class="menu-item" onclick="LoadGame()">Load</div>
+			<div class="menu-item" onclick="Audio()">Audio</div>
+			<div class="menu-item" onclick="QuitGame()">Quit</div>
+		</div>
+	}
+	@if (Menu == Menus.Audio)
+	{
+		<div class="audio-menu">
+			<div class="title">Audio</div>
+			<div class="slider-container">
+				<label for="master-volume">Master Volume</label>
+				<SliderControl style="width: 100%; height: 10%;" Min=@(0f) Max=@(1f) Step=@(0.05f) Value:bind=@MasterVolume/>
+			</div>
+			<div class="return">return</div>
+		</div>
+	}
+</root>
+
+@code
+{
+
+	[Property, TextArea] public Menus Menu {get;set;}
+	[Property, TextArea] public float MasterVolume {get;set;}
+	[Property, TextArea] public SettingsComponent settingsComponent {get;set;}
+	ChunkDealer chunkDealer;
+	GameManager	 gameManager;
+	protected override void OnStart()
+	{
+		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>(true);
+		gameManager = Scene.Components.GetInChildren<GameManager>(true);
+	}
+	public enum Menus
+	{
+		Main,
+		Audio
+	}
+    void ResumeGame()
+	{
+		settingsComponent.ExitSettings();
+	}
+    void SaveGame()
+	{
+		if(!chunkDealer.PlayerInSafeChunk())
+		{
+			Sound.Play("sounds/player_use_fail.sound");
+			return;
+		}
+		gameManager.Save();
+	}
+    void LoadGame()
+	{
+		Scene.Load(Scene.Source);
+	}
+    void QuitGame()
+	{
+
+	}
+	void Audio()
+	{
+		Menu = Menus.Audio;
+	}
+
+	void Return()
+	{
+		Menu = Menus.Main;
+	}
+	protected override int BuildHash() => System.HashCode.Combine( Menu, MasterVolume );
+}

@@ -23,6 +23,7 @@ public sealed class BulletProjectile : Component
 		if(hitSomething) return;
 		
         var ray = Scene.Trace.Ray(lastPos,Transform.Position).Radius(bullet.Diameter/2).UseHitboxes().IgnoreGameObjectHierarchy(Firerer).Run();
+
 		if(ray.Hit)
 		{
 			
@@ -48,6 +49,7 @@ public sealed class BulletProjectile : Component
 				healthComponent.Health -= damage;
 			}
 			rB.MotionEnabled = false;
+			Log.Info(ray.GameObject);
 			GameObject.Destroy();
 		}
         lastPos = Transform.Position;

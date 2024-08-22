@@ -5,16 +5,24 @@
         "_type": "gameobject",
         "prefab": "prefabs/enemies/dog.prefab"
       },
-      "Weight": 3,
-      "DisplayedChance": "50%"
+      "Weight": 300,
+      "DisplayedChance": "59%"
     },
     {
       "Prefab": {
         "_type": "gameobject",
         "prefab": "prefabs/enemies/screamer.prefab"
       },
-      "Weight": 2,
-      "DisplayedChance": "50%"
+      "Weight": 200,
+      "DisplayedChance": "39%"
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/enemies/shooter.prefab"
+      },
+      "Weight": 5,
+      "DisplayedChance": "2%"
     }
   ],
   "__references": [],

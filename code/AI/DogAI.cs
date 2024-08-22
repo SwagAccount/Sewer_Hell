@@ -139,6 +139,7 @@ public class DOGIDLE : AIState
 	{
 		dogAI = agent.Components.Get<DogAI>();
 		agent.Agent.MoveTo(agent.Transform.Position);
+		agent.chunkDealer.PlaceInChunk(agent.GameObject);
 	}
 
 	public void Exit( AIAgent agent )
@@ -175,6 +176,7 @@ public class DOGATTACK : AIState
 	{
 		dogAI = agent.Components.Get<DogAI>();
 		doJump = Vector3.DistanceBetween(agent.Transform.Position,dogAI.FindChooseEnemy.Enemy.Transform.Position) > dogAI.RunAttackDis;
+		agent.GameObject.SetParent(agent.chunkDealer.ActiveChunk);
 	}
 
 	public void Exit( AIAgent agent )

@@ -15,7 +15,7 @@
 				{
 					_class = "CTwoBoneIKAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 400.0, 160.0 ]
+					m_vecPosition = [ 624.0, 224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 130279089
@@ -58,7 +58,7 @@
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -208.0, 192.0 ]
+					m_vecPosition = [ -224.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 395597117
@@ -72,13 +72,33 @@
 			{
 				key = 
 				{
+					m_id = 1057660125
+				}
+				value = 
+				{
+					_class = "CSingleFrameAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, 240.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1057660125
+					}
+					m_sNote = ""
+					m_sequenceName = "Point"
+					m_nFrameIndex = 0
+					m_tagSpans = [  ]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1102511061
 				}
 				value = 
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -208.0, 256.0 ]
+					m_vecPosition = [ -224.0, 160.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1102511061
@@ -98,7 +118,7 @@
 				{
 					_class = "CTwoBoneIKAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 192.0, 160.0 ]
+					m_vecPosition = [ 416.0, 224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1237587776
@@ -108,7 +128,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 1989353093
+							m_id = 1550035845
 						}
 						m_outputID = 
 						{
@@ -135,13 +155,169 @@
 			{
 				key = 
 				{
+					m_id = 1550035845
+				}
+				value = 
+				{
+					_class = "CStateMachineAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 208.0, 160.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1550035845
+					}
+					m_sNote = ""
+					m_states = 
+					[
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1636203696
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 283103339
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Grip"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1989353093
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1313322411
+							}
+							m_position = [ -160.0, -160.0 ]
+							m_bIsStartState = true
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1636203696
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = false
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1313322411
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Point"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1057660125
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 283103339
+							}
+							m_position = [ -160.0, 0.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+					]
+					m_bBlockWaningTags = false
+					m_bLockStateWhenWaning = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1954857953
 				}
 				value = 
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -208.0, 128.0 ]
+					m_vecPosition = [ -224.0, 32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1954857953
@@ -161,7 +337,7 @@
 				{
 					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, 160.0 ]
+					m_vecPosition = [ 0.0, 64.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1989353093
@@ -246,7 +422,7 @@
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 592.0, 160.0 ]
+					m_vecPosition = [ 816.0, 224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2055768965
@@ -358,6 +534,18 @@
 				m_fMinValue = 0.0
 				m_fMaxValue = 1.0
 			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "Point"
+				m_id = 
+				{
+					m_id = 1636203696
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bDefaultValue = false
+			},
 		]
 	}
 	m_pTagManager = 
@@ -397,7 +585,7 @@
 	}
 	m_previewModels = 
 	[
-		"models/player/arms.vmdl",
+		"models/player/armr.vmdl",
 	]
 	m_boneMergeModels = [  ]
 	m_cameraSettings = 

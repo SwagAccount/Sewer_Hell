@@ -1,7 +1,9 @@
+using System;
 using Sandbox;
 namespace trollface;
 public sealed class FindChooseEnemy : Component
 {
+	[Property] public GameObject RelativeGameObject {get;set;}
 	[Property] public GameObject Enemy {get;set;}
 	[Property] public AgroRelations EnemyRelations {get;set;}
 	[Property] public HealthComponent HealthComponent {get;set;}
@@ -17,8 +19,10 @@ public sealed class FindChooseEnemy : Component
 
 	protected override void DrawGizmos()
 	{
-		Gizmo.Draw.Arrow(eyePos,eyePos+eyeDir,1,1);
-		var baseRotation = Rotation.LookAt(eyeDir);
+		Vector3 eyePosL = Transform.World.PointToLocal(RelativeGameObject.Transform.World.PointToWorld(eyePos));
+		Vector3 eyeDirL = Transform.World.PointToLocal(RelativeGameObject.Transform.World.PointToWorld(eyeDir));
+		Gizmo.Draw.Arrow(eyePosL,eyePosL+eyeDirL,1,1);
+		var baseRotation = Rotation.LookAt(eyeDirL);
 
 		var axes = new[] { Vector3.Up, Vector3.Right };
 		var angles = new[] { ViewAngle, -ViewAngle };
@@ -35,6 +39,7 @@ public sealed class FindChooseEnemy : Component
 	}
 	protected override void OnStart()
 	{
+		if(RelativeGameObject == null) RelativeGameObject = GameObject;
 		agroRelations = Components.GetOrCreate<AgroRelations>();
 		HealthComponent = Components.GetOrCreate<HealthComponent>();
 
@@ -103,10 +108,15 @@ public sealed class FindChooseEnemy : Component
 			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			if(!isTrue) continue;	
-			GameObject hitObject = Scene.Trace.Ray(Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().IgnoreGameObjectHierarchy(GameObject).Run().GameObject;
+			GameObject hitObject = Scene.Trace.Ray(RelativeGameObject.Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().IgnoreGameObjectHierarchy(GameObject).Run().GameObject;
 			if(hitObject != gAgroRelations.ObjectRef) continue;
-			if(Vector3.GetAngle(gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-Transform.World.PointToWorld(eyePos),Transform.World.PointToWorld(eyeDir)) > ViewAngle) continue;
 
+			Transform transform = RelativeGameObject.Transform.World;
+			transform.Position = Vector3.Zero;
+			Vector3 direction = transform.PointToWorld(eyeDir);
+
+
+			if(MathF.Abs(Vector3.GetAngle(direction,gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-RelativeGameObject.Transform.World.PointToWorld(eyePos))) > ViewAngle) continue;
 			float distance = Vector3.DistanceBetween(g.Transform.Position,Transform.Position);
 			if(distance < closestRange)
 			{

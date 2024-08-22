@@ -176,15 +176,24 @@ public sealed class HandsDealer : Component
 	float lastRightTrigger;
 	public VRHandGrabber leftHandGrabber;
 	public VRHandGrabber rightHandGrabber;
-	
+	bool lPointing;
+	bool rPointing;
 	void Inputs()
 	{
 		leftGripAmount = MathX.Lerp(leftGripAmount,(Input.VR.LeftHand.Grip.Value+Input.VR.LeftHand.Trigger.Value)/2,Time.Delta*10);
 
 		rightGripAmount = MathX.Lerp(rightGripAmount,(Input.VR.RightHand.Grip.Value+Input.VR.RightHand.Trigger.Value)/2,Time.Delta*10);
 
+		lPointing = Input.VR.LeftHand.Trigger.Value < 0.1f && Input.VR.LeftHand.GetFingerValue(FingerValue.ThumbCurl) > 0.5f && Input.VR.LeftHand.Grip.Value > 0.75f;
+		rPointing = Input.VR.RightHand.Trigger.Value < 0.1f && Input.VR.RightHand.GetFingerValue(FingerValue.ThumbCurl) > 0.5f && Input.VR.RightHand.Grip.Value > 0.75f;
+
 		LeftArmRenderer.Set("HoldAmount", leftGripAmount);
+		LeftArmRenderer.Set("Point", lPointing);
+
 		RightArmRenderer.Set("HoldAmount", rightGripAmount);
+		RightArmRenderer.Set("Point", rPointing);
+
+		
 
 		leftHandGrabber = new VRHandGrabber
 		{
@@ -323,21 +332,25 @@ public sealed class HandsDealer : Component
 			{
 				if (currentHandPosRef.Main && currentHandPosRef.item != null)
 				{
-					currentHandPosRef.Rigidbody.MotionEnabled = currentHandPosRef.item.MotionEnabled;
-					if (currentHandPosRef.ParentTo)
-						Game.ActiveScene.Components.GetInChildren<ChunkDealer>().PlaceInChunk(currentHandPosRef.Rigidbody.GameObject);
-					knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
+					
+					if(currentHandPosRef.Rigidbody.IsValid())
+					{
+						currentHandPosRef.Rigidbody.MotionEnabled = currentHandPosRef.item.MotionEnabled;
+						if (currentHandPosRef.ParentTo)
+							Game.ActiveScene.Components.GetInChildren<ChunkDealer>().PlaceInChunk(currentHandPosRef.Rigidbody.GameObject);
+						knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
+					}
 					currentHandPosRef.item.Controller = null;
 					currentHandPosRef.item.mainHeld = false;
 				}
 				grabPointRef.Parent.Tags.Remove("grabbed");
 			}
-			if (currentHandPosRef.Connect) fixedJointRef.Remove();
+			if (currentHandPosRef.Connect && fixedJointRef.IsValid()) fixedJointRef.Remove();
 
 			if (currentHandPosRef.item != null)
 			{
 				
-				if (currentHandPosRef.item.HandsConnected <= 1)
+				if (currentHandPosRef.item.HandsConnected <= 1 && currentHandPosRef.Rigidbody.IsValid())
 					currentHandPosRef.Rigidbody.AngularDamping = 0;
 				currentHandPosRef.item.HandsConnected--;
 				if(currentHandPosRef.item.MotionEnabled) currentHandPosRef.item.Throw(knifeTrigger);
@@ -366,30 +379,35 @@ public sealed class HandsDealer : Component
 			GameObject handSkeleton)
 		{
 			HandPos handPos = closest.Components.Get<HandPos>();
-			handPos.Rigidbody.Enabled = true;
-			Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
-			Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
-
-			AlignByChild(handPos.Rigidbody.GameObject, handPos.GameObject, handPhys.GameObject);
-
 			Sandbox.Physics.FixedJoint newFixedJoint = null;
-			if (handPos.Connect)
+			if(handPos.Rigidbody.IsValid()) 
 			{
-				var p1 = new PhysicsPoint(handPhys.PhysicsBody, handPhys.Transform.Position);
-				var p2 = new PhysicsPoint(handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
-				newFixedJoint = PhysicsJoint.CreateFixed(p1, p2);
+				handPos.Rigidbody.Enabled = true;
+				Vector3 OriginPos = handPos.Rigidbody.Transform.Position;
+				Rotation OriginRot = handPos.Rigidbody.Transform.Rotation;
+
+				AlignByChild(handPos.Rigidbody.GameObject, handPos.GameObject, handPhys.GameObject);
+
+				
+				if (handPos.Connect)
+				{
+					var p1 = new PhysicsPoint(handPhys.PhysicsBody, handPhys.Transform.Position);
+					var p2 = new PhysicsPoint(handPos.Rigidbody.PhysicsBody, closest.Parent.Transform.Position);
+					newFixedJoint = PhysicsJoint.CreateFixed(p1, p2);
+				}
+
+				handPos.Rigidbody.Transform.Position = OriginPos;
+				handPos.Rigidbody.Transform.Rotation = OriginRot;
 			}
 
-			handPos.Rigidbody.Transform.Position = OriginPos;
-			handPos.Rigidbody.Transform.Rotation = OriginRot;
-
-			Item item = handPos.Rigidbody.Components.Get<Item>();
+			Item item = handPos.item;
 			if (item != null)
 			{
-				handPos.Rigidbody.AngularDamping = item.AngularDrag;
+				
+				if(handPos.Rigidbody.IsValid()) handPos.Rigidbody.AngularDamping = item.AngularDrag;
 				item.HandsConnected++;
-				item.rigidbody.MotionEnabled = true;
-				if (handPos.Connect)
+				if(item.rigidbody.IsValid()) item.rigidbody.MotionEnabled = true;
+				if (handPos.Connect && newFixedJoint.IsValid())
 				{
 					newFixedJoint.SpringAngular = new PhysicsSpring(handPos.AngularSpring.x, handPos.AngularSpring.y);
 					newFixedJoint.SpringLinear = new PhysicsSpring(handPos.PositionSpring.x, handPos.PositionSpring.y);
@@ -416,6 +434,7 @@ public sealed class HandsDealer : Component
 			holdingRef = true;
 			grabPointRef = closest;
 			currentHandPosRef = handPos;
+			
 		}
 
 		public (Sandbox.Physics.FixedJoint fixedJoint, bool holding, GameObject grabPoint, HandPos currentHandPos, bool reHold)

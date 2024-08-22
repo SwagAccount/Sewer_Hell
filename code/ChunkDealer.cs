@@ -15,6 +15,16 @@ public sealed class ChunkDealer : Component
 	[Property] public bool TestChunkFind {get;set;}
 
 	[Property] public List<List<ChunkSaver>> chunks {get;set;}
+	[Property] public List<GameObject> EditorPlaceInChunk {get;set;}
+	[Button( " Place These In Chunk " )]
+	public void EditorPlace()
+	{
+		foreach(GameObject gameObject in EditorPlaceInChunk)
+		{
+			PlaceInChunk(gameObject);
+		}
+		EditorPlaceInChunk = new List<GameObject>();
+	} 
 	int SetChunkDis;
 	GameManager gameManager;
 
@@ -54,6 +64,10 @@ public sealed class ChunkDealer : Component
 	int playerChunkY;
 	int lastPlayerChunkX = -100;
 	int lastPlayerChunkY = -100;
+	public bool PlayerInSafeChunk()
+	{
+		return playerChunkX == SafeChunk.x && playerChunkY == SafeChunk.y;
+	}
 	protected override void OnFixedUpdate()
 	{
 		Vector3 playerPosition = Player.characterController.Transform.Position;

@@ -14,6 +14,7 @@ public sealed class Item : Component
 	[Property] public GameObject Functions {get;set;}
 	[Property] public bool mainHeld {get;set;}
 	[Property] public bool knifeThrow {get;set;}
+	[Property] public Blade thrownBlade {get;set;}
 	[Hide, Property] public Rigidbody rigidbody {get;set;}
 
 	[Hide, Property] public List<HandPos> HandPoss {get;set;} = new List<HandPos>();
@@ -47,6 +48,7 @@ public sealed class Item : Component
 
 	public void Throw(bool knifeTrigger = false)
 	{
+		thrownBlade.thrown = true;
 		float velmult = 1;
 		if(!knifeThrow || !knifeTrigger) rigidbody.AngularVelocity = physicsTracker.AngularVelocity;
 		else

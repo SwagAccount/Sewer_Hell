@@ -129,6 +129,15 @@
           "_type": "gameobject",
           "go": "4c353590-3c15-4c43-af9b-d7b3eef51c91"
         }
+      },
+      {
+        "__type": "trollface.PhysicsTracker",
+        "__guid": "074439b5-8cba-4dd9-ad2c-86c9c3ddd37f",
+        "Acceleration": "0,0,0",
+        "AccelerationStrength": 0,
+        "Direction": "0,0,0",
+        "Speed": 0,
+        "Velocity": "0,0,0"
       }
     ],
     "Children": [

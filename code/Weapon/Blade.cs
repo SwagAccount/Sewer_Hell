@@ -21,13 +21,16 @@ public sealed class Blade : Component
 		
 	}
 	bool hit;
+	public bool thrown;
 	protected override void OnUpdate()
 	{
 		var ray = Scene.Trace.Ray(Transform.Position, BladeEnd.Transform.Position).IgnoreGameObjectHierarchy(User).Radius(BladeRadius).UseHitboxes().WithoutTags(ignoreTags).Run();
-		if(ray.Hit && !hit)
+		if(ray.Hit && !hit && thrown)
 		{
+			thrown = false;
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
 			if(Stick) stick(ray.GameObject);
+			
 			if(healthComponent != null)
 			{
 				float damageMult = 1;
@@ -41,7 +44,13 @@ public sealed class Blade : Component
 					}
 				}
 				hit = true;
-				healthComponent.Health -= damage * (physicsTracker.Acceleration.Length/baseAcceleration) * damageMult;
+				Vector3 hitAcc = Vector3.Zero;
+				PhysicsTracker tracker = ray.GameObject.Components.GetInChildrenOrSelf<PhysicsTracker>();
+				if(tracker != null) hitAcc = tracker.Acceleration;
+				healthComponent.Health -= damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult;
+				
+				if(ray.Surface.Sounds.ImpactHard != null)
+					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);
 				
 			}
 		}

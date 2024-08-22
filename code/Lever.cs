@@ -4,31 +4,22 @@ namespace trollface;
 public sealed class Lever : Component
 {
 	[Property] public bool On {get; set;}
-	[Property] public HingeJoint Hinge {get; set;}
-	[Property] public float AngleThreshold { get; set; } = 1.0f; // Threshold for detecting near min/max angle
+	[Property] public bool Flipped {get; set;}
+	[Property] public Rotater Rotater {get; set;}
+	[Property] public float AngleThreshold { get; set; } = 1.0f;
 
     protected override void OnFixedUpdate()
     {
-        if (Hinge == null) return;
+        
 
-        float currentAngle = Hinge.Angle;
-        if (MathF.Abs(currentAngle - Hinge.MaxAngle) < AngleThreshold)
+        float currentAngle = Rotater.Rotated.Transform.LocalRotation.Angles().AsVector3().Length;
+        if (MathF.Abs(currentAngle - Rotater.MaxAxis.Length) < AngleThreshold)
         {
-            if (!On)
-            {
-                On = true;
-				Hinge.TargetAngle = Hinge.MaxAngle;
-                //playsound
-            }
+            On = !Flipped;
         }
-        else if (MathF.Abs(currentAngle - Hinge.MinAngle) < AngleThreshold)
+        else if (MathF.Abs(currentAngle - Rotater.MinAxis.Length) < AngleThreshold)
         {
-            if (On)
-            {
-                On = false;
-				Hinge.TargetAngle = Hinge.MinAngle;
-                //playsound
-            }
+            On = Flipped;
         }
     }
 }
