@@ -79,7 +79,6 @@ public sealed class ScreamerAI : AIAgent
         {
             stateMachine.ChangeState("IDLE");
         }
-        
         if(attack && !isAttacking)
         {
             Attack();
@@ -94,6 +93,7 @@ public sealed class ScreamerAI : AIAgent
     bool isAttacking;
     async void Attack()
     {
+        
         isAttacking = true;
         Body.Set("Attack", true);
         await Task.DelaySeconds(AttackTime);
@@ -193,9 +193,8 @@ public class APPROACH_ATTACK : AIState
         }
         
 		agent.Agent.MoveTo(distance > screamerAI.StopDistance ? screamerAI.FindChooseEnemy.Enemy.Transform.Position : agent.Transform.Position);
-        
         screamerAI.attack = distance < screamerAI.AttackDistance;
-        if(screamerAI.attack)
+        if(screamerAI.attack && distance <= screamerAI.StopDistance)
         {
             screamerAI.FaceThing(screamerAI.FindChooseEnemy.Enemy);
         }

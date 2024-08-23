@@ -19,6 +19,8 @@ public sealed class FindChooseEnemy : Component
 
 	protected override void DrawGizmos()
 	{
+		if(RelativeGameObject == null)
+			RelativeGameObject = GameObject;
 		Vector3 eyePosL = Transform.World.PointToLocal(RelativeGameObject.Transform.World.PointToWorld(eyePos));
 		Vector3 eyeDirL = Transform.World.PointToLocal(RelativeGameObject.Transform.World.PointToWorld(eyeDir));
 		Gizmo.Draw.Arrow(eyePosL,eyePosL+eyeDirL,1,1);
@@ -80,6 +82,9 @@ public sealed class FindChooseEnemy : Component
 			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			
+			if(gAgroRelations == null) return;
+
+			//g = gAgroRelations.ObjectRef;
 			
 			if(!agroRelations.Enemies.Contains(gAgroRelations.Faction) && gAgroRelations.Faction != agroRelations.Faction)
 			{

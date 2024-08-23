@@ -51,7 +51,8 @@ public sealed class Blade : Component
 				Vector3 hitAcc = Vector3.Zero;
 				PhysicsTracker tracker = ray.GameObject.Components.GetInChildrenOrSelf<PhysicsTracker>();
 				if(tracker != null) hitAcc = tracker.Acceleration;
-				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, PlayerBlade ? vrmovement.GameObject : User);
+				Log.Info(physicsTracker.Acceleration.Length);
+				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, PlayerBlade ? vrmovement.characterController.GameObject : User);
 				Log.Info(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult);
 				if(ray.Surface.Sounds.ImpactHard != null)
 					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);

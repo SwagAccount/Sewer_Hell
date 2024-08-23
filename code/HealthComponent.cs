@@ -13,7 +13,7 @@ public sealed class HealthComponent : Component
 		Health-=Damage;
 		lastAttacker = from;
 		if(Ouch!=null)
-			Sound.Play(Ouch, Transform.Position);
+			Sound.Play(Ouch, OuchObject.Transform.Position);
 	}
 	protected override void OnStart()
 	{

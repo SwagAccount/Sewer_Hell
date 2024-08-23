@@ -17,8 +17,8 @@
           "component_type": "SkinnedModelRenderer"
         },
         "JumpDis": 120,
-        "JumpForce": 4000000,
-        "JumpWarmTime": 0.625,
+        "JumpForce": 6000000,
+        "JumpWarmTime": 0.1565,
         "RandomMoveDis": "50,100",
         "RandomMoveTime": 10,
         "Rigidbody": {
@@ -58,6 +58,10 @@
         "eyePos": "2.90001,0,28.9",
         "ForceTargetRange": 300,
         "NewEnemy": false,
+        "RelativeGameObject": {
+          "_type": "gameobject",
+          "go": "4c353590-3c15-4c43-af9b-d7b3eef51c91"
+        },
         "TimeSinceSeen": 0,
         "ViewAngle": 158.90004
       },
@@ -408,6 +412,7 @@
                             "damage": 27,
                             "ignoreTags": [],
                             "minAcceleration": 500,
+                            "PlayerBlade": false,
                             "Stick": false,
                             "User": {
                               "_type": "gameobject",

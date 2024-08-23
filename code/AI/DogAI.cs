@@ -101,7 +101,7 @@ public sealed class DogAI : AIAgent
 		dogAnimState = DogAnimState.AIR;
 		Agent.Enabled = false;
 		Rigidbody.Enabled = true;
-		Rigidbody.ApplyForce(((at-Transform.Position).Normal+Vector3.Up/2)*JumpForce);
+		Rigidbody.ApplyForce(((at-Transform.Position).Normal+Vector3.Up/3)*JumpForce);
 		jumped = true;
 	}
 

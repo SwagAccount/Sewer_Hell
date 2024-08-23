@@ -87,7 +87,6 @@
         "__guid": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
         "Health": 100,
         "MaxHealth": 100,
-        "Ouch": "sounds/hurt sounds/hurt sound 6.sound",
         "OuchObject": {
           "_type": "gameobject",
           "go": "77196716-754a-4b8f-b63d-f883cddda322"
@@ -97,6 +96,7 @@
         "__type": "Survival",
         "__guid": "a265be90-3422-44fa-949a-af91de3dc43e",
         "BreathTime": 1,
+        "HealthRegenTime": 120,
         "Hunger": 1,
         "HungerUseTime": 60,
         "Stamina": 1,
@@ -1246,6 +1246,10 @@
               {
                 "__type": "GrabPointFinder",
                 "__guid": "127eebc8-703f-4e77-a7d1-e83d70c014cd",
+                "FarGrabPoint": {
+                  "_type": "gameobject",
+                  "go": "2f756158-86c9-4007-ba58-65a2a263f123"
+                },
                 "GrabbablePoints": [],
                 "handName": "right",
                 "InteractablePoints": [],

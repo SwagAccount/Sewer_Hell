@@ -1657,7 +1657,7 @@
             },
             "GotReturn": false,
             "PosRecoilSpeed": 40,
-            "PosReturnSpeed": 20,
+            "PosReturnSpeed": 10,
             "RecoilPos": [
               "0,-5.929,1.4825",
               "0,-8.8935,2.965"
@@ -1671,7 +1671,7 @@
             "ReturnPos": "0,0,0",
             "ReturnRot": "0,0,0",
             "RotRecoilSpeed": 40,
-            "RotReturnSpeed": 20
+            "RotReturnSpeed": 10
           },
           {
             "__type": "MultiBarrelBarrel",

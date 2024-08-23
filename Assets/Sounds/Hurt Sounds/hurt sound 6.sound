@@ -1,9 +1,9 @@
 {
   "UI": false,
-  "Volume": "1",
+  "Volume": "4",
   "Pitch": "1",
   "Decibels": 70,
-  "SelectionMode": "Random",
+  "SelectionMode": "RandomExclusive",
   "Sounds": [
     "sounds/hurt sounds/hurt sound 6.vsnd",
     "sounds/hurt sounds/hurt sound 5.vsnd",

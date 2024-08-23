@@ -13,10 +13,8 @@ public sealed class Lever : Component
     {
         float currentAngle;
         currentAngle = Rotater.Rotated.Transform.LocalRotation.Angles().AsVector3().Length; 
-        Log.Info(MathF.Abs(MaxAxis.Length));
         if (MathF.Abs(currentAngle - MaxAxis.Length) < AngleThreshold)
         {
-            Log.Info("balls");
             On = !Flipped;
         }
         else if (MathF.Abs(currentAngle - Rotater.MinAxis.Length) < AngleThreshold)

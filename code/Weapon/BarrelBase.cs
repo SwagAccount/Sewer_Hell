@@ -53,7 +53,7 @@ public abstract class BarrelBase : Component
 				Rigidbody bulletBody = bulletObject.Components.Create<Rigidbody>();
 				bulletBody.Velocity = CalculateSpread(bullet) * VelocityMultiplier * bullet.BaseVelocity * 12;
 				BulletProjectile bulletProjectile = bulletObject.Components.Create<BulletProjectile>();
-				bulletProjectile.owner = vrmovement.GameObject;
+				bulletProjectile.owner = vrmovement.characterController.GameObject;
 				bulletProjectile.Firerer = GameObject.Parent;
 				bulletProjectile.bullet = bullet;
 			}

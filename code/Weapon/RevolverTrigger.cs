@@ -76,7 +76,7 @@ public sealed class RevolverTrigger : Component
             HammerBone.Transform.LocalRotation = Angles.Lerp(TargetHammerClosedRot,TargetHammerOpenRot,pullBack);
             TriggerBone.Transform.LocalRotation = Angles.Lerp(TargetTriggerRot,TargetTriggerBackRot,pullBack);
 
-            RevolverCylinder.RotateAmount = pullBack * (1/PullBackShoot);
+            RevolverCylinder.RotateAmount = MathX.Clamp(pullBack * (1/PullBackShoot),0,1);
             
             if(MathF.Min(pullBack, item.Controller.Trigger.Value) > PullBackShoot && !pullingHammer)
             {

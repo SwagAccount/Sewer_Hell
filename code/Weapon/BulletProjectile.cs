@@ -50,8 +50,11 @@ public sealed class BulletProjectile : Component
 			}
 			rB.MotionEnabled = false;
 			if(ray.Surface.Sounds.ImpactHard != null) Sound.Play(ray.Surface.Sounds.ImpactHard,ray.HitPosition);
-
-			if(ray.Surface.ImpactEffects.Bullet != null) ParticleExtentions.CreateParticleSystem(ray.Surface.ImpactEffects.Bullet[Game.Random.Next(0,ray.Surface.ImpactEffects.Bullet.Count)] ,ray.HitPosition,Rotation.LookAt(ray.Normal));
+			/*
+			GameObject debugBox = new GameObject();
+			debugBox.Components.Create<ModelRenderer>();
+			debugBox.Transform.Scale = Vector3.One/50;
+			debugBox.Transform.Position = ray.HitPosition;*/
 			GameObject.Destroy();
 		}
         lastPos = Transform.Position;

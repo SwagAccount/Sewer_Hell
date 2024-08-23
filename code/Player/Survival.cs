@@ -34,7 +34,7 @@ public sealed class Survival : Component
 	{
 		if(chunkDealer.PlayerInSafeChunk())
 		{
-			healthComponent.Health = MathX.Clamp(healthComponent.Health+Time.Delta*(1/HealthRegenTime),0,healthComponent.MaxHealth);
+			healthComponent.Health = MathX.Clamp(healthComponent.Health+(Time.Delta*(1/HealthRegenTime))*healthComponent.MaxHealth,0,healthComponent.MaxHealth);
 		}
 		if(transitioning)
 			vrMovement.Camera.Brightness = MathX.Lerp(vrMovement.Camera.Brightness, 0, Time.Delta*TransSpeed);

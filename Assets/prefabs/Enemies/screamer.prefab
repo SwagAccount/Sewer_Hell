@@ -32,7 +32,7 @@
       {
         "__type": "trollface.ScreamerAI",
         "__guid": "8927b007-3a52-4f2c-820b-0e0323749e12",
-        "AttackDistance": 10,
+        "AttackDistance": 30,
         "AttackTime": 2.6,
         "Body": {
           "_type": "component",
@@ -57,7 +57,7 @@
         "ScreamDistance": 500,
         "ScreamSound": "sounds/scream.sound",
         "ScreamTime": 30,
-        "StopDistance": 30,
+        "StopDistance": 15,
         "TryScreamTime": 18.9
       },
       {
@@ -74,8 +74,12 @@
           "component_type": "HealthComponent"
         },
         "NewEnemy": false,
+        "RelativeGameObject": {
+          "_type": "gameobject",
+          "go": "c30cc951-c89c-4801-bafa-c30e6c0ea0f2"
+        },
         "TimeSinceSeen": 0,
-        "ViewAngle": 120
+        "ViewAngle": 80.399994
       },
       {
         "__type": "trollface.HealthComponent",
@@ -237,7 +241,7 @@
                                           {
                                             "__type": "trollface.Blade",
                                             "__guid": "340122d4-814b-4e90-b403-befaa5e71f10",
-                                            "baseAcceleration": 1500,
+                                            "baseAcceleration": 400,
                                             "BladeEnd": {
                                               "_type": "gameobject",
                                               "go": "d77d492f-a85f-4289-a23f-8cbd7d0852ae"
@@ -335,7 +339,7 @@
                                           {
                                             "__type": "trollface.Blade",
                                             "__guid": "3dbc5749-f370-41c0-b48d-7f2f1774fbdc",
-                                            "baseAcceleration": 1500,
+                                            "baseAcceleration": 400,
                                             "BladeEnd": {
                                               "_type": "gameobject",
                                               "go": "2c67ce0e-7c6c-433e-b3f3-59a4cf17b160"

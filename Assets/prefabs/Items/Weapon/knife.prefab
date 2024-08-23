@@ -739,7 +739,7 @@
           {
             "__type": "trollface.Blade",
             "__guid": "c4e35e71-f46d-444d-ba46-a3c0d7131810",
-            "baseAcceleration": 1500,
+            "baseAcceleration": 750,
             "BladeEnd": {
               "_type": "gameobject",
               "go": "12d40276-cf92-45b8-9d08-e7cef078266a"
@@ -753,13 +753,14 @@
               "go": "a6659900-1a37-4220-ade7-f7e8b41458bb",
               "component_type": "Item"
             },
-            "minAcceleration": 500,
+            "minAcceleration": 250,
             "physicsTracker": {
               "_type": "component",
               "component_id": "a6dd5d4a-1b7d-4e8f-bef8-3cd7837f6afb",
               "go": "a6659900-1a37-4220-ade7-f7e8b41458bb",
               "component_type": "PhysicsTracker"
             },
+            "PlayerBlade": true,
             "Stick": true,
             "User": {
               "_type": "gameobject",
