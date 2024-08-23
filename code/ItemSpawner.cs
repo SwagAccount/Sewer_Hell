@@ -14,7 +14,12 @@ public sealed class ItemSpawner : Spawner
 	}
 	public override void SpawnThing(GameObject thing, Vector3 position, bool test = false)
 	{
+		if(!thing.IsValid()) return;
+		
 		GameObject spawned = thing.Clone();
+		
+		if(!spawned.IsValid()) return;
+
 		spawned.Transform.Position = position;
 		spawned.Transform.Rotation = spawned.Transform.Rotation.RotateAroundAxis(Vector3.Up, Game.Random.Next(0,360));
 		chunkDealer.PlaceInChunk(spawned, test);

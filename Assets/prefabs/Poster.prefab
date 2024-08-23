@@ -1,0 +1,556 @@
+{
+  "RootObject": {
+    "__guid": "7881bbf0-6e76-483f-ad61-06b4a593af6f",
+    "Flags": 0,
+    "Name": "Poster",
+    "Position": "271.1819,-47.41911,19.23288",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "406c60c0-532d-4c39-9d16-7eea2e84b173",
+        "Flags": 0,
+        "Name": "revolver",
+        "Position": "-81.75632,56.56104,13.94175",
+        "Rotation": "-0.1049931,-0.02611573,0.6620224,0.7416338",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "7a395d47-5681-471e-b419-644f757f0b3a",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": false,
+            "Model": "models/weapons/revolver.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.ModelCollider",
+            "__guid": "c970be6c-3e9d-46f3-817f-2ae55a17a159",
+            "IsTrigger": false,
+            "Model": "models/weapons/revolver.vmdl",
+            "Static": false
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "a6518d41-30c5-409e-8400-439c1610bff5",
+            "Flags": 0,
+            "Name": "Object",
+            "Position": "0.00002896786,-9.100945,2.227277",
+            "Rotation": "0,-0,-0.7071068,0.7071068",
+            "Tags": "particles,light_point,light,light_spot",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.LegacyParticleSystem",
+                "__guid": "970b52ee-8572-4764-b098-6ac819e46d8f",
+                "ControlPoints": [],
+                "Looped": true,
+                "Particles": "particle effects/pistol_muzzleflash.vpcf",
+                "PlaybackSpeed": 1
+              },
+              {
+                "__type": "Sandbox.PointLight",
+                "__guid": "f52b637d-0e76-4b4f-82e5-aaf73eead194",
+                "__enabled": false,
+                "Attenuation": 10,
+                "FogMode": "Enabled",
+                "FogStrength": 1,
+                "LightColor": "1,0.92403,0.54419,1",
+                "Radius": 36.999954,
+                "Shadows": true
+              },
+              {
+                "__type": "Sandbox.SpotLight",
+                "__guid": "2f321fba-9c67-4a39-9086-a78551e6eae5",
+                "Attenuation": 10,
+                "ConeInner": 15,
+                "ConeOuter": 8.28,
+                "FogMode": "Enabled",
+                "FogStrength": 1,
+                "LightColor": "1,0.92549,0.5451,1",
+                "Radius": 500,
+                "Shadows": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "c2030f30-ea52-461d-b59d-807271041c37",
+        "Flags": 0,
+        "Name": "Object",
+        "Position": "-97.91409,56.07838,17.72928",
+        "Rotation": "0.02008419,-0.03590883,-0.02427488,0.9988584",
+        "Tags": "light_spot,light",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SpotLight",
+            "__guid": "672c1f60-8ce0-4565-bd66-fbadcf4ef7c1",
+            "Attenuation": 7.73,
+            "ConeInner": 15,
+            "ConeOuter": 25.52,
+            "FogMode": "Enabled",
+            "FogStrength": 1,
+            "LightColor": "0.91373,0.98039,1,1",
+            "Radius": 500,
+            "Shadows": true
+          },
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "5a37ac07-252f-46ed-83dc-8110a0af5f35",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 11127,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "__guid": "add45a32-31be-415a-9766-7508f47bbda9",
+        "Flags": 0,
+        "Name": "Body",
+        "Position": "53.68686,47.30642,-19.51673",
+        "Rotation": "0,0,1,-0.00000004371139",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "2c70c426-7b79-4d16-af86-bc9e80a2d206",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": true,
+            "Model": "models/enemies/screamer.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.ModelPhysics",
+            "__guid": "335b545a-e3f7-4aa0-87df-24b38498cd88",
+            "__enabled": false,
+            "Locking": {},
+            "Model": "models/enemies/screamer.vmdl",
+            "MotionEnabled": true,
+            "Renderer": {
+              "_type": "component",
+              "component_id": "2c70c426-7b79-4d16-af86-bc9e80a2d206",
+              "go": "add45a32-31be-415a-9766-7508f47bbda9",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "RigidbodyFlags": 0
+          },
+          {
+            "__type": "BodyDeath",
+            "__guid": "0dd461a7-4f10-4a39-a216-bc3a7a41316a",
+            "__enabled": false
+          },
+          {
+            "__type": "MakeScreamerWalk",
+            "__guid": "f0da3274-2c37-496e-a2f5-2d0065a7a34a"
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "7b7d9945-5a40-4b04-806b-c607343b0c9f",
+            "Flags": 4,
+            "Name": "Hips",
+            "Position": "0.51442,0.000003352164,34.8695",
+            "Rotation": "0.4999568,0.5000863,0.4999568,0.5",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "e2665097-3a8e-4b6a-a29f-eba42b1c049a",
+                "Flags": 4,
+                "Name": "Spine",
+                "Position": "-0.000001907349,3.307652,-0.009960175",
+                "Rotation": "-0.5196412,0,0,-0.8543845",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "3442c35d-5b87-4673-8de3-6c7861a7e2c2",
+                    "Flags": 4,
+                    "Name": "Spine1",
+                    "Position": "0.0000009536743,3.858934,-0.00001144409",
+                    "Rotation": "-0.02636375,0,0,-0.9996524",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "5d599203-1673-4af1-a80b-acfff0afc82c",
+                        "Flags": 4,
+                        "Name": "Spine2",
+                        "Position": "-0.000001907349,4.410156,-0.000007629395",
+                        "Rotation": "-0.04135014,0,0,-0.9991447",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "33d57e86-e5cb-4c14-a77e-aba5eacac630",
+                            "Flags": 4,
+                            "Name": "Neck",
+                            "Position": "0.0000004768372,4.960938,0.000007629395",
+                            "Rotation": "0.1571267,0.1107375,0.1302031,-0.9726744",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "450b9c97-9b4e-4d7a-b53e-bb8eefe70ca2",
+                                "Flags": 4,
+                                "Name": "Head",
+                                "Position": "-0.000001907349,3.251572,0.7132339",
+                                "Rotation": "0,0,0,-1",
+                                "Enabled": true
+                              }
+                            ]
+                          },
+                          {
+                            "__guid": "c9c61f31-2d39-40a4-be1d-9a8cd2585566",
+                            "Flags": 4,
+                            "Name": "LeftShoulder",
+                            "Position": "2.431641,4.347656,-0.01011658",
+                            "Rotation": "-0.5555508,-0.4368094,0.5579775,-0.4349966",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "ebef0e92-0925-4e62-a3cb-9677b291b83e",
+                                "Flags": 4,
+                                "Name": "LeftArm",
+                                "Position": "0.000003814697,4.980469,0.00001144409",
+                                "Rotation": "-0.3894514,0.1924085,-0.5704899,-0.6970279",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "797a2453-d3db-408f-af57-01c46166bee7",
+                                    "Flags": 4,
+                                    "Name": "LeftForeArm",
+                                    "Position": "0.000001907349,10.10326,0.00001144409",
+                                    "Rotation": "0,0,-0.002373964,-0.9999971",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "670cdb31-6f96-44d4-898a-ee14bb71d13c",
+                                        "Flags": 4,
+                                        "Name": "LeftHand",
+                                        "Position": "0.000001907349,8.997772,0.00001335144",
+                                        "Rotation": "-0.04387734,0.2330231,-0.01711596,-0.97133",
+                                        "Enabled": true,
+                                        "Components": [
+                                          {
+                                            "__type": "trollface.Blade",
+                                            "__guid": "3e22fec7-25d6-492f-9a9d-9399e02f4d4f",
+                                            "baseAcceleration": 400,
+                                            "BladeEnd": {
+                                              "_type": "gameobject",
+                                              "go": "8dc58211-4914-4e11-add1-2262a3034637"
+                                            },
+                                            "BladeRadius": 1,
+                                            "damage": 27,
+                                            "ignoreTags": [
+                                              "enemy"
+                                            ],
+                                            "minAcceleration": 500,
+                                            "physicsTracker": {
+                                              "_type": "component",
+                                              "component_id": "e6e131cd-e6fe-4cb4-acd7-7b0f807e528f",
+                                              "go": "670cdb31-6f96-44d4-898a-ee14bb71d13c",
+                                              "component_type": "PhysicsTracker"
+                                            },
+                                            "PlayerBlade": false,
+                                            "Stick": false
+                                          },
+                                          {
+                                            "__type": "trollface.PhysicsTracker",
+                                            "__guid": "e6e131cd-e6fe-4cb4-acd7-7b0f807e528f",
+                                            "Acceleration": "26.07853,-3.945703,27.91065",
+                                            "AccelerationStrength": -38.401337,
+                                            "Direction": "-0.6791048,0.1027491,-0.7268144",
+                                            "Speed": 32.005306,
+                                            "TrackedObject": {
+                                              "_type": "gameobject",
+                                              "go": "8dc58211-4914-4e11-add1-2262a3034637"
+                                            },
+                                            "Velocity": "-21.73496,3.288517,-23.26192"
+                                          }
+                                        ],
+                                        "Children": [
+                                          {
+                                            "__guid": "f833c186-ae85-48f2-9d22-4b7395a98a75",
+                                            "Flags": 4,
+                                            "Name": "LeftHandIndex1",
+                                            "Position": "0,0.8115234,0",
+                                            "Rotation": "0,0.006172307,0,-0.9999809",
+                                            "Enabled": true,
+                                            "Children": [
+                                              {
+                                                "__guid": "db172f74-538f-4de5-a8b7-adbef27f363e",
+                                                "Flags": 4,
+                                                "Name": "LeftHandIndex2",
+                                                "Position": "0.000001192093,1.470703,0.000003814697",
+                                                "Rotation": "0.001510705,0,-0.01165401,-0.9999309",
+                                                "Enabled": true,
+                                                "Children": [
+                                                  {
+                                                    "__guid": "15f350cc-be22-4f98-8bfb-7c08b18221c3",
+                                                    "Flags": 4,
+                                                    "Name": "LeftHandIndex3",
+                                                    "Position": "0.03305054,1.414062,0.004310608",
+                                                    "Rotation": "0.07752072,-0.00172652,-0.01545235,-0.9968694",
+                                                    "Enabled": true
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "__guid": "8dc58211-4914-4e11-add1-2262a3034637",
+                                            "Flags": 0,
+                                            "Name": "Object",
+                                            "Position": "1.124949,9.191083,2.491309",
+                                            "Enabled": true
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "__guid": "ad71ab89-ffe0-4e23-8356-9165c018ad31",
+                            "Flags": 4,
+                            "Name": "RightShoulder",
+                            "Position": "-2.431641,4.347656,0.006435394",
+                            "Rotation": "-0.5575145,0.4353419,-0.5559824,-0.4365073",
+                            "Enabled": true,
+                            "Children": [
+                              {
+                                "__guid": "2731fba9-894b-4af2-b8c3-bb5ad7769cd7",
+                                "Flags": 4,
+                                "Name": "RightArm",
+                                "Position": "0.00001144409,4.980469,0.00003433228",
+                                "Rotation": "-0.3697214,-0.1608679,0.4595879,-0.7913322",
+                                "Enabled": true,
+                                "Children": [
+                                  {
+                                    "__guid": "b3c9c049-dbe7-4b4f-8e02-c63adb5edbfe",
+                                    "Flags": 4,
+                                    "Name": "RightForeArm",
+                                    "Position": "-0.0000009536743,10.1,0.000007629395",
+                                    "Rotation": "0,0,0.2249869,-0.9743618",
+                                    "Enabled": true,
+                                    "Children": [
+                                      {
+                                        "__guid": "101e9f9e-a68d-4800-b78f-05c7bdf1a912",
+                                        "Flags": 4,
+                                        "Name": "RightHand",
+                                        "Position": "-0.000007629395,8.99766,0.000008583069",
+                                        "Rotation": "0.04261159,0.290583,0.07997204,0.9525493",
+                                        "Enabled": true,
+                                        "Components": [
+                                          {
+                                            "__type": "trollface.Blade",
+                                            "__guid": "ceeb33b5-e78f-4148-a1af-02d93f612d7d",
+                                            "baseAcceleration": 400,
+                                            "BladeEnd": {
+                                              "_type": "gameobject",
+                                              "go": "f939968e-4bba-40f3-ad20-637a33e00bd6"
+                                            },
+                                            "BladeRadius": 1,
+                                            "damage": 27,
+                                            "ignoreTags": [],
+                                            "minAcceleration": 500,
+                                            "physicsTracker": {
+                                              "_type": "component",
+                                              "component_id": "5591dfa0-b2c8-434d-8c4f-8265f1575864",
+                                              "go": "101e9f9e-a68d-4800-b78f-05c7bdf1a912",
+                                              "component_type": "PhysicsTracker"
+                                            },
+                                            "PlayerBlade": false,
+                                            "Stick": false
+                                          },
+                                          {
+                                            "__type": "trollface.PhysicsTracker",
+                                            "__guid": "5591dfa0-b2c8-434d-8c4f-8265f1575864",
+                                            "Acceleration": "6.507142,0.4464806,11.50624",
+                                            "AccelerationStrength": -13.226334,
+                                            "Direction": "-0.4919838,-0.03375695,-0.8699496",
+                                            "Speed": 23.434887,
+                                            "TrackedObject": {
+                                              "_type": "gameobject",
+                                              "go": "f939968e-4bba-40f3-ad20-637a33e00bd6"
+                                            },
+                                            "Velocity": "-11.52958,-0.7910902,-20.38717"
+                                          }
+                                        ],
+                                        "Children": [
+                                          {
+                                            "__guid": "4a7e5d86-be45-4289-a4c6-53b373c1aa21",
+                                            "Flags": 4,
+                                            "Name": "RightHandIndex1",
+                                            "Position": "-0.00001907349,0.7851562,-0.00005340576",
+                                            "Rotation": "0,-0.001467541,0,0.9999989",
+                                            "Enabled": true,
+                                            "Children": [
+                                              {
+                                                "__guid": "2d03d2a9-3d14-4f4c-90be-e2ec90e35e4a",
+                                                "Flags": 4,
+                                                "Name": "RightHandIndex2",
+                                                "Position": "-0.00001144409,1.075195,-0.00004386902",
+                                                "Rotation": "0.001424378,0,-0.01735152,0.9998484",
+                                                "Enabled": true,
+                                                "Children": [
+                                                  {
+                                                    "__guid": "e3cf1148-7787-4999-bbfe-2c7cd460c351",
+                                                    "Flags": 4,
+                                                    "Name": "RightHandIndex3",
+                                                    "Position": "-0.05712891,1.642578,-0.004753113",
+                                                    "Rotation": "-0.03927832,-0.001424378,-0.0274085,0.9988513",
+                                                    "Enabled": true
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "__guid": "f939968e-4bba-40f3-ad20-637a33e00bd6",
+                                            "Flags": 0,
+                                            "Name": "Object",
+                                            "Position": "1.124949,9.191083,2.491309",
+                                            "Enabled": true
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "6e1fd0dc-4524-4517-b36d-b3d808d7381f",
+                "Flags": 4,
+                "Name": "LeftUpLeg",
+                "Position": "2.547942,-1.838364,-0.4803982",
+                "Rotation": "0.05668278,-0.2318041,-0.9710997,0.004392907",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "63d871b9-5dba-45a0-acac-f1b044647195",
+                    "Flags": 4,
+                    "Name": "LeftLeg",
+                    "Position": "0.000002384186,16.03072,0.000001907349",
+                    "Rotation": "0.3655272,0,0,-0.9308007",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "039d55e0-ef5b-4bac-983c-01245981e11c",
+                        "Flags": 4,
+                        "Name": "LeftFoot",
+                        "Position": "-0.000005960464,15.36719,-0.000009536743",
+                        "Rotation": "-0.5796487,0.07762784,-0.08058973,-0.8071473",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "b5e89675-1dc6-4d6c-9b66-085ba39fabbb",
+                            "Flags": 4,
+                            "Name": "LeftToeBase",
+                            "Position": "-0.000001192093,5.763121,-0.0000004768372",
+                            "Rotation": "0.2834085,-0.0887431,0.02632942,0.9545214",
+                            "Enabled": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "4c535f0d-2deb-462b-8b68-43c8a4cdaf38",
+                "Flags": 4,
+                "Name": "RightUpLeg",
+                "Position": "-2.547943,-1.838364,-0.5188904",
+                "Rotation": "-0.1102682,0.1786653,-0.9775275,0.01896683",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "fa01dc69-d1c6-46ca-8ae0-1a787365170f",
+                    "Flags": 4,
+                    "Name": "RightLeg",
+                    "Position": "-0.0000009536743,16.03264,-0.000003814697",
+                    "Rotation": "0.002244475,0,0,-0.9999974",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "f147849d-87fc-47f2-a735-d7eaf8258154",
+                        "Flags": 4,
+                        "Name": "RightFoot",
+                        "Position": "-0.000001907349,15.36948,0.0000009536743",
+                        "Rotation": "-0.5896981,-0.1123218,0.1421128,-0.7870476",
+                        "Enabled": true,
+                        "Children": [
+                          {
+                            "__guid": "9a2dd0a9-f5cb-4cdb-9113-c5d0b69931f9",
+                            "Flags": 4,
+                            "Name": "RightToeBase",
+                            "Position": "0.00000333786,5.796453,-0.0000007152557",
+                            "Rotation": "-0.3044243,-0.08995166,0.02654524,-0.9479082",
+                            "Enabled": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "520b3d1f-b0e7-42ca-b02a-7be18f502b3b",
+        "Flags": 0,
+        "Name": "dog",
+        "Position": "-1.835571,33.47601,-0.1143646",
+        "Rotation": "0.12983,-0.01001748,0.9774318,0.1663463",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "c4d9d114-d9c8-45f9-bed1-5b5f2ec6abef",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": false,
+            "Model": "models/enemies/dog.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "MakeDogInAir",
+            "__guid": "84ae1578-4cda-4756-95d9-ccc99faba64a"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -1094,7 +1094,8 @@
                 "__guid": "1383a1e7-a445-4019-9745-35d5a2fcb465",
                 "Flags": 0,
                 "Name": "PhysPoint",
-                "Position": "0,0,0",
+                "Position": "1.20019,-1.7,-1.600166",
+                "Rotation": "0.1465395,0.4715484,-0.1829897,0.8501077",
                 "Enabled": true,
                 "Components": [
                   {
@@ -1126,7 +1127,8 @@
                 "__guid": "3d6a3f34-4c10-4e5c-8c89-dd128edc309a",
                 "Flags": 0,
                 "Name": "PhysPoint",
-                "Position": "0,0,0",
+                "Position": "1.20019,1.700084,-1.600166",
+                "Rotation": "-0.0192719,0.493417,0.1112781,0.86243",
                 "Enabled": true,
                 "Components": [
                   {

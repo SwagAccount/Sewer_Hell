@@ -61,18 +61,22 @@ public sealed class Vrmovement : Component
             {
                 
                 SoundEvent refEvent = ResourceLibrary.Get<SoundEvent>(ray.Surface.Sounds.FootLand);
-				SoundEvent soundEvent = new SoundEvent
-				{
-					Volume = refEvent.Volume.FixedValue * 10,
-					Decibels = refEvent.Decibels,
-					Pitch = refEvent.Pitch,
-					Occlusion = refEvent.Occlusion,
-                    OcclusionRadius = refEvent.OcclusionRadius,
-                    SelectionMode = refEvent.SelectionMode,
-                    Sounds = refEvent.Sounds,
-                    Transmission = refEvent.Transmission
-				};
-				Sound.Play(soundEvent,characterController.Transform.Position);
+                if(refEvent !=null)
+                {
+                    SoundEvent soundEvent = new SoundEvent
+                    {
+                        Volume = refEvent.Volume.FixedValue * 10,
+                        Decibels = refEvent.Decibels,
+                        Pitch = refEvent.Pitch,
+                        Occlusion = refEvent.Occlusion,
+                        OcclusionRadius = refEvent.OcclusionRadius,
+                        SelectionMode = refEvent.SelectionMode,
+                        Sounds = refEvent.Sounds,
+                        Transmission = refEvent.Transmission
+                    };
+                    Sound.Play(soundEvent,characterController.Transform.Position);
+                }
+
             }
         }
         Hitbox.Rebuild();

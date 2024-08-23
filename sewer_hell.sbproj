@@ -5,7 +5,7 @@
   "Ident": "sewer_hell",
   "Schema": 1,
   "IncludeSourceFiles": false,
-  "Resources": null,
+  "Resources": "/materials/water/textures/*\nui/*",
   "PackageReferences": [],
   "EditorReferences": null,
   "IsWhitelistDisabled": false,

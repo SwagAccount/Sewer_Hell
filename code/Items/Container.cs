@@ -7,7 +7,7 @@ public sealed class Container : Component, Component.ITriggerListener
 	[Property] public GameObject ObjectRef {get;set;}
 	void ITriggerListener.OnTriggerEnter(Collider other)
 	{
-		Item item =  other.Components.Get<Item>();
+		Item item =  other.Components.GetInParentOrSelf<Item>();
 		if(!item.IsValid()) return;
 		if(items.Contains(item)) return;
 		if(other.GameObject == ObjectRef) return;

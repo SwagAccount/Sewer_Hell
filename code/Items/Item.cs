@@ -48,7 +48,9 @@ namespace trollface;
 
 	public void Throw(bool knifeTrigger = false)
 	{
-		if(thrownBlade!=null) thrownBlade.thrown = true;
+		if(thrownBlade!=null) 
+			if(physicsTracker.Acceleration.Length >= thrownBlade.minAcceleration) thrownBlade.thrown = true;
+
 		float velmult = 1;
 		if(!knifeThrow || !knifeTrigger) rigidbody.AngularVelocity = physicsTracker.AngularVelocity;
 		else

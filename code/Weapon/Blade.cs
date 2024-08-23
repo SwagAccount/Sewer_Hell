@@ -20,6 +20,8 @@ public sealed class Blade : Component
 	protected override void OnStart()
 	{
 		vrmovement = Scene.Components.GetInChildren<Vrmovement>();
+		if(PlayerBlade)
+			User = vrmovement.GameObject;
 		if(physicsTracker == null) physicsTracker = Components.GetOrCreate<PhysicsTracker>();
 		physicsTracker.TrackedObject = BladeEnd;
 		
@@ -52,7 +54,7 @@ public sealed class Blade : Component
 				PhysicsTracker tracker = ray.GameObject.Components.GetInChildrenOrSelf<PhysicsTracker>();
 				if(tracker != null) hitAcc = tracker.Acceleration;
 				Log.Info(physicsTracker.Acceleration.Length);
-				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, PlayerBlade ? vrmovement.characterController.GameObject : User);
+				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, User);
 				Log.Info(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult);
 				if(ray.Surface.Sounds.ImpactHard != null)
 					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);

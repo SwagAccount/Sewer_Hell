@@ -50,7 +50,7 @@
 						_class = "PhysicsHullFile"
 						name = "woodencrate"
 						parent_bone = ""
-						surface_prop = "default"
+						surface_prop = "wood"
 						collision_tags = "solid"
 						recenter_on_parent_bone = false
 						offset_origin = [ 0.0, 0.0, 0.0 ]

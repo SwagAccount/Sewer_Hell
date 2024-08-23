@@ -87,7 +87,7 @@
           },
           "PlayLever": {
             "_type": "component",
-            "component_id": "d3e3631f-ec64-4414-b3d9-d30502a1d4d3",
+            "component_id": "80d212c7-a62b-4ae8-9b6d-5a9a147961d7",
             "go": "e6fece59-d9d4-4d3b-9a52-35586bcd56f7",
             "component_type": "Lever"
           },
@@ -99,14 +99,14 @@
           },
           "ResetLever": {
             "_type": "component",
-            "component_id": "33045dec-b4cf-4919-925f-d14a2e7986ff",
+            "component_id": "5ab1479c-fb4b-49c2-8c11-e96ebee974c2",
             "go": "43e7dcbe-eed3-490b-9abf-82355c873db5",
             "component_type": "Lever"
           },
           "SaveSlot": 0,
           "SaveSlotDisplay": {
             "_type": "component",
-            "component_id": "eadf691e-f349-41af-aa08-91e7d8351ca4",
+            "component_id": "613de915-0469-4e3c-a06e-d39051ac47ce",
             "go": "b49d79bd-282d-4788-a681-428010d2bb3c",
             "component_type": "NixieTubeNumber"
           },
@@ -115,6 +115,12 @@
             "component_id": "6847cb23-b3a8-40e1-9c65-0b76ca39a53d",
             "go": "16d596c3-e99d-4c30-8e34-50ed415d51eb",
             "component_type": "Slider"
+          },
+          "TutorialLever": {
+            "_type": "component",
+            "component_id": "0b960657-9ce0-4f84-bbc9-ba9cfa1b84f5",
+            "go": "e406488a-8199-4982-9395-2e18e3aaebb5",
+            "component_type": "Lever"
           }
         }
       ],
@@ -1097,9 +1103,21 @@
         {
           "__guid": "e6fece59-d9d4-4d3b-9a52-35586bcd56f7",
           "Flags": 0,
-          "Name": "switch",
+          "Name": "PLAY",
           "Position": "0.1276245,-2.078078,64.09152",
           "Rotation": "0,0.1933782,0,0.9811243",
+          "Tags": "closegrab",
+          "Enabled": true,
+          "__Prefab": "prefabs/switch.prefab",
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "e406488a-8199-4982-9395-2e18e3aaebb5",
+          "Flags": 0,
+          "Name": "TUTORIAL",
+          "Position": "0.1276283,-17.0644,64.09152",
+          "Rotation": "0,0.1933782,0,0.9811243",
+          "Tags": "closegrab",
           "Enabled": true,
           "__Prefab": "prefabs/switch.prefab",
           "__PrefabVariables": {}
@@ -1107,9 +1125,10 @@
         {
           "__guid": "43e7dcbe-eed3-490b-9abf-82355c873db5",
           "Flags": 0,
-          "Name": "switch",
+          "Name": "Reset",
           "Position": "0.1276245,16.50248,53.70098",
           "Rotation": "0,0.1933782,0,0.9811243",
+          "Tags": "closegrab",
           "Enabled": true,
           "__Prefab": "prefabs/switch.prefab",
           "__PrefabVariables": {}
@@ -1178,7 +1197,7 @@
           "IsTrigger": false,
           "Model": "models/waterl1.vmdl",
           "Static": false,
-          "Surface": "water.surface"
+          "Surface": "watersewer.surface"
         },
         {
           "__type": "trollface.Water",

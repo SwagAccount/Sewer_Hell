@@ -13,6 +13,7 @@ public sealed class MainMenuDealer : Component
 	[Property] public NixieRowNumber FloodN  {get;set;}
 	[Property] public NixieRowNumber NextFlood {get;set;}
 	[Property] public Lever PlayLever {get;set;}
+	[Property] public Lever TutorialLever {get;set;}
 	[Property] public Lever ResetLever {get;set;}
 
 	Survival survival;
@@ -43,8 +44,13 @@ public sealed class MainMenuDealer : Component
 			hasReset = false;
 			ResetLever.Rotater.MaxAxis = ResetLever.MaxAxis;
 		}
+
 		if(!Loaded && PlayLever.On )
-			LoadIntoGame();
+			LoadIntoGame("scenes/level1.scene");
+
+		if(!Loaded && TutorialLever.On)
+			LoadIntoGame("scenes/tutorial.scene");
+		
 		if(SaveSlotSlider.incrementUpdated)
 		{
 			updateData();
@@ -54,14 +60,15 @@ public sealed class MainMenuDealer : Component
 	void ResetSlot()
 	{
 		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}")) return;
-		FileSystem.Data.DeleteDirectory($"Saves/Slot{SaveSlot}");
+		FileSystem.Data.DeleteDirectory($"Saves/Slot{SaveSlot}" , true);
 		updateData();
 	}
-	void LoadIntoGame()
+
+	void LoadIntoGame(string scene)
 	{
 		Loaded = true;
 		FileSystem.Data.WriteAllText("SaveSlot.txt", SaveSlot.ToString());
-		survival.Transition("scenes/level1.scene");
+		survival.Transition(scene);
 	}
 
 	async void updateData()

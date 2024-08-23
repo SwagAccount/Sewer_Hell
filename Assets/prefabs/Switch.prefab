@@ -3,6 +3,7 @@
     "__guid": "78f47271-4588-4532-9cdb-1352af54a8c1",
     "Flags": 0,
     "Name": "switch",
+    "Tags": "closegrab",
     "Enabled": true,
     "Components": [
       {

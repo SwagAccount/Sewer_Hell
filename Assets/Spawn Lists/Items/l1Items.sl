@@ -13,7 +13,7 @@
         "_type": "gameobject",
         "prefab": "prefabs/items/356 magnum box.prefab"
       },
-      "Weight": 40,
+      "Weight": 20,
       "DisplayedChance": "13%"
     },
     {

@@ -6066,7 +6066,7 @@
                                   "Name": "wrist_right (1)",
                                   "Position": "1.143545,1.855785,-1.667525",
                                   "Rotation": "-0.7021555,-0.08353072,0.08353068,0.7021556",
-                                  "Tags": "right,closepickup",
+                                  "Tags": "right",
                                   "Enabled": true,
                                   "Components": [
                                     {
@@ -6378,7 +6378,7 @@
                                   "Name": "wrist_left (1)",
                                   "Position": "0.988099,-1.528462,-1.388004",
                                   "Rotation": "0.7025614,-0.08004667,-0.08004668,0.7025614",
-                                  "Tags": "left,closepickup",
+                                  "Tags": "left",
                                   "Enabled": true,
                                   "Components": [
                                     {
@@ -11007,7 +11007,7 @@
                                   "Name": "wrist_right (1)",
                                   "Position": "1.143545,1.855785,-1.667525",
                                   "Rotation": "-0.7021555,-0.08353072,0.08353068,0.7021556",
-                                  "Tags": "right,closepickup",
+                                  "Tags": "right",
                                   "Enabled": true,
                                   "Components": [
                                     {
@@ -11319,7 +11319,7 @@
                                   "Name": "wrist_left (1)",
                                   "Position": "0.988099,-1.528462,-1.388004",
                                   "Rotation": "0.7025614,-0.08004667,-0.08004668,0.7025614",
-                                  "Tags": "left,closepickup",
+                                  "Tags": "left",
                                   "Enabled": true,
                                   "Components": [
                                     {
