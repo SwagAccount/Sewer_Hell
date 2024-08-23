@@ -56,9 +56,11 @@ public sealed class RevolverTrigger : Component
 
         if(!item.mainHeld) return;
 
+        float ConditionMult = item.Condition;
+
         if(canFire && !RevolverCylinder.open)
         {
-            triggerPullBackSmooth = MathX.Lerp(triggerPullBackSmooth, item.Controller.Trigger.Value, TriggerSpeed*Time.Delta);
+            triggerPullBackSmooth = MathX.Lerp(triggerPullBackSmooth, item.Controller.Trigger.Value, TriggerSpeed*ConditionMult*Time.Delta);
             if(!triggerPullBackSmooth.AlmostEqual(0,0.01f))
             {
                 
@@ -68,7 +70,7 @@ public sealed class RevolverTrigger : Component
             else if (item.Controller.ButtonA)
             {
                 pullingHammer = true;
-                pullBack = MathX.Clamp(pullBack + PullBackSpeed * Time.Delta, 0, 1);
+                pullBack = MathX.Clamp(pullBack + PullBackSpeed * Time.Delta * ConditionMult, 0, 1);
                 if(pullBack >= PullBackShoot && lastPullBack < PullBackShoot) Sound.Play(CockSound, HammerBone.Transform.Position);
             }
             HammerBone.Transform.LocalRotation = Angles.Lerp(TargetHammerClosedRot,TargetHammerOpenRot,pullBack);

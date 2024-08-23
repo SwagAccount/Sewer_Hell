@@ -13,8 +13,11 @@ public sealed class MainMenuDealer : Component
 	[Property] public NixieRowNumber FloodN  {get;set;}
 	[Property] public NixieRowNumber NextFlood {get;set;}
 	[Property] public Lever PlayLever {get;set;}
+	[Property] public Lever ResetLever {get;set;}
 
 	Survival survival;
+
+	bool hasReset;
 	protected override void OnStart()
 	{
 		survival = Scene.Components.GetInChildren<Survival>();
@@ -23,9 +26,23 @@ public sealed class MainMenuDealer : Component
 
 		SaveSlotSlider.SetValue(SaveSlot);
 		SaveSlotDisplay.SetNumber(SaveSlot);
+
+		updateData();
 	}
+
 	protected override void OnUpdate()
 	{
+		if(!hasReset && ResetLever.On)
+		{
+			hasReset = true;
+			ResetSlot();
+			ResetLever.Rotater.MaxAxis = ResetLever.Rotater.MinAxis;
+		}
+		else if (!ResetLever.On)
+		{
+			hasReset = false;
+			ResetLever.Rotater.MaxAxis = ResetLever.MaxAxis;
+		}
 		if(!Loaded && PlayLever.On )
 			LoadIntoGame();
 		if(SaveSlotSlider.incrementUpdated)
@@ -34,6 +51,12 @@ public sealed class MainMenuDealer : Component
 		}
 	}
 	bool Loaded = false;
+	void ResetSlot()
+	{
+		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}")) return;
+		FileSystem.Data.DeleteDirectory($"Saves/Slot{SaveSlot}");
+		updateData();
+	}
 	void LoadIntoGame()
 	{
 		Loaded = true;

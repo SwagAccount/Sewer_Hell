@@ -180,6 +180,7 @@ public sealed class HandsDealer : Component
 	bool rPointing;
 	void Inputs()
 	{
+		
 		leftGripAmount = MathX.Lerp(leftGripAmount,(Input.VR.LeftHand.Grip.Value+Input.VR.LeftHand.Trigger.Value)/2,Time.Delta*10);
 
 		rightGripAmount = MathX.Lerp(rightGripAmount,(Input.VR.RightHand.Grip.Value+Input.VR.RightHand.Trigger.Value)/2,Time.Delta*10);
@@ -338,7 +339,8 @@ public sealed class HandsDealer : Component
 						currentHandPosRef.Rigidbody.MotionEnabled = currentHandPosRef.item.MotionEnabled;
 						if (currentHandPosRef.ParentTo)
 							Game.ActiveScene.Components.GetInChildren<ChunkDealer>().PlaceInChunk(currentHandPosRef.Rigidbody.GameObject);
-						knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
+						if(currentHandPosRef.item.Controller != null)
+							knifeTrigger = currentHandPosRef.item.Controller.Trigger > 0.75f;
 					}
 					currentHandPosRef.item.Controller = null;
 					currentHandPosRef.item.mainHeld = false;
@@ -406,6 +408,8 @@ public sealed class HandsDealer : Component
 				
 				if(handPos.Rigidbody.IsValid()) handPos.Rigidbody.AngularDamping = item.AngularDrag;
 				item.HandsConnected++;
+				if(!item.HandPoss.Contains(handPos))
+					item.HandPoss.Add(handPos);
 				if(item.rigidbody.IsValid()) item.rigidbody.MotionEnabled = true;
 				if (handPos.Connect && newFixedJoint.IsValid())
 				{

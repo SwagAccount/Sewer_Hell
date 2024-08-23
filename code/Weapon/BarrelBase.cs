@@ -70,6 +70,7 @@ public abstract class BarrelBase : Component
 		}
 		else
 		{
+			item.Condition -= 0.5f/Durability;
 			Sound.Play(DryFire, Transform.Position);
 		}
 	}

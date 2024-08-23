@@ -6,6 +6,7 @@ using trollface;
 public sealed class GrabPointFinder : Component, Component.ITriggerListener
 {
 	[Property] public List<GameObject> GrabbablePoints {get;set;} = new List<GameObject>();
+	[Property] public GameObject FarGrabPoint {get;set;}
 	[Property] public List<Interactable> InteractablePoints {get;set;} = new List<Interactable>();
 	[Property] public List<ItemStorer> ItemStorers {get;set;} = new List<ItemStorer>();
 	[Property] public string handName {get;set;} = "right";
@@ -31,7 +32,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 			Vector3 searchPos = Transform.Position;
 			if(i > 0)
 			{
-				var ray = Scene.Trace.Ray(Transform.Position, Transform.Position+Transform.World.Forward*searchDistance).Radius(searchDistanceRadius).Run();
+				var ray = Scene.Trace.Ray(FarGrabPoint.Transform.Position, FarGrabPoint.Transform.Position+FarGrabPoint.Transform.World.Forward*searchDistance).Radius(searchDistanceRadius).Run();
 				if(ray.Hit) searchPos = ray.HitPosition;
 			}
 			IEnumerable<GameObject> gameObjects = Scene.FindInPhysics(new Sphere(searchPos,searchRadiusHand));

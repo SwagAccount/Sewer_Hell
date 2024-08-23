@@ -267,7 +267,7 @@
             "LeftFingerPosMod": "-1,1,1",
             "LeftFingerRotMod": "-1,-1,1",
             "PullBackShoot": 0.75,
-            "PullBackSpeed": 2,
+            "PullBackSpeed": 8,
             "RevolverCylinder": {
               "_type": "component",
               "component_id": "6a27474a-359f-45c5-80a5-7e970d363178",
@@ -302,7 +302,7 @@
               "_type": "gameobject",
               "go": "b90e6931-ba54-4d0a-a5fc-e114c726144f"
             },
-            "TriggerSpeed": 6
+            "TriggerSpeed": 12
           },
           {
             "__type": "trollface.BulletTypes",

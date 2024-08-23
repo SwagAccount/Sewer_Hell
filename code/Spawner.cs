@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 
 namespace trollface;
 
@@ -26,6 +27,19 @@ public abstract class Spawner : Component
             SpawnTest = false;
             Spawn(true);
         }
+
+        MatchCollection matches = Regex.Matches(SpawnList.ResourceName, @"\d+");
+        int largest = int.MinValue;
+        foreach (Match match in matches)
+        {
+            int number = int.Parse(match.Value);
+            if (number > largest)
+            {
+                largest = number;
+            }
+        }
+
+        Gizmo.Draw.Text((matches.Count > 0 ? largest : 0).ToString(), new Transform(Vector3.Up*10));
 	}
 	protected override void OnStart()
 	{

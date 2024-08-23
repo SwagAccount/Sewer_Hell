@@ -5,7 +5,7 @@ namespace trollface;
 
 public sealed class PlayerSaveManager : Component
 {
-	HealthComponent healthComponent;
+	public HealthComponent healthComponent;
 	Survival survival;
 	Vrmovement vrmovement;
 	ChunkDealer chunkDealer;
@@ -94,7 +94,6 @@ public sealed class PlayerSaveManager : Component
 
 		for(int i = 0; i < ItemStores.Count; i++)
 		{
-			Log.Info(playerSaveData.ItemStores[i]);
 			ItemStores[i].StoredItem = playerSaveData.ItemStores[i];
 		}
 		

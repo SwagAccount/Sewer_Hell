@@ -5,11 +5,18 @@ using trollface;
 
 public sealed class GameManager : Component
 {
+	[Property] public float TimeMultplier {get;set;} = 1f;
 	[Property] public float TimeM {get;set;}
 	[Property] public float DayTime {get;set;} = 48f;
 	[Property] public int FloodDays {get;set;}
 
 	[Property] public float NextFlood {get;set;}
+	[Property] public Curve FloodEffectCurve {get;set;}
+	[Property] public Vector3 MaxWaterHeight {get;set;}
+	[Property] public Vector2 DripEffectRate {get;set;}
+	[Property] public Color WaterRed {get;set;}
+	[Property] public ModelRenderer Water {get;set;}
+	[Property] public ParticleEmitter DripEffect {get;set;}
 
 	[Property] public GameObject SpawnerParent {get;set;}
 
@@ -20,8 +27,11 @@ public sealed class GameManager : Component
 
 	PlayerSaveManager playerSaveManager {get;set;}
 
+	Vector3 waterStartPos;
+
 	protected override void OnStart()
 	{
+		waterStartPos = Water.Transform.Position;
 		if(FileSystem.Data.FileExists("SaveSlot.txt"))
 			SaveSlot = int.Parse(FileSystem.Data.ReadAllText("SaveSlot.txt"));
 		
@@ -39,7 +49,12 @@ public sealed class GameManager : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		TimeM += Time.Delta/60;
+		float progress = FloodEffectCurve.Evaluate(1-((NextFlood-TimeM)/(DayTime*FloodDays)));
+
+		DripEffect.Rate = MathX.Lerp(DripEffectRate.x,DripEffectRate.y, progress);
+		Water.Transform.Position = Vector3.Lerp(waterStartPos, MaxWaterHeight, progress);
+		Water.Tint = Color.Lerp(Color.White,WaterRed,progress);
+		TimeM += (Time.Delta/60)*TimeMultplier;
 		if(TimeM > NextFlood)
 		{
 			Flood();
@@ -49,6 +64,10 @@ public sealed class GameManager : Component
 
 	public void Flood()
 	{
+		if(!chunkDealer.PlayerInSafeChunk())
+		{
+			playerSaveManager.healthComponent.Health = 0;
+		}
 		for (int x = 0; x < chunkDealer.chunks.Count; x++)
         {
             for (int y = 0; y < chunkDealer.chunks[x].Count; y++)

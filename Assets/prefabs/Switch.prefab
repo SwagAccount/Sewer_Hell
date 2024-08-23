@@ -2,9 +2,7 @@
   "RootObject": {
     "__guid": "78f47271-4588-4532-9cdb-1352af54a8c1",
     "Flags": 0,
-    "Name": "Switch",
-    "Position": "-23.72419,32.46205,44.36099",
-    "Rotation": "0.03141077,-0.000000001373008,-0.9995065,-0.00000004368982",
+    "Name": "switch",
     "Enabled": true,
     "Components": [
       {
@@ -12,6 +10,7 @@
         "__guid": "0ec9a0f8-2286-4e70-9862-c1bf50969555",
         "AngleThreshold": 10,
         "Flipped": false,
+        "MaxAxis": "82.6,180,0",
         "On": false,
         "Rotater": {
           "_type": "component",
@@ -60,7 +59,6 @@
         "__guid": "51826d7a-0fe3-42b6-a07c-fcc9428552d0",
         "Flags": 0,
         "Name": "switch",
-        "Position": "0,0,0",
         "Rotation": "0,-0.1916656,0,0.9814603",
         "Enabled": true,
         "Components": [
@@ -86,7 +84,6 @@
         "__guid": "f7a955b4-674c-4b59-8b51-60199bd69d74",
         "Flags": 0,
         "Name": "Hinge",
-        "Position": "0,0,0",
         "Rotation": "0.7071068,0,0,0.7071068",
         "Components": [
           {
@@ -148,7 +145,6 @@
         "__guid": "f328d3da-1c3e-4d1e-9bba-a9a4157feaa4",
         "Flags": 0,
         "Name": "Rotated",
-        "Position": "0,0,0",
         "Rotation": "0.2982079,0.00000004470348,0.9545007,0.0000001192093",
         "Enabled": true,
         "Children": [
@@ -156,7 +152,6 @@
             "__guid": "4435c655-e2e1-4ea0-bd1e-13eea7ab1c88",
             "Flags": 0,
             "Name": "Lever",
-            "Position": "0,0,0",
             "Rotation": "-0.00000002980232,-0.00000005960464,-1,0.0000001192093",
             "Enabled": true,
             "Components": [
@@ -830,7 +825,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

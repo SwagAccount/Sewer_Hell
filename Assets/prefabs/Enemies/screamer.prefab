@@ -32,7 +32,7 @@
       {
         "__type": "trollface.ScreamerAI",
         "__guid": "8927b007-3a52-4f2c-820b-0e0323749e12",
-        "AttackDistance": 40,
+        "AttackDistance": 10,
         "AttackTime": 2.6,
         "Body": {
           "_type": "component",
@@ -58,7 +58,7 @@
         "ScreamSound": "sounds/scream.sound",
         "ScreamTime": 30,
         "StopDistance": 30,
-        "TryScreamTime": 7
+        "TryScreamTime": 18.9
       },
       {
         "__type": "trollface.FindChooseEnemy",
@@ -248,6 +248,7 @@
                                               "enemy"
                                             ],
                                             "minAcceleration": 500,
+                                            "PlayerBlade": false,
                                             "Stick": false,
                                             "User": {
                                               "_type": "gameobject",
@@ -343,6 +344,7 @@
                                             "damage": 27,
                                             "ignoreTags": [],
                                             "minAcceleration": 500,
+                                            "PlayerBlade": false,
                                             "Stick": false,
                                             "User": {
                                               "_type": "gameobject",

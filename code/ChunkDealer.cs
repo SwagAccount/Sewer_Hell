@@ -154,6 +154,11 @@ public sealed class ChunkDealer : Component
 	
 	public void PlaceInChunk(GameObject gameObject, bool test = false)
 	{
+		if(chunks.Count == 0)
+		{
+			gameObject.SetParent(null);
+			return;
+		}
 		if(!test) gameObject.Enabled = false;
 		Vector3 position = gameObject.Transform.Position;
 

@@ -29,7 +29,6 @@ public sealed class BulletProjectile : Component
 		{
 			
 			hitSomething = true;
-
 			
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
 			if(healthComponent != null)
@@ -50,7 +49,9 @@ public sealed class BulletProjectile : Component
 				healthComponent.DoDamage(damage, owner);
 			}
 			rB.MotionEnabled = false;
-			Log.Info(ray.GameObject);
+			if(ray.Surface.Sounds.ImpactHard != null) Sound.Play(ray.Surface.Sounds.ImpactHard,ray.HitPosition);
+
+			if(ray.Surface.ImpactEffects.Bullet != null) ParticleExtentions.CreateParticleSystem(ray.Surface.ImpactEffects.Bullet[Game.Random.Next(0,ray.Surface.ImpactEffects.Bullet.Count)] ,ray.HitPosition,Rotation.LookAt(ray.Normal));
 			GameObject.Destroy();
 		}
         lastPos = Transform.Position;
@@ -65,3 +66,22 @@ public sealed class BulletProjectile : Component
         }
 	}*/
 }
+public static partial class ParticleExtentions
+{
+	public static LegacyParticleSystem CreateParticleSystem( string particle, Vector3 pos, Rotation rot, float decay = 5f )
+	{
+		var gameObject = Game.ActiveScene.CreateObject();
+		gameObject.Transform.Position = pos;
+		gameObject.Transform.Rotation = rot;
+
+		var p = gameObject.Components.Create<LegacyParticleSystem>();
+		p.Particles = ParticleSystem.Load( particle );
+		gameObject.Transform.ClearInterpolation();
+
+		// Clear off in a suitable amount of time.
+		gameObject.DestroyAsync( decay );
+
+		return p;
+	}
+}
+

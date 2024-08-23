@@ -47,7 +47,22 @@
           "_type": "gameobject",
           "go": "145ccd23-d86f-431f-8424-d8d98d03c859"
         },
-        "HandPoss": [],
+        "HandPoss": [
+          {
+            "_type": "component",
+            "component_id": "6e50ec5d-d916-42d2-9e13-2dc0b037760a",
+            "go": "195f0fe7-90f4-4fe1-9d00-fc3037069efc",
+            "component_type": "HandPos"
+          },
+          {
+            "_type": "component",
+            "component_id": "6a7f5842-8755-4fb5-80e6-d3377bf68c0e",
+            "go": "9309ebe7-1765-4ae2-b9f9-b6f8ac39c4c8",
+            "component_type": "HandPos"
+          },
+          null,
+          null
+        ],
         "HandsConnected": 0,
         "ItemName": "Cracker Can",
         "knifeThrow": false,
@@ -1009,6 +1024,12 @@
               "_type": "gameobject",
               "go": "671b7041-49e7-4fc3-98e8-dbb537b34740"
             },
+            "item": {
+              "_type": "component",
+              "component_id": "ab76375d-bf04-4d42-80e3-783dbb4e2201",
+              "go": "77f549b4-b1b5-4a35-8fac-0d4964551465",
+              "component_type": "Item"
+            },
             "Loaders": [
               {
                 "_type": "gameobject",
@@ -1030,6 +1051,18 @@
           {
             "__type": "Can",
             "__guid": "f28ebbc7-153f-4d99-9365-5dfbb21511b7",
+            "collider": {
+              "_type": "component",
+              "component_id": "45528545-5d2b-4b17-a63a-14355c181d2b",
+              "go": "3bfc9a5f-118b-4e35-a84c-2e85a0a0317e",
+              "component_type": "ModelCollider"
+            },
+            "healthComponent": {
+              "_type": "component",
+              "component_id": "6bedc619-5e94-4cc4-bc74-dc6043c37e67",
+              "go": "77f549b4-b1b5-4a35-8fac-0d4964551465",
+              "component_type": "HealthComponent"
+            },
             "interactable": {
               "_type": "component",
               "component_id": "3c460e77-e852-4f34-8627-876adc279385",
@@ -1042,7 +1075,7 @@
               "go": "3bfc9a5f-118b-4e35-a84c-2e85a0a0317e",
               "component_type": "Rigidbody"
             },
-            "LidForce": 10000
+            "LidForce": 3000
           }
         ],
         "Children": [

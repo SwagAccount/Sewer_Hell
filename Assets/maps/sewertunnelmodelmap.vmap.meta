@@ -13,6 +13,7 @@
       "EditorReferences": [
         "facepunch.goback_material#46446"
       ],
+      "IsWhitelistDisabled": false,
       "Metadata": {
         "SingleAssetSource": "maps/sewertunnelmodelmap.vmap"
       }

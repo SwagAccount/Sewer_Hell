@@ -2,7 +2,7 @@ using Sandbox;
 using System;
 using Sandbox.VR;
 namespace trollface;
-public sealed class Item : Component
+	public sealed class Item : Component
 {
 	[Property] public float AngularDrag {get;set;} = 1000000;
 	[Property] public float Condition {get;set;} = 1;
@@ -17,7 +17,7 @@ public sealed class Item : Component
 	[Property] public Blade thrownBlade {get;set;}
 	[Hide, Property] public Rigidbody rigidbody {get;set;}
 
-	[Hide, Property] public List<HandPos> HandPoss {get;set;} = new List<HandPos>();
+	[Property] public List<HandPos> HandPoss {get;set;} = new List<HandPos>();
 	[Hide, Property] public HandPos HandPos {get;set;}
 
 	[Hide, Property] public PhysicsTracker physicsTracker {get;set;}
@@ -48,7 +48,7 @@ public sealed class Item : Component
 
 	public void Throw(bool knifeTrigger = false)
 	{
-		thrownBlade.thrown = true;
+		if(thrownBlade!=null) thrownBlade.thrown = true;
 		float velmult = 1;
 		if(!knifeThrow || !knifeTrigger) rigidbody.AngularVelocity = physicsTracker.AngularVelocity;
 		else
@@ -64,7 +64,8 @@ public sealed class Item : Component
 	protected override void OnFixedUpdate()
 	{
 		TimeAlive += Time.Delta;
-		if(Renderer.IsValid()) Renderer.SceneObject.Attributes.Set("Condition", 1-Condition);
+		if(Renderer != null)
+			if(Renderer.SceneObject != null) Renderer.SceneObject.Attributes.Set("Condition", 1-Condition);
 		if(Tags.Contains("container") && HandsConnected <= 0)
 		{
 			if(!Tags.Contains("contained")) Tags.Add("contained");

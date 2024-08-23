@@ -29,11 +29,10 @@ public abstract class MagazineBase : Component
 			return notMagPrefabs[Contents[i]];
 		}
 	}
-
+	public bool fuckyou;
 	protected override void OnStart()
 	{
 		item = Components.GetInParentOrSelf<Item>();
-		
 	}
 
 	protected override void OnFixedUpdate()
@@ -52,11 +51,9 @@ public abstract class MagazineBase : Component
 				
 				Item item = g.Components.Get<Item>();
 				if(item == null) return;
-				Log.Info(g.Name);
 				if(ActualMag)
 				{
 					Bullet bullet = ResourceLibrary.Get<Bullet>($"bullets/{item.ItemName}.bullet");
-					Log.Info(bullet);
 					if(bulletTypes.Bullets.Contains(bullet))
 					{
 						AddContent(g, i, bulletTypes.Bullets.IndexOf(bullet));

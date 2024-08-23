@@ -30,12 +30,11 @@ public sealed class Blade : Component
 	{
 		
 		var ray = Scene.Trace.Ray(Transform.Position, BladeEnd.Transform.Position).IgnoreGameObjectHierarchy(User).Radius(BladeRadius).UseHitboxes().WithoutTags(ignoreTags).Run();
-		if(ray.Hit && !hit && thrown)
+		if(ray.Hit && !hit)
 		{
-			thrown = false;
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
-			if(Stick) stick(ray.GameObject);
-			
+			if(Stick && thrown) stick(ray.GameObject);
+			thrown = false;
 			if(healthComponent != null)
 			{
 				float damageMult = 1;
@@ -53,7 +52,7 @@ public sealed class Blade : Component
 				PhysicsTracker tracker = ray.GameObject.Components.GetInChildrenOrSelf<PhysicsTracker>();
 				if(tracker != null) hitAcc = tracker.Acceleration;
 				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, PlayerBlade ? vrmovement.GameObject : User);
-				
+				Log.Info(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult);
 				if(ray.Surface.Sounds.ImpactHard != null)
 					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);
 				

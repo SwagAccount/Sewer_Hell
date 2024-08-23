@@ -8,19 +8,19 @@ public sealed class Can : Component
 	[Property] public Interactable interactable {get;set;}
 	[Property] public float LidForce {get;set;} = 1000;
 
-	Collider collider;
+	[Property] public Collider collider {get;set;}
 	ExternalMagazine externalMagazine;
 	protected override void OnStart()
 	{
 		externalMagazine = Components.Get<ExternalMagazine>();
 		externalMagazine.CantEject = true;
 		externalMagazine.CantLoad = true;
-		collider = Lid.Components.Get<Collider>();
 	}
 	protected override void OnUpdate()
 	{
 		if(healthComponent.Health <= 0)
 		{
+			Destroy();
 			externalMagazine.CantEject = false;
 			externalMagazine.CantLoad = false;
 			interactable.GameObject.Destroy();
@@ -28,7 +28,6 @@ public sealed class Can : Component
 			Lid.GameObject.SetParent(Scene);
 			Lid.ApplyForce(Lid.Transform.World.Up * LidForce);
 			collider.Enabled = true;
-			Destroy();
 		}
 		if(interactable.interacted)
 		{

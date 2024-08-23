@@ -92,3 +92,30 @@ Main Menu Box Insides
 
 Part of the Main Menu Box (the panel)
 	"Transformer box" (https://skfb.ly/oIU6t) by asvp is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Menu Box Rust Texture
+	https://rvdesign.myportfolio.com/003-free-textures
+
+Paper Texture
+	https://www.freepik.com/free-photo/close-up-old-blank-paper-background_3480583.htm#fromView=search&page=1&position=2&uuid=44ccaece-e70c-4ebe-9e7c-e0558aabbe97 on freepik
+
+Wooden Floor Texture
+	https://wildtextures.com/free-textures/vertical-wooden-floor-texture/
+
+Dirty Texture
+	https://www.filterforge.com/filters/13151.html
+
+Plaster Wall Texture
+	https://www.tilingtextures.com/wp-content/uploads/2017/02/0013-1024x1024.jpg
+
+Charred Decal
+	https://www.actionvfx.com/collections/free-burn-mark-textures-vol-1-stock-footage
+
+Chair Model
+	"Low-Poly-Chair-Set" (https://skfb.ly/nkj32e1dcb) by 3DHaupt is licensed under CC Attribution-NonCommercial-NoDerivs (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+Hospital Gurney Model
+	"PS1 Horror Hospital Gurney" (https://skfb.ly/oTpRB) by Jan_Strydom is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Morgue Model
+	"Morgue Body Storage" (https://skfb.ly/oTpQK) by Jan_Strydom is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

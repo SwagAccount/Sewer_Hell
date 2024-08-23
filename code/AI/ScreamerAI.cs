@@ -60,7 +60,7 @@ public sealed class ScreamerAI : AIAgent
         if(hit.GameObject != player.GameObject) return;
 
         
-        player.Stunned = 1;
+        player.Stunned = 0.5f;
         
     }
     protected override void Update()

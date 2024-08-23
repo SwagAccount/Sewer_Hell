@@ -13,7 +13,7 @@ public sealed class ChunkSaver : Component
 		}
 
 		JsonObject SaveData = GameObject.Serialize();
-		
+		SceneUtility.MakeIdGuidsUnique(SaveData);
 		FileSystem.Data.WriteAllText($"Saves/Slot{slot}/{Scene.Name}/Chunks/{GameObject.Name}.json", SaveData.ToJsonString());
 	}
 

@@ -31,8 +31,9 @@ public sealed class HandPos : Component
 			locRot = Transform.LocalRotation; 
 			locPos = Transform.LocalPosition; 
 		}
-		if(item == null) item = Rigidbody.Components.Get<Item>();
-		if(!item.HandPoss.Contains(this)) item.HandPoss.Add(this);
+		
+		if(item == null) item = Components.GetInAncestorsOrSelf<Item>();
+		
 	}
 	protected override void OnFixedUpdate()
 	{

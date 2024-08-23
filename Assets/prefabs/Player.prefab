@@ -86,7 +86,12 @@
         "__type": "trollface.HealthComponent",
         "__guid": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
         "Health": 100,
-        "MaxHealth": 100
+        "MaxHealth": 100,
+        "Ouch": "sounds/hurt sounds/hurt sound 6.sound",
+        "OuchObject": {
+          "_type": "gameobject",
+          "go": "77196716-754a-4b8f-b63d-f883cddda322"
+        }
       },
       {
         "__type": "Survival",
@@ -1173,6 +1178,7 @@
               {
                 "__type": "Sandbox.SphereCollider",
                 "__guid": "98678010-19ef-4b61-8fff-151aea099765",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 2,
@@ -1181,6 +1187,10 @@
               {
                 "__type": "GrabPointFinder",
                 "__guid": "2dd23f64-7c1b-4821-83b0-949d36f07cf1",
+                "FarGrabPoint": {
+                  "_type": "gameobject",
+                  "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
+                },
                 "GrabbablePoints": [],
                 "handName": "left",
                 "InteractablePoints": [],
@@ -1227,6 +1237,7 @@
               {
                 "__type": "Sandbox.SphereCollider",
                 "__guid": "3e721fac-0636-49ba-bd76-cae9b86ad764",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 2,
@@ -1272,7 +1283,7 @@
             "Bounciness": 0.3,
             "GroundAngle": 45,
             "Height": 64,
-            "IgnoreLayers": "player,item",
+            "IgnoreLayers": "player,item,nocollide",
             "Radius": 3.38,
             "StepHeight": 18,
             "UseCollisionRules": false

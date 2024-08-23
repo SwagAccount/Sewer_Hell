@@ -5,7 +5,7 @@
       "__guid": "4f402206-d7bb-4d0e-8766-8a722b1acf67",
       "Flags": 0,
       "Name": "Player",
-      "Position": "0,0.9162598,-0.4677086",
+      "Position": "-42.30114,0.9162598,-0.4677086",
       "Tags": "player",
       "Enabled": true,
       "__Prefab": "prefabs/player.prefab",
@@ -87,7 +87,7 @@
           },
           "PlayLever": {
             "_type": "component",
-            "component_id": "931827c3-732f-4caf-8aaf-ebc663ee7ea8",
+            "component_id": "d3e3631f-ec64-4414-b3d9-d30502a1d4d3",
             "go": "e6fece59-d9d4-4d3b-9a52-35586bcd56f7",
             "component_type": "Lever"
           },
@@ -97,10 +97,16 @@
             "go": "526a48c0-1409-4000-a769-b0c318314986",
             "component_type": "NixieRowNumber"
           },
+          "ResetLever": {
+            "_type": "component",
+            "component_id": "33045dec-b4cf-4919-925f-d14a2e7986ff",
+            "go": "43e7dcbe-eed3-490b-9abf-82355c873db5",
+            "component_type": "Lever"
+          },
           "SaveSlot": 0,
           "SaveSlotDisplay": {
             "_type": "component",
-            "component_id": "ec9a1277-459e-4f7b-956f-487c39b6dbee",
+            "component_id": "eadf691e-f349-41af-aa08-91e7d8351ca4",
             "go": "b49d79bd-282d-4788-a681-428010d2bb3c",
             "component_type": "NixieTubeNumber"
           },
@@ -1097,6 +1103,16 @@
           "Enabled": true,
           "__Prefab": "prefabs/switch.prefab",
           "__PrefabVariables": {}
+        },
+        {
+          "__guid": "43e7dcbe-eed3-490b-9abf-82355c873db5",
+          "Flags": 0,
+          "Name": "switch",
+          "Position": "0.1276245,16.50248,53.70098",
+          "Rotation": "0,0.1933782,0,0.9811243",
+          "Enabled": true,
+          "__Prefab": "prefabs/switch.prefab",
+          "__PrefabVariables": {}
         }
       ]
     },
@@ -1105,6 +1121,576 @@
       "Flags": 0,
       "Name": "GameObject",
       "Enabled": true
+    },
+    {
+      "__guid": "6665934d-16b4-4ee2-8416-03566466e724",
+      "Flags": 0,
+      "Name": "Ambience",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundPointComponent",
+          "__guid": "01860db4-18bc-4fca-b1b5-35a63d45b218",
+          "DistanceAttenuation": false,
+          "DistanceAttenuationOverride": false,
+          "Force2d": true,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Occlusion": false,
+          "OcclusionOverride": false,
+          "OcclusionRadius": 32,
+          "Pitch": 0.76,
+          "PlayOnStart": true,
+          "ReflectionOverride": false,
+          "Reflections": false,
+          "Repeat": true,
+          "SoundEvent": "sounds/sewer ambience.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "TargetMixer": {
+            "Name": "game",
+            "Id": "8f9ef22d-05ce-4e07-9a50-5b15847d69a3"
+          },
+          "Volume": 0.34
+        }
+      ]
+    },
+    {
+      "__guid": "87d176c3-c817-4387-922c-05e02e00120e",
+      "Flags": 0,
+      "Name": "waterl1",
+      "Position": "-150,-18.30151,0",
+      "Tags": "nocollide,world",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d3c24994-fbf5-4fe2-b769-7d783f875416",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/water/water.vmat",
+          "Model": "models/waterl1.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "c700894d-0b7e-4fb7-ac12-1edc774c401f",
+          "IsTrigger": false,
+          "Model": "models/waterl1.vmdl",
+          "Static": false,
+          "Surface": "water.surface"
+        }
+      ]
+    },
+    {
+      "__guid": "ac97ed02-9ccd-42a5-afa9-c1dcc7f81dfb",
+      "Flags": 0,
+      "Name": "waterl1 (1)",
+      "Position": "-150,-18.30151,-2",
+      "Tags": "world",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a3ce9bbd-c8fa-4590-8a35-d004f5f70b9b",
+          "__enabled": false,
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/water/water.vmat",
+          "Model": "models/waterl1.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "77f753fa-12ed-4576-90eb-9be0365b02b4",
+          "IsTrigger": false,
+          "Model": "models/waterl1.vmdl",
+          "Static": false,
+          "Surface": "water.surface"
+        }
+      ]
+    },
+    {
+      "__guid": "3e75567f-62e3-4abd-b9dd-844e02febd1c",
+      "Flags": 0,
+      "Name": "DripEffect",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "FollowPlayer",
+          "__guid": "aedb75a1-49cc-42c9-813a-51157b82cd3e"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "1780ba5e-b384-4873-817c-fbbe5efba725",
+          "Flags": 0,
+          "Name": "Spray (1)",
+          "Position": "0,0,122.3844",
+          "Tags": "particles",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ParticleEffect",
+              "__guid": "99dee9ac-b291-4a16-ac06-15883bd099c6",
+              "Alpha": {
+                "CurveA": [
+                  {
+                    "y": 1
+                  },
+                  {
+                    "x": 0.48029557,
+                    "y": 1,
+                    "in": 1.5365853,
+                    "out": -1.5365853
+                  },
+                  {
+                    "x": 1,
+                    "in": 1.312303,
+                    "out": -1.312303
+                  }
+                ],
+                "Constants": "0.5,0,0,0"
+              },
+              "ApplyColor": true,
+              "ApplyRotation": false,
+              "ApplyShape": true,
+              "Bounce": {
+                "Constants": "1,0,0,0"
+              },
+              "Brightness": {
+                "Constants": "1,0,0,0"
+              },
+              "Bumpiness": {},
+              "Collision": false,
+              "CollisionRadius": 1,
+              "Damping": {},
+              "DieOnCollisionChance": {},
+              "Force": true,
+              "ForceDirection": "0,0,-200",
+              "ForceScale": {
+                "Constants": "1,0,0,0"
+              },
+              "Friction": {
+                "Constants": "1,0,0,0"
+              },
+              "Gradient": {
+                "Evaluation": "Particle",
+                "GradientA": {
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "GradientB": {
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "ConstantA": "1,1,1,1",
+                "ConstantB": "1,1,1,1"
+              },
+              "Lifetime": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "1,2,0,0"
+              },
+              "MaxParticles": 5000,
+              "OrbitalForce": {},
+              "OrbitalPull": {},
+              "PerParticleTimeScale": {
+                "Constants": "1,0.4,0,0"
+              },
+              "Pitch": {},
+              "PreWarm": 0,
+              "PushStrength": {},
+              "Roll": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "0,360,0,0"
+              },
+              "Scale": {
+                "CurveA": {
+                  "rangey": "1,3",
+                  "frames": [
+                    {}
+                  ]
+                },
+                "Constants": "0.5,0,0,0"
+              },
+              "SequenceId": {},
+              "SequenceSpeed": {
+                "Constants": "1,0,0,0"
+              },
+              "SequenceTime": {
+                "Constants": "1,0,0,0"
+              },
+              "SheetSequence": false,
+              "Space": "World",
+              "StartDelay": {},
+              "StartVelocity": {
+                "Type": "Range",
+                "Evaluation": "Particle"
+              },
+              "Stretch": {
+                "Type": "Range",
+                "Evaluation": "Particle",
+                "Constants": "5,6,0,0"
+              },
+              "TimeScale": 1,
+              "Tint": "0,0,0,1",
+              "Yaw": {}
+            },
+            {
+              "__type": "Sandbox.ParticleSpriteRenderer",
+              "__guid": "160258e5-d3f1-4591-893c-f9cb2b43b77f",
+              "Additive": false,
+              "Alignment": "RotateToCamera",
+              "BlurAmount": 0.5,
+              "BlurOpacity": 0.91,
+              "BlurSpacing": 0.73,
+              "DepthFeather": 0,
+              "FaceVelocity": false,
+              "FogStrength": 1,
+              "LeadingTrail": true,
+              "Lighting": false,
+              "MotionBlur": false,
+              "Opaque": false,
+              "RotationOffset": 0,
+              "Scale": 1,
+              "Shadows": false,
+              "SortMode": "Unsorted",
+              "Texture": "materials/particles/shapes/square1.vtex"
+            },
+            {
+              "__type": "Sandbox.ParticleBoxEmitter",
+              "__guid": "22825ca6-a98e-49e6-bc79-0d2556cdc989",
+              "Burst": 0,
+              "Delay": 0,
+              "DestroyOnEnd": false,
+              "Duration": 10,
+              "Loop": true,
+              "OnEdge": false,
+              "Rate": 14,
+              "RateOverDistance": 0,
+              "Size": "624,624,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "7cb5f2b5-f128-4d0d-bb24-2e7b3df93c5c",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "-308.1116,-116.2886,357.3403",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "d0d68a33-9a0e-42e5-9436-b25d772c68b6",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "0,0,0,1"
+        }
+      ]
+    },
+    {
+      "__guid": "db7b907c-d876-4da0-b7d9-715fb41c53fa",
+      "Flags": 0,
+      "Name": "Credits Display",
+      "Position": "-318.0455,0,30.40478",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CreditsDisplay",
+          "__guid": "c34fa8e1-aef0-46db-8611-729a221d51b8",
+          "Author": {
+            "_type": "component",
+            "component_id": "d136f607-600d-4ac7-b22c-e9ff8bc4dbf4",
+            "go": "5825bdf6-6d81-4bb7-842f-7177d50931bc",
+            "component_type": "TextRenderer"
+          },
+          "Credits": [
+            {
+              "Author": "Raw Pixel\non Freepik",
+              "Image": "creditsimages/74685.vmat"
+            },
+            {
+              "Author": "FreeCreativeStuff\non Pixabay",
+              "Image": "creditsimages/grunge-2710970_1280 (1).vmat"
+            },
+            {
+              "Author": "(Reference)\nLokeig\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 211832.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/78_galvanized steel pbr texture-seamless.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/25_old raw wood texture-seamless.vmat"
+            },
+            {
+              "Author": "~Essence of a Dream~\non Flickr",
+              "Image": "creditsimages/screenshot 2024-08-23 212253.vmat"
+            },
+            {
+              "Author": "Little Girl Screaming by Pixabay\n(edited into screamer sream)\non Pixaby",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Snakes Authentic Gun Sounds\nSnake F8\non Itch.io",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Dry Fire\nJakLocke\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Killian_Delias\non Sketchfab",
+              "Image": "creditsimages/cartouche_12_lambert1_basecolor.vmat"
+            },
+            {
+              "Author": "(Rig and Run Animation)\nObambulatesart\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 213419.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/4_old dirty metal texture-seamless.vmat"
+            },
+            {
+              "Author": "Nikapeshkov\non Freepik",
+              "Image": "creditsimages/cookie3.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/65_painted dirty metal pbr texture seamless.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/131_old wall brick pbr texture-seamless.vmat"
+            },
+            {
+              "Author": "CGBookCase",
+              "Image": "creditsimages/moss.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/127_italy very old bricks texture-seamless.vmat"
+            },
+            {
+              "Author": "YCbCr\non Open Game Art",
+              "Image": "creditsimages/water.vmat"
+            },
+            {
+              "Author": "(Reference and Textures)\nThunder\non Sketchfab",
+              "Image": "creditsimages/backpack.vmat"
+            },
+            {
+              "Author": "Metal Door Shut Sound\nTimbre\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Metal Door Open Sound\nIammokhtari\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Drops\non Sketchfab",
+              "Image": "creditsimages/barrel.vmat"
+            },
+            {
+              "Author": "Zhya\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 221319.vmat"
+            },
+            {
+              "Author": "Jan_Strydom\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 221427.vmat"
+            },
+            {
+              "Author": "Sewer Ambience\nSword Coast Soundscapes\non Bandcamp",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Water Footsteps\nDuckduckpony\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "Grayscaledesign\non Vecteezy\n",
+              "Image": "creditsimages/10632_generated.vmat"
+            },
+            {
+              "Author": "Lemonthe\non Dafont",
+              "Image": "creditsimages/destoria.vmat"
+            },
+            {
+              "Author": "Jovanny Lemonad\non Google Fonts",
+              "Image": "creditsimages/nixie one.vmat"
+            },
+            {
+              "Author": "Nigel Tout\non Vintage Calculators",
+              "Image": "creditsimages/anitamk8_6.vmat"
+            },
+            {
+              "Author": "Asvp\non Sketchfab",
+              "Image": "creditsimages/muuntaja_albedo.vmat"
+            },
+            {
+              "Author": "RV Design",
+              "Image": "creditsimages/003_rv_rust_texture.vmat"
+            },
+            {
+              "Author": "Freepik",
+              "Image": "creditsimages/close-up-old-blank-paper-background_23-2147951254.vmat"
+            },
+            {
+              "Author": "Wild Textures",
+              "Image": "materials/hospitaltextures/floor.vmat"
+            },
+            {
+              "Author": "Filter Forge",
+              "Image": "creditsimages/13151.vmat"
+            },
+            {
+              "Author": "Tilling Textures",
+              "Image": "creditsimages/0013-1024x1024.vmat"
+            },
+            {
+              "Author": "3D Haupt\non Sketchfab",
+              "Image": "creditsimages/chair.vmat"
+            },
+            {
+              "Author": "Jan_Strydom\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 223342.vmat"
+            },
+            {
+              "Author": "Jan_Strydom\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-23 223440.vmat"
+            }
+          ],
+          "Display": {
+            "_type": "component",
+            "component_id": "04600353-6dec-4ca8-8144-78825eee3256",
+            "go": "122f5e30-582f-439b-ba3a-44afebc0a7ac",
+            "component_type": "ModelRenderer"
+          },
+          "DisplayTime": 4
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "122f5e30-582f-439b-ba3a-44afebc0a7ac",
+          "Flags": 0,
+          "Name": "Plane",
+          "Position": "0,0,15.91415",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Scale": "0.3293054,0.3293054,0.3293054",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "04600353-6dec-4ca8-8144-78825eee3256",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/credit display.vmat",
+              "Model": "models/dev/plane.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "5825bdf6-6d81-4bb7-842f-7177d50931bc",
+          "Flags": 0,
+          "Name": "Author",
+          "Position": "7.68634,0.0000003902151,-13.71064",
+          "Rotation": "-0.3469356,-0.00000001516504,0.937889,-0.00000004099643",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.TextRenderer",
+              "__guid": "d136f607-600d-4ac7-b22c-e9ff8bc4dbf4",
+              "Color": "1,1,1,1",
+              "FontFamily": "Nixie One",
+              "FontSize": 20.36,
+              "FontWeight": 800,
+              "Scale": 0.25,
+              "Text": "",
+              "TextAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "__guid": "b59d3322-d9c0-420b-b740-edb712bc0252",
+          "Flags": 0,
+          "Name": "CREDITS.",
+          "Position": "-0.3783569,0.2088383,36.01465",
+          "Rotation": "0.0000000000000000000002556629,0.000000000000005848885,-1,-0.00000004371139",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.TextRenderer",
+              "__guid": "ec2b4555-1e9e-4272-a256-9a7c50c0d71c",
+              "Color": "1,1,1,1",
+              "FontFamily": "Nixie One",
+              "FontSize": 20.36,
+              "FontWeight": 800,
+              "Scale": 0.33,
+              "Text": "CREDITS.",
+              "TextAlignment": "Center"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "656c17a8-3320-4dd6-9b87-011a8b2f18a7",
+      "Flags": 0,
+      "Name": "Text",
+      "Position": "-94.43832,62.35521,46.48541",
+      "Rotation": "0,0,-0.7071068,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.TextRenderer",
+          "__guid": "882d660c-3757-4f55-a1ad-06e69108dc1d",
+          "Color": "1,1,1,1",
+          "FontFamily": "Nixie One",
+          "FontSize": 64,
+          "FontWeight": 800,
+          "Scale": 0.3,
+          "Text": "GO BACK INSIDE\nplease",
+          "TextAlignment": "Center"
+        }
+      ]
+    },
+    {
+      "__guid": "7c325a86-0af6-445d-9fa0-cc86105a3141",
+      "Flags": 0,
+      "Name": "Text (1)",
+      "Position": "-91.39019,-62.355,46.48541",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.TextRenderer",
+          "__guid": "11109000-4d43-44f7-afd0-6a1fe944ae05",
+          "Color": "1,1,1,1",
+          "FontFamily": "Nixie One",
+          "FontSize": 64,
+          "FontWeight": 800,
+          "Scale": 0.3,
+          "Text": "GO BACK INSIDE\nplease",
+          "TextAlignment": "Center"
+        }
+      ]
     }
   ],
   "SceneProperties": {
