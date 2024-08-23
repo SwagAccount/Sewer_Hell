@@ -32,6 +32,11 @@ public sealed class CreditsDisplay : Component
 		}
 	}
 
+	protected override void OnStart()
+	{
+		FileSystem.Data.WriteAllText("Credits.txt", FileSystem.Mounted.ReadAllText("Credits.txt"));
+	}
+
 	public class Sequence
 	{
 		public string Source { get; set; }

@@ -46,10 +46,12 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 				
 				if(g.Tags.Contains("interactable"))
 				{
+					i = 10;
 					InteractablePoints.Add(g.Components.Get<Interactable>());
 				}
 				if(g.Tags.Contains("itemstore") && i == 0)
 				{
+					i = 10;
 					ItemStorers.Add(g.Components.Get<ItemStorer>());
 				}
 				if(g.Tags.Contains("grabpoint") && g.Tags.Contains(handName))

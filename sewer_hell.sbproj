@@ -22,7 +22,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene",
+    "StartupScene": "scenes/menu.scene",
     "ControlModes": {
       "VR": true
     },
@@ -228,6 +228,7 @@
         }
       ],
       "__guid": "f4a1b324-be5e-47a3-8c4d-d8da246258b8"
-    }
+    },
+    "LaunchMode": "Normal"
   }
 }

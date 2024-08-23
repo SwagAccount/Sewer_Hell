@@ -1179,6 +1179,19 @@
           "Model": "models/waterl1.vmdl",
           "Static": false,
           "Surface": "water.surface"
+        },
+        {
+          "__type": "trollface.Water",
+          "__guid": "b7ea1a7a-ba22-40dc-9085-60014f35085f",
+          "folder": "materials/water/textures/",
+          "FPS": 24,
+          "renderer": {
+            "_type": "component",
+            "component_id": "d3c24994-fbf5-4fe2-b769-7d783f875416",
+            "go": "87d176c3-c817-4387-922c-05e02e00120e",
+            "component_type": "ModelRenderer"
+          },
+          "textures": []
         }
       ]
     },
@@ -1574,6 +1587,10 @@
             {
               "Author": "Jan_Strydom\non Sketchfab",
               "Image": "creditsimages/screenshot 2024-08-23 223440.vmat"
+            },
+            {
+              "Author": "FBI Man\nBase Tunnel Meshes",
+              "Image": "creditsimages/fbi man.vmat"
             }
           ],
           "Display": {
@@ -1623,6 +1640,27 @@
               "FontWeight": 800,
               "Scale": 0.25,
               "Text": "",
+              "TextAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "__guid": "d645b2ec-05d6-40e7-83eb-806da7d3c5e4",
+          "Flags": 0,
+          "Name": "More Info",
+          "Position": "18.8399,0.000001365303,-26.72393",
+          "Rotation": "-0.3469356,-0.00000001516504,0.937889,-0.00000004099643",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.TextRenderer",
+              "__guid": "09d1c927-f62c-49c8-aea8-b74e3acdfe3e",
+              "Color": "1,1,1,1",
+              "FontFamily": "Nixie One",
+              "FontSize": 20.36,
+              "FontWeight": 800,
+              "Scale": 0.15,
+              "Text": "Full Credits with links found in save folder",
               "TextAlignment": "Center"
             }
           ]

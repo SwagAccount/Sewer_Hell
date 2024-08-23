@@ -49,7 +49,7 @@
           "go": "51016a49-d311-4228-8578-0c38b8556358",
           "component_type": "CharacterController"
         },
-        "CrouchDistance": 35,
+        "CrouchDistance": 17.5,
         "CrouchSpeed": 22,
         "DarknessSpeed": 20,
         "FootStepTime": 0.55,

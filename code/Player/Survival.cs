@@ -12,13 +12,17 @@ public sealed class Survival : Component
 	[Property] public float Stamina {get;set;} = 1;
 	[Property] public float Hunger {get;set;} = 1;
 	[Property] public float TransSpeed {get;set;} = 1;
+	[Property] public float HealthRegenTime {get;set;} = 60;
 
 	Vrmovement vrMovement;
 
 	HealthComponent healthComponent;
 
+	ChunkDealer chunkDealer;
+
 	protected override void OnStart()
 	{
+		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
 		healthComponent = Components.Get<HealthComponent>();
 		vrMovement = Components.Get<Vrmovement>();
 	}
@@ -28,6 +32,10 @@ public sealed class Survival : Component
 	bool transitioning;
 	protected override async void OnUpdate()
 	{
+		if(chunkDealer.PlayerInSafeChunk())
+		{
+			healthComponent.Health = MathX.Clamp(healthComponent.Health+Time.Delta*(1/HealthRegenTime),0,healthComponent.MaxHealth);
+		}
 		if(transitioning)
 			vrMovement.Camera.Brightness = MathX.Lerp(vrMovement.Camera.Brightness, 0, Time.Delta*TransSpeed);
 

@@ -168,7 +168,7 @@ public sealed class Vrmovement : Component
             characterController.Velocity += Vector3.Up * Scene.PhysicsWorld.Gravity;
         }
 
-        wantedVRSpacePos += characterController.Transform.Position-Camera.Transform.Position.WithZ(VRSpace.Transform.Position.z);
+        wantedVRSpacePos += characterController.Transform.Position-Camera.Transform.Position.WithZ(VRSpace.Transform.Position.z+(crouching ? CrouchDistance : 0));
 
         characterController.Move();
     }
