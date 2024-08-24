@@ -5,6 +5,7 @@ using trollface;
 
 public sealed class GameManager : Component
 {
+	[Property] public string LevelName {get;set;} = "Menu";
 	[Property] public float TimeMultplier {get;set;} = 1f;
 	[Property] public float TimeM {get;set;}
 	[Property] public float DayTime {get;set;} = 48f;
@@ -91,7 +92,7 @@ public sealed class GameManager : Component
 	{
 		if(!FileSystem.Data.DirectoryExists($"Saves/Slot1/{Scene.Name}")) FileSystem.Data.CreateDirectory($"Saves/Slot1/{Scene.Name}");
 
-		chunkDealer.SaveAllChunks(SaveSlot);
+		chunkDealer.SaveAllChunks(SaveSlot, LevelName);
 		playerSaveManager.Save(SaveSlot);
 
 		GameSaveData gameSaveData = new GameSaveData();
@@ -120,7 +121,7 @@ public sealed class GameManager : Component
 		TimeM = gameSaveData.TimeM;
 		NextFlood = gameSaveData.NextFlood;
 
-		chunkDealer.LoadAllChunks(SaveSlot);
+		chunkDealer.LoadAllChunks(SaveSlot, LevelName);
 		
 		playerSaveManager.Load(SaveSlot);
 		

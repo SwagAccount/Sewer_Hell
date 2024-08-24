@@ -3,9 +3,9 @@ using Sandbox;
 
 public sealed class ChunkSaver : Component
 {
-	public void Save(int slot)
+	public void Save(int slot, string levelName)
 	{
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{slot}/{Scene.Name}/Chunks")) FileSystem.Data.CreateDirectory($"Saves/Slot{slot}/{Scene.Name}/Chunks");
+		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{slot}/{levelName}/Chunks")) FileSystem.Data.CreateDirectory($"Saves/Slot{slot}/{levelName}/Chunks");
 
 		foreach(GameObject c in GameObject.Children)
 		{
@@ -14,12 +14,12 @@ public sealed class ChunkSaver : Component
 
 		JsonObject SaveData = GameObject.Serialize();
 		SceneUtility.MakeIdGuidsUnique(SaveData);
-		FileSystem.Data.WriteAllText($"Saves/Slot{slot}/{Scene.Name}/Chunks/{GameObject.Name}.json", SaveData.ToJsonString());
+		FileSystem.Data.WriteAllText($"Saves/Slot{slot}/{levelName}/Chunks/{GameObject.Name}.json", SaveData.ToJsonString());
 	}
 
-	public void Load(int slot)
+	public void Load(int slot, string levelName)
 	{
-		if(!FileSystem.Data.FileExists($"Saves/Slot{slot}/{Scene.Name}/Chunks/{GameObject.Name}.json")) return;
+		if(!FileSystem.Data.FileExists($"Saves/Slot{slot}/{levelName}/Chunks/{GameObject.Name}.json")) return;
 
 		foreach(GameObject c in GameObject.Children)
 		{
@@ -27,7 +27,7 @@ public sealed class ChunkSaver : Component
 		}
 		
 		GameObject.Deserialize(
-			Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot{slot}/{Scene.Name}/Chunks/{GameObject.Name}.json"))
+			Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot{slot}/{levelName}/Chunks/{GameObject.Name}.json"))
 		);
 	}
 }

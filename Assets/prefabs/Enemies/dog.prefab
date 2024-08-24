@@ -10,12 +10,20 @@
         "__type": "trollface.DogAI",
         "__guid": "34dcb40d-05bd-474e-88e4-6269f0ed141b",
         "jumped": false,
+        "Bark": "sounds/dog/bark1.sound",
         "Body": {
           "_type": "component",
           "component_id": "69c4302d-7a4f-40fb-88a2-265fea832590",
           "go": "09f175e9-3027-4c48-98c1-671b8b473a00",
           "component_type": "SkinnedModelRenderer"
         },
+        "Growl": {
+          "_type": "component",
+          "component_id": "da65eee5-1373-446a-8ca2-d9a952273f83",
+          "go": "4c353590-3c15-4c43-af9b-d7b3eef51c91",
+          "component_type": "SoundPointComponent"
+        },
+        "GrowlTransitionSpeed": 10,
         "JumpDis": 120,
         "JumpForce": 6000000,
         "JumpWarmTime": 0.1565,
@@ -133,6 +141,31 @@
           "_type": "gameobject",
           "go": "4c353590-3c15-4c43-af9b-d7b3eef51c91"
         }
+      },
+      {
+        "__type": "Sandbox.SoundPointComponent",
+        "__guid": "da65eee5-1373-446a-8ca2-d9a952273f83",
+        "DistanceAttenuation": false,
+        "DistanceAttenuationOverride": false,
+        "Force2d": false,
+        "MaxRepeatTime": 1,
+        "MinRepeatTime": 1,
+        "Occlusion": false,
+        "OcclusionOverride": false,
+        "OcclusionRadius": 32,
+        "Pitch": 1,
+        "PlayOnStart": true,
+        "ReflectionOverride": false,
+        "Reflections": false,
+        "Repeat": true,
+        "SoundEvent": "sounds/dog/growl.sound",
+        "SoundOverride": true,
+        "StopOnNew": false,
+        "TargetMixer": {
+          "Name": "game",
+          "Id": "8f9ef22d-05ce-4e07-9a50-5b15847d69a3"
+        },
+        "Volume": 0
       },
       {
         "__type": "trollface.PhysicsTracker",

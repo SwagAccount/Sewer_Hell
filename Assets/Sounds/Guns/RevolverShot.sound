@@ -1,8 +1,8 @@
 {
   "UI": false,
-  "Volume": "1.00,1.00,0",
-  "Pitch": "1.00,1.00,0",
-  "Decibels": 70,
+  "Volume": "1",
+  "Pitch": "1",
+  "Decibels": 160,
   "SelectionMode": "Random",
   "Sounds": [
     "sounds/guns/308 single.vsnd"
@@ -10,7 +10,7 @@
   "Occlusion": true,
   "AirAbsorption": true,
   "Transmission": true,
-  "OcclusionRadius": 64,
+  "OcclusionRadius": 256,
   "DistanceAttenuation": true,
   "__references": [],
   "__version": 0

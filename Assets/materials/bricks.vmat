@@ -6,6 +6,9 @@ Layer0
 
 	F_MULTIBLEND 1 // 2 Layers
 
+	//---- Texture Filtering ----
+	F_TEXTURE_FILTERING 3 // Point Sample
+
 	//---- Fog ----
 	g_bFogEnabled "1"
 

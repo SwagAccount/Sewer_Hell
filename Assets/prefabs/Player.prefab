@@ -1191,7 +1191,7 @@
                 "__guid": "2dd23f64-7c1b-4821-83b0-949d36f07cf1",
                 "FarGrabPoint": {
                   "_type": "gameobject",
-                  "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
+                  "go": "1383a1e7-a445-4019-9745-35d5a2fcb465"
                 },
                 "GrabbablePoints": [],
                 "handName": "left",
@@ -1250,7 +1250,7 @@
                 "__guid": "127eebc8-703f-4e77-a7d1-e83d70c014cd",
                 "FarGrabPoint": {
                   "_type": "gameobject",
-                  "go": "2f756158-86c9-4007-ba58-65a2a263f123"
+                  "go": "3d6a3f34-4c10-4e5c-8c89-dd128edc309a"
                 },
                 "GrabbablePoints": [],
                 "handName": "right",
@@ -1337,13 +1337,44 @@
             "__guid": "4f02fb47-5bff-48e6-b62d-48b17014fb0f",
             "Flags": 0,
             "Name": "FeetOrigin",
-            "Position": "0,0,6.361203",
+            "Position": "0,0,35.1868",
             "Enabled": true
           }
         ]
       }
     ],
-    "__variables": []
+    "__variables": [
+      {
+        "Id": "health",
+        "Title": "health",
+        "Targets": [
+          {
+            "Id": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
+            "Property": "Health"
+          }
+        ]
+      },
+      {
+        "Id": "maxHealth",
+        "Title": "maxHealth",
+        "Targets": [
+          {
+            "Id": "9cfd6eab-4cd1-4bce-9de0-77cff49396f2",
+            "Property": "MaxHealth"
+          }
+        ]
+      },
+      {
+        "Id": "staminaUseTime",
+        "Title": "staminaUseTime",
+        "Targets": [
+          {
+            "Id": "a265be90-3422-44fa-949a-af91de3dc43e",
+            "Property": "StaminaTime"
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,

@@ -16,6 +16,9 @@ public sealed class DogAI : AIAgent
 	[Property] public float runSpeed {get;set;} = 120f;
 	[Property] public float RandomMoveTime {get;set;} = 10f;
     [Property] public Vector2 RandomMoveDis {get;set;} = new Vector2(50,100);
+    [Property] public SoundEvent Bark {get;set;}
+    [Property] public SoundPointComponent Growl {get;set;}
+    [Property] public float GrowlTransitionSpeed {get;set;} = 10;
 
     public FindChooseEnemy FindChooseEnemy;
     HealthComponent healthComponent;
@@ -68,6 +71,7 @@ public sealed class DogAI : AIAgent
             stateMachine.ChangeState("DOGIDLE");
         }
 
+		Growl.Volume = MathX.Lerp(Growl.Volume, FindChooseEnemy.Enemy.IsValid() ? 1 : 0, GrowlTransitionSpeed*Time.Delta);	
 		
 		//FacePoint(Agent.TargetPosition.HasValue ? Agent.TargetPosition.Value : Transform.Position);
     }
@@ -97,6 +101,7 @@ public sealed class DogAI : AIAgent
 		dogAnimState = DogAnimState.PREPJUMP;
 		JumpFacePoint = at;
 		await Task.DelaySeconds(JumpWarmTime);
+		Sound.Play(Bark,Transform.Position);
 		jumptime = Time.Now;
 		dogAnimState = DogAnimState.AIR;
 		Agent.Enabled = false;

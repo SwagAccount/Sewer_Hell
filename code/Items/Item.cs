@@ -55,8 +55,8 @@ namespace trollface;
 		if(!knifeThrow || !knifeTrigger) rigidbody.AngularVelocity = physicsTracker.AngularVelocity;
 		else
 		{
-			velmult = 4;
-			Transform.Rotation = Rotation.LookAt(rigidbody.Velocity);
+			velmult = 3;
+			Transform.Rotation = Rotation.LookAt(physicsTracker.Velocity);
 		}
 		rigidbody.Velocity = physicsTracker.Velocity * velmult;
 	}

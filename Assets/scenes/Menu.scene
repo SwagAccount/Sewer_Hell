@@ -47,6 +47,7 @@
       "__guid": "156f9b65-31ee-40d9-bbef-12893155fa0c",
       "Flags": 0,
       "Name": "Object",
+      "Tags": "world",
       "Enabled": true,
       "Components": [
         {
@@ -66,6 +67,7 @@
       "Flags": 0,
       "Name": "MenuDealer",
       "Position": "44.28996,1.459801,-0.3869884",
+      "Tags": "world",
       "Enabled": true,
       "Components": [
         {
@@ -87,7 +89,7 @@
           },
           "PlayLever": {
             "_type": "component",
-            "component_id": "80d212c7-a62b-4ae8-9b6d-5a9a147961d7",
+            "component_id": "9df447fa-add0-4473-a82d-bc861b73d9f1",
             "go": "e6fece59-d9d4-4d3b-9a52-35586bcd56f7",
             "component_type": "Lever"
           },
@@ -99,14 +101,14 @@
           },
           "ResetLever": {
             "_type": "component",
-            "component_id": "5ab1479c-fb4b-49c2-8c11-e96ebee974c2",
+            "component_id": "f72e0ac2-6957-4db5-8c37-603e71dd900f",
             "go": "43e7dcbe-eed3-490b-9abf-82355c873db5",
             "component_type": "Lever"
           },
           "SaveSlot": 0,
           "SaveSlotDisplay": {
             "_type": "component",
-            "component_id": "613de915-0469-4e3c-a06e-d39051ac47ce",
+            "component_id": "606f74db-9617-496b-a9e2-997147e96e48",
             "go": "b49d79bd-282d-4788-a681-428010d2bb3c",
             "component_type": "NixieTubeNumber"
           },
@@ -118,7 +120,7 @@
           },
           "TutorialLever": {
             "_type": "component",
-            "component_id": "0b960657-9ce0-4f84-bbc9-ba9cfa1b84f5",
+            "component_id": "29daa61e-30bc-45ab-ab71-ef6eb0013d0a",
             "go": "e406488a-8199-4982-9395-2e18e3aaebb5",
             "component_type": "Lever"
           }
@@ -1610,6 +1612,38 @@
             {
               "Author": "FBI Man\nBase Tunnel Meshes",
               "Image": "creditsimages/fbi man.vmat"
+            },
+            {
+              "Author": "TextureCan",
+              "Image": "creditsimages/grasscred.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/credgrassmat.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "creditsimages/credwooden planks stacked.vmat"
+            },
+            {
+              "Author": "Sketchup Texture Club",
+              "Image": "materials/thatched roof.vmat"
+            },
+            {
+              "Author": "(Dog Growling)\nPrintable Web\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "(Dog Barking)\nAunrea\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "(Switch)\nPotatokingXII\non Freesound",
+              "Image": "creditsimages/sound_lg.vmat"
+            },
+            {
+              "Author": "NameSsis\non Sketchfab",
+              "Image": "creditsimages/screenshot 2024-08-25 004334.vmat"
             }
           ],
           "Display": {

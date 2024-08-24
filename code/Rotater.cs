@@ -5,6 +5,7 @@ using trollface;
 public sealed class Rotater : Component
 {
 	[Property] public GameObject Rotated { get; set; }
+	[Property] public bool LookAt { get; set; } = true;
 	[Property] public Item item { get; set; }
 	[Property] public Vector3 MinAxis { get; set; }
 	[Property] public Vector3 MaxAxis { get; set; }
@@ -57,9 +58,16 @@ public sealed class Rotater : Component
 
 		if (item.mainHeld && item.HandPos.IsValid())
 		{
-			Vector3 handPosition = (item.HandPos.Tags.Contains("right") ? vrmovement.RawRightHand : vrmovement.RawLeftHand).Transform.Position;
-			Vector3 direction = (handPosition - Rotated.Transform.Position).Normal;
-			Rotated.Transform.Rotation = Rotation.LookAt(direction);
+			if(LookAt)
+			{
+				Vector3 handPosition = (item.HandPos.Tags.Contains("right") ? vrmovement.RawRightHand : vrmovement.RawLeftHand).Transform.Position;
+				Vector3 direction = (handPosition - Rotated.Transform.Position).Normal;
+				Rotated.Transform.Rotation = Rotation.LookAt(direction);
+			}
+			else
+			{
+				Rotated.Transform.Rotation = (item.HandPos.Tags.Contains("right") ? vrmovement.RawRightHand : vrmovement.RawLeftHand).Transform.Rotation;
+			}
 		}
 
 		Angles localAngles = Rotated.Transform.LocalRotation.Angles();

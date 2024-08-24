@@ -124,3 +124,21 @@ Morgue Model
 
 FBI Man
 	Base Tunnel Meshes
+
+Dog Growl Effect
+	https://www.youtube.com/watch?v=lQDBEeq-Csc
+
+Dog Bark Effects
+	https://freesound.org/people/aunrea/sounds/495658/ - aunrea on freesound
+
+Switch SFX
+	https://freesound.org/people/PotatokingXII/sounds/352882/
+
+Grass Model Texture
+	https://www.texturecan.com/details/238/ - Texture Can
+
+Grass Texture
+	https://www.sketchuptextureclub.com/textures/nature-elements/vegetation/dry-grass/dry-grass-texture-seamless-17329
+
+Stacked Wooden Planks
+	https://www.sketchuptextureclub.com/textures/architecture/wood/wood-logs/wooden-planks-stacked-texture-seamless-19682
