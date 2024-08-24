@@ -73,7 +73,6 @@ namespace trollface;
 			if(!Tags.Contains("contained")) Tags.Add("contained");
 			if(!lastInContainer)
 			{
-				Log.Info("balls");
 				containerPos = Transform.LocalPosition;
 				containerRot = Transform.LocalRotation;
 			}

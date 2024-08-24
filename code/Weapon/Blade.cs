@@ -31,11 +31,18 @@ public sealed class Blade : Component
 	protected override void OnUpdate()
 	{
 		
-		var ray = Scene.Trace.Ray(Transform.Position, BladeEnd.Transform.Position).IgnoreGameObjectHierarchy(User).Radius(BladeRadius).UseHitboxes().WithoutTags(ignoreTags).Run();
+		var trace = Scene.Trace.Ray(Transform.Position, BladeEnd.Transform.Position).IgnoreGameObjectHierarchy(User).Radius(BladeRadius).UseHitboxes().WithoutTags(ignoreTags);
+		if(item != null)
+			trace = trace.IgnoreGameObjectHierarchy(item.GameObject);
+		var ray = trace.Run();
+
 		if(ray.Hit && !hit)
 		{
 			HealthComponent healthComponent = ray.GameObject.Components.Get<HealthComponent>();
-			if(Stick && thrown) stick(ray.GameObject);
+			if(Stick && thrown)
+			{
+				stick(ray.GameObject);
+			}
 			thrown = false;
 			if(healthComponent != null)
 			{

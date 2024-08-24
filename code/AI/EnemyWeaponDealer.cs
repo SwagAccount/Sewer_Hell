@@ -21,6 +21,7 @@ public sealed class EnemyWeaponDealer : Component
 	[Property] public float ReloadTime {get;set;}
 	[Property] public int Ammo {get;set;}
 	[Property] public int maxAmmo {get;set;}
+	[Property] public int HitChance {get;set;} = 30;
 
 	public bool WeaponHitsTarget(GameObject target, Vector3 point)
 	{
@@ -68,7 +69,12 @@ public sealed class EnemyWeaponDealer : Component
 		skinnedModelRenderer.Set(ShootProperty, true);
 		for (int i = 0; i < bullet.Count; i++)
 		{
-			var dir = (findChooseEnemy.Enemy.Transform.World.PointToWorld(findChooseEnemy.EnemyRelations.attackPoint)-Muzzle.Transform.Position).Normal;
+			var dir = 
+				Game.Random.Next(0,100) < HitChance ? 
+					(findChooseEnemy.Enemy.Transform.World.PointToWorld(findChooseEnemy.EnemyRelations.attackPoint)-Muzzle.Transform.Position).Normal
+					:
+					Muzzle.Transform.World.Forward
+					;
 			GameObject bulletObject = new GameObject();
 			bulletObject.Transform.Position = Muzzle.Transform.Position;
 			bulletObject.Transform.Rotation = Rotation.LookAt(dir);// Muzzle.Transform.Rotation;

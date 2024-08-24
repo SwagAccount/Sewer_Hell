@@ -581,7 +581,7 @@
                                               "__guid": "8c7906f4-cf2b-4c9c-a97a-b5d7a0e2c81c",
                                               "Flags": 4,
                                               "Name": "Hand_Left",
-                                              "Position": "-0.00001716614,-0.000003814697,-0.000008583069",
+                                              "Position": "0,0,0",
                                               "Rotation": "0.4677832,0.06108721,0.881679,0.009447508",
                                               "Enabled": true,
                                               "Children": [
@@ -880,7 +880,7 @@
                                               "__guid": "21dbdae7-7c07-47ba-9990-c7d3dae690b5",
                                               "Flags": 4,
                                               "Name": "Hand_Right",
-                                              "Position": "-0.000007152557,-0.00001716614,-0.00001621246",
+                                              "Position": "0,0,0",
                                               "Rotation": "-0.4677832,0.06108763,0.8816791,-0.009447395",
                                               "Enabled": true,
                                               "Children": [
@@ -1730,7 +1730,11 @@
         {
           "__type": "DisplayHealth",
           "__guid": "918ae9bd-017f-4155-ad27-4ec2889b00b6",
-          "DisplayPos": "0,0,70"
+          "DamageInfo": 0,
+          "DisplayPos": "0,0,70",
+          "DistanceReference": 130,
+          "InfoBuffer": 0.3,
+          "Size": 60
         },
         {
           "__type": "Dummy",
@@ -2028,7 +2032,7 @@
           "__guid": "c5226cc8-a321-4fe8-b1ea-1c1ac2ebf4e3",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "-0.00066068,461.8489,0",
+          "Position": "-0.001541585,461.8485,0",
           "Scale": "20.4,1,5.841147",
           "Enabled": true,
           "Components": [
@@ -2125,36 +2129,107 @@
       ]
     },
     {
-      "__guid": "cf21f9f6-f796-4332-9553-44734f1c9679",
+      "__guid": "ab62ebb6-899e-4003-a9bf-295f227e648f",
       "Flags": 0,
-      "Name": "bark1",
-      "Position": "17.16379,105.2515,59.62823",
+      "Name": "rustybarrel",
+      "Position": "-77.92009,0,0.00001525879",
+      "Rotation": "0,0,0.5187733,0.8549119",
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.SoundPointComponent",
-          "__guid": "147740aa-99e7-4191-b33c-218fd1a0f1b1",
-          "DistanceAttenuation": false,
-          "DistanceAttenuationOverride": false,
-          "Force2d": false,
-          "MaxRepeatTime": 1,
-          "MinRepeatTime": 1,
-          "Occlusion": false,
-          "OcclusionOverride": false,
-          "OcclusionRadius": 32,
-          "Pitch": 1,
-          "PlayOnStart": true,
-          "ReflectionOverride": false,
-          "Reflections": false,
-          "Repeat": true,
-          "SoundEvent": "sounds/dog/bark1.sound",
-          "SoundOverride": false,
-          "StopOnNew": false,
-          "TargetMixer": {
-            "Name": "unknown",
-            "Id": "00000000-0000-0000-0000-000000000000"
-          },
-          "Volume": 1
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1fed413b-37e3-4004-8836-9e9e9adcdd49",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/wooden planks stacked.vmat",
+          "Model": "models/barrels/rustybarrel.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "3998006e-8856-405e-917e-ecafccb63a03",
+          "IsTrigger": false,
+          "Model": "models/barrels/rustybarrel.vmdl",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "3b2ccdb8-2daf-423f-bc7b-2f972d13b878",
+      "Flags": 0,
+      "Name": "rustybarrel (1)",
+      "Position": "-77.92009,0,36.69752",
+      "Rotation": "0,0,0.5187733,0.8549119",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b63f40d4-30e9-4c4c-99b7-58a21a534ea7",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/wooden planks stacked.vmat",
+          "Model": "models/barrels/rustybarrel.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "c45e7a2c-2c2f-4d84-9f59-a476aa5b7ab7",
+          "IsTrigger": false,
+          "Model": "models/barrels/rustybarrel.vmdl",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "3e3df190-ebc3-4c93-96b8-3d0551dbbaca",
+      "Flags": 0,
+      "Name": "GoToScene",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GoToSceneSwitch",
+          "__guid": "b21e74d3-50e5-48f5-9bed-9c7d813b14c5",
+          "scene": "scenes/menu.scene",
+          "Switch": {
+            "_type": "component",
+            "component_id": "39d8d317-4d06-4f89-8c05-48becf20d408",
+            "go": "3b674bc4-3390-487b-9898-73fded04ad64",
+            "component_type": "Lever"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "3b674bc4-3390-487b-9898-73fded04ad64",
+          "Flags": 0,
+          "Name": "switch",
+          "Position": "-63.99092,-0.0000001059411,38.94603",
+          "Rotation": "0.1916656,-0.000000008377968,-0.9814603,-0.00000004290099",
+          "Tags": "closegrab",
+          "Enabled": true,
+          "__Prefab": "prefabs/switch.prefab",
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "3e53bec1-ba85-41d3-897b-774423099d37",
+          "Flags": 0,
+          "Name": "Text (3)",
+          "Position": "-62.1931,0,51.92135",
+          "Rotation": "0,0,1,-0.00000004371139",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.TextRenderer",
+              "__guid": "b10291dd-7045-4f22-8c0b-508bdd26134c",
+              "Color": "1,1,1,1",
+              "FontFamily": "Nixie One",
+              "FontSize": 32.23,
+              "FontWeight": 800,
+              "Scale": 0.08,
+              "Text": "RETURN\nTO\nMENU",
+              "TextAlignment": "Center"
+            }
+          ]
         }
       ]
     }

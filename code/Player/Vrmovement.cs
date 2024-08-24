@@ -78,6 +78,7 @@ public sealed class Vrmovement : Component
                 }
 
             }
+            
         }
         Hitbox.Rebuild();
         filmGrain.Intensity = Stunned*0.5f;

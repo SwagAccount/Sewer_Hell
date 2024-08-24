@@ -1,0 +1,111 @@
+{
+  "__guid": "960c865b-6d18-46d4-a0cf-a2f5e2010967",
+  "GameObjects": [
+    {
+      "__guid": "dd186dd7-eb7d-4083-90c7-6fc3f70147e8",
+      "Flags": 0,
+      "Name": "Camera",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "cb444fa7-3c08-4312-b0d7-9129d2601733",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "399b9ee6-0437-4830-858a-d01579d55820",
+          "Flags": 0,
+          "Name": "Text",
+          "Position": "39.75509,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.TextRenderer",
+              "__guid": "86ff627d-6b0f-48fe-8195-dae250ccaf4f",
+              "Color": "1,1,1,1",
+              "FontFamily": "Nixie One",
+              "FontSize": 128,
+              "FontWeight": 800,
+              "Scale": 0.03,
+              "Text": "THIS IS A \nVR ONLY\nGAME.",
+              "TextAlignment": "Center"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "fd7afe46-539e-47b0-a087-0d1481f414ba",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "278.188,54.32652,-34.54347",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "4f8a9dbe-3bf4-415a-b8fb-88d25be8b7f2",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "0,0,0,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8e439232-a21d-401d-ba10-48818504155f",
+      "Flags": 0,
+      "Name": "VRChecker",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Vrchecker",
+          "__guid": "8b9d81ae-a7a4-4261-8495-503c17517c66",
+          "Text": {
+            "_type": "gameobject",
+            "go": "399b9ee6-0437-4830-858a-d01579d55820"
+          }
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "vrcheck",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
