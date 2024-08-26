@@ -39,17 +39,25 @@
         "__type": "trollface.Item",
         "__guid": "720aaa8f-05b0-4370-b12d-31be64f5568e",
         "AngularDrag": 1000000,
+        "Catagories": [],
         "Condition": 1,
+        "containerPos": "0,0,0",
+        "containerRot": "0,0,0,0",
+        "HandPoss": [],
         "HandsConnected": 0,
         "ItemName": "Cracker",
         "knifeThrow": false,
-        "mainHeld": false
+        "lastInContainer": false,
+        "mainHeld": false,
+        "MotionEnabled": true,
+        "TimeAlive": 0
       },
       {
         "__type": "Food",
         "__guid": "9ef4eb56-cca7-411e-97d0-3673c11578f5",
+        "HealthRegen": 0.05,
         "HungerRegen": 0.1,
-        "StamRegen": 0
+        "StamRegen": 0.1
       }
     ],
     "Children": [
@@ -79,6 +87,9 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": true,
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
@@ -89,6 +100,7 @@
                   "go": "b598f8c6-80ac-48b8-a30e-f15abbddc138",
                   "component_type": "HandPos"
                 },
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",
@@ -407,6 +419,9 @@
                 },
                 "AngularSpring": "100,10",
                 "Connect": true,
+                "gotLocTrans": false,
+                "locPos": "0,0,0",
+                "locRot": "0,0,0,0",
                 "Main": true,
                 "MirrorPosModifiers": "-1,1,1",
                 "MirrorRotModifiers": "-1,-1,1",
@@ -417,6 +432,7 @@
                   "go": "661a568c-da14-4663-a7fc-065b1d5e6184",
                   "component_type": "HandPos"
                 },
+                "ParentTo": true,
                 "PositionSpring": "100,10",
                 "Rigidbody": {
                   "_type": "component",

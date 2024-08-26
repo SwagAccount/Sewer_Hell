@@ -131,7 +131,7 @@
                   {
                     "__type": "Sandbox.SphereCollider",
                     "__guid": "81eb05f1-1ab7-465a-bf03-23e050931a63",
-                    "Center": "0,0,0",
+                    "Center": "-1.3,1.568,-1.400772",
                     "IsTrigger": false,
                     "Radius": 0.5,
                     "Static": false
@@ -425,7 +425,7 @@
                   {
                     "__type": "Sandbox.SphereCollider",
                     "__guid": "bcd23bbd-264b-4eb9-aa98-dc9861c72535",
-                    "Center": "0,0,0",
+                    "Center": "-1.3,-1.568,-1.400772",
                     "IsTrigger": false,
                     "Radius": 0.5,
                     "Static": false

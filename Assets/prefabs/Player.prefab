@@ -98,11 +98,11 @@
         "BreathTime": 1,
         "HealthRegenTime": 120,
         "Hunger": 1,
-        "HungerUseTime": 60,
+        "HungerUseTime": 150,
         "Stamina": 1,
         "StaminaTime": 30,
         "StaminaUseTime": 15,
-        "TransSpeed": 7
+        "TransSpeed": 5
       },
       {
         "__type": "trollface.PlayerSaveManager",
@@ -224,12 +224,6 @@
                 "Shadows": true
               },
               {
-                "__type": "Sandbox.FilmGrain",
-                "__guid": "7c66e113-6328-4490-a3da-569a0e530b8c",
-                "Intensity": 0,
-                "Response": 0.5
-              },
-              {
                 "__type": "Sandbox.AudioListener",
                 "__guid": "6846e560-5be7-4e16-b93c-c2e44edbe10a",
                 "UseCameraDirection": true
@@ -246,6 +240,17 @@
                   "_type": "gameobject",
                   "go": "f272562e-9ca3-4fa3-bc7e-b5f1593bd7d0"
                 }
+              },
+              {
+                "__type": "Sandbox.ChromaticAberration",
+                "__guid": "b73b9583-3ed9-4fd1-a5a4-71ad3933ac94",
+                "Offset": "4,6,0",
+                "Scale": 0
+              },
+              {
+                "__type": "Sandbox.Sharpen",
+                "__guid": "367e9a80-0b23-4c50-a131-0cb2f80562eb",
+                "Scale": 0.5
               }
             ],
             "Children": [
@@ -388,7 +393,7 @@
                       "go": "3acf7631-944e-4801-b7c9-c18d49abbbd9",
                       "component_type": "SkinnedModelRenderer"
                     },
-                    "leftBreak": false,
+                    "leftBreak": 0,
                     "PhysPointL": {
                       "_type": "component",
                       "component_id": "e849e1b3-10de-4d4e-8eb2-d324dfaa512f",
@@ -415,7 +420,7 @@
                       "go": "ba9a3d81-1743-482e-9370-2242ff893c80",
                       "component_type": "SkinnedModelRenderer"
                     },
-                    "rightBreak": false,
+                    "rightBreak": 0,
                     "VRSpace": {
                       "_type": "gameobject",
                       "go": "715985cc-f553-45b2-889c-7ba51ee7f644"

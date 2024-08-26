@@ -193,6 +193,30 @@
             "RenderType": "On",
             "Tint": "1,1,1,1",
             "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.Rigidbody",
+            "__guid": "9fa03063-2379-4821-9547-8dab01c5c08a",
+            "__enabled": false,
+            "AngularDamping": 0,
+            "Gravity": true,
+            "LinearDamping": 0,
+            "Locking": {},
+            "MassCenterOverride": "0,0,0",
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "OverrideMassCenter": false,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "6ef7e9ac-5f60-4f63-a42c-8b7eb9906950",
+            "__enabled": false,
+            "Center": "0,0,2.5",
+            "IsTrigger": false,
+            "Scale": "5,5,5",
+            "Static": false
           }
         ],
         "Children": [
@@ -436,15 +460,17 @@
                           {
                             "__type": "trollface.Blade",
                             "__guid": "43ae4639-1aa1-43c7-b0e1-8bde74cbc510",
-                            "baseAcceleration": 750,
+                            "baseAcceleration": 375,
                             "BladeEnd": {
                               "_type": "gameobject",
                               "go": "b67ee1d1-3579-4d0b-b545-c807754ce06a"
                             },
                             "BladeRadius": 1,
+                            "BreakArmChance": 2,
+                            "BreakTime": 30,
                             "damage": 27,
                             "ignoreTags": [],
-                            "minAcceleration": 500,
+                            "minAcceleration": 250,
                             "PlayerBlade": false,
                             "Stick": false,
                             "User": {

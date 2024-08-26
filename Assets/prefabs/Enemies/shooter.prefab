@@ -3,7 +3,6 @@
     "__guid": "f09ee3bc-a8de-43a4-8304-f9b46c0a127d",
     "Flags": 0,
     "Name": "shooter",
-    "Position": "-82.60236,-448.4281,0.5548026",
     "Enabled": true,
     "Components": [
       {
@@ -71,6 +70,7 @@
         "FireRate": 0.6,
         "GunShot": "sounds/guns/revolvershot.sound",
         "Handedness": "Both",
+        "HitChance": 30,
         "HoldType": "Pistol",
         "maxAmmo": 6,
         "Muzzle": {
@@ -120,6 +120,8 @@
         "MaxAttackDistance": 700,
         "MaxDistanceFromCover": 150,
         "Patience": 30,
+        "RandomMoveDis": "50,100",
+        "RandomMoveTime": 10,
         "RotateSpeed": 30,
         "SmoothCrouchSpeed": 5,
         "SprintingSpeed": 200,
@@ -153,7 +155,6 @@
         "__guid": "d11aed54-71f1-4ce5-b016-057fd760b6c4",
         "Flags": 0,
         "Name": "Body",
-        "Position": "0,0,0",
         "Rotation": "0,0,0.7071068,0.7071068",
         "Enabled": true,
         "Components": [
@@ -876,7 +877,8 @@
         "Position": "0,0,62",
         "Enabled": true
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

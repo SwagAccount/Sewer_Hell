@@ -16,7 +16,7 @@ public sealed class Container : Component, Component.ITriggerListener
 
 	void ITriggerListener.OnTriggerExit(Collider other)
 	{
-		Item item = other.Components.Get<Item>();
+		Item item = other.Components.GetInParentOrSelf<Item>();
 		if(!item.IsValid()) return;
 		if(!items.Contains(item)) return;
 		items.Remove(item);

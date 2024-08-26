@@ -90,7 +90,8 @@ public sealed class GameManager : Component
 
 	public void Save()
 	{
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot1/{Scene.Name}")) FileSystem.Data.CreateDirectory($"Saves/Slot1/{Scene.Name}");
+		Log.Info("Save");
+		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{LevelName}")) FileSystem.Data.CreateDirectory($"Saves/Slot{SaveSlot}/{LevelName}");
 
 		chunkDealer.SaveAllChunks(SaveSlot, LevelName);
 		playerSaveManager.Save(SaveSlot);
@@ -113,7 +114,8 @@ public sealed class GameManager : Component
 
 	public void Load()
 	{
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{Scene.Name}")) return;
+		Log.Info("Load");
+		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{LevelName}")) return;
 
 		string data = FileSystem.Data.ReadAllText($"Saves/Slot{SaveSlot}/GameData.json");
 		GameSaveData gameSaveData = Json.Deserialize<GameSaveData>(data);

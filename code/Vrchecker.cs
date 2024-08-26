@@ -3,17 +3,15 @@ using Sandbox.VR;
 
 public sealed class Vrchecker : Component
 {
-	[Property] public GameObject Text {get;set;}
+	[Property] public TextRenderer Text {get;set;}
 	TrackedObject f;
 	protected override void OnStart()
 	{
 		if(Game.IsRunningInVR)
 		{
-			Scene.LoadFromFile("scenes/menu.scene");
+			Scene.LoadFromFile("tftintro/intro.scene");
 			return;
 		}
 		Text.Enabled = true;
-
-		
 	}
 }

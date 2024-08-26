@@ -508,7 +508,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1277043748
+									m_id = 1296019581
 								}
 								m_outputID = 
 								{
@@ -2144,65 +2144,21 @@
 			{
 				key = 
 				{
-					m_id = 1277043748
+					m_id = 1296019581
 				}
 				value = 
 				{
-					_class = "CStateMachineAnimNode"
+					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -720.0, 400.0 ]
+					m_vecPosition = [ -666.817505, 356.052551 ]
 					m_nNodeID = 
 					{
-						m_id = 1277043748
+						m_id = 1296019581
 					}
 					m_sNote = ""
-					m_states = 
+					m_children = 
 					[
 						{
-							_class = "CAnimState"
-							m_transitions = 
-							[
-								{
-									_class = "CAnimStateTransition"
-									m_conditions = 
-									[
-										{
-											_class = "CParameterAnimCondition"
-											m_comparisonOp = 2
-											m_paramID = 
-											{
-												m_id = 1470122182
-											}
-											m_comparisonValue = 
-											{
-												m_nType = 4
-												m_data = 0.05
-											}
-										},
-									]
-									m_blendDuration = 0.2
-									m_destState = 
-									{
-										m_id = 1775061151
-									}
-									m_bReset = true
-									m_resetCycleOption = "Beginning"
-									m_flFixedCycleValue = 0.0
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.5, 0.0 ]
-										m_vControlPoint2 = [ 0.5, 1.0 ]
-									}
-									m_bForceFootPlant = false
-									m_bDisabled = false
-									m_bRandomTimeBetween = false
-									m_flRandomTimeStart = 0.0
-									m_flRandomTimeEnd = 0.0
-								},
-							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "normal"
 							m_inputConnection = 
 							{
 								m_nodeID = 
@@ -2214,62 +2170,10 @@
 									m_id = 4294967295
 								}
 							}
-							m_stateID = 
-							{
-								m_id = 742070878
-							}
-							m_position = [ -208.0, -48.0 ]
-							m_bIsStartState = true
-							m_bIsEndtState = true
-							m_bIsPassthrough = true
-							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
+							m_name = ""
+							m_blendValue = 0.0
 						},
 						{
-							_class = "CAnimState"
-							m_transitions = 
-							[
-								{
-									_class = "CAnimStateTransition"
-									m_conditions = 
-									[
-										{
-											_class = "CParameterAnimCondition"
-											m_comparisonOp = 5
-											m_paramID = 
-											{
-												m_id = 1470122182
-											}
-											m_comparisonValue = 
-											{
-												m_nType = 4
-												m_data = 0.05
-											}
-										},
-									]
-									m_blendDuration = 0.2
-									m_destState = 
-									{
-										m_id = 742070878
-									}
-									m_bReset = true
-									m_resetCycleOption = "Beginning"
-									m_flFixedCycleValue = 0.0
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.5, 0.0 ]
-										m_vControlPoint2 = [ 0.5, 1.0 ]
-									}
-									m_bForceFootPlant = false
-									m_bDisabled = false
-									m_bRandomTimeBetween = false
-									m_flRandomTimeStart = 0.0
-									m_flRandomTimeEnd = 0.0
-								},
-							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "crouched"
 							m_inputConnection = 
 							{
 								m_nodeID = 
@@ -2281,20 +2185,30 @@
 									m_id = 4294967295
 								}
 							}
-							m_stateID = 
-							{
-								m_id = 1775061151
-							}
-							m_position = [ -80.0, -48.0 ]
-							m_bIsStartState = false
-							m_bIsEndtState = false
-							m_bIsPassthrough = false
-							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
+							m_name = ""
+							m_blendValue = 1.0
 						},
 					]
-					m_bBlockWaningTags = false
-					m_bLockStateWhenWaning = false
+					m_blendValueSource = "Parameter"
+					m_param = 
+					{
+						m_id = 1470122182
+					}
+					m_blendKeyType = "BlendKey_UserValue"
+					m_bLockBlendOnReset = false
+					m_bSyncCycles = true
+					m_bLoop = true
+					m_bLockWhenWaning = true
+					m_damping = 
+					{
+						_class = "CAnimInputDamping"
+						m_speedFunction = "NoDamping"
+						m_fSpeedScale = 1.0
+						m_fMinSpeed = 10.0
+						m_fMaxTension = 1000.0
+						m_fTension = 100.0
+						m_fDamping = 5.0
+					}
 				}
 			},
 			{
@@ -3257,7 +3171,7 @@
 	}
 	m_previewModels = 
 	[
-		"models/player/ct_side/ct_side_player_01/ct_side_player_01_v2.vmdl",
+		"models/enemies/shooter.vmdl",
 	]
 	m_boneMergeModels = [  ]
 	m_cameraSettings = 

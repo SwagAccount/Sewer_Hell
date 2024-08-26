@@ -47,8 +47,8 @@ public sealed class HandsDealer : Component
 	[Property] public GameObject RArmParent {get;set;}
 	[Property] public float AnchorDistance {get;set;}
 
-	[Property] public bool leftBreak {get;set;}
-	[Property] public bool rightBreak {get;set;}
+	[Property] public float leftBreak {get;set;}
+	[Property] public float rightBreak {get;set;}
 
 	float leftGripAmount;
 	float rightGripAmount;
@@ -135,16 +135,19 @@ public sealed class HandsDealer : Component
 
 	void BrokenArms()
 	{
-		leftHandFJoint.IsActive = !leftBreak;
-		rightHandFJoint.IsActive = !rightBreak;
-		leftHandSJoint.IsActive = leftBreak;
-		rightHandSJoint.IsActive = rightBreak;
+		leftBreak-=Time.Delta;
+		rightBreak-=Time.Delta;
+		
+		leftHandFJoint.IsActive = leftBreak <= 0;
+		rightHandFJoint.IsActive = rightBreak <= 0;
+		leftHandSJoint.IsActive = leftBreak > 0;
+		rightHandSJoint.IsActive = rightBreak > 0;
 
-		FinalPhysL.LinearDamping = leftBreak ? 1 : 0;
-		FinalPhysR.LinearDamping = rightBreak ? 1 : 0;
+		FinalPhysL.LinearDamping =  leftBreak > 0 ? 1 : 0;
+		FinalPhysR.LinearDamping = rightBreak > 0 ? 1 : 0;
 
-		FinalPhysL.AngularDamping = leftBreak ? 1 : 0;
-		FinalPhysR.AngularDamping = rightBreak ? 1 : 0;
+		FinalPhysL.AngularDamping = leftBreak > 0  ? 1 : 0;
+		FinalPhysR.AngularDamping = rightBreak > 0  ? 1 : 0;
 	}
 
 	void SetIK()
@@ -511,14 +514,14 @@ public sealed class HandsDealer : Component
 			foreach (GameObject p in pointFinder.GrabbablePoints)
 			{
 				if (p.Tags.Contains("grabbed")) continue;
-				float distance = Vector3.DistanceBetween(p.Transform.Position, pointFinder.searchPoint);
+				float distance = Vector3.DistanceBetween(p.Parent.Transform.Position, pointFinder.searchPoint);
 				if (distance > closestDis) continue;
 				closest = p;
 				closestDis = distance;
 			}
 
 			Interactable closestI = null;
-			float closestIDis = pointFinder.searchRadiusHand / 2;
+			float closestIDis = 500;
 			foreach (Interactable i in pointFinder.InteractablePoints)
 			{
 				if (!i.ShowWithoutMain) { if (!i.item.mainHeld) continue; }

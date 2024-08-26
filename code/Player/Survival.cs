@@ -16,15 +16,17 @@ public sealed class Survival : Component
 
 	Vrmovement vrMovement;
 
-	HealthComponent healthComponent;
+	public HealthComponent healthComponent {get;set;}
 
 	ChunkDealer chunkDealer;
 
+	CameraComponent camera;
 	protected override void OnStart()
 	{
 		chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
 		healthComponent = Components.Get<HealthComponent>();
 		vrMovement = Components.Get<Vrmovement>();
+		camera = vrMovement.Camera.Components.Get<CameraComponent>();
 	}
 
 	float staminaRanOutTime = -100;
@@ -37,7 +39,7 @@ public sealed class Survival : Component
 			healthComponent.Health = MathX.Clamp(healthComponent.Health+(Time.Delta*(1/HealthRegenTime))*healthComponent.MaxHealth,0,healthComponent.MaxHealth);
 		}
 		if(transitioning)
-			vrMovement.Camera.Brightness = MathX.Lerp(vrMovement.Camera.Brightness, 0, Time.Delta*TransSpeed);
+			camera.ZFar = MathX.Clamp(MathX.Lerp(camera.ZFar, 0, Time.Delta*TransSpeed),10f,10000);
 
 		if(healthComponent.Health <= 0)
 		{
@@ -62,8 +64,8 @@ public sealed class Survival : Component
 	{
 		vrMovement.inTransition = true;
 		transitioning = true;
-		vrMovement.Camera.Brightness = 1;
-		while (vrMovement.Camera.Brightness > 0.00001f)
+		camera.ZFar = 1024;
+		while (camera.ZFar > 15f)
 		{
 			await Task.Delay(1);
 		}

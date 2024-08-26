@@ -3,6 +3,7 @@
     "__guid": "49b1fb86-295a-4b6d-8b70-ab8fd11efeb0",
     "Flags": 0,
     "Name": "metaldoor",
+    "Tags": "activeworld",
     "Enabled": true,
     "Components": [
       {

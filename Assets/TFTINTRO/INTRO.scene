@@ -1,0 +1,238 @@
+{
+  "__guid": "09cc52bf-8958-4eb6-9f5d-b077d46dfc11",
+  "GameObjects": [
+    {
+      "__guid": "8c9d1843-435d-454b-9928-c793136ecf1e",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "0aed3d4a-1599-46d2-8f4f-72c6c677c77f",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "0,0,0,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b94889fe-f34b-49f2-800b-2e360a9af7e9",
+      "Flags": 0,
+      "Name": "VR",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.VR.VRAnchor",
+          "__guid": "935dfc79-2b6b-40dd-85bf-607a2d5c7520"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "aa700ad1-04c0-4b1d-b4cc-3ad691302851",
+          "Flags": 0,
+          "Name": "Head",
+          "Position": "0,0,64",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "32f11dc3-db4a-4c41-b57e-6cfbaf68b04a",
+              "PoseSource": "Head",
+              "TrackingType": "All",
+              "UseRelativeTransform": false
+            },
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "2f7305e2-6cc1-4043-be48-a804eb473d4f",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 60,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "Both",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Sandbox.ColorAdjustments",
+              "__guid": "7f911d45-b8c9-4b64-b659-078e0d792a6d",
+              "Brightness": 1,
+              "Contrast": 1,
+              "HueRotate": 0,
+              "Saturation": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "d611be67-bcaf-47c6-a9f6-3d6033511822",
+      "Flags": 0,
+      "Name": "IntroDealer",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "IntroDealer",
+          "__guid": "b252a495-e204-4466-93f6-3c8731bded0f",
+          "BrightnessCurve": [
+            {
+              "in": -22.000069,
+              "out": 22.000069
+            },
+            {
+              "x": 0.072916664,
+              "y": 1,
+              "in": -0.03999981,
+              "out": 0.03999981
+            },
+            {
+              "x": 0.5,
+              "y": 1
+            },
+            {
+              "x": 0.78571427,
+              "y": 1,
+              "in": -0.039215997,
+              "out": 0.039215997
+            },
+            {
+              "x": 0.93303573,
+              "in": 3.818182,
+              "out": -3.818182
+            }
+          ],
+          "colorAdjustments": {
+            "_type": "component",
+            "component_id": "7f911d45-b8c9-4b64-b659-078e0d792a6d",
+            "go": "aa700ad1-04c0-4b1d-b4cc-3ad691302851",
+            "component_type": "ColorAdjustments"
+          },
+          "LoadedScene": "scenes/menu.scene",
+          "OverallTime": 10,
+          "targetPos": "360,0,-20",
+          "targetRot": "0,180,0",
+          "TrollFace": {
+            "_type": "gameobject",
+            "go": "5c5e6963-c9e5-46d3-8ac3-b55e91b4a44f"
+          },
+          "TurnTime": 8
+        },
+        {
+          "__type": "Sandbox.SoundPointComponent",
+          "__guid": "45705ea6-6a70-4801-858e-8ae86f0493de",
+          "DistanceAttenuation": false,
+          "DistanceAttenuationOverride": false,
+          "Force2d": true,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Occlusion": false,
+          "OcclusionOverride": false,
+          "OcclusionRadius": 32,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "ReflectionOverride": false,
+          "Reflections": false,
+          "Repeat": false,
+          "SoundEvent": "tftintro/tft intro.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "TargetMixer": {
+            "Name": "unknown",
+            "Id": "00000000-0000-0000-0000-000000000000"
+          },
+          "Volume": 1
+        }
+      ]
+    },
+    {
+      "__guid": "5c5e6963-c9e5-46d3-8ac3-b55e91b4a44f",
+      "Flags": 0,
+      "Name": "trollface",
+      "Position": "371.8449,0.00001225758,-167.9",
+      "Rotation": "0,0.2188846,0,0.9757507",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "af7f0517-6ab1-47fe-841d-73ab6b77f9bc",
+          "BodyGroups": 18446744073709551615,
+          "Model": "tftintro/trollface.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "695bf295-c654-4d40-824f-07adb6e0de02",
+      "Flags": 0,
+      "Name": "Sun (1)",
+      "Position": "15.66385,21.83835,119.5758",
+      "Rotation": "0,0.006108384,0,0.9999813",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "793de471-62bf-4b00-b562-02a4a96cef1c",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.11628,0.11628,0.11628,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "d6c9766d-40fd-45a4-b12e-ace378d9902d",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "15.66385,21.83835,119.5758",
+      "Rotation": "0,0.538035,0,0.8429224",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "f1f14a77-0b44-4bbc-8c69-901e96da475d",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "intro",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

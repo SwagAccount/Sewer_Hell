@@ -56,6 +56,7 @@ public sealed class FindChooseEnemy : Component
 	{
 		(bool isTrue, AgroRelations agroRelations) isEnemy(GameObject g)
 		{
+			
 			if(g.Tags == null) return (false,null);	
 
 			if(g == GameObject) return (false,null);
@@ -112,14 +113,18 @@ public sealed class FindChooseEnemy : Component
 		{
 			
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
+			
 			if(!isTrue) continue;	
 			GameObject hitObject = Scene.Trace.Ray(RelativeGameObject.Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)).WithAnyTags("world","player").UseHitboxes().IgnoreGameObjectHierarchy(GameObject).Run().GameObject;
+			//Log.Info(hitObject);
+			//Gizmo.Draw.Line(RelativeGameObject.Transform.World.PointToWorld(eyePos), gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint));
 			if(hitObject != gAgroRelations.ObjectRef) continue;
 
 			Transform transform = RelativeGameObject.Transform.World;
 			transform.Position = Vector3.Zero;
 			Vector3 direction = transform.PointToWorld(eyeDir);
 
+			Log.Info(Vector3.GetAngle(direction,gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-RelativeGameObject.Transform.World.PointToWorld(eyePos)));
 
 			if(MathF.Abs(Vector3.GetAngle(direction,gAgroRelations.Transform.World.PointToWorld(gAgroRelations.attackPoint)-RelativeGameObject.Transform.World.PointToWorld(eyePos))) > ViewAngle) continue;
 			float distance = Vector3.DistanceBetween(g.Transform.Position,Transform.Position);

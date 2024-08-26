@@ -88,6 +88,7 @@
           "__type": "trollface.DogAI",
           "__guid": "4bfdc918-73e8-4f2c-89f8-37b28a2f5a54",
           "jumped": false,
+          "GrowlTransitionSpeed": 10,
           "JumpDis": 0,
           "JumpForce": 10560,
           "JumpWarmTime": 0.625,
@@ -177,6 +178,7 @@
             "go": "85457f46-762e-4bcc-9ee4-9b49f0c2bbef",
             "component_type": "SkinnedModelRenderer"
           },
+          "GrowlTransitionSpeed": 10,
           "JumpDis": 120,
           "JumpForce": 4000000,
           "JumpWarmTime": 0.625,
@@ -571,6 +573,7 @@
                               "damage": 27,
                               "ignoreTags": [],
                               "minAcceleration": 500,
+                              "PlayerBlade": false,
                               "Stick": false,
                               "User": {
                                 "_type": "gameobject",
@@ -849,20 +852,14 @@
           "__type": "trollface.FindChooseEnemy",
           "__guid": "232eab5d-fb1a-472e-8c98-0d2366733f34",
           "DetectRange": 700,
-          "Enemy": {
-            "_type": "gameobject",
-            "go": "1a61143d-1e5f-446a-8d4f-2a4113e171e7"
-          },
-          "EnemyRelations": {
-            "_type": "component",
-            "component_id": "76923a5d-0506-467d-a952-69eb9d150f06",
-            "go": "1a61143d-1e5f-446a-8d4f-2a4113e171e7",
-            "component_type": "AgroRelations"
-          },
           "eyeDir": "1,0,0",
           "eyePos": "0,0,62",
           "ForceTargetRange": 300,
           "NewEnemy": false,
+          "RelativeGameObject": {
+            "_type": "gameobject",
+            "go": "26e650c2-9eb3-40b8-a15f-3f532f1287ca"
+          },
           "TimeSinceSeen": 0,
           "ViewAngle": 80
         },
@@ -905,6 +902,7 @@
           "FireRate": 0.6,
           "GunShot": "sounds/guns/revolvershot.sound",
           "Handedness": "Both",
+          "HitChance": 30,
           "HoldType": "Pistol",
           "maxAmmo": 6,
           "Muzzle": {
@@ -1710,7 +1708,7 @@
       "Flags": 0,
       "Name": "Object",
       "Position": "234.0439,0,0",
-      "Tags": "relations",
+      "Tags": "relations,player",
       "Enabled": true,
       "Components": [
         {

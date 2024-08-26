@@ -48,7 +48,6 @@ public abstract class Spawner : Component
 	public virtual void Spawn( bool test = false)
     {
         int spawnCount = Game.Random.Next((int)SpawnCount.x,(int)SpawnCount.y+1);
-        if(SpawnCount.y == 1) Log.Info(spawnCount);
 		for (int i = 0; i < spawnCount; i++)
 		{
             var pos = Transform.Position + (Vector3.Random * SpawnRadius);
@@ -58,6 +57,7 @@ public abstract class Spawner : Component
 
     public virtual void SpawnThing(GameObject thing, Vector3 position, bool test = false)
     {
-
+        if(chunkDealer == null)
+            chunkDealer = Scene.Components.GetInChildren<ChunkDealer>();
     }
 }

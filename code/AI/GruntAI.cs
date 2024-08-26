@@ -23,6 +23,8 @@ public sealed class GruntAI : AIAgent
 
 
     bool distanceCalculated;
+    [Property] public float RandomMoveTime {get;set;} = 10f;
+    [Property] public Vector2 RandomMoveDis {get;set;} = new Vector2(50,100);
     [Property] public float CoverSensitivity {get;set;} = 500f;
     [Property] public float CoverCheckDistance {get;set;} = 500f;
     [Property] public float WalkSpeed {get;set;} = 450f;
@@ -291,6 +293,8 @@ public class IDLE : AIState
 	public void Enter( AIAgent agent )
 	{
 		gruntAI = agent.Components.Get<GruntAI>();
+        agent.Agent.MoveTo(agent.Transform.Position); 
+        agent.chunkDealer.PlaceInChunk(agent.GameObject);
 	}
 
 	public void Exit( AIAgent agent )
@@ -306,7 +310,13 @@ public class IDLE : AIState
     float timeSinceLastCanShoot;
 	public void Update( AIAgent agent )
 	{
-        agent.Agent.MoveTo(agent.Transform.Position);
+        float chance = Time.Delta / gruntAI.RandomMoveTime;
+        if(Game.Random.Next(0,100000)/100000f < chance)
+        {
+            float distanceMod = Game.Random.Next(0,100)/100;
+            float distance = (distanceMod * (gruntAI.RandomMoveDis.y-gruntAI.RandomMoveDis.x))+gruntAI.RandomMoveDis.x;
+            agent.Agent.MoveTo(agent.Transform.Position+(Vector3.Random.WithZ(0)*distance));
+        }
 	}
 }
 public class SUPPRESS : AIState

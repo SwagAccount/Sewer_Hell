@@ -13,6 +13,8 @@ public sealed class Blade : Component
 	[Property] public string[] ignoreTags {get;set;}
 	[Property] public Item item {get;set;}
 	[Property] public bool Stick {get;set;}
+	[Property] public int BreakArmChance{get;set;}
+	[Property] public float BreakTime {get;set;}
 
 	[Property] public PhysicsTracker physicsTracker {get;set;}
 
@@ -44,8 +46,11 @@ public sealed class Blade : Component
 				stick(ray.GameObject);
 			}
 			thrown = false;
+			
 			if(healthComponent != null)
 			{
+				if(ray.Surface.Sounds.ImpactHard != null)
+					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);
 				float damageMult = 1;
 				if(ray.Hitbox != null)
 				{
@@ -62,10 +67,17 @@ public sealed class Blade : Component
 				if(tracker != null) hitAcc = tracker.Acceleration;
 				Log.Info(physicsTracker.Acceleration.Length);
 				healthComponent.DoDamage(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult, User);
-				Log.Info(damage * ((physicsTracker.Acceleration.Length+hitAcc.Length)/baseAcceleration) * damageMult);
-				if(ray.Surface.Sounds.ImpactHard != null)
-					Sound.Play(ray.Surface.Sounds.ImpactHard, ray.HitPosition);
-				
+				if(ray.GameObject.Tags.Contains("player") && BreakArmChance > 0)
+				{
+					int Random = Game.Random.Next(0,101);
+					if(Random <= BreakArmChance)
+					{
+						if(Game.Random.Next(0,2) == 0)
+							vrmovement.handsDealer.rightBreak = BreakTime;
+						else
+							vrmovement.handsDealer.leftBreak = BreakTime;
+					}
+				}
 			}
 		}
 		else

@@ -26,7 +26,7 @@ public sealed class EnemyWeaponDealer : Component
 	public bool WeaponHitsTarget(GameObject target, Vector3 point)
 	{
 		var trace = Scene.Trace.Ray(Transform.World.PointToWorld(findChooseEnemy.eyePos),point).IgnoreGameObjectHierarchy(GameObject).WithoutTags("nocollide").UseHitboxes().Run();
-		
+
 		if(!trace.Hit) return false;
 		return trace.GameObject == target || trace.GameObject.IsAncestor(target) || trace.GameObject.IsDescendant(target);
 	}

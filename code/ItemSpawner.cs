@@ -14,6 +14,7 @@ public sealed class ItemSpawner : Spawner
 	}
 	public override void SpawnThing(GameObject thing, Vector3 position, bool test = false)
 	{
+		base.SpawnThing( thing, position, test );
 		if(!thing.IsValid()) return;
 		
 		GameObject spawned = thing.Clone();

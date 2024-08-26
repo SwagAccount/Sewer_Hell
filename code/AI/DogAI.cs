@@ -25,6 +25,9 @@ public sealed class DogAI : AIAgent
 	
 	public DogAnimState dogAnimState;
 
+	BoxCollider bodyCol;
+	Rigidbody bodyRig;
+
 	public enum DogAnimState
 	{
 		IDLE,
@@ -37,13 +40,21 @@ public sealed class DogAI : AIAgent
     {
         healthComponent = Components.Get<HealthComponent>();
         FindChooseEnemy = Components.Get<FindChooseEnemy>();
+		bodyCol = Body.Components.Get<BoxCollider>(true);
+		bodyRig = Body.Components.Get<Rigidbody>(true);
         initialState = "DOGIDLE";
         stateMachine.RegisterState(new DOGIDLE());
         stateMachine.RegisterState(new DOGATTACK());
     }
     public void Die()
     {
-		Body.GameObject.SetParent(Scene);
+		if(bodyCol != null) bodyCol.Enabled = true;
+		if(bodyRig != null) bodyRig.Enabled = true;
+		List<GameObject> children =  new List<GameObject>();
+		foreach(GameObject c in GameObject.Children)
+			children.Add(c);
+		foreach(GameObject c in children)
+			chunkDealer.PlaceInChunk(c);
 		Body.Set("Dead", true);
         GameObject.Destroy();
     }

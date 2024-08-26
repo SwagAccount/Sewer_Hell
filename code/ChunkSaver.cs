@@ -25,9 +25,11 @@ public sealed class ChunkSaver : Component
 		{
 			c.Destroy();
 		}
-		
+		Components.Get<ChunkSaver>();
+		JsonObject jObject = Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot{slot}/{levelName}/Chunks/{GameObject.Name}.json"));
+		jObject.Remove("Component");
 		GameObject.Deserialize(
-			Json.Deserialize<JsonObject>(FileSystem.Data.ReadAllText($"Saves/Slot{slot}/{levelName}/Chunks/{GameObject.Name}.json"))
+			jObject
 		);
 	}
 }

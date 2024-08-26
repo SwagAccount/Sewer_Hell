@@ -247,6 +247,8 @@
                                               "go": "d77d492f-a85f-4289-a23f-8cbd7d0852ae"
                                             },
                                             "BladeRadius": 1,
+                                            "BreakArmChance": 1,
+                                            "BreakTime": 60,
                                             "damage": 27,
                                             "ignoreTags": [
                                               "enemy"
@@ -345,6 +347,8 @@
                                               "go": "2c67ce0e-7c6c-433e-b3f3-59a4cf17b160"
                                             },
                                             "BladeRadius": 1,
+                                            "BreakArmChance": 1,
+                                            "BreakTime": 60,
                                             "damage": 27,
                                             "ignoreTags": [],
                                             "minAcceleration": 500,

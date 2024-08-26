@@ -7,8 +7,9 @@ namespace trollface;
 public sealed class Vrmovement : Component
 {
 	[Property] public ColorAdjustments Camera {get;set;}
+	[Property] public HandsDealer handsDealer {get;set;}
 
-    FilmGrain filmGrain;
+    ChromaticAberration chromaticAberration;
 	[Property] public ItemStorer BackpackStorer {get;set;}
 	[Property] public AgroRelations AgroRelations {get;set;}
 	[Property] public ManualHitbox Hitbox {get;set;}
@@ -46,7 +47,7 @@ public sealed class Vrmovement : Component
     float reverseStun;
 	protected override void OnStart()
 	{
-        filmGrain = Camera.Components.Get<FilmGrain>();
+        chromaticAberration = Camera.Components.Get<ChromaticAberration>();
 	}
     float footStepTimer;
 	protected override void OnUpdate()
@@ -81,7 +82,7 @@ public sealed class Vrmovement : Component
             
         }
         Hitbox.Rebuild();
-        filmGrain.Intensity = Stunned*0.5f;
+        chromaticAberration.Scale = Stunned*2;
         Stunned = MathX.Lerp(Stunned,0,(1/StunTime)*Time.Delta);
         reverseStun = MathX.Clamp(1-Stunned,0,1);
 
