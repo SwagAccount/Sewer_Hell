@@ -87,21 +87,21 @@ public sealed class GameManager : Component
 		}
 
 	}
-
+	public const string saveFolder = "SavePo1";
 	public void Save()
 	{
 		Log.Info("Save");
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{LevelName}")) FileSystem.Data.CreateDirectory($"Saves/Slot{SaveSlot}/{LevelName}");
+		if(!FileSystem.Data.DirectoryExists($"{saveFolder}/Slot{SaveSlot}/{LevelName}")) FileSystem.Data.CreateDirectory($"{saveFolder}/Slot{SaveSlot}/{LevelName}");
 
-		chunkDealer.SaveAllChunks(SaveSlot, LevelName);
-		playerSaveManager.Save(SaveSlot);
+		chunkDealer.SaveAllChunks(saveFolder, SaveSlot, LevelName);
+		playerSaveManager.Save(saveFolder, SaveSlot);
 
 		GameSaveData gameSaveData = new GameSaveData();
 		gameSaveData.TimeM = TimeM;
 		gameSaveData.NextFlood = NextFlood;
 		FileSystem.Data.WriteAllText
 		(
-			$"Saves/Slot{SaveSlot}/GameData.json",
+			$"{saveFolder}/Slot{SaveSlot}/GameData.json",
 			Json.Serialize(gameSaveData)
 		);
 	}
@@ -115,17 +115,18 @@ public sealed class GameManager : Component
 	public void Load()
 	{
 		Log.Info("Load");
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}/{LevelName}")) return;
 
-		string data = FileSystem.Data.ReadAllText($"Saves/Slot{SaveSlot}/GameData.json");
+		if(!FileSystem.Data.DirectoryExists($"{saveFolder}/Slot{SaveSlot}/{LevelName}")) return;
+		Log.Info("sex");
+		string data = FileSystem.Data.ReadAllText($"{saveFolder}/Slot{SaveSlot}/GameData.json");
 		GameSaveData gameSaveData = Json.Deserialize<GameSaveData>(data);
 		
 		TimeM = gameSaveData.TimeM;
 		NextFlood = gameSaveData.NextFlood;
 
-		chunkDealer.LoadAllChunks(SaveSlot, LevelName);
+		chunkDealer.LoadAllChunks(saveFolder, SaveSlot, LevelName);
 		
-		playerSaveManager.Load(SaveSlot);
+		playerSaveManager.Load(saveFolder, SaveSlot);
 		
 	}
 }

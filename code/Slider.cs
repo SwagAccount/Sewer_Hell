@@ -36,21 +36,20 @@ public sealed class Slider : Component
 		if(distanceAlongDirection > 0)
 			fractionAcrossDirection = distanceAlongDirection/Vector3.DistanceBetween(MaxPos, MinPos);
 
-		Log.Info(fractionAcrossDirection*Increments);
-
 		return (int)MathF.Round(fractionAcrossDirection*Increments);
 	}
 
 	public void SetValue(int value)
 	{
+		
 		value = Math.Clamp(value, 0, Increments);
 
 		float proportion = value / (float)Increments;
-
+		
 		Vector3 targetPosition = new Vector3(
-			MathX.Lerp(ActualMinPos.x, ActualMaxPos.x, proportion),
-			MathX.Lerp(ActualMinPos.y, ActualMaxPos.y, proportion),
-			MathX.Lerp(ActualMinPos.z, ActualMaxPos.z, proportion)
+			MathX.Lerp(MinPos.x, MaxPos.x, proportion),
+			MathX.Lerp(MinPos.y, MaxPos.y, proportion),
+			MathX.Lerp(MinPos.z, MaxPos.z, proportion)
 		);
 
 		Slid.Transform.LocalPosition = targetPosition;

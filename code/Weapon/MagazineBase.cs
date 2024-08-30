@@ -11,6 +11,7 @@ public abstract class MagazineBase : Component
 	[Property] public List<GameObject> Loaders {get;set;}
 	[Property] public SoundEvent LoadSound {get;set;}
 	[Property] public List<GameObject> BulletVisuals {get;set;}
+	[Property] public List<GameObject> Cases {get;set;}
 
 	[Property] public bool ActualMag {get;set;} = true;
 	[Property] public List<string> notMagAccepted {get;set;}
@@ -95,15 +96,16 @@ public abstract class MagazineBase : Component
 
 	}
 
-	public void DropCases(SoundEvent EjectSound, GameObject Case)
+	public void DropCases(SoundEvent EjectSound)
 	{
 		bool soundPlayed = false;
 		for(int i = 0; i < BulletVisuals.Count(); i++)
 		{
-			if(Contents[i] != -2) continue;
+			if(Contents[i] > -2) continue;
 			if(!soundPlayed) Sound.Play(EjectSound,BulletVisuals[i].Transform.Position).Pitch = Game.Random.Next(90,110)/100;
 			soundPlayed = true;
-			GameObject newCase = Case.Clone();
+			Log.Info(-Contents[i]-2);
+			GameObject newCase = Cases[-Contents[i]-2].Clone();
 			newCase.SetParent(BulletVisuals[i].Parent);
 			newCase.Transform.Position = BulletVisuals[i].Transform.Position;
 			newCase.Transform.Rotation = BulletVisuals[i].Transform.Rotation;

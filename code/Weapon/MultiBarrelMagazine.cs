@@ -39,10 +39,10 @@ public sealed class MultiBarrelMagazine : MagazineBase
 	{
 		barrel.BarrelContent = Contents[currentBarrel];
 	}
-	public void Shoot()
+	public void Shoot(int shotIndex)
 	{
 		
-		if(Contents[currentBarrel] != -1) Contents[currentBarrel] = -2;
+		if(Contents[currentBarrel] > -1) Contents[currentBarrel] = -shotIndex-2;
 		
 		currentBarrel++;
 		if(currentBarrel >= Contents.Count) currentBarrel = 0;
@@ -71,9 +71,9 @@ public sealed class MultiBarrelMagazine : MagazineBase
 
 	void isOpen()
 	{
-		if(OpenAmount.AlmostEqual(1,0.01f) && Contents.Contains(-2) && !Dropped && CoverFinder.GetAngleBetweenDirections(Vector3.Up,DropAxisRef.Transform.World.Down) < 45)
+		if(OpenAmount.AlmostEqual(1,0.01f) && !Dropped && CoverFinder.GetAngleBetweenDirections(Vector3.Up,DropAxisRef.Transform.World.Down) < 45)
 		{
-			DropCases(EjectSound, Case);
+			DropCases(EjectSound);
 			UpdateVisuals();
 			Dropped = true;
 			CantLoad = false;

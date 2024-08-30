@@ -37,7 +37,7 @@ public sealed class MultiBarrelTrigger : Component
 	protected override void OnUpdate()
 	{
 
-        if(!item.mainHeld) return;
+        if(!item.mainHeld || multiBarrelMagazine.open) return;
 
         pullBack = canShoot ? item.Controller.Trigger.Value * (1/PullBackShoot) : 0;
         

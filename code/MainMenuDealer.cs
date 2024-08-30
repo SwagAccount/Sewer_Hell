@@ -59,8 +59,8 @@ public sealed class MainMenuDealer : Component
 	bool Loaded = false;
 	void ResetSlot()
 	{
-		if(!FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}")) return;
-		FileSystem.Data.DeleteDirectory($"Saves/Slot{SaveSlot}" , true);
+		if(!FileSystem.Data.DirectoryExists($"{GameManager.saveFolder}/Slot{SaveSlot}")) return;
+		FileSystem.Data.DeleteDirectory($"{GameManager.saveFolder}/Slot{SaveSlot}" , true);
 		updateData();
 	}
 
@@ -77,8 +77,8 @@ public sealed class MainMenuDealer : Component
 		SaveSlot = value;
 		await SaveSlotDisplay.SetNumber(SaveSlotSlider.GetValue());
 		GameManager.GameSaveData gameSaveData = null;
-		if(FileSystem.Data.DirectoryExists($"Saves/Slot{SaveSlot}"))
-			gameSaveData = Json.Deserialize<GameManager.GameSaveData>(FileSystem.Data.ReadAllText($"Saves/Slot{SaveSlot}/GameData.json"));
+		if(FileSystem.Data.DirectoryExists($"{GameManager.saveFolder}/Slot{SaveSlot}"))
+			gameSaveData = Json.Deserialize<GameManager.GameSaveData>(FileSystem.Data.ReadAllText($"{GameManager.saveFolder}/Slot{SaveSlot}/GameData.json"));
 		Log.Info(gameSaveData);
 		PlayTime.SetNumber(gameSaveData == null ? -1 : (int)MathF.Round(gameSaveData.TimeM));
 		FloodN.SetNumber(gameSaveData == null ? -1 : (int)MathF.Round(gameSaveData.TimeM/(DayTime*FloodDays) + 1));

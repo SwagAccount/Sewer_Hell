@@ -12,6 +12,6 @@ public sealed class MultiBarrelBarrel : BarrelBase
 	public override void Fire()
     {
         base.Fire();
-        multiBarrelMagazine.Shoot();
+        multiBarrelMagazine.Shoot(BarrelContent);
     }
 }

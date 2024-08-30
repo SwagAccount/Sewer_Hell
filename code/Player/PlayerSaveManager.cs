@@ -28,7 +28,7 @@ public sealed class PlayerSaveManager : Component
 		public List<string> ItemStores {get;set;}
 	}
 
-	public void Save(int slot)
+	public void Save(string saveFolder, int slot)
 	{
 		PlayerSaveData playerSaveData = new PlayerSaveData
 		{
@@ -56,16 +56,16 @@ public sealed class PlayerSaveManager : Component
 
 		FileSystem.Data.WriteAllText
 		(
-			$"Saves/Slot{slot}/PlayerData.json",
+			$"{saveFolder}/Slot{slot}/PlayerData.json",
 			Json.Serialize(playerSaveData)
 		);
 	}
 
-	public void Load(int slot)
+	public void Load(string saveFolder, int slot)
 	{
-		if(!FileSystem.Data.FileExists($"Saves/Slot{slot}/PlayerData.json")) return;
+		if(!FileSystem.Data.FileExists($"{saveFolder}/Slot{slot}/PlayerData.json")) return;
 		
-		PlayerSaveData playerSaveData = Json.Deserialize<PlayerSaveData>(FileSystem.Data.ReadAllText($"Saves/Slot{slot}/PlayerData.json"));
+		PlayerSaveData playerSaveData = Json.Deserialize<PlayerSaveData>(FileSystem.Data.ReadAllText($"{saveFolder}/Slot{slot}/PlayerData.json"));
 		healthComponent.Deserialize(Json.Deserialize<JsonNode>(playerSaveData.healthComponent).AsObject());
 		
 		survival.Deserialize(Json.Deserialize<JsonNode>(playerSaveData.survival).AsObject());

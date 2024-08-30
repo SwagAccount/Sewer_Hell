@@ -3,6 +3,7 @@
     "__guid": "91a65c17-3293-4cd2-9357-584ad899cb3c",
     "Flags": 0,
     "Name": "l1key",
+    "Tags": "item",
     "Enabled": true,
     "Components": [
       {

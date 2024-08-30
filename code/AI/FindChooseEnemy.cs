@@ -76,7 +76,6 @@ public sealed class FindChooseEnemy : Component
 		}
 
 		
-		
 		if(lastAttacker != HealthComponent.lastAttacker)
 		{
 			GameObject g = HealthComponent.lastAttacker;
@@ -84,8 +83,6 @@ public sealed class FindChooseEnemy : Component
 			(bool isTrue, AgroRelations gAgroRelations) = isEnemy(g);
 			
 			if(gAgroRelations == null) return;
-
-			//g = gAgroRelations.ObjectRef;
 			
 			if(!agroRelations.Enemies.Contains(gAgroRelations.Faction) && gAgroRelations.Faction != agroRelations.Faction)
 			{
@@ -95,6 +92,7 @@ public sealed class FindChooseEnemy : Component
 
 			if(isTrue)
 			{
+				TimeSinceSeen = 0;
 				Enemy = g;
 				EnemyRelations = gAgroRelations;
 				return;

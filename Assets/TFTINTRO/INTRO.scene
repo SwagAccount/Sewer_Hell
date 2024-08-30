@@ -114,7 +114,18 @@
             "component_type": "ColorAdjustments"
           },
           "LoadedScene": "scenes/menu.scene",
+          "OnObjects": [
+            {
+              "_type": "gameobject",
+              "go": "d6c9766d-40fd-45a4-b12e-ace378d9902d"
+            },
+            {
+              "_type": "gameobject",
+              "go": "695bf295-c654-4d40-824f-07adb6e0de02"
+            }
+          ],
           "OverallTime": 10,
+          "StingTime": 5,
           "targetPos": "360,0,-20",
           "targetRot": "0,180,0",
           "TrollFace": {
@@ -146,7 +157,7 @@
             "Name": "unknown",
             "Id": "00000000-0000-0000-0000-000000000000"
           },
-          "Volume": 1
+          "Volume": 0.49
         }
       ]
     },
@@ -166,6 +177,68 @@
           "RenderType": "On",
           "Tint": "1,1,1,1"
         }
+      ],
+      "Children": [
+        {
+          "__guid": "e5667623-735a-444b-9c84-24d770ca0a97",
+          "Flags": 0,
+          "Name": "Point Light (1)",
+          "Position": "38.63239,21.862,112.1088",
+          "Tags": "light_point,light",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PointLight",
+              "__guid": "6114725c-3f57-44c7-a84d-5a9a6e728022",
+              "Attenuation": 10,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.91373,0.98039,1,1",
+              "Radius": 32.100014,
+              "Shadows": true
+            }
+          ]
+        },
+        {
+          "__guid": "ebe19336-aec0-4e23-8ced-7ba3ece97bcc",
+          "Flags": 0,
+          "Name": "Point Light",
+          "Position": "38.63243,-21.86205,112.1088",
+          "Tags": "light_point,light",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PointLight",
+              "__guid": "b96a78f4-bda3-413d-b1a9-20bf0c269a3a",
+              "Attenuation": 10,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.91373,0.98039,1,1",
+              "Radius": 32.100014,
+              "Shadows": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "793abf7d-8320-4dcd-9f01-ce1ce2c8ff86",
+      "Flags": 0,
+      "Name": "Sun (2)",
+      "Position": "15.66385,21.83835,119.5758",
+      "Rotation": "0,0.006108384,0,0.9999813",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "1cb705b0-63f8-48aa-be52-79f3ea8601ad",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.01395,0.01395,0.01395,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
       ]
     },
     {
@@ -175,14 +248,13 @@
       "Position": "15.66385,21.83835,119.5758",
       "Rotation": "0,0.006108384,0,0.9999813",
       "Tags": "light_directional,light",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
           "__guid": "793de471-62bf-4b00-b562-02a4a96cef1c",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.11628,0.11628,0.11628,1",
+          "LightColor": "0.08372,0.08372,0.08372,1",
           "Shadows": true,
           "SkyColor": "0,0,0,0"
         }
@@ -195,7 +267,6 @@
       "Position": "15.66385,21.83835,119.5758",
       "Rotation": "0,0.538035,0,0.8429224",
       "Tags": "light_directional,light",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",

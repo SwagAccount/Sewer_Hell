@@ -4305,6 +4305,7 @@
               "Name": "l1key (1)",
               "Position": "-394.8175,33.73401,93.38599",
               "Rotation": "-0.003341218,0.004868905,0.5658111,0.8245137",
+              "Tags": "item,dontdelete",
               "Enabled": true,
               "__Prefab": "prefabs/items/l1key.prefab",
               "__PrefabVariables": {}
@@ -20358,13 +20359,13 @@
           "__guid": "2fd2f98c-8de9-416a-b200-139770716d28",
           "Leave": {
             "_type": "component",
-            "component_id": "bea3ab78-e0a2-4fa9-8630-7402e2e9a4ae",
+            "component_id": "b1ab8b25-08e0-446a-a98d-2a320ccee83f",
             "go": "0c2a700c-de2c-460a-aae4-5de15b6aa442",
             "component_type": "Lever"
           },
           "Save": {
             "_type": "component",
-            "component_id": "7d93e08c-9cff-404a-90e1-a0a361b60937",
+            "component_id": "af9c4dec-ed66-44a9-b693-745db3b3b1a7",
             "go": "5568325b-6838-402e-8ad4-6bb09d638443",
             "component_type": "Lever"
           }
@@ -20397,7 +20398,7 @@
           "__guid": "741dc3df-91be-458f-b33b-05e95cdbc819",
           "Flags": 0,
           "Name": "Text (1)",
-          "Position": "-2.188484,-12,18.09451",
+          "Position": "-2.549042,-12,3.777569",
           "Enabled": true,
           "Components": [
             {
@@ -20417,7 +20418,7 @@
           "__guid": "2f8ff7a5-45ed-4b5e-a618-41877512646d",
           "Flags": 0,
           "Name": "Text",
-          "Position": "-2.188446,12,18.09451",
+          "Position": "-2.549004,12,3.777569",
           "Enabled": true,
           "Components": [
             {
@@ -20434,6 +20435,16 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "45f8a7c7-1e2c-4e49-aa5c-70aeba3f2114",
+      "Flags": 0,
+      "Name": "settings",
+      "Position": "106.9405,0,61.30688",
+      "Rotation": "-0.7066324,0.00004492343,0.7075809,0.00004498372",
+      "Enabled": true,
+      "__Prefab": "prefabs/settings.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {

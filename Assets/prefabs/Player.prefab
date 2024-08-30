@@ -9,22 +9,6 @@
       {
         "__type": "trollface.Vrmovement",
         "__guid": "3134e862-a2d9-4b7b-903b-04311e909919",
-        "FeetEnd": {
-          "_type": "gameobject",
-          "go": "2f25b1e5-1f23-4e66-b8e1-e3ff058b5b6e"
-        },
-        "FeetOrigin": {
-          "_type": "gameobject",
-          "go": "4f02fb47-5bff-48e6-b62d-48b17014fb0f"
-        },
-        "RawLeftHand": {
-          "_type": "gameobject",
-          "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
-        },
-        "RawRightHand": {
-          "_type": "gameobject",
-          "go": "2f756158-86c9-4007-ba58-65a2a263f123"
-        },
         "AgroRelations": {
           "_type": "component",
           "component_id": "465d43ad-69cd-4bb1-b0b1-9e8dd4ec871a",
@@ -52,6 +36,14 @@
         "CrouchDistance": 17.5,
         "CrouchSpeed": 22,
         "DarknessSpeed": 20,
+        "FeetEnd": {
+          "_type": "gameobject",
+          "go": "2f25b1e5-1f23-4e66-b8e1-e3ff058b5b6e"
+        },
+        "FeetOrigin": {
+          "_type": "gameobject",
+          "go": "4f02fb47-5bff-48e6-b62d-48b17014fb0f"
+        },
         "FootStepTime": 0.55,
         "HeadRadius": 4,
         "Hitbox": {
@@ -63,8 +55,16 @@
         "offset": "0,0,0",
         "OverDistance": 12,
         "PhysicalCrouchHeight": 28,
-        "RotateSpeed": 190,
+        "RawLeftHand": {
+          "_type": "gameobject",
+          "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
+        },
+        "RawRightHand": {
+          "_type": "gameobject",
+          "go": "2f756158-86c9-4007-ba58-65a2a263f123"
+        },
         "RunSpeed": 96,
+        "SnapRotateRepeatTime": 0.4,
         "Stunned": 0,
         "StunTime": 20,
         "VRSpace": {
@@ -1099,8 +1099,8 @@
                 "__guid": "1383a1e7-a445-4019-9745-35d5a2fcb465",
                 "Flags": 0,
                 "Name": "PhysPoint",
-                "Position": "1.20019,-1.7,-1.600166",
-                "Rotation": "0.1465395,0.4715484,-0.1829897,0.8501077",
+                "Position": "2.300301,-1.6,-1.100182",
+                "Rotation": "-0.09163235,0.5507018,-0.02292978,0.8293403",
                 "Enabled": true,
                 "Components": [
                   {
@@ -1116,6 +1116,31 @@
                     "OverrideMassCenter": false,
                     "RigidbodyFlags": 0,
                     "StartAsleep": false
+                  },
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "f9a8de03-af18-47cc-bd59-87dd568f3100",
+                    "__enabled": false,
+                    "BodyGroups": 18446744073709551615,
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "c24eecf7-3cfc-4942-a447-ad669cc6889a",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "3e883da0-cd67-40ac-ac37-16615cf9fbfa",
+                    "__enabled": false,
+                    "BodyGroups": 18446744073709551615,
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
                   }
                 ]
               }
@@ -1132,8 +1157,8 @@
                 "__guid": "3d6a3f34-4c10-4e5c-8c89-dd128edc309a",
                 "Flags": 0,
                 "Name": "PhysPoint",
-                "Position": "1.20019,1.700084,-1.600166",
-                "Rotation": "-0.0192719,0.493417,0.1112781,0.86243",
+                "Position": "2.300301,1.59999,-1.100182",
+                "Rotation": "0.09091078,0.5506815,0.02340899,0.8294198",
                 "Enabled": true,
                 "Components": [
                   {
@@ -1149,6 +1174,31 @@
                     "OverrideMassCenter": false,
                     "RigidbodyFlags": 0,
                     "StartAsleep": false
+                  },
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "3f048224-dac6-42cf-aaf6-5b0a3d677464",
+                    "__enabled": false,
+                    "BodyGroups": 18446744073709551615,
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "87e1620b-5d4e-4d20-ab11-0655cc6b9db1",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "3e3c84c5-1139-4196-9e2b-4032956852e7",
+                    "__enabled": false,
+                    "BodyGroups": 18446744073709551615,
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
                   }
                 ]
               }
@@ -1199,6 +1249,10 @@
                   "go": "1383a1e7-a445-4019-9745-35d5a2fcb465"
                 },
                 "GrabbablePoints": [],
+                "GrabPoint": {
+                  "_type": "gameobject",
+                  "go": "c237fb78-0f10-44fa-9695-5b8a713c3b83"
+                },
                 "handName": "left",
                 "InteractablePoints": [],
                 "ItemStorers": [],
@@ -1258,6 +1312,10 @@
                   "go": "3d6a3f34-4c10-4e5c-8c89-dd128edc309a"
                 },
                 "GrabbablePoints": [],
+                "GrabPoint": {
+                  "_type": "gameobject",
+                  "go": "2f756158-86c9-4007-ba58-65a2a263f123"
+                },
                 "handName": "right",
                 "InteractablePoints": [],
                 "ItemStorers": [],

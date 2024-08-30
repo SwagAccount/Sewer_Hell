@@ -43,8 +43,7 @@ public sealed class BulletProjectile : Component
 						if(float.TryParse(s, out damageMult)) break;
 					}
 				}
-				Log.Info(MathF.Pow(bullet.Grain,2f)*(rB.Velocity.Length*12)/(700000*MathF.Pow(bullet.Diameter,2f))*0.0006f*damageMult);
-				float damage = MathF.Pow(bullet.Grain,2f)*(rB.Velocity.Length*12)/(700000*MathF.Pow(bullet.Diameter,2f))*0.0012f*damageMult;
+				float damage = CalcDamage(bullet.Grain,rB.Velocity.Length,bullet.Diameter)*damageMult;
 				
 				healthComponent.DoDamage(damage, owner);
 			}
@@ -68,6 +67,10 @@ public sealed class BulletProjectile : Component
             Gizmo.Draw.Line(Transform.World.PointToLocal(poss[i]), Transform.World.PointToLocal(poss[i + 1]));
         }
 	}*/
+	public static float CalcDamage(float grain, float velocity, float diameter)
+	{
+		return MathF.Pow(grain,2f)*(velocity*12)/(700000*MathF.Pow(diameter,2f))*0.0012f;
+	}
 }
 public static partial class ParticleExtentions
 {

@@ -336,6 +336,7 @@
           "__guid": "73feb71b-bef6-4615-89aa-acfc041e7658",
           "Health": 200,
           "MaxHealth": 200,
+          "Ouch": "sounds/dog/hurt1.sound",
           "OuchObject": {
             "_type": "gameobject",
             "go": "bf52a422-d87d-4e74-90a2-52c1749dc1e5"
@@ -479,7 +480,7 @@
       "Rotation": "0.0003458294,-0.0006594216,0.9512221,-0.3085063",
       "Tags": "item",
       "Enabled": true,
-      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__Prefab": "prefabs/bullets/slug.prefab",
       "__PrefabVariables": {}
     },
     {
@@ -490,7 +491,7 @@
       "Rotation": "0.0003457574,-0.0006594554,0.9512221,-0.3085063",
       "Tags": "item",
       "Enabled": true,
-      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__Prefab": "prefabs/bullets/slug.prefab",
       "__PrefabVariables": {}
     },
     {
@@ -501,7 +502,7 @@
       "Rotation": "0.000345787,-0.0006594411,0.9512221,-0.3085063",
       "Tags": "item",
       "Enabled": true,
-      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__Prefab": "prefabs/bullets/slug.prefab",
       "__PrefabVariables": {}
     },
     {
@@ -512,7 +513,7 @@
       "Rotation": "0.0003458064,-0.0006594289,0.9512221,-0.3085063",
       "Tags": "item",
       "Enabled": true,
-      "__Prefab": "prefabs/bullets/buckshot.prefab",
+      "__Prefab": "prefabs/bullets/slug.prefab",
       "__PrefabVariables": {}
     },
     {
@@ -671,7 +672,7 @@
           "__guid": "c5226cc8-a321-4fe8-b1ea-1c1ac2ebf4e3",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "-0.001761811,461.8484,0",
+          "Position": "-0.002642715,461.848,0",
           "Scale": "20.4,1,5.841147",
           "Enabled": true,
           "Components": [
@@ -831,7 +832,7 @@
           "scene": "scenes/menu.scene",
           "Switch": {
             "_type": "component",
-            "component_id": "80eb19d1-42a8-41f4-bb17-e78fe48edbf0",
+            "component_id": "e4c00571-a1e7-44fb-9be2-c397cbd8c702",
             "go": "3b674bc4-3390-487b-9898-73fded04ad64",
             "component_type": "Lever"
           }
@@ -853,7 +854,7 @@
           "__guid": "3e53bec1-ba85-41d3-897b-774423099d37",
           "Flags": 0,
           "Name": "Text (3)",
-          "Position": "-62.1931,0,51.92135",
+          "Position": "-62.1931,0,29.9259",
           "Rotation": "0,0,1,-0.00000004371139",
           "Enabled": true,
           "Components": [
@@ -884,6 +885,36 @@
         "maxHealth": 100,
         "staminaUseTime": 30
       }
+    },
+    {
+      "__guid": "3b286197-f4e6-46a7-9866-305093ab3702",
+      "Flags": 0,
+      "Name": "settings",
+      "Position": "-63.90327,0,55.21819",
+      "Rotation": "0.003270947,0.7070993,-0.003270947,0.7070991",
+      "Enabled": true,
+      "__Prefab": "prefabs/settings.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "7a49a190-0a16-449a-ab89-d6bdb2c6a431",
+      "Flags": 0,
+      "Name": "buckshot ammo box",
+      "Position": "99.53099,-55.64003,28.34703",
+      "Rotation": "0,0,0.9512233,-0.3085032",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/buckshot ammo box.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "5bc80550-f540-4f57-95e2-5903a125dd52",
+      "Flags": 0,
+      "Name": "slug ammo box",
+      "Position": "103.2546,-60.58023,28.34703",
+      "Rotation": "0,0,0.9512233,-0.3085032",
+      "Enabled": true,
+      "__Prefab": "prefabs/items/slug ammo box.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {

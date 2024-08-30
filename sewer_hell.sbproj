@@ -4,7 +4,7 @@
   "Org": "tft",
   "Ident": "sewer_hell",
   "Schema": 1,
-  "IncludeSourceFiles": false,
+  "IncludeSourceFiles": true,
   "Resources": "/materials/water/textures/*\nui/*",
   "PackageReferences": [],
   "EditorReferences": null,

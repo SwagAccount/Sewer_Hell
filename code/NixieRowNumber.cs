@@ -9,6 +9,10 @@ public sealed class NixieRowNumber : Component
 	List<NixieTubeNumber> nixieTubeNumbers;
 	protected override void OnStart()
 	{
+		GetNumbers();
+	}
+	void GetNumbers()
+	{
 		nixieTubeNumbers = new List<NixieTubeNumber>();
 		foreach(GameObject c in GameObject.Children)
 		{
@@ -17,10 +21,10 @@ public sealed class NixieRowNumber : Component
 	}
 	public async void SetNumber(int number)
 	{
+		if(nixieTubeNumbers == null)
+			GetNumbers();
 		char[] numberChars = number.ToString().ToCharArray();
 		Array.Reverse(numberChars);
-
-		Log.Info(numberChars[0] - '0');
 		for(int i = 0; i < nixieTubeNumbers.Count; i++)
 		{
 			if(i < numberChars.Length && number > -1)

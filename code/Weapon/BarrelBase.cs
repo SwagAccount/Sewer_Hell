@@ -35,11 +35,10 @@ public abstract class BarrelBase : Component
 	public virtual async void Fire()
 	{
 		hasFired = false;
-		if(BarrelContent != -1 && BarrelContent != -2 && (Game.Random.Next(0,100)/100f) > MathF.Pow(1-item.Condition,3))
+		if(BarrelContent > -1 && (Game.Random.Next(0,100)/100f) > MathF.Pow(1-item.Condition,3))
 		{
 			hasFired = true;
 			item.Condition -= 1f/Durability;
-			Log.Info(item.Condition);
 			Recoil.ApplyRecoil();
 			item.Controller.TriggerHapticVibration(1,1,1);
 			Bullet bullet = bulletTypes.Bullets[BarrelContent];

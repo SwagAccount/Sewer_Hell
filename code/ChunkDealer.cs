@@ -112,7 +112,7 @@ public sealed class ChunkDealer : Component
 			PlaceInChunk(ActiveChunk.Children[0]);
 		}
 	}
-	public void SaveAllChunks(int slot, string levelName)
+	public void SaveAllChunks(string saveFolder, int slot, string levelName)
 	{
 		for (int x = 0; x < chunks.Count; x++)
         {
@@ -120,13 +120,13 @@ public sealed class ChunkDealer : Component
             {
 				bool enabled = chunks[x][y].Enabled;
 				chunks[x][y].Enabled = true;
-                chunks[x][y].Save(slot, levelName);
+                chunks[x][y].Save(saveFolder, slot, levelName);
 				chunks[x][y].Enabled = enabled;
             }
         }
 	}
 
-	public void LoadAllChunks(int slot, string levelName)
+	public void LoadAllChunks(string saveFolder, int slot, string levelName)
 	{
 		for (int x = 0; x < chunks.Count; x++)
         {
@@ -134,7 +134,7 @@ public sealed class ChunkDealer : Component
             {
 				bool enabled = chunks[x][y].Enabled;
 				chunks[x][y].Enabled = true;
-                chunks[x][y].Load(slot, levelName);
+                chunks[x][y].Load(saveFolder, slot, levelName);
 				chunks[x][y].Enabled = enabled;
             }
         }

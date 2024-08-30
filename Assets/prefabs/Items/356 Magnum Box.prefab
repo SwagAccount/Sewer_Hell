@@ -9,7 +9,7 @@
         "__type": "Sandbox.ModelRenderer",
         "__guid": "758385fe-735f-41c2-a0e4-b7d8d3dc779f",
         "BodyGroups": 18446744073709551615,
-        "Model": "models/45 bullet box/45ammobox.vmdl",
+        "Model": "models/45 bullet box/357ammobox.vmdl",
         "RenderType": "On",
         "Tint": "1,1,1,1"
       },
@@ -805,21 +805,21 @@
             "__guid": "2f11b143-32d9-4d5e-8ddc-8e2e7dad144b",
             "Flags": 0,
             "Name": "Text",
-            "Position": "0.6973422,0,0.6539135",
-            "Rotation": "0,0.7071068,0,0.7071068",
+            "Position": "-1.197021,2.047416,0.5449111",
+            "Rotation": "-0.5,0.5,0.5,0.5",
             "Scale": "1,0.6,0.6",
             "Enabled": true,
             "Components": [
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "2413d8f7-4fa7-4d21-8879-38676ec412e4",
-                "Color": "0,0,0,1",
-                "FontFamily": "Destoria",
+                "Color": "0,0,0,0.71",
+                "FontFamily": "Nixie One",
                 "FontSize": 83.26,
                 "FontWeight": 800,
                 "Scale": 0.03,
                 "Text": "25",
-                "TextAlignment": "Center"
+                "TextAlignment": "Left"
               }
             ]
           }

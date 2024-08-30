@@ -160,10 +160,12 @@
               }
             ],
             "CantLoad": false,
-            "Case": {
-              "_type": "gameobject",
-              "prefab": "models/bullets/magnumcase.prefab"
-            },
+            "Cases": [
+              {
+                "_type": "gameobject",
+                "prefab": "models/bullets/magnumcase.prefab"
+              }
+            ],
             "CloseSound": "sounds/guns/44 magnum close cylinder.sound",
             "Contents": [
               0,

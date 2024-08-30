@@ -1515,6 +1515,10 @@
                 "component_type": "MultiBarrelBarrel"
               }
             ],
+            "FingerLeft": {
+              "_type": "gameobject",
+              "go": "73466490-5596-480a-9d87-82a31006626f"
+            },
             "FingerRight": {
               "_type": "gameobject",
               "go": "0942af51-e561-4a5f-a93c-9ed2302012e4"
@@ -1590,6 +1594,16 @@
               "_type": "gameobject",
               "prefab": "models/bullets/buckshotcase.prefab"
             },
+            "Cases": [
+              {
+                "_type": "gameobject",
+                "prefab": "models/bullets/buckshotcase.prefab"
+              },
+              {
+                "_type": "gameobject",
+                "prefab": "models/bullets/slugcase.prefab"
+              }
+            ],
             "CloseSound": "sounds/guns/shotgunn/shotgun close.sound",
             "Contents": [
               0,
@@ -1713,7 +1727,8 @@
             "__type": "trollface.BulletTypes",
             "__guid": "8e47aa74-106f-4b4c-97d8-4511dbffe9a0",
             "Bullets": [
-              "bullets/buckshot.bullet"
+              "bullets/buckshot.bullet",
+              "bullets/slug.bullet"
             ]
           }
         ],

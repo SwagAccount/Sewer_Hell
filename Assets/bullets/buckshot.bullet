@@ -1,9 +1,11 @@
 {
-  "Count": 27,
-  "Spread": "0.088,0.088",
-  "Grain": 23.4,
-  "Diameter": 0.24,
+  "PrefabRef": null,
+  "Count": 9,
+  "Spread": "0.044,0.044",
+  "Grain": 60,
+  "Diameter": 0.33,
   "BaseVelocity": 1325,
+  "Damage": 0.9010625,
   "__references": [],
   "__version": 0
 }

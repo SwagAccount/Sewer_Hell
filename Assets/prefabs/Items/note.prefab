@@ -3,6 +3,7 @@
     "__guid": "c1d66ff4-945b-4ab9-8d68-836b13110539",
     "Flags": 0,
     "Name": "note",
+    "Position": "0,0,0.2589211",
     "Tags": "item",
     "Enabled": true,
     "Components": [
@@ -63,7 +64,7 @@
       {
         "__guid": "8a17539b-51e8-405f-9ab3-61cd04174cef",
         "Flags": 0,
-        "Name": "GrabpointLeft",
+        "Name": "Grabpoint",
         "Position": "6.014335,-3.166676,0.000003814697",
         "Tags": "grabpoint",
         "Enabled": true,
@@ -391,22 +392,12 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "__guid": "a5f86e91-d19d-41d2-a519-30755a310130",
-        "Flags": 0,
-        "Name": "GrabpointRight",
-        "Position": "6.014335,3.167,0.000003814697",
-        "Tags": "grabpoint",
-        "Enabled": true,
-        "Children": [
+          },
           {
             "__guid": "abc7a5b2-2b72-47b0-85eb-3478f1a1c2b3",
             "Flags": 0,
             "Name": "wrist_right (1)",
-            "Position": "0.546768,-2.023,0",
+            "Position": "0.5467682,4.310676,0",
             "Rotation": "-0.1198424,-0.03973927,-0.9415808,0.3122245",
             "Tags": "right",
             "Enabled": true,

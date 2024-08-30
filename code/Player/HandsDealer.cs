@@ -20,8 +20,6 @@ public sealed class HandsDealer : Component
 	[Property] public GameObject HandRawR {get;set;}
 	[Property] public GameObject HandSmoothL {get;set;}
 	[Property] public GameObject HandSmoothR {get;set;}
-	OneEuroFilter<Vector3> positionFilterL;
-	OneEuroFilter<Vector3> positionFilterR;
 
 	OneEuroFilter<Rotation> rotationFilterL;
 	OneEuroFilter<Rotation> rotationFilterR;
@@ -74,10 +72,6 @@ public sealed class HandsDealer : Component
 		handTargetLocalStartRotL = HandTargetL.Transform.LocalRotation;
 		handTargetLocalStartPosR = HandTargetR.Transform.LocalPosition;
 		handTargetLocalStartRotR = HandTargetR.Transform.LocalRotation;
-		positionFilterL = new OneEuroFilter<Vector3>(filterFrequency);
-		positionFilterR = new OneEuroFilter<Vector3>(filterFrequency);
-		rotationFilterL = new OneEuroFilter<Rotation>(filterFrequency);
-		rotationFilterR = new OneEuroFilter<Rotation>(filterFrequency);
 
 		grabPointsL = FinalPhysL.Components.Get<GrabPointFinder>();
 		grabPointsR = FinalPhysR.Components.Get<GrabPointFinder>();
@@ -232,17 +226,10 @@ public sealed class HandsDealer : Component
 	}
 	void HandSmoothing()
 	{
-		positionFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
+
 		HandSmoothL.Transform.Position = HandRawL.Transform.Position;
-
-		rotationFilterL.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothL.Transform.Rotation = HandRawL.Transform.Rotation;
-
-		// Right
-		positionFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothR.Transform.Position = HandRawR.Transform.Position;
-
-		rotationFilterR.UpdateParams(filterFrequency, filterMinCutoff, filterBeta, filterDcutoff);
 		HandSmoothR.Transform.Rotation = HandRawR.Transform.Rotation;
 	}
 

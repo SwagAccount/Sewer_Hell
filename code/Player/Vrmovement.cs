@@ -15,7 +15,7 @@ public sealed class Vrmovement : Component
 	[Property] public ManualHitbox Hitbox {get;set;}
 	[Property] public CharacterController characterController {get;set;}
 	[Property] public GameObject VRSpace {get;set;}
-	[Property] public float RotateSpeed {get;set;} = 190f;
+	float RotateSpeed => settingsComponent.RotateSpeed;
 	[Property] public float RunSpeed {get;set;} = 96f;
 	[Property] public float WalkSpeed {get;set;} = 64f;
 	[Property] public float CrouchSpeed {get;set;} = 22f;
@@ -26,12 +26,14 @@ public sealed class Vrmovement : Component
 	[Property] public float PhysicalCrouchHeight {get;set;} = 40f;
 	[Property] public float StunTime {get;set;} = 5f;
 	[Property] public float FootStepTime {get;set;} = 1.1f;
-	[Property] public GameObject FeetOrigin;
-	[Property] public GameObject FeetEnd;
-	[Property] public GameObject RawLeftHand;
-	[Property] public GameObject RawRightHand;
+	[Property] public GameObject FeetOrigin {get;set;}
+	[Property] public GameObject FeetEnd {get;set;}
+	[Property] public GameObject RawLeftHand {get;set;}
+	[Property] public GameObject RawRightHand {get;set;}
+    [Property] public float SnapRotateRepeatTime {get;set;} = 0.4f;
 	[Hide, Property] public Vector3 offset {get;set;}
     [Hide, Property] public float Stunned {get;set;}
+    SettingsComponent settingsComponent;
 
     float CamHeight;
     bool hideCam;
@@ -47,6 +49,7 @@ public sealed class Vrmovement : Component
     float reverseStun;
 	protected override void OnStart()
 	{
+        settingsComponent = Scene.Components.GetInChildren<SettingsComponent>();
         chromaticAberration = Camera.Components.Get<ChromaticAberration>();
 	}
     float footStepTimer;
@@ -110,11 +113,33 @@ public sealed class Vrmovement : Component
 
         if(!inTransition) Camera.Brightness = MathX.Lerp(Camera.Brightness, hideCam ? 0 : 1, Time.Delta * DarknessSpeed);
 
-        RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up,Input.VR.RightHand.Joystick.Value.x*Time.Delta*-RotateSpeed);
+        if(settingsComponent.SnapOn.On)
+        {
+            bool Snap = false;    
+            if(MathF.Abs(Input.VR.RightHand.Joystick.Value.x) < 0.5)
+                snapRotateTimer = 0.4f;
+            else
+            {
+                snapRotateTimer += Time.Delta;
+                if(snapRotateTimer >= 0.4f)
+                {
+                    Snap = true;
+                    snapRotateTimer = 0;
+                }
+            }
+
+            if(Snap)
+                RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up, MathF.Round(-Input.VR.RightHand.Joystick.Value.x)*settingsComponent.Snap);
+        }
+        else
+            RotateAroundPoint(VRSpace, Camera.Transform.Position, Vector3.Up,Input.VR.RightHand.Joystick.Value.x*Time.Delta*-RotateSpeed);
+
         wantedVRSpacePos = VRSpace.Transform.Position;
 
         
 	}
+
+    float snapRotateTimer;
 
     SceneTraceResult HeightCheck(float addedHeight = 0)
     {

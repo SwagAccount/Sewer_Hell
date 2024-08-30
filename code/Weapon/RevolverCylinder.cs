@@ -16,7 +16,6 @@ public sealed class RevolverCylinder : MagazineBase
 	[Property] public float FlickSpeed {get;set;}
 	[Property] public Vector3 FlickRotation {get;set;}
 	[Property] public float OpenAmount {get;set;}
-	[Property] public GameObject Case {get;set;}
 	[Property] public SoundEvent OpenSound {get;set;}
 	[Property] public SoundEvent CloseSound {get;set;}
 	[Property] public SoundEvent EjectSound {get;set;}
@@ -26,9 +25,9 @@ public sealed class RevolverCylinder : MagazineBase
 	public bool open;
 
 
-	public void Shoot()
+	public void Shoot(int shotIndex)
 	{
-		if(Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -2;
+		if (Contents[correctedLoadIndex()] != -1) Contents[correctedLoadIndex()] = -shotIndex-2;
 	}
 
 	protected override void OnStart()
@@ -60,7 +59,7 @@ public sealed class RevolverCylinder : MagazineBase
 	{
 		if(OpenAmount.AlmostEqual(1,0.01f) && Contents.Contains(-2) && !Dropped)
 		{
-			DropCases(EjectSound, Case);
+			DropCases(EjectSound);
 			UpdateVisuals();
 			Dropped = true;
 			CantLoad = false;

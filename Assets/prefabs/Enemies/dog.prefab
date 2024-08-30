@@ -107,7 +107,8 @@
         "__type": "trollface.HealthComponent",
         "__guid": "c851c55d-aef7-4851-934b-122059fb40bd",
         "Health": 70,
-        "MaxHealth": 70
+        "MaxHealth": 70,
+        "Ouch": "sounds/dog/hurt1.sound"
       },
       {
         "__type": "Sandbox.BoxCollider",

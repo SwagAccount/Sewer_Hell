@@ -5,16 +5,16 @@
         "_type": "gameobject",
         "prefab": "prefabs/items/weapon/revolver.prefab"
       },
-      "Weight": 25,
-      "DisplayedChance": "14%"
+      "Weight": 35,
+      "DisplayedChance": "7%"
     },
     {
       "Prefab": {
         "_type": "gameobject",
         "prefab": "prefabs/items/weapon/shotgun.prefab"
       },
-      "Weight": 25,
-      "DisplayedChance": "14%"
+      "Weight": 30,
+      "DisplayedChance": "5%"
     },
     {
       "Prefab": {
@@ -22,7 +22,23 @@
         "prefab": "prefabs/items/356 magnum box.prefab"
       },
       "Weight": 70,
-      "DisplayedChance": "19%"
+      "DisplayedChance": "12%"
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/items/buckshot ammo box.prefab"
+      },
+      "Weight": 70,
+      "DisplayedChance": "12%"
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/items/slug ammo box.prefab"
+      },
+      "Weight": 70,
+      "DisplayedChance": "12%"
     },
     {
       "Prefab": {
@@ -30,7 +46,7 @@
         "prefab": "prefabs/items/crackercan.prefab"
       },
       "Weight": 100,
-      "DisplayedChance": "27%"
+      "DisplayedChance": "17%"
     },
     {
       "Prefab": {
@@ -38,7 +54,15 @@
         "prefab": "prefabs/bullets/buckshot.prefab"
       },
       "Weight": 100,
-      "DisplayedChance": "27%"
+      "DisplayedChance": "17%"
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/bullets/slug.prefab"
+      },
+      "Weight": 100,
+      "DisplayedChance": "17%"
     }
   ],
   "__references": [],

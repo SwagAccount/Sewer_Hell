@@ -7,6 +7,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 {
 	[Property] public List<GameObject> GrabbablePoints {get;set;} = new List<GameObject>();
 	[Property] public GameObject FarGrabPoint {get;set;}
+	[Property] public GameObject GrabPoint {get;set;}
 	[Property] public List<Interactable> InteractablePoints {get;set;} = new List<Interactable>();
 	[Property] public List<ItemStorer> ItemStorers {get;set;} = new List<ItemStorer>();
 	[Property] public string handName {get;set;} = "right";
@@ -29,7 +30,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 
 		for(int i = 0; i < 2; i++)
 		{
-			Vector3 searchPos = Transform.Position;
+			Vector3 searchPos = GrabPoint.Transform.Position;
 			if(i > 0)
 			{
 				var ray = Scene.Trace.Ray(FarGrabPoint.Transform.Position, FarGrabPoint.Transform.Position+FarGrabPoint.Transform.World.Forward*searchDistance).Radius(searchDistanceRadius).Run();
@@ -62,7 +63,7 @@ public sealed class GrabPointFinder : Component, Component.ITriggerListener
 				}
 			}
 
-			searchPoint = GameObject.Children[0].Transform.Position;
+			searchPoint = GrabPoint.Transform.Position;
 		}
 		
 	}
