@@ -71,13 +71,12 @@
         {
           "__type": "Sandbox.TextRenderer",
           "__guid": "86ff627d-6b0f-48fe-8195-dae250ccaf4f",
-          "__enabled": false,
           "Color": "1,1,1,1",
           "FontFamily": "Roboto",
-          "FontSize": 128,
+          "FontSize": 90.55,
           "FontWeight": 800,
           "Scale": 0.03,
-          "Text": "VR ONLY",
+          "Text": "VR ONLY\n\u0442\u043E\u043B\u044C\u043A\u043E VR\nr\u00E9alit\u00E9 virtuelle uniquement",
           "TextAlignment": "Center"
         }
       ]

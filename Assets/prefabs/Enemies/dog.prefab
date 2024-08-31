@@ -122,7 +122,7 @@
         "__type": "Sandbox.NavMeshAgent",
         "__guid": "bdb56312-6377-4513-88dd-1ff436b713b7",
         "Acceleration": 120,
-        "Height": 64,
+        "Height": 31.000025,
         "MaxSpeed": 120,
         "Radius": 7.3999963,
         "Separation": 0.25,
