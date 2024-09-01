@@ -118,10 +118,12 @@
                 "Name": "Left",
                 "Position": "-19.33862,-8.007805,6.683767",
                 "Rotation": "-0.007491685,-0.1070292,-0.1155282,-0.9874928",
+                "Enabled": true,
                 "Components": [
                   {
                     "__type": "Sandbox.SkinnedModelRenderer",
                     "__guid": "00360183-ee55-4c09-9911-a541b3a32e70",
+                    "__enabled": false,
                     "BodyGroups": 18446744073709551615,
                     "CreateBoneObjects": true,
                     "Model": "models/player/arml.vmdl",
@@ -442,10 +444,12 @@
                 "Name": "Right",
                 "Position": "-19.33891,8.007706,6.683769",
                 "Rotation": "0.007490233,-0.1070303,0.1155302,-0.9874911",
+                "Enabled": true,
                 "Components": [
                   {
                     "__type": "Sandbox.SkinnedModelRenderer",
                     "__guid": "411e0c03-dd0b-4274-a360-96685ad5ff6d",
+                    "__enabled": false,
                     "BodyGroups": 18446744073709551615,
                     "CreateBoneObjects": true,
                     "Model": "models/player/armr.vmdl",

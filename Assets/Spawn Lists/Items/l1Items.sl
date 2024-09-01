@@ -76,6 +76,13 @@
         "prefab": "prefabs/items/slug ammo box.prefab"
       },
       "Weight": 17
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/items/revolver loader.prefab"
+      },
+      "Weight": 20
     }
   ],
   "__references": [],

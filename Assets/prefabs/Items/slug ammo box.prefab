@@ -17,7 +17,7 @@
         "__type": "Sandbox.ModelCollider",
         "__guid": "7adf2e49-c58f-4e81-81b2-316116ac9715",
         "IsTrigger": false,
-        "Model": "models/45 bullet box/45ammobox.vmdl",
+        "Model": "models/45 bullet box/357ammobox.vmdl",
         "Static": false,
         "Surface": "surfaces/plastic.surface"
       },

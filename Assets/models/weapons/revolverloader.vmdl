@@ -11,19 +11,9 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
-						remaps = 
-						[
-							{
-								from = "gunnmetal.vmat"
-								to = "models/weapons/revolvermetal.vmat"
-							},
-							{
-								from = "cylinder.vmat"
-								to = "models/weapons/revolvercylinder.vmat"
-							},
-						]
-						use_global_default = false
-						global_default_material = "materials/default.vmat"
+						remaps = [  ]
+						use_global_default = true
+						global_default_material = "models/weapons/revolverloader.vmat"
 					},
 				]
 			},
@@ -33,7 +23,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/weapons/revolver.fbx"
+						filename = "models/weapons/revolverloader.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 0.0079
@@ -46,15 +36,6 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"Mesh_017",
-								"Plane_007",
-								"Plane_001",
-								"Plane_003",
-								"Mesh_027",
-								"Cube_001",
-								"Mesh_018",
-								"Plane_005",
-								"Plane_002",
 								"Plane_004",
 								"Plane_006",
 							]
@@ -68,7 +49,7 @@
 				[
 					{
 						_class = "PhysicsHullFile"
-						name = "revolver1"
+						name = "revolverLoader"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid"
@@ -78,7 +59,7 @@
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
-						filename = "models/weapons/revolver.fbx"
+						filename = "models/weapons/revolverLoader.fbx"
 						import_scale = 0.0079
 						faceMergeAngle = 10.0
 						maxHullVertices = 0
@@ -87,49 +68,10 @@
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = 
-							[
-								"Plane_004",
-								"Plane_006",
-							]
+							exception_list = [  ]
 						}
 					},
 				]
-			},
-			{
-				_class = "BoneMarkupList"
-				children = 
-				[
-					{
-						_class = "BoneMarkup"
-						target_bone = "Bone_001"
-						ignore_Translation = false
-						ignore_rotation = false
-						do_not_discard = false
-					},
-					{
-						_class = "BoneMarkup"
-						target_bone = "Bone"
-						ignore_Translation = false
-						ignore_rotation = false
-						do_not_discard = false
-					},
-					{
-						_class = "BoneMarkup"
-						target_bone = "Bone_003"
-						ignore_Translation = false
-						ignore_rotation = false
-						do_not_discard = false
-					},
-					{
-						_class = "BoneMarkup"
-						target_bone = "Bone_006"
-						ignore_Translation = false
-						ignore_rotation = false
-						do_not_discard = false
-					},
-				]
-				bone_cull_type = "Aggressive"
 			},
 		]
 		model_archetype = ""

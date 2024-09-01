@@ -199,6 +199,7 @@
             {
               "__type": "Sandbox.ParticleEffect",
               "__guid": "6c68ad40-2ccc-4646-a41c-6aca4fc8d150",
+              "__version": 1,
               "Alpha": {
                 "CurveA": [
                   {
@@ -218,6 +219,7 @@
                 ],
                 "Constants": "0.5,0,0,0"
               },
+              "ApplyAlpha": true,
               "ApplyColor": true,
               "ApplyRotation": false,
               "ApplyShape": true,
@@ -9580,7 +9582,7 @@
               "__guid": "7a65c444-5d12-4a64-8066-d2427a0f07bc",
               "Flags": 0,
               "Name": "356 magnum box",
-              "Position": "-36.4869,10.10231,31.10444",
+              "Position": "-31.03531,15.17119,31.10444",
               "Rotation": "-0.005333656,0.0032249,0.8557764,0.5173086",
               "Enabled": true,
               "__Prefab": "prefabs/items/356 magnum box.prefab",
@@ -20359,13 +20361,13 @@
           "__guid": "2fd2f98c-8de9-416a-b200-139770716d28",
           "Leave": {
             "_type": "component",
-            "component_id": "b1ab8b25-08e0-446a-a98d-2a320ccee83f",
+            "component_id": "1139165a-48dc-44ad-b91f-baa4c166b397",
             "go": "0c2a700c-de2c-460a-aae4-5de15b6aa442",
             "component_type": "Lever"
           },
           "Save": {
             "_type": "component",
-            "component_id": "af9c4dec-ed66-44a9-b693-745db3b3b1a7",
+            "component_id": "00fe1c0b-e04b-4bd6-a190-71ec944e267d",
             "go": "5568325b-6838-402e-8ad4-6bb09d638443",
             "component_type": "Lever"
           }
@@ -20444,6 +20446,16 @@
       "Rotation": "-0.7066324,0.00004492343,0.7075809,0.00004498372",
       "Enabled": true,
       "__Prefab": "prefabs/settings.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "5b89b21d-f389-4994-92d8-da67bbf7f7f2",
+      "Flags": 0,
+      "Name": "revolver loader",
+      "Position": "-5.673444,-27.3475,5.894633",
+      "Rotation": "-0.002178758,0.002711594,0.6260415,0.7797819",
+      "Tags": "item",
+      "__Prefab": "prefabs/items/revolver loader.prefab",
       "__PrefabVariables": {}
     }
   ],

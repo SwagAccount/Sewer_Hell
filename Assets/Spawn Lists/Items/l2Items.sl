@@ -63,6 +63,13 @@
       },
       "Weight": 100,
       "DisplayedChance": "17%"
+    },
+    {
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/items/revolver loader.prefab"
+      },
+      "Weight": 70
     }
   ],
   "__references": [],

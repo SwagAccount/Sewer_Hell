@@ -13,7 +13,10 @@ public sealed class EnemySpawner : Spawner
 	public override void SpawnThing(GameObject thing, Vector3 position, bool test = false)
 	{
 		base.SpawnThing( thing, position, test );
-		var spawnPos = Scene.NavMesh.GetClosestPoint(position).Value;
+		Vector3? spawnPoss = Scene.NavMesh.GetClosestPoint(position);
+		if(!spawnPoss.HasValue)
+			return;
+		var spawnPos = spawnPoss.Value;
 		GameObject spawned = thing.Clone();
 		spawned.Transform.Position = spawnPos;
 		spawned.Transform.Rotation = spawned.Transform.Rotation.RotateAroundAxis(Vector3.Up, Game.Random.Next(0,360));

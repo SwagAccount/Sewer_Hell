@@ -5,6 +5,7 @@ public sealed class Holster : Component, Component.ITriggerListener
 	[Property] public List<AllowedItem> AllowedItems{get;set;} = new List<AllowedItem>();
 	[Property] public List<Item> items {get; set;} = new List<Item>();
 	[Property] public GameObject ObjectRef {get;set;}
+	[Property] public GameObject Parent {get;set;}
 
 	public class AllowedItem
 	{
@@ -14,10 +15,11 @@ public sealed class Holster : Component, Component.ITriggerListener
 	}
 	void ITriggerListener.OnTriggerEnter(Collider other)
 	{
-		if(GameObject.Children.Count > 0) return;
+		if(Parent.Children.Count > 0) return;
 		Item item =  other.Components.GetInParentOrSelf<Item>();
 		if(!item.IsValid()) return;
 		if(items.Contains(item)) return;
+		if(other.GameObject.IsDescendant(ObjectRef)) return;
 		if(other.GameObject == ObjectRef) return;
 
 		bool isAllowed = false;
@@ -51,6 +53,11 @@ public sealed class Holster : Component, Component.ITriggerListener
 	AllowedItem currentAllowedItem;
 	protected override void OnUpdate()
 	{
+		if(Parent.Children.Count > 0 && currentAllowedItem != null)
+		{
+			Parent.Children[0].Transform.LocalPosition = currentAllowedItem.Position; 
+			Parent.Children[0].Transform.LocalRotation = currentAllowedItem.Rotation; 
+		}
 		List<Item> itemsToRemove = new List<Item>();
 		foreach(Item item in items)
 		{
@@ -59,9 +66,10 @@ public sealed class Holster : Component, Component.ITriggerListener
 				itemsToRemove.Add(item);
 				continue;
 			}
+			if(Parent.Children.Count > 0) continue;
 			if(item.HandsConnected <= 0)
 			{
-				if(GameObject.Children.Count == 0 || currentAllowedItem == null)
+				if(Parent.Children.Count == 0 || currentAllowedItem == null)
 				{
 					foreach(AllowedItem allowedItem in AllowedItems)
 					{
@@ -73,7 +81,7 @@ public sealed class Holster : Component, Component.ITriggerListener
 				};
 				item.GameObject.BreakFromPrefab();
 				item.rigidbody.MotionEnabled = false;
-				item.GameObject.SetParent(GameObject);
+				item.GameObject.SetParent(Parent);
 				item.Transform.LocalPosition = currentAllowedItem.Position; 
 				item.Transform.LocalRotation = currentAllowedItem.Rotation; 
 				foreach (var itm in items)
